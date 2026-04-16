@@ -1,0 +1,321 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = 'April 16, 2025';
+---
+
+<Layout
+  title="Privacy Policy — Brewio"
+  description="How Brewio collects, uses, and protects your personal information."
+>
+  <Nav />
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-eyebrow">Legal</div>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-meta">Last updated: {lastUpdated}</p>
+    </div>
+  </div>
+
+  <main class="content">
+    <div class="content-inner">
+
+      <p class="lead">
+        Brewio ("we", "our", or "us") is committed to protecting your privacy.
+        This policy explains what information we collect when you use the Brewio mobile
+        application, how we use it, and the choices you have.
+      </p>
+
+      <section>
+        <h2>1. Information We Collect</h2>
+
+        <h3>Account Information</h3>
+        <p>
+          When you sign in with Apple or Google, we receive your name and email address
+          from the authentication provider. We store this to identify your account and
+          personalise your experience.
+        </p>
+
+        <h3>Content You Create</h3>
+        <p>We store the data you enter in the app, including:</p>
+        <ul>
+          <li>Brew logs — method, dose, grind size, tasting notes, ratings</li>
+          <li>Bean stash entries — name, roaster, roast date, weight</li>
+          <li>Custom recipes you create</li>
+          <li>Profile preferences and settings</li>
+        </ul>
+
+        <h3>Usage Data</h3>
+        <p>
+          We may collect anonymised usage data (e.g. which features are used most often)
+          to improve the app. This data cannot be used to identify you personally.
+        </p>
+
+        <h3>Purchase Information</h3>
+        <p>
+          If you subscribe to Brewio Premium, purchases are processed through Apple App
+          Store or Google Play. We use RevenueCat to manage subscription status. We never
+          store your payment card details — these are handled entirely by Apple or Google.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. How We Use Your Information</h2>
+        <ul>
+          <li>To provide and sync your coffee journal across devices</li>
+          <li>To manage your account and subscription status</li>
+          <li>To calculate and display your brewing stats, streaks, and badges</li>
+          <li>To improve app features and fix bugs</li>
+          <li>To respond to support requests you send us</li>
+        </ul>
+        <p>We do not sell your data to third parties. Ever.</p>
+      </section>
+
+      <section>
+        <h2>3. Third-Party Services</h2>
+        <p>Brewio uses the following third-party services, each with their own privacy policies:</p>
+
+        <div class="service-table">
+          <div class="service-row service-row-header">
+            <span>Service</span>
+            <span>Purpose</span>
+          </div>
+          <div class="service-row">
+            <span><strong>Supabase</strong></span>
+            <span>Database and backend infrastructure</span>
+          </div>
+          <div class="service-row">
+            <span><strong>Apple Sign In</strong></span>
+            <span>Authentication</span>
+          </div>
+          <div class="service-row">
+            <span><strong>Google Sign In</strong></span>
+            <span>Authentication</span>
+          </div>
+          <div class="service-row">
+            <span><strong>RevenueCat</strong></span>
+            <span>Subscription management</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>4. Data Storage & Security</h2>
+        <p>
+          Your data is stored securely on Supabase infrastructure hosted in the European
+          Union. We use industry-standard encryption in transit (TLS) and at rest.
+          Access to production data is strictly limited to essential personnel only.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Data Retention</h2>
+        <p>
+          We retain your data for as long as your account is active. If you delete your
+          account, we will delete your personal data within 30 days, except where we are
+          required to retain it by law.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Your Rights</h2>
+        <p>Depending on your location, you may have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you</li>
+          <li>Correct inaccurate data</li>
+          <li>Request deletion of your data ("right to be forgotten")</li>
+          <li>Export your data in a portable format</li>
+          <li>Object to or restrict certain processing</li>
+        </ul>
+        <p>
+          To exercise any of these rights, contact us at
+          <a href="mailto:hello@brewio.app">hello@brewio.app</a>.
+          We will respond within 30 days.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Children's Privacy</h2>
+        <p>
+          Brewio is not directed at children under the age of 13. We do not knowingly
+          collect personal information from children. If you believe a child has provided
+          us with personal data, please contact us and we will delete it promptly.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. When we do, we will update
+          the "last updated" date at the top. For significant changes, we will notify you
+          through the app or by email.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us:</p>
+        <div class="contact-block">
+          <p><strong>Brewio</strong></p>
+          <p>Email: <a href="mailto:hello@brewio.app">hello@brewio.app</a></p>
+          <p>Website: <a href="https://brewio.app">brewio.app</a></p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ── Page header ── */
+  .page-header {
+    background: var(--dark);
+    padding: 8rem 2rem 4rem;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .page-header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .page-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    margin-bottom: 0.875rem;
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    color: var(--cream);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-meta {
+    font-size: 0.875rem;
+    color: rgba(250,247,242,0.4);
+    font-family: var(--font-mono);
+  }
+
+  /* ── Content ── */
+  .content {
+    background: var(--cream);
+    padding: 5rem 2rem 7rem;
+  }
+
+  .content-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  h3 {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 0.875rem;
+  }
+
+  ul {
+    margin: 0.5rem 0 0.875rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  a {
+    color: var(--amber);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  a:hover { color: var(--amber-light); }
+
+  /* Service table */
+  .service-table {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--border-subtle);
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .service-row:last-child { border-bottom: none; }
+
+  .service-row-header {
+    background: white;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+  }
+
+  /* Contact block */
+  .contact-block {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .contact-block p { margin-bottom: 0.25rem; }
+  .contact-block p:last-child { margin-bottom: 0; }
+</style>

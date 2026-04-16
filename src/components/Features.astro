@@ -1,0 +1,189 @@
+---
+const features = [
+  {
+    // book-open — matches the Journal tab in the app
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+    tag: 'Journal',
+    title: 'Log Every Brew',
+    desc: 'Track coffees with brew method, dose, grind size, tasting notes, and a 1–5 star rating. Your complete coffee diary, built for obsessives.',
+  },
+  {
+    // coffee cup with steam — matches the Brew / cafe tab in the app
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 1 1 0 4h-2"/><path d="M3 8h14v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8z"/><path d="M6 2v2"/><path d="M10 2v2"/><path d="M14 2v2"/></svg>`,
+    tag: 'Brew Tools',
+    title: 'Step-by-Step Guides',
+    desc: '12 brewing methods, each with a built-in timer, precise step instructions, and grind size recommendations. From V60 to Ibrik.',
+  },
+  {
+    // bag-handle — matches the Stash tab in the app
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7V5a6 6 0 0 1 12 0v2"/><rect x="3" y="7" width="18" height="14" rx="2"/></svg>`,
+    tag: 'Stash',
+    title: 'Bean Stash',
+    desc: 'Your visual coffee shelf. Track freshness, remaining weight, and roast dates. Never be surprised by stale beans again.',
+  },
+  {
+    // flask-conical — precision / lab tools feel
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6"/><path d="M10 2v6L6 15a3.5 3.5 0 0 0 3.1 5h5.8A3.5 3.5 0 0 0 18 15l-4-7V2"/><path d="M6.7 15h10.6"/></svg>`,
+    tag: 'Precision',
+    title: 'Dose & Yield Calculator',
+    desc: 'Calculate the perfect coffee-to-water ratio and track extraction yield (EY%) from TDS% like the scientist you secretly are.',
+  },
+  {
+    // compass — matches the Discover tab in the app
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
+    tag: 'Discover',
+    title: 'Discover Roasters',
+    desc: 'A curated map of specialty roasters worldwide. Filter by origin, shipping region, brew style, and ethical sourcing.',
+  },
+  {
+    // trophy — badges and rank system
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>`,
+    tag: 'Gamification',
+    title: 'Earn Your Rank',
+    desc: 'Build brewing streaks, unlock 12 unique badges, and discover your taste archetype — are you a Terroir Seeker or a Dark Arts Fan?',
+  },
+];
+---
+
+<section id="features" class="features">
+  <div class="features-inner">
+    <div class="section-eyebrow">What's inside</div>
+    <h2 class="section-heading">Made for the <em>obsessed.</em></h2>
+    <p class="section-sub">
+      Whether you've got one V60 or a shelf full of brewing gear, Brewio helps you
+      log it, learn from it, and level up.
+    </p>
+
+    <div class="grid">
+      {features.map(f => (
+        <div class="card">
+          <div class="card-top">
+            <div class="card-icon" set:html={f.svg}></div>
+            <span class="card-tag">{f.tag}</span>
+          </div>
+          <h3 class="card-title">{f.title}</h3>
+          <p class="card-desc">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    background: var(--cream);
+    padding: 7rem 2rem;
+  }
+
+  .features-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    margin-bottom: 0.875rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    color: var(--text-dark);
+    letter-spacing: -0.025em;
+    margin-bottom: 0.875rem;
+    line-height: 1.1;
+  }
+
+  .section-heading em {
+    color: var(--brown);
+    font-style: italic;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 4rem;
+    line-height: 1.7;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    text-align: left;
+  }
+
+  .card {
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 1.75rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.07);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.125rem;
+  }
+
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--brown);
+    flex-shrink: 0;
+  }
+
+  .card-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--amber);
+    background: rgba(196,123,48,0.09);
+    border: 1px solid rgba(196,123,48,0.18);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    margin-top: 2px;
+  }
+
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    letter-spacing: -0.015em;
+    margin-bottom: 0.625rem;
+  }
+
+  .card-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 580px) {
+    .grid { grid-template-columns: 1fr; }
+    .features { padding: 5rem 1.25rem; }
+  }
+</style>

@@ -1,0 +1,76 @@
+---
+const items = [
+  'V60', 'Pour Over', 'AeroPress', 'French Press', 'Espresso',
+  'Chemex', 'Cold Brew', 'Kalita Wave', 'Moka Pot', 'Siphon',
+  'Ibrik', 'Drip Machine', 'Dose Calculator', 'EY%', 'Bean Stash',
+  'Brewing Streaks', 'Roastery Discovery', 'Taste Profile',
+];
+---
+
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-set">
+      {items.map(item => (
+        <span class="marquee-item">
+          <span class="marquee-sep">·</span>
+          {item}
+        </span>
+      ))}
+    </div>
+    <div class="marquee-set" aria-hidden="true">
+      {items.map(item => (
+        <span class="marquee-item">
+          <span class="marquee-sep">·</span>
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .marquee-wrap {
+    background: var(--amber);
+    overflow: hidden;
+    padding: 0.7rem 0;
+    user-select: none;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 35s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-set {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: rgba(26, 23, 20, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .marquee-sep {
+    color: rgba(26, 23, 20, 0.35);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+</style>
