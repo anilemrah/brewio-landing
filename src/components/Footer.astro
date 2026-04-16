@@ -5,7 +5,9 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="/brewio-logo.png" alt="Brewio" class="footer-logo-img" />
+        <div class="footer-logo-circle">
+          <img src="/brewio-logo.png" alt="Brewio" class="footer-logo-img" />
+        </div>
       </div>
       <p class="footer-tagline">"Every cup tells a story."</p>
     </div>
@@ -50,11 +52,23 @@
     color: var(--amber);
   }
 
+  .footer-logo-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #F9F5EF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    opacity: 0.85;
+  }
+
   .footer-logo-img {
-    height: 28px;
+    height: 20px;
     width: auto;
     display: block;
-    opacity: 0.75;
   }
 
   .footer-tagline {
