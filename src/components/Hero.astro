@@ -696,12 +696,14 @@
     align-items: center;
     gap: 10px;
     animation: floatA 4.5s ease-in-out infinite;
+    will-change: transform;
   }
 
   .float-temp {
     bottom: 50px; left: -20px;
     min-width: 150px;
     animation: floatB 5.5s ease-in-out infinite;
+    will-change: transform;
   }
 
   @keyframes floatA { 0%, 100% { transform: translateY(0); }  50% { transform: translateY(-10px); } }
@@ -760,6 +762,10 @@
     .hero-visual { order: -1; padding: 1rem 2rem; }
     .float-badge { right: 10px; }
     .float-temp  { left: 10px; }
+
+    /* Disable blur filters on mobile — they kill scroll performance */
+    .orb { filter: none; opacity: 0.06; }
+    .grain { display: none; }
   }
 
   @media (max-width: 480px) {
