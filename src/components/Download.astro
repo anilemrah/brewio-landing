@@ -111,8 +111,15 @@
 
   .badge-link:hover { transform: translateY(-2px); opacity: 0.88; }
 
-  .badge { display: block; height: 52px; width: auto; }
-  .badge-google { height: 62px; }
+  .badge-link {
+    height: 52px;
+    display: flex;
+    align-items: center;
+  }
+
+  .badge { display: block; width: auto; }
+  .badge-apple  { height: 52px; }
+  .badge-google { height: 77px; }
 
   .download-meta {
     display: flex;
@@ -130,8 +137,8 @@
     .download { padding: 5rem 1.25rem; }
     .download-heading { font-size: 2.25rem; }
     .download-ctas { flex-direction: column; align-items: center; }
-    .badge { height: 46px; }
-    .badge-google { height: 55px; }
+    .badge-apple  { width: 140px; height: auto; }
+    .badge-google { width: 140px; height: auto; }
     .download-meta { font-size: 0.75rem; gap: 0.5rem; }
   }
 </style>
