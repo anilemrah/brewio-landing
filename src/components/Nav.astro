@@ -163,14 +163,16 @@
     border-top: 1px solid var(--border-dark);
     padding: 1.25rem 1.5rem 1.75rem;
     gap: 0.25rem;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease, padding 0.3s ease;
   }
 
   .mobile-menu.open {
-    max-height: 400px;
-    padding: 1.25rem 1.5rem 1.75rem;
+    display: flex;
+    animation: menuIn 0.2s ease;
+  }
+
+  @keyframes menuIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .mobile-link {
@@ -203,7 +205,6 @@
   @media (max-width: 768px) {
     .nav-links, .nav-cta { display: none; }
     .hamburger { display: flex; }
-    .mobile-menu { display: flex; }
   }
 
   @media (max-width: 480px) {
