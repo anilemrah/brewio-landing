@@ -1,0 +1,25 @@
+# Brewio
+
+> Brewio is a free coffee journal app for iOS and Android. It helps coffee lovers log their brews, time pour-overs, calculate ratios, track extraction yield, and discover their perfect cup.
+
+## About
+Brewio is built for the curious coffee drinker who wants more than just caffeine. Whether you pull espresso or brew V60, Brewio gives you the tools to dial in your craft and remember every great cup.
+
+## Key Features
+- Coffee brew journal — log every brew with method, bean, dose, ratio, and tasting notes
+- 12 brew method guides — V60, Espresso, Chemex, AeroPress, French Press, Moka Pot, and more
+- Step-by-step brew timers with alerts for each pour stage
+- Coffee-to-water ratio calculator
+- Extraction yield (EY%) calculator from TDS%
+- Grind size guide per brew method
+- Bean stash — track your coffee inventory
+- Streak tracking and personal stats
+
+## Availability
+- Free on iOS: https://apps.apple.com/app/brewio-brew-track/id6762492301
+- Free on Android (Google Play — coming soon)
+
+## Pages
+- [Home](https://brewio.app/): Landing page with full feature overview and app download links
+- [Privacy Policy](https://brewio.app/privacy): How Brewio handles user data
+- [Terms of Service](https://brewio.app/terms): Terms of use for the Brewio app and website
