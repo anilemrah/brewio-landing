@@ -43,19 +43,17 @@ const ogImage = `${canonicalUrl}/og-image.png`;
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Structured data -->
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "MobileApplication",
-        "name": "Brewio",
-        "description": description,
-        "url": canonicalUrl,
-        "applicationCategory": "LifestyleApplication",
-        "operatingSystem": "iOS, Android",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "120" }
-      })}
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Brewio",
+      "description": description,
+      "url": canonicalUrl,
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "120" }
+    })} />
 
     <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64" />
     <link rel="apple-touch-icon" href="/favicon.png" />
