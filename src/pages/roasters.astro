@@ -1,0 +1,424 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const featured = {
+  id: 'tadah',
+  name: 'Tadah',
+  city: 'Lenhovda',
+  country: 'Sweden',
+  flag: '🇸🇪',
+  description: 'Hand-roasted in the forests of Småland by Julia & Michael. Thoughtful sourcing, ethical producers, quiet perfection.',
+  quote: 'A hidden gem you discover once and never stop talking about.',
+  focus: ['Single Origin', 'Filter', 'Ethical Sourcing'],
+  website: 'https://tadah.se/en',
+  ships: 'EU',
+  logo_url: '/tadah-logo.png',
+  banner_url: '/tadah-banner.jpg',
+};
+
+const roasters = [
+  { name: 'Drop Coffee', city: 'Stockholm', flag: '🇸🇪', logo: '', focus: ['Ethiopia', 'Kenya', 'Filter'], ships: 'worldwide', website: 'https://dropcoffee.com', quote: 'Possibly the most transparent roastery on the planet.', tags: ['filter', 'single-origin', 'subscription'] },
+  { name: 'Koppi', city: 'Helsingborg', flag: '🇸🇪', logo: '', focus: ['Africa', 'Single Origin', 'Competition'], ships: 'EU', website: 'https://koppi.se', quote: 'If you\'re chasing extraordinary terroir, this is where you find it.', tags: ['filter', 'competition', 'single-origin'] },
+  { name: 'Johan & Nyström', city: 'Stockholm', flag: '🇸🇪', logo: '', focus: ['Espresso', 'Filter', 'Subscription'], ships: 'EU', website: 'https://www.johananynystrom.com', quote: 'The reliable backbone of Scandinavian specialty.', tags: ['espresso', 'filter', 'subscription'] },
+  { name: 'Tim Wendelboe', city: 'Oslo', flag: '🇳🇴', logo: '', focus: ['Ethiopia', 'Colombia', 'Filter'], ships: 'worldwide', website: 'https://timwendelboe.no', quote: 'Every coffee geek should try at least one Wendelboe pour-over.', tags: ['filter', 'single-origin', 'competition'] },
+  { name: 'Kaffa', city: 'Oslo', flag: '🇳🇴', logo: '', focus: ['Ethiopia', 'Kenya', 'Filter'], ships: 'EU', website: 'https://kaffa.no', quote: 'Oslo\'s neighbourhood hero. Honest, clean, dependable.', tags: ['filter', 'single-origin'] },
+  { name: 'The Coffee Collective', city: 'Copenhagen', flag: '🇩🇰', logo: '', focus: ['Africa', 'Filter', 'Direct Trade'], ships: 'worldwide', website: 'https://coffeecollective.dk', quote: 'They show every farmer\'s name and payment on the bag.', tags: ['filter', 'single-origin', 'competition'] },
+  { name: 'April Coffee Roasters', city: 'Copenhagen', flag: '🇩🇰', logo: '', focus: ['Filter', 'Single Origin', 'Competition'], ships: 'worldwide', website: 'https://aprilcoffeeroasters.com', quote: 'Patrik Rolf\'s pursuit of clarity in a cup is unmatched.', tags: ['filter', 'single-origin', 'competition'] },
+  { name: 'La Cabra', city: 'Aarhus', flag: '🇩🇰', logo: '', focus: ['Ethiopia', 'Filter'], ships: 'worldwide', website: 'https://lacabra.dk', quote: 'The most beautiful bags in specialty coffee.', tags: ['filter', 'single-origin'] },
+  { name: 'Good Life Coffee', city: 'Helsinki', flag: '🇫🇮', logo: '', focus: ['Africa', 'Americas', 'Filter'], ships: 'EU', website: 'https://goodlifecoffee.fi', quote: 'Finland\'s finest. Sourcing relationships run deeper than most.', tags: ['filter', 'single-origin'] },
+  { name: 'The Barn', city: 'Berlin', flag: '🇩🇪', logo: '', focus: ['Ethiopia', 'Kenya', 'Filter'], ships: 'worldwide', website: 'https://thebarn.de', quote: 'They take light roasting to its logical, stunning extreme.', tags: ['filter', 'single-origin', 'competition'] },
+  { name: 'Five Elephant', city: 'Berlin', flag: '🇩🇪', logo: '', focus: ['Africa', 'Americas'], ships: 'EU', website: 'https://fiveelephant.com', quote: 'Come for the cheesecake, stay for the coffee.', tags: ['filter', 'espresso', 'subscription'] },
+  { name: 'Bonanza Coffee', city: 'Berlin', flag: '🇩🇪', logo: '', focus: ['Ethiopia', 'Colombia'], ships: 'EU', website: 'https://bonanzacoffee.de', quote: 'Quietly excellent. Their Colombian lots are some of the best in Europe.', tags: ['filter', 'single-origin'] },
+  { name: 'Square Mile Coffee', city: 'London', flag: '🇬🇧', logo: '', focus: ['Ethiopia', 'Kenya', 'Filter'], ships: 'worldwide', website: 'https://squaremilecoffee.com', quote: 'The benchmark for precision specialty roasting in the UK.', tags: ['filter', 'single-origin', 'competition'] },
+  { name: 'Origin Coffee', city: 'Cornwall', flag: '🇬🇧', logo: '', focus: ['Africa', 'Americas', 'Single Origin'], ships: 'EU', website: 'https://origincoffee.co.uk', quote: 'Cornwall-born but globally minded.', tags: ['filter', 'espresso', 'subscription'] },
+  { name: 'Bocca Coffee', city: 'Amsterdam', flag: '🇳🇱', logo: '', focus: ['Africa', 'Americas', 'Filter'], ships: 'EU', website: 'https://boccacoffee.com', quote: 'Sustainability isn\'t a buzzword here — it\'s the entire foundation.', tags: ['filter', 'single-origin'] },
+  { name: 'Lot Sixty One', city: 'Amsterdam', flag: '🇳🇱', logo: '', focus: ['Ethiopia', 'Colombia', 'Filter'], ships: 'EU', website: 'https://lotsixtyone.com', quote: 'The locals\' favourite. Unpretentious and always on point.', tags: ['filter', 'espresso', 'subscription'] },
+  { name: 'Friedhats', city: 'Amsterdam', flag: '🇳🇱', logo: '', focus: ['Africa', 'Filter', 'Micro-lots'], ships: 'worldwide', website: 'https://friedhats.com', quote: 'They roast lighter than Scandinavia and make it work perfectly.', tags: ['filter', 'single-origin', 'competition'] },
+  { name: 'Belleville Brûlerie', city: 'Paris', flag: '🇫🇷', logo: '', focus: ['Ethiopia', 'Colombia', 'Filter'], ships: 'EU', website: 'https://cafesbelleville.com', quote: 'They proved Paris could do specialty.', tags: ['filter', 'single-origin'] },
+  { name: 'Lomi Roasters', city: 'Paris', flag: '🇫🇷', logo: '', focus: ['Africa', 'Americas', 'Espresso'], ships: 'EU', website: 'https://lfrp.fr', quote: 'Where Parisian specialty was born.', tags: ['espresso', 'filter', 'subscription'] },
+  { name: 'Coutume Café', city: 'Paris', flag: '🇫🇷', logo: '', focus: ['Single Origin', 'Filter', 'Ethical Sourcing'], ships: 'EU', website: 'https://coutumecafe.com', quote: 'The most Parisian of specialty roasters.', tags: ['filter', 'espresso'] },
+  { name: 'Reykjavík Roasters', city: 'Reykjavík', flag: '🇮🇸', logo: '', focus: ['Ethiopia', 'Filter'], ships: 'worldwide', website: 'https://reykjavikroasters.is', quote: 'From the edge of the world, some of the world\'s finest filter.', tags: ['filter', 'single-origin'] },
+  { name: 'Gardelli Specialty', city: 'Forlì', flag: '🇮🇹', logo: '', focus: ['Ethiopia', 'Micro-lots', 'Competition'], ships: 'worldwide', website: 'https://gardellispecialtycoffees.com', quote: 'Italy\'s specialty crown jewel.', tags: ['filter', 'single-origin', 'competition'] },
+  { name: 'Ditta Artigianale', city: 'Florence', flag: '🇮🇹', logo: '', focus: ['Espresso', 'Filter', 'Single Origin'], ships: 'EU', website: 'https://dittaartigianale.it', quote: 'Where Italian coffee culture meets the third wave.', tags: ['espresso', 'filter'] },
+  { name: 'Taf Coffee', city: 'Athens', flag: '🇬🇷', logo: '', focus: ['Ethiopia', 'Filter', 'Competition'], ships: 'EU', website: 'https://tafcoffee.gr', quote: 'They put Greek specialty coffee on the world map.', tags: ['filter', 'espresso', 'competition'] },
+  { name: 'The Underdog', city: 'Athens', flag: '🇬🇷', logo: '', focus: ['Africa', 'Micro-lots', 'Filter'], ships: 'EU', website: 'https://theunderdogcoffee.gr', quote: 'Athens\' worst-kept secret.', tags: ['filter', 'single-origin'] },
+  { name: 'Nomad Coffee', city: 'Barcelona', flag: '🇪🇸', logo: '', focus: ['Ethiopia', 'Colombia', 'Filter'], ships: 'worldwide', website: 'https://nomadcoffee.es', quote: 'Spain\'s flag-bearer for world-class specialty.', tags: ['filter', 'single-origin', 'competition'] },
+  { name: 'Fábrica Coffee', city: 'Lisbon', flag: '🇵🇹', logo: '', focus: ['Africa', 'Americas'], ships: 'EU', website: 'https://fabricacoffeeroasters.com', quote: 'Lisbon\'s beating heart for specialty.', tags: ['filter', 'espresso'] },
+  { name: 'Petra Roasting Co.', city: 'Istanbul', flag: '🇹🇷', logo: '', focus: ['Ethiopia', 'Colombia', 'Filter'], ships: 'EU', website: 'https://petraroastingco.com', quote: 'Where Ottoman heritage meets third-wave precision.', tags: ['filter', 'espresso', 'single-origin'] },
+  { name: 'Kronotrop Coffee', city: 'Istanbul', flag: '🇹🇷', logo: '', focus: ['Africa', 'Competition', 'Espresso'], ships: 'EU', website: 'https://kronotrop.com.tr', quote: 'Turkey\'s most decorated roastery.', tags: ['espresso', 'filter', 'competition'] },
+  { name: 'Montag Coffee', city: 'Istanbul', flag: '🇹🇷', logo: '', focus: ['Single Origin', 'Africa', 'Filter'], ships: 'regional', website: 'https://montagcoffee.com', quote: 'The new wave of Turkish specialty.', tags: ['filter', 'single-origin'] },
+  { name: '%Arabica', city: 'Kyoto', flag: '🇯🇵', logo: '', focus: ['Ethiopia', 'Yemen', 'Single Origin'], ships: 'worldwide', website: 'https://arabica.coffee', quote: 'The coffee actually matches the aesthetic.', tags: ['filter', 'espresso', 'single-origin'] },
+  { name: 'Light Up Coffee', city: 'Tokyo', flag: '🇯🇵', logo: '', focus: ['Ethiopia', 'Kenya', 'Filter'], ships: 'regional', website: 'https://lightup.coffee', quote: 'Tokyo\'s best-kept secret.', tags: ['filter', 'single-origin'] },
+  { name: 'Fritz Coffee', city: 'Seoul', flag: '🇰🇷', logo: '', focus: ['Ethiopia', 'Colombia', 'Filter'], ships: 'regional', website: 'https://fritzcoffeecompany.com', quote: 'The linen bags have become a symbol of Korean specialty.', tags: ['filter', 'single-origin'] },
+  { name: 'Felt Coffee', city: 'Seoul', flag: '🇰🇷', logo: '', focus: ['Africa', 'Americas', 'Filter'], ships: 'regional', website: 'https://feltcoffee.kr', quote: 'Seoul\'s most serene coffee experience.', tags: ['filter', 'single-origin'] },
+  { name: 'Counter Culture', city: 'Durham, NC', flag: '🇺🇸', logo: '', focus: ['Ethiopia', 'Colombia', 'Filter'], ships: 'worldwide', website: 'https://counterculturecoffee.com', quote: 'The original transparency pioneer.', tags: ['filter', 'espresso', 'subscription', 'single-origin'] },
+  { name: 'Onyx Coffee Lab', city: 'Rogers, AR', flag: '🇺🇸', logo: '', focus: ['Ethiopia', 'Colombia', 'Competition'], ships: 'worldwide', website: 'https://onyxcoffeelab.com', quote: 'World champions who roast like it.', tags: ['filter', 'competition', 'single-origin'] },
+  { name: 'Intelligentsia', city: 'Chicago, IL', flag: '🇺🇸', logo: '', focus: ['Ethiopia', 'Americas', 'Filter'], ships: 'worldwide', website: 'https://intelligentsiacoffee.com', quote: 'Without them, specialty coffee looks very different today.', tags: ['filter', 'espresso', 'single-origin'] },
+  { name: 'Blue Bottle Coffee', city: 'Oakland, CA', flag: '🇺🇸', logo: '', focus: ['Filter', 'Espresso', 'Subscription'], ships: 'worldwide', website: 'https://bluebottlecoffee.com', quote: 'Made specialty mainstream — and kept the quality high.', tags: ['filter', 'espresso', 'subscription'] },
+  { name: 'Devoción', city: 'Bogotá', flag: '🇨🇴', logo: '', focus: ['Colombia', 'Single Origin'], ships: 'worldwide', website: 'https://devocion.com', quote: 'Days from harvest to your cup.', tags: ['filter', 'single-origin'] },
+  { name: 'Coffee Lab', city: 'São Paulo', flag: '🇧🇷', logo: '', focus: ['Brazil', 'Single Origin', 'Competition'], ships: 'regional', website: 'https://coffeelab.com.br', quote: 'Isabela Rapassi changed Brazilian coffee.', tags: ['filter', 'espresso', 'competition'] },
+  { name: 'Ona Coffee', city: 'Canberra', flag: '🇦🇺', logo: '', focus: ['Competition', 'Single Origin', 'Filter'], ships: 'worldwide', website: 'https://ona.coffee', quote: 'Sasa won the World Barista Championship with their coffee.', tags: ['filter', 'espresso', 'competition'] },
+];
+
+const regions = [...new Set(roasters.map(r => {
+  const flag = r.flag;
+  if (['🇸🇪','🇳🇴','🇩🇰','🇫🇮','🇮🇸'].includes(flag)) return 'Scandinavia';
+  if (['🇩🇪','🇳🇱','🇬🇧'].includes(flag)) return 'Northern Europe';
+  if (['🇫🇷','🇪🇸','🇵🇹','🇮🇹','🇬🇷'].includes(flag)) return 'Southern Europe';
+  if (flag === '🇹🇷') return 'Turkey';
+  if (['🇯🇵','🇰🇷'].includes(flag)) return 'Asia';
+  if (flag === '🇺🇸') return 'United States';
+  if (['🇨🇴','🇧🇷'].includes(flag)) return 'Latin America';
+  if (flag === '🇦🇺') return 'Australia';
+  return 'Other';
+}))];
+---
+
+<Layout
+  title="Discover Specialty Roasters — Brewio"
+  description="A curated directory of the world's best specialty coffee roasters. Explore roasteries from Scandinavia, Europe, Asia, and the Americas — plus our Roastery of the Month."
+  canonicalUrl="https://brewio.app/roasters"
+>
+  <Nav />
+
+  <!-- Hero -->
+  <section class="roasters-hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="grain"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Discover Roasters</div>
+      <h1 class="hero-headline">The world's finest, <em>curated.</em></h1>
+      <p class="hero-subtitle">
+        {roasters.length + 1} specialty roasters across {regions.length} regions — handpicked for quality,
+        transparency, and exceptional coffee.
+      </p>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer-bar">
+    <p class="disclaimer-text">
+      These are roasters we genuinely love and recommend — Brewio has no commercial partnerships, sponsorships, or affiliate agreements with any of them.
+    </p>
+  </div>
+
+  <!-- Roastery of the Month -->
+  <section class="rotm-section">
+    <div class="rotm-inner">
+      <div class="rotm-eyebrow">
+        <span class="rotm-star">★</span>
+        Roastery of the Month
+      </div>
+
+      <div class="rotm-card">
+        <div class="rotm-banner">
+          <img src={featured.banner_url} alt={`${featured.name} roastery`} class="rotm-banner-img" loading="lazy" />
+          <div class="rotm-banner-overlay"></div>
+        </div>
+        <div class="rotm-body">
+          <div class="rotm-logo-row">
+            {featured.logo_url && <img src={featured.logo_url} alt="" class="rotm-logo" loading="lazy" />}
+            <div>
+              <h2 class="rotm-name">{featured.name}</h2>
+              <div class="rotm-location">{featured.flag} {featured.city}, {featured.country}</div>
+            </div>
+          </div>
+          <p class="rotm-desc">{featured.description}</p>
+          <blockquote class="rotm-quote">"{featured.quote}"</blockquote>
+          <div class="rotm-tags">
+            {featured.focus.map(f => <span class="rotm-tag">{f}</span>)}
+            <span class="rotm-ships">Ships {featured.ships}</span>
+          </div>
+          <a href={featured.website} class="rotm-link" target="_blank" rel="noopener">
+            Visit {featured.name}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Roasters -->
+  <section class="all-roasters">
+    <div class="ar-inner">
+      <div class="ar-header">
+        <h2 class="ar-heading">All Roasters</h2>
+        <p class="ar-sub">Explore the full collection — also available in the Brewio app with maps, filtering, and favourites.</p>
+      </div>
+
+      <div class="roaster-grid">
+        {roasters.map(r => (
+          <a href={r.website} class="roaster-card" target="_blank" rel="noopener">
+            <div class="rc-top">
+              {r.logo ? (
+                <img src={r.logo} alt="" class="rc-logo" loading="lazy" />
+              ) : (
+                <div class="rc-logo-placeholder">{r.name.charAt(0)}</div>
+              )}
+              <div class="rc-ships-badge">{r.ships}</div>
+            </div>
+            <h3 class="rc-name">{r.name}</h3>
+            <div class="rc-city">{r.flag} {r.city}</div>
+            <p class="rc-quote">{r.quote}</p>
+            <div class="rc-focus">
+              {r.focus.map(f => <span class="rc-tag">{f}</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="roasters-cta">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="cta-inner">
+      <div class="cta-badge">
+        <img src="/brewio-logo.png" alt="" class="cta-logo" />
+        Free on iOS & Android
+      </div>
+      <h2 class="cta-heading">Explore roasters <em>in the app.</em></h2>
+      <p class="cta-text">
+        Browse the full directory with maps, filter by origin and shipping region,
+        save favourites, and discover new roasters curated for your taste.
+      </p>
+      <div class="cta-badges">
+        <a href="https://apps.apple.com/app/brewio-brew-track/id6762492301" class="badge-link" target="_blank" rel="noopener">
+          <img src="/badge-app-store.svg" alt="Download on the App Store" class="cta-store-badge" />
+        </a>
+        <a href="#" class="badge-link">
+          <img src="/badge-google-play.png" alt="Get it on Google Play" class="cta-store-badge cta-store-badge-google" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ══════════════════════════════════
+     HERO
+  ══════════════════════════════════ */
+  .roasters-hero {
+    position: relative; background: var(--dark);
+    padding: 10rem 2rem 5rem; text-align: center; overflow: hidden;
+  }
+
+  .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(90px); }
+  .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(196,123,48,0.1) 0%, transparent 70%); top: -200px; right: -100px; }
+  .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(107,58,31,0.08) 0%, transparent 70%); bottom: -80px; left: -60px; }
+  .grain { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); opacity: 0.5; }
+
+  .hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); margin-bottom: 1.25rem; }
+  .hero-headline { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4.25rem); color: var(--cream); letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 1.25rem; }
+  .hero-headline em { color: var(--amber); font-style: italic; }
+  .hero-subtitle { font-size: 1.1rem; color: rgba(250,247,242,0.5); line-height: 1.7; max-width: 480px; margin: 0 auto; }
+
+  /* ══════════════════════════════════
+     ROASTERY OF THE MONTH
+  ══════════════════════════════════ */
+  .disclaimer-bar {
+    background: var(--dark-surface);
+    padding: 1rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .disclaimer-text {
+    font-size: 0.78rem;
+    color: rgba(250,247,242,0.3);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .rotm-section { background: var(--cream); padding: 5rem 2rem; }
+  .rotm-inner { max-width: 900px; margin: 0 auto; }
+
+  .rotm-eyebrow {
+    display: flex; align-items: center; gap: 0.5rem; justify-content: center;
+    font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--amber); margin-bottom: 2rem;
+  }
+
+  .rotm-star { font-size: 1rem; }
+
+  .rotm-card {
+    background: white; border: 1px solid var(--border-subtle);
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+  }
+
+  .rotm-banner { position: relative; height: 480px; overflow: hidden; }
+  .rotm-banner-img { width: 100%; height: 100%; object-fit: cover; }
+  .rotm-banner-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 80%, white); }
+
+  .rotm-body { padding: 2rem 2.5rem 2.5rem; }
+
+  .rotm-logo-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+  .rotm-logo { width: 56px; height: 56px; border-radius: 14px; object-fit: contain; padding: 6px; background: white; border: 1px solid var(--border-subtle); }
+  .rotm-name { font-family: var(--font-serif); font-size: 1.75rem; color: var(--text-dark); letter-spacing: -0.02em; }
+  .rotm-location { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+  .rotm-desc { font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; }
+
+  .rotm-quote {
+    font-family: var(--font-serif); font-style: italic; font-size: 1rem;
+    color: var(--brown); padding: 1rem 1.5rem; margin: 0 0 1.25rem;
+    background: rgba(196,123,48,0.05); border-left: 3px solid var(--amber);
+    border-radius: 0 12px 12px 0; line-height: 1.6;
+  }
+
+  .rotm-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; align-items: center; }
+
+  .rotm-tag {
+    font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 100px;
+    background: rgba(196,123,48,0.09); color: var(--amber); border: 1px solid rgba(196,123,48,0.18);
+  }
+
+  .rotm-ships {
+    font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 100px;
+    background: rgba(22,163,74,0.06); color: #16a34a; border: 1px solid rgba(22,163,74,0.15);
+  }
+
+  .rotm-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.88rem; font-weight: 600; color: var(--brown);
+    transition: gap 0.2s;
+  }
+  .rotm-link svg { width: 16px; height: 16px; }
+  .rotm-link:hover { gap: 0.75rem; }
+
+  /* ══════════════════════════════════
+     ALL ROASTERS GRID
+  ══════════════════════════════════ */
+  .all-roasters { background: var(--dark-surface); padding: 5rem 2rem; }
+  .ar-inner { max-width: 1200px; margin: 0 auto; }
+
+  .ar-header { text-align: center; margin-bottom: 3rem; }
+  .ar-heading { font-family: var(--font-serif); font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--cream); letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+  .ar-sub { font-size: 1rem; color: rgba(250,247,242,0.4); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+
+  .roaster-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  }
+
+  .roaster-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px; padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    transition: background 0.22s, border-color 0.22s, transform 0.22s; cursor: pointer;
+  }
+
+  .roaster-card:hover {
+    background: rgba(196,123,48,0.07); border-color: rgba(196,123,48,0.22);
+    transform: translateY(-3px);
+  }
+
+  .rc-top { display: flex; justify-content: space-between; align-items: center; }
+
+  .rc-logo {
+    width: 40px; height: 40px; border-radius: 10px;
+    object-fit: contain; padding: 4px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .rc-logo-placeholder {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(196,123,48,0.1); border: 1px solid rgba(196,123,48,0.15);
+    font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600;
+    color: var(--amber);
+  }
+
+  .rc-ships-badge {
+    font-family: var(--font-mono); font-size: 0.58rem; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 0.15rem 0.5rem; border-radius: 100px;
+    background: rgba(250,247,242,0.06); color: rgba(250,247,242,0.35);
+    border: 1px solid rgba(250,247,242,0.08);
+  }
+
+  .rc-name { font-family: var(--font-serif); font-size: 1.1rem; color: var(--cream); letter-spacing: -0.01em; }
+  .rc-city { font-family: var(--font-mono); font-size: 0.72rem; color: rgba(250,247,242,0.35); }
+  .rc-quote { font-size: 0.82rem; color: rgba(250,247,242,0.45); line-height: 1.6; font-style: italic; flex: 1; }
+
+  .rc-focus { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: auto; padding-top: 0.5rem; }
+
+  .rc-tag {
+    font-family: var(--font-mono); font-size: 0.55rem; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 0.15rem 0.45rem; border-radius: 100px;
+    background: rgba(196,123,48,0.08); color: var(--amber-light); border: 1px solid rgba(196,123,48,0.15);
+  }
+
+  /* ══════════════════════════════════
+     CTA
+  ══════════════════════════════════ */
+  .roasters-cta {
+    background: var(--dark); padding: 7rem 2rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+
+  .cta-glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(196,123,48,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    position: relative; max-width: 620px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
+  }
+
+  .cta-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--amber);
+    background: rgba(196,123,48,0.1); border: 1px solid rgba(196,123,48,0.2);
+    padding: 0.35rem 0.875rem 0.35rem 0.35rem; border-radius: 100px;
+  }
+
+  .cta-logo { width: 20px; height: 20px; border-radius: 50%; background: #F9F5EF; object-fit: contain; padding: 2px; }
+
+  .cta-heading { font-family: var(--font-serif); font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--cream); letter-spacing: -0.025em; line-height: 1.1; }
+  .cta-heading em { color: var(--amber); font-style: italic; }
+  .cta-text { font-size: 1rem; color: rgba(250,247,242,0.5); line-height: 1.7; max-width: 460px; }
+
+  .cta-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; align-items: center; margin-top: 0.5rem; }
+  .badge-link { display: flex; align-items: center; height: 48px; transition: transform 0.2s, opacity 0.2s; }
+  .badge-link:hover { transform: translateY(-2px); opacity: 0.88; }
+  .cta-store-badge { height: 48px; width: auto; display: block; }
+  .cta-store-badge-google { height: 71px; }
+
+  /* ══════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════ */
+  @media (max-width: 920px) {
+    .orb { filter: none; opacity: 0.06; }
+    .grain { display: none; }
+    .roaster-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .roasters-hero { padding: 8rem 1.25rem 3.5rem; }
+    .rotm-section { padding: 3rem 1.25rem; }
+    .rotm-banner { height: 300px; }
+    .rotm-body { padding: 1.5rem; }
+    .rotm-name { font-size: 1.35rem; }
+    .all-roasters { padding: 3rem 1.25rem; }
+    .roaster-grid { grid-template-columns: 1fr; }
+    .roasters-cta { padding: 5rem 1.25rem; }
+    .cta-store-badge { height: 42px; }
+    .cta-store-badge-google { height: 62px; }
+  }
+</style>

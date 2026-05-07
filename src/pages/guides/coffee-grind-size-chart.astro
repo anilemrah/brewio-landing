@@ -1,0 +1,468 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+---
+
+<GuideLayout
+  title="Coffee Grind Size Chart: The Complete Guide"
+  description="A visual coffee grind size chart for every brew method. Learn why grind size matters, how to adjust it, and what each level looks like — from Turkish to cold brew."
+  headline="Coffee Grind Size Chart: <em>The Complete Guide</em>"
+  subtitle="Grind size is the single most impactful variable you control. Get it right and everything else falls into place. Get it wrong and no technique will save you."
+  heroAccent="grind"
+  readTime="7 min"
+  publishDate="2025-05-01"
+  category="Fundamentals"
+>
+
+<h2>Why Grind Size Matters So Much</h2>
+
+<p>
+  Grind size controls <strong>surface area</strong>. Finer grounds expose more surface to water, so extraction happens faster. Coarser grounds expose less, so extraction happens slower. Every brew method is designed around a specific contact time — and the grind size needs to match.
+</p>
+
+<p>
+  Use the wrong grind and you'll either under-extract (sour, thin) or over-extract (bitter, harsh). This is the #1 reason people's home coffee doesn't taste like the cafe — and it's the easiest variable to fix.
+</p>
+
+<h2>The Complete Grind Size Chart</h2>
+
+<div class="grind-chart">
+  <div class="gc-row gc-row--header">
+    <span>Grind Level</span>
+    <span>Texture</span>
+    <span>Methods</span>
+    <span>Contact Time</span>
+  </div>
+  <div class="gc-row">
+    <div class="gc-level">
+      <div class="gc-swatch gc-swatch--xfine"></div>
+      <span class="gc-name">Extra Fine</span>
+    </div>
+    <span class="gc-texture">Powder / flour</span>
+    <span class="gc-methods">Turkish / Ibrik</span>
+    <span class="gc-time">2–3 min</span>
+  </div>
+  <div class="gc-row">
+    <div class="gc-level">
+      <div class="gc-swatch gc-swatch--fine"></div>
+      <span class="gc-name">Fine</span>
+    </div>
+    <span class="gc-texture">Table salt</span>
+    <span class="gc-methods">Espresso, Moka Pot</span>
+    <span class="gc-time">25–45 sec</span>
+  </div>
+  <div class="gc-row">
+    <div class="gc-level">
+      <div class="gc-swatch gc-swatch--mfine"></div>
+      <span class="gc-name">Medium-Fine</span>
+    </div>
+    <span class="gc-texture">Fine sand</span>
+    <span class="gc-methods">AeroPress, V60, Kalita Wave</span>
+    <span class="gc-time">2–4 min</span>
+  </div>
+  <div class="gc-row">
+    <div class="gc-level">
+      <div class="gc-swatch gc-swatch--med"></div>
+      <span class="gc-name">Medium</span>
+    </div>
+    <span class="gc-texture">Regular sand</span>
+    <span class="gc-methods">Drip machine, Siphon</span>
+    <span class="gc-time">4–6 min</span>
+  </div>
+  <div class="gc-row">
+    <div class="gc-level">
+      <div class="gc-swatch gc-swatch--mcoarse"></div>
+      <span class="gc-name">Medium-Coarse</span>
+    </div>
+    <span class="gc-texture">Coarse sand</span>
+    <span class="gc-methods">Chemex, Clever Dripper</span>
+    <span class="gc-time">4–5 min</span>
+  </div>
+  <div class="gc-row">
+    <div class="gc-level">
+      <div class="gc-swatch gc-swatch--coarse"></div>
+      <span class="gc-name">Coarse</span>
+    </div>
+    <span class="gc-texture">Sea salt / breadcrumbs</span>
+    <span class="gc-methods">French Press, Percolator</span>
+    <span class="gc-time">4–5 min</span>
+  </div>
+  <div class="gc-row">
+    <div class="gc-level">
+      <div class="gc-swatch gc-swatch--xcoarse"></div>
+      <span class="gc-name">Extra Coarse</span>
+    </div>
+    <span class="gc-texture">Peppercorns / rock salt</span>
+    <span class="gc-methods">Cold Brew</span>
+    <span class="gc-time">12–18 hr</span>
+  </div>
+</div>
+
+<h2>The Relationship: Grind ↔ Contact Time</h2>
+
+<p>Here's the principle that makes grind size intuitive:</p>
+
+<div class="principle-card">
+  <div class="pc-rule">Short contact time → Fine grind</div>
+  <div class="pc-rule">Long contact time → Coarse grind</div>
+  <div class="pc-explain">
+    Espresso forces water through grounds in 25 seconds, so the grind must be very fine to extract enough flavour in that tiny window. Cold brew steeps for 16 hours, so the grind must be very coarse to avoid over-extracting during all that time.
+  </div>
+</div>
+
+<h2>How to Adjust: The Taste Feedback Loop</h2>
+
+<p>You don't need to memorize grind settings. Just taste and adjust:</p>
+
+<div class="feedback-grid">
+  <div class="fb-card fb-card--sour">
+    <div class="fb-taste">Sour / Thin / Weak</div>
+    <div class="fb-arrow">→</div>
+    <div class="fb-action">Grind <strong>finer</strong></div>
+    <p>Under-extracted. Water passed through too quickly or didn't find enough surface area.</p>
+  </div>
+  <div class="fb-card fb-card--good">
+    <div class="fb-taste">Sweet / Balanced / Clean</div>
+    <div class="fb-arrow">✓</div>
+    <div class="fb-action"><strong>You're dialed in</strong></div>
+    <p>Log this grind setting so you can reproduce it.</p>
+  </div>
+  <div class="fb-card fb-card--bitter">
+    <div class="fb-taste">Bitter / Dry / Harsh</div>
+    <div class="fb-arrow">→</div>
+    <div class="fb-action">Grind <strong>coarser</strong></div>
+    <p>Over-extracted. Too much surface area, or contact time was too long for this grind.</p>
+  </div>
+</div>
+
+<h2>Burr vs. Blade Grinder: Does It Matter?</h2>
+
+<p><strong>Yes — enormously.</strong> This is the most important equipment upgrade you can make, more impactful than a better brewer or fancier beans.</p>
+
+<div class="grinder-compare">
+  <div class="grn-card">
+    <h3>Blade Grinder</h3>
+    <div class="grn-verdict grn-verdict--bad">Not recommended</div>
+    <ul>
+      <li>Chops beans randomly — mix of dust and boulders</li>
+      <li>Inconsistent particle size = uneven extraction</li>
+      <li>Some grounds over-extract while others under-extract simultaneously</li>
+      <li>No way to adjust grind size precisely</li>
+    </ul>
+  </div>
+  <div class="grn-card">
+    <h3>Burr Grinder</h3>
+    <div class="grn-verdict grn-verdict--good">Worth the investment</div>
+    <ul>
+      <li>Crushes beans between two abrasive surfaces — uniform particles</li>
+      <li>Consistent size = even extraction = better flavour</li>
+      <li>Adjustable from Turkish to cold brew</li>
+      <li>Even a $40 hand burr grinder outperforms a $100 blade grinder</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Quick Reference by Method</h2>
+
+<div class="quick-grid">
+  <div class="qk-card">
+    <div class="qk-method">Espresso</div>
+    <div class="qk-grind">Fine</div>
+    <div class="qk-texture">Table salt</div>
+    <div class="qk-bar"><div class="qk-fill" style="width: 15%"></div></div>
+  </div>
+  <div class="qk-card">
+    <div class="qk-method">V60</div>
+    <div class="qk-grind">Medium-Fine</div>
+    <div class="qk-texture">Fine sand</div>
+    <div class="qk-bar"><div class="qk-fill" style="width: 35%"></div></div>
+  </div>
+  <div class="qk-card">
+    <div class="qk-method">AeroPress</div>
+    <div class="qk-grind">Medium-Fine</div>
+    <div class="qk-texture">Fine to regular sand</div>
+    <div class="qk-bar"><div class="qk-fill" style="width: 40%"></div></div>
+  </div>
+  <div class="qk-card">
+    <div class="qk-method">Drip Machine</div>
+    <div class="qk-grind">Medium</div>
+    <div class="qk-texture">Regular sand</div>
+    <div class="qk-bar"><div class="qk-fill" style="width: 50%"></div></div>
+  </div>
+  <div class="qk-card">
+    <div class="qk-method">Chemex</div>
+    <div class="qk-grind">Medium-Coarse</div>
+    <div class="qk-texture">Coarse sand</div>
+    <div class="qk-bar"><div class="qk-fill" style="width: 62%"></div></div>
+  </div>
+  <div class="qk-card">
+    <div class="qk-method">French Press</div>
+    <div class="qk-grind">Coarse</div>
+    <div class="qk-texture">Sea salt</div>
+    <div class="qk-bar"><div class="qk-fill" style="width: 78%"></div></div>
+  </div>
+  <div class="qk-card">
+    <div class="qk-method">Cold Brew</div>
+    <div class="qk-grind">Extra Coarse</div>
+    <div class="qk-texture">Peppercorns</div>
+    <div class="qk-bar"><div class="qk-fill" style="width: 95%"></div></div>
+  </div>
+</div>
+
+<div class="tip-callout">
+  <div class="tip-icon">💡</div>
+  <div>
+    <strong>Track your grind settings.</strong> Every grinder is different — "medium" on your grinder might be "medium-fine" on someone else's. The numbers on your grinder only matter relative to themselves. Log the setting number alongside your brew parameters, and you'll dial in much faster.
+  </div>
+</div>
+
+</GuideLayout>
+
+<style>
+  /* ── Grind Chart ── */
+  .grind-chart {
+    margin: 2rem 0;
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .gc-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1.2fr 1.4fr 0.8fr;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .gc-row:last-child { border-bottom: none; }
+
+  .gc-row--header {
+    background: var(--dark);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(250,247,242,0.6);
+  }
+
+  .gc-level {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .gc-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .gc-swatch--xfine  { background: #3d2a1a; }
+  .gc-swatch--fine    { background: #5a3d25; }
+  .gc-swatch--mfine   { background: #7a5535; }
+  .gc-swatch--med     { background: #96694a; }
+  .gc-swatch--mcoarse { background: #b08060; }
+  .gc-swatch--coarse  { background: #c89878; }
+  .gc-swatch--xcoarse { background: #dbb090; }
+
+  .gc-name {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.92rem;
+  }
+
+  .gc-methods { color: var(--brown); font-weight: 500; }
+
+  .gc-time {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Principle Card ── */
+  .principle-card {
+    background: var(--dark);
+    border-radius: 18px;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .pc-rule {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--amber);
+    padding: 0.5rem 0;
+  }
+
+  .pc-explain {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-dark);
+    font-size: 0.92rem;
+    color: rgba(250,247,242,0.6);
+    line-height: 1.7;
+  }
+
+  /* ── Feedback Grid ── */
+  .feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .fb-card {
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .fb-taste {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .fb-arrow {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .fb-card--sour .fb-arrow { color: #f59e0b; }
+  .fb-card--good .fb-arrow { color: #16a34a; }
+  .fb-card--bitter .fb-arrow { color: #dc2626; }
+
+  .fb-action {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .fb-card p { font-size: 0.82rem !important; margin: 0 !important; }
+
+  .fb-card--good { border-color: rgba(22,163,74,0.2); background: rgba(22,163,74,0.02); }
+
+  /* ── Grinder Compare ── */
+  .grinder-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .grn-card {
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  .grn-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin: 0 0 0.5rem !important;
+  }
+
+  .grn-verdict {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .grn-verdict--bad { background: rgba(220,38,38,0.08); color: #dc2626; border: 1px solid rgba(220,38,38,0.15); }
+  .grn-verdict--good { background: rgba(22,163,74,0.08); color: #16a34a; border: 1px solid rgba(22,163,74,0.15); }
+
+  .grn-card ul { margin: 0 !important; padding-left: 1rem; }
+  .grn-card li { font-size: 0.85rem !important; margin-bottom: 0.35rem !important; }
+
+  /* ── Quick Grid ── */
+  .quick-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 2rem 0;
+  }
+
+  .qk-card {
+    display: grid;
+    grid-template-columns: 120px 120px 1fr 160px;
+    gap: 1rem;
+    align-items: center;
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .qk-method {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+  }
+
+  .qk-grind {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--amber);
+  }
+
+  .qk-texture { font-size: 0.82rem; color: var(--text-muted); }
+
+  .qk-bar {
+    height: 6px;
+    background: var(--border-subtle);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .qk-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--amber), var(--brown));
+    border-radius: 3px;
+  }
+
+  /* ── Tip ── */
+  .tip-callout {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    background: rgba(196,123,48,0.06);
+    border: 1px solid rgba(196,123,48,0.15);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .tip-icon { font-size: 1.25rem; flex-shrink: 0; }
+  .tip-callout strong { color: var(--text-dark); }
+
+  @media (max-width: 700px) {
+    .gc-row { grid-template-columns: 1.4fr 1.2fr; }
+    .gc-row--header span:nth-child(3),
+    .gc-row--header span:nth-child(4),
+    .gc-row .gc-methods,
+    .gc-row .gc-time { display: none; }
+    .feedback-grid { grid-template-columns: 1fr; }
+    .grinder-compare { grid-template-columns: 1fr; }
+    .qk-card { grid-template-columns: 100px 1fr; }
+    .qk-texture, .qk-bar { display: none; }
+  }
+</style>

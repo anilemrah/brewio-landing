@@ -1,0 +1,384 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const guides = [
+  {
+    slug: 'coffee-to-water-ratio',
+    category: 'Fundamentals',
+    title: 'The Ultimate Coffee-to-Water Ratio Guide',
+    desc: 'A visual breakdown of the golden ratio for every brew method — from espresso to cold brew. Never guess again.',
+    readTime: '8 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6"/><path d="M10 2v6L6 15a3.5 3.5 0 0 0 3.1 5h5.8A3.5 3.5 0 0 0 18 15l-4-7V2"/><path d="M6.7 15h10.6"/></svg>`,
+  },
+  {
+    slug: 'how-to-brew-v60',
+    category: 'Brew Guide',
+    title: 'How to Brew the Perfect V60 Pour Over',
+    desc: 'A step-by-step walkthrough with timing, technique, and troubleshooting — from your first pour to dialing in like a pro.',
+    readTime: '10 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 1 1 0 4h-2"/><path d="M3 8h14v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8z"/><path d="M6 2v2"/><path d="M10 2v2"/><path d="M14 2v2"/></svg>`,
+  },
+  {
+    slug: 'coffee-tasting-notes',
+    category: 'Flavour',
+    title: 'How to Taste Coffee Like a Pro',
+    desc: 'Learn the coffee flavour wheel, train your palate, and start identifying origin characteristics in every sip.',
+    readTime: '9 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
+  },
+  {
+    slug: 'aeropress-recipes',
+    category: 'Brew Guide',
+    title: 'AeroPress Brewing: 3 Recipes from Beginner to Advanced',
+    desc: 'The classic method, the inverted technique, and a championship-winning recipe — all with exact measurements.',
+    readTime: '7 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 10h8"/><path d="M8 14h4"/></svg>`,
+  },
+  {
+    slug: 'extraction-yield-guide',
+    category: 'Science',
+    title: 'Understanding Extraction Yield & TDS',
+    desc: 'What extraction yield actually means, how to measure it, and why it\'s the key to consistently great coffee.',
+    readTime: '8 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`,
+  },
+  {
+    slug: 'cold-brew-coffee',
+    category: 'Brew Guide',
+    title: 'How to Make Cold Brew Coffee at Home',
+    desc: 'Smooth, sweet, and ridiculously easy. Learn ratios, steep times, and how to make concentrate vs. ready-to-drink cold brew.',
+    readTime: '7 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>`,
+  },
+  {
+    slug: 'coffee-grind-size-chart',
+    category: 'Fundamentals',
+    title: 'Coffee Grind Size Chart: The Complete Guide',
+    desc: 'A visual grind size reference for every brew method — from Turkish to cold brew. Plus how to adjust based on taste.',
+    readTime: '7 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>`,
+  },
+  {
+    slug: 'french-press-guide',
+    category: 'Brew Guide',
+    title: 'How to Make French Press Coffee',
+    desc: 'The complete guide to the most forgiving brew method. Perfect ratio, grind size, steep time, and the James Hoffmann technique.',
+    readTime: '6 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8"/><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 6v8"/><path d="M6 18h12"/></svg>`,
+  },
+  {
+    slug: 'espresso-for-beginners',
+    category: 'Brew Guide',
+    title: 'Espresso for Beginners: Everything You Need to Know',
+    desc: 'What espresso is, essential equipment, your first recipe, how to dial in, and every cafe drink explained.',
+    readTime: '10 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 0 1 0 4h-2"/><path d="M3 8h14v5a7 7 0 0 1-7 7v0a7 7 0 0 1-7-7V8z"/></svg>`,
+  },
+  {
+    slug: 'caffeine-in-coffee',
+    category: 'Fundamentals',
+    title: 'How Much Caffeine Is in Coffee?',
+    desc: 'Caffeine content by brew method, what affects it, daily safe limits, and why espresso has less than you think.',
+    readTime: '6 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+  },
+  {
+    slug: 'arabica-vs-robusta',
+    category: 'Fundamentals',
+    title: 'Arabica vs. Robusta: What\'s the Difference?',
+    desc: 'A clear comparison of the two coffee species — taste, caffeine, price, and why "100% Arabica" doesn\'t mean quality.',
+    readTime: '6 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  },
+  {
+    slug: 'how-to-store-coffee-beans',
+    category: 'Fundamentals',
+    title: 'How to Store Coffee Beans (And Keep Them Fresh)',
+    desc: 'The four enemies of freshness, best storage methods ranked, whether to freeze beans, and the freshness timeline.',
+    readTime: '6 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 0 1 8 0"/><rect x="3" y="7" width="18" height="14" rx="2"/></svg>`,
+  },
+  {
+    slug: 'what-is-specialty-coffee',
+    category: 'Culture',
+    title: 'What is Specialty Coffee?',
+    desc: 'The 80-point scale, the three waves of coffee, specialty vs. commercial, and how to start exploring it.',
+    readTime: '7 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  },
+  {
+    slug: 'mushroom-coffee',
+    category: 'Trends',
+    title: 'Mushroom Coffee: Is It Worth It?',
+    desc: 'An honest look at the functional coffee trend — what\'s in it, what the science says, and whether you should try it.',
+    readTime: '7 min',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 3.87-3.13 7-7 7s-7-3.13-7-7a7 7 0 0 1 7-7z"/><path d="M10 16v6"/><path d="M14 16v6"/><path d="M8 22h8"/></svg>`,
+  },
+];
+---
+
+<Layout
+  title="Coffee Guides & Brewing Tips — Brewio"
+  description="In-depth coffee guides: brew ratios, pour-over techniques, tasting notes, AeroPress recipes, and extraction science. Learn to brew better coffee."
+  canonicalUrl="https://brewio.app/guides"
+>
+  <Nav />
+
+  <section class="guides-hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="grain"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Brewio Guides</div>
+      <h1 class="hero-headline">Brew <em>smarter,</em><br/>not harder.</h1>
+      <p class="hero-subtitle">
+        Deep-dive guides on technique, science, and flavour — everything
+        you need to get more out of every cup.
+      </p>
+    </div>
+  </section>
+
+  <section class="guides-grid-section">
+    <div class="guides-inner">
+      <div class="guides-grid">
+        {guides.map((g, i) => (
+          <a href={`/guides/${g.slug}`} class={`guide-card ${i === 0 ? 'guide-card--featured' : ''}`}>
+            <div class="gc-top">
+              <div class="gc-icon" set:html={g.icon}></div>
+              <div class="gc-meta">
+                <span class="gc-category">{g.category}</span>
+                <span class="gc-dot">·</span>
+                <span class="gc-read">{g.readTime} read</span>
+              </div>
+            </div>
+            <h2 class="gc-title">{g.title}</h2>
+            <p class="gc-desc">{g.desc}</p>
+            <span class="gc-link">
+              Read guide
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .guides-hero {
+    position: relative;
+    background: var(--dark);
+    padding: 10rem 2rem 5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+  }
+
+  .orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(196,123,48,0.1) 0%, transparent 70%);
+    top: -200px; right: -100px;
+  }
+
+  .orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(107,58,31,0.08) 0%, transparent 70%);
+    bottom: -80px; left: -60px;
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    color: var(--cream);
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-headline em { color: var(--amber); font-style: italic; }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(250,247,242,0.5);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── Grid ── */
+  .guides-grid-section {
+    background: var(--cream);
+    padding: 5rem 2rem 7rem;
+  }
+
+  .guides-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* ── Card ── */
+  .guide-card {
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+  }
+
+  .guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+    border-color: rgba(196,123,48,0.25);
+  }
+
+  .guide-card--featured {
+    grid-column: 1 / -1;
+    background: var(--dark);
+    border-color: var(--border-dark);
+  }
+
+  .guide-card--featured .gc-title { color: var(--cream); }
+  .guide-card--featured .gc-desc { color: rgba(250,247,242,0.5); }
+  .guide-card--featured .gc-icon { color: var(--amber); }
+  .guide-card--featured .gc-read { color: rgba(250,247,242,0.4); }
+  .guide-card--featured .gc-link { color: var(--amber); }
+
+  .guide-card--featured:hover {
+    border-color: rgba(196,123,48,0.35);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  }
+
+  .gc-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .gc-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--brown);
+    flex-shrink: 0;
+  }
+
+  .gc-icon :global(svg) { width: 100%; height: 100%; }
+
+  .gc-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .gc-category {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    background: rgba(196,123,48,0.09);
+    border: 1px solid rgba(196,123,48,0.18);
+    padding: 0.15rem 0.55rem;
+    border-radius: 100px;
+    font-size: 0.62rem;
+  }
+
+  .gc-dot { color: var(--text-light); }
+
+  .gc-read { color: var(--text-muted); font-size: 0.75rem; }
+
+  .gc-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--text-dark);
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+
+  .gc-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .gc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--brown);
+    margin-top: auto;
+    padding-top: 0.5rem;
+    transition: gap 0.2s;
+  }
+
+  .gc-link svg { width: 16px; height: 16px; transition: transform 0.2s; }
+
+  .guide-card:hover .gc-link svg { transform: translateX(3px); }
+
+  @media (max-width: 768px) {
+    .guides-grid { grid-template-columns: 1fr; }
+    .guide-card--featured { grid-column: 1; }
+  }
+
+  @media (max-width: 580px) {
+    .guides-hero { padding: 8rem 1.25rem 3.5rem; }
+    .guides-grid-section { padding: 3rem 1.25rem 5rem; }
+    .guide-card { padding: 1.5rem; }
+  }
+
+  @media (max-width: 920px) {
+    .orb { filter: none; opacity: 0.06; }
+    .grain { display: none; }
+  }
+</style>
