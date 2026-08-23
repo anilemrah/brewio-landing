@@ -21,6 +21,12 @@ Brewio is built for the curious coffee drinker who wants more than just caffeine
 - Free on iOS: https://apps.apple.com/app/brewio-brew-track/id6762492301
 - Android: not yet released
 
+## Free Tools (no signup)
+- [Coffee Ratio Calculator](https://brewio.app/tools/coffee-ratio-calculator/): Coffee-to-water ratio for 12 brew methods
+- [Coffee Grind Size Chart](https://brewio.app/tools/grind-size-chart/): Visual grind scale from Turkish-fine to cold-brew coarse
+- [Extraction Yield Calculator](https://brewio.app/tools/extraction-yield-calculator/): TDS% to EY%, filter and espresso modes
+- [Brew Timer](https://brewio.app/tools/brew-timer/): Step-by-step timers for all 12 methods
+
 ## Guides
 - [The Ultimate Coffee-to-Water Ratio Guide](https://brewio.app/guides/coffee-to-water-ratio/)
 - [How to Brew the Perfect V60 Pour Over](https://brewio.app/guides/how-to-brew-v60/)
@@ -39,6 +45,7 @@ Brewio is built for the curious coffee drinker who wants more than just caffeine
 
 ## Pages
 - [Home](https://brewio.app/): Feature overview and app download
+- [All tools](https://brewio.app/tools/): Free coffee calculators and timers
 - [All guides](https://brewio.app/guides/): Index of every coffee guide
 - [Specialty roasters](https://brewio.app/roasters/): Curated directory of specialty coffee roasters
 - [Privacy Policy](https://brewio.app/privacy/): How Brewio handles user data

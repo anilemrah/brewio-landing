@@ -1,0 +1,332 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import { BREW_METHODS } from '../../data/brewMethods';
+
+// Finest first — the chart reads left-to-right, fine to coarse.
+const byGrind = [...BREW_METHODS].sort((a, b) => a.grindPos - b.grindPos);
+
+const BANDS = [
+  { key: 'extra-fine', label: 'Extra Fine', feel: 'Powdered sugar / flour', from: 0, to: 0.13 },
+  { key: 'fine', label: 'Fine', feel: 'Caster sugar', from: 0.13, to: 0.27 },
+  { key: 'medium-fine', label: 'Medium-Fine', feel: 'Table salt', from: 0.27, to: 0.45 },
+  { key: 'medium', label: 'Medium', feel: 'Sand', from: 0.45, to: 0.62 },
+  { key: 'medium-coarse', label: 'Medium-Coarse', feel: 'Rough sand', from: 0.62, to: 0.72 },
+  { key: 'coarse', label: 'Coarse', feel: 'Coarse sea salt / breadcrumbs', from: 0.72, to: 1 },
+];
+---
+
+<ToolLayout
+  title="Coffee Grind Size Chart"
+  description="A visual coffee grind size chart for 12 brew methods — from Turkish and espresso through V60 and drip to French press and cold brew. See where each method sits and what the grind should feel like."
+  headline="Coffee Grind <em>Size Chart</em>"
+  subtitle="Every brew method sits somewhere on one scale, from flour-fine to breadcrumb-coarse. Here's where each one lands, and what it should feel like between your fingers."
+  slug="grind-size-chart"
+  relatedGuides={[
+    { slug: 'coffee-grind-size-chart', label: 'The full grind size guide, and how to adjust by taste' },
+    { slug: 'coffee-to-water-ratio', label: 'Getting the ratio right before you touch the grinder' },
+    { slug: 'extraction-yield-guide', label: 'Why grind size is your main extraction lever' },
+  ]}
+>
+  <!-- Visual scale -->
+  <div class="chart">
+    <div class="chart-head">
+      <span class="end end-fine">Finest</span>
+      <span class="chart-title">The grind scale</span>
+      <span class="end end-coarse">Coarsest</span>
+    </div>
+
+    <div class="gradient" aria-hidden="true"></div>
+
+    <ul class="pins">
+      {byGrind.map((m) => (
+        <li class="pin" style={`--pos:${(m.grindPos * 100).toFixed(1)}%`}>
+          <span class="pin-dot" aria-hidden="true"></span>
+          <span class="pin-label">
+            <span class="pin-emoji" aria-hidden="true">{m.emoji}</span>
+            {m.name}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Bands -->
+  <section class="bands">
+    <h2 class="section-heading">What each grind feels like</h2>
+    <ul class="band-list">
+      {BANDS.map((b) => {
+        const inBand = byGrind.filter((m) => m.grindPos >= b.from && m.grindPos < b.to);
+        return (
+          <li class={`band band-${b.key}`}>
+            <div class="band-head">
+              <h3>{b.label}</h3>
+              <span class="band-feel">{b.feel}</span>
+            </div>
+            <ul class="band-methods">
+              {inBand.length > 0
+                ? inBand.map((m) => <li><span aria-hidden="true">{m.emoji}</span> {m.name}</li>)
+                : <li class="band-empty">—</li>}
+            </ul>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+
+  <!-- Full table -->
+  <section class="reference">
+    <h2 class="section-heading">Grind size by brew method</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Method</th><th>Grind</th><th>Feels like</th><th>Ratio</th></tr>
+        </thead>
+        <tbody>
+          {byGrind.map((m) => (
+            <tr>
+              <td class="td-method"><span aria-hidden="true">{m.emoji}</span> {m.name}</td>
+              <td class="td-grind">{m.grindSize}</td>
+              <td>{m.grindHint}</td>
+              <td class="td-ratio">1:{m.defaultRatio}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Adjusting -->
+  <section class="adjust">
+    <h2 class="section-heading">Adjusting by taste</h2>
+    <p class="adjust-intro">
+      Grind size is the fastest lever you have. Change one thing at a time, and give it a full
+      brew before judging.
+    </p>
+    <div class="adjust-grid">
+      <div class="adjust-card">
+        <span class="adjust-badge adjust-sour">Sour, thin, sharp</span>
+        <p>Under-extracted — water moved through too fast. <strong>Grind finer.</strong> If it's already fine, brew hotter or longer instead.</p>
+      </div>
+      <div class="adjust-card">
+        <span class="adjust-badge adjust-bitter">Bitter, dry, hollow</span>
+        <p>Over-extracted — water sat on the grounds too long. <strong>Grind coarser.</strong> Then drop the temperature a couple of degrees.</p>
+      </div>
+      <div class="adjust-card">
+        <span class="adjust-badge adjust-flat">Flat and weak</span>
+        <p>Usually ratio, not grind. Add coffee before you touch the grinder — strength and extraction are different problems.</p>
+      </div>
+    </div>
+  </section>
+</ToolLayout>
+
+<style>
+  /* ── Chart ── */
+  .chart {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 1.75rem 1.75rem 1.25rem;
+  }
+
+  .chart-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .chart-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--text-dark);
+  }
+
+  .end {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--text-muted);
+  }
+
+  .gradient {
+    height: 10px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #3E2A18 0%, #6B4423 18%, #9A6B3C 42%, #C0955F 68%, #DDBE92 100%);
+  }
+
+  .pins {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 0.85rem;
+  }
+
+  .pin {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: calc(var(--pos));
+    transition: transform 0.15s;
+  }
+
+  .pin-dot {
+    position: absolute;
+    left: var(--pos);
+    width: 7px; height: 7px;
+    margin-left: -3.5px;
+    border-radius: 50%;
+    background: var(--amber);
+  }
+
+  .pin-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-left: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .pin-emoji { font-size: 0.9rem; }
+
+  /* ── Bands ── */
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .bands, .reference, .adjust { margin-top: 3.5rem; }
+
+  .band-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 0.875rem;
+  }
+
+  .band {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--amber);
+    border-radius: 14px;
+    padding: 1.2rem 1.35rem;
+  }
+
+  .band-extra-fine { border-left-color: #3E2A18; }
+  .band-fine { border-left-color: #6B4423; }
+  .band-medium-fine { border-left-color: #8A5C33; }
+  .band-medium { border-left-color: #9A6B3C; }
+  .band-medium-coarse { border-left-color: #C0955F; }
+  .band-coarse { border-left-color: #DDBE92; }
+
+  .band-head { margin-bottom: 0.75rem; }
+
+  .band-head h3 {
+    font-family: var(--font-serif);
+    font-size: 1.08rem;
+    color: var(--text-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .band-feel {
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .band-methods { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+
+  .band-methods li { font-size: 0.88rem; color: var(--text-muted); }
+  .band-empty { color: var(--text-light); }
+
+  /* ── Table ── */
+  .table-scroll { overflow-x: auto; }
+
+  table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.92rem; }
+
+  th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--text-muted);
+    font-weight: 400;
+    padding: 0 1rem 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 0.85rem 1rem 0.85rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+  }
+
+  .td-method { color: var(--text-dark); }
+  .td-grind { color: var(--text-dark); }
+  .td-ratio { font-family: var(--font-mono); color: var(--amber); font-variant-numeric: tabular-nums; }
+
+  /* ── Adjusting ── */
+  .adjust-intro {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 36rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .adjust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 0.875rem;
+  }
+
+  .adjust-card {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .adjust-badge {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  .adjust-sour { color: #2563EB; background: rgba(59,130,246,0.12); }
+  .adjust-bitter { color: #B91C1C; background: rgba(220,38,38,0.12); }
+  .adjust-flat { color: var(--amber); background: rgba(196,123,48,0.12); }
+
+  .adjust-card p { font-size: 0.88rem; line-height: 1.65; color: var(--text-muted); margin: 0; }
+  .adjust-card strong { color: var(--text-dark); font-weight: 600; }
+
+  @media (max-width: 720px) {
+    .chart { padding: 1.25rem; border-radius: 16px; }
+    /* Pins would collide at narrow widths — stack them into a plain list. */
+    .pin { padding-left: 0; }
+    .pin-dot { position: static; margin-left: 0; flex-shrink: 0; }
+    .pin-label { margin-left: 0.5rem; }
+    .pins { gap: 0.5rem; }
+  }
+</style>

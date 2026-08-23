@@ -1,0 +1,536 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import { EY } from '../../data/brewMethods';
+
+const cfg = { sweetLow: EY.sweetLow, sweetHigh: EY.sweetHigh, scaleMin: EY.scaleMin, scaleMax: EY.scaleMax, tds: EY.tds };
+---
+
+<ToolLayout
+  title="Extraction Yield Calculator"
+  description="Free extraction yield (EY%) calculator. Enter your dose, beverage weight, and refractometer TDS% to see whether your coffee landed in the 18–22% sweet spot — with filter and espresso modes."
+  headline="Extraction Yield <em>Calculator</em>"
+  subtitle="A refractometer tells you TDS. This turns that into extraction yield — the number that actually says whether you pulled enough flavour out of the grounds."
+  slug="extraction-yield-calculator"
+  relatedGuides={[
+    { slug: 'extraction-yield-guide', label: 'What extraction yield and TDS actually mean' },
+    { slug: 'coffee-to-water-ratio', label: 'How brew ratio changes strength vs. extraction' },
+    { slug: 'coffee-grind-size-chart', label: 'Using grind size to move your extraction' },
+  ]}
+>
+  <div class="ey" data-cfg={JSON.stringify(cfg)}>
+    <!-- Mode -->
+    <div class="modes" role="radiogroup" aria-label="Brew type">
+      <button type="button" class="mode" role="radio" aria-checked="true" data-mode="filter">
+        <span aria-hidden="true">☕</span> Filter
+      </button>
+      <button type="button" class="mode" role="radio" aria-checked="false" data-mode="espresso">
+        <span aria-hidden="true">⚡</span> Espresso
+      </button>
+    </div>
+
+    <!-- Inputs -->
+    <div class="fields">
+      <div class="field">
+        <label for="dose">Dose <span class="sub">dry coffee</span></label>
+        <div class="row"><input type="number" id="dose" value="18" min="0" max="500" step="0.1" inputmode="decimal" /><span class="unit">g</span></div>
+      </div>
+      <div class="field">
+        <label for="bev" id="bev-label">Beverage <span class="sub">in the cup</span></label>
+        <div class="row"><input type="number" id="bev" value="290" min="0" max="2000" step="1" inputmode="decimal" /><span class="unit">g</span></div>
+      </div>
+      <div class="field">
+        <label for="tds">TDS <span class="sub">refractometer</span></label>
+        <div class="row"><input type="number" id="tds" value="1.35" min="0" max="5" step="0.01" inputmode="decimal" /><span class="unit">%</span></div>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="result">
+      <div class="result-head">
+        <div>
+          <span class="result-key">Extraction yield</span>
+          <output class="result-value" id="ey-value" for="dose bev tds">21.8%</output>
+        </div>
+        <span class="zone" id="zone">Sweet spot</span>
+      </div>
+
+      <div class="scale" aria-hidden="true">
+        <div class="scale-track">
+          <div class="scale-sweet" id="scale-sweet"></div>
+          <div class="scale-marker" id="scale-marker"></div>
+        </div>
+        <div class="scale-ends">
+          <span>{EY.scaleMin}%</span>
+          <span class="scale-mid">{EY.sweetLow}–{EY.sweetHigh}% ideal</span>
+          <span>{EY.scaleMax}%</span>
+        </div>
+      </div>
+
+      <p class="advice" id="advice">Perfect extraction — enjoy your cup.</p>
+
+      <p class="tds-note">
+        TDS reading <strong id="tds-echo">1.35%</strong> · <span id="tds-verdict">ideal</span>
+        <span class="tds-range" id="tds-range">(filter: 1.0–1.8%)</span>
+      </p>
+    </div>
+
+    <p class="formula">
+      <span class="formula-key">Formula</span>
+      EY% = TDS% × beverage weight ÷ dose
+    </p>
+  </div>
+
+  <section class="reference">
+    <h2 class="ref-heading">Reading the numbers</h2>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <span class="ref-badge ref-under">Under 18%</span>
+        <h3>Under-extracted</h3>
+        <p>Sour, thin, and it finishes fast. You've pulled the fast-dissolving acids and left the sugars behind. Grind finer, brew hotter, or extend the time.</p>
+      </div>
+      <div class="ref-card">
+        <span class="ref-badge ref-sweet">18–22%</span>
+        <h3>The sweet spot</h3>
+        <p>Where sweetness, acidity, and body balance out. The SCA's target range, and where most well-dialled coffee lands regardless of method.</p>
+      </div>
+      <div class="ref-card">
+        <span class="ref-badge ref-over">Over 22%</span>
+        <h3>Over-extracted</h3>
+        <p>Bitter, drying, hollow. You've gone past the good compounds into the harsh ones. Grind coarser, drop the temperature, or cut the time.</p>
+      </div>
+    </div>
+
+    <h2 class="ref-heading ref-heading-2">Typical TDS by brew type</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Brew type</th><th>Typical TDS</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Filter / pour-over</td>
+            <td class="num">{EY.tds.filter.min}–{EY.tds.filter.max}%</td>
+            <td class="num">18g → 290g at 1.35% = 21.8% EY</td>
+          </tr>
+          <tr>
+            <td>Espresso</td>
+            <td class="num">{EY.tds.espresso.min}–{EY.tds.espresso.max}%</td>
+            <td class="num">18g → 36g at 9.5% = 19.0% EY</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ref-foot">
+      You need a refractometer for TDS — it isn't something you can eyeball. Without one, the
+      taste-based approach in the extraction guide gets you most of the way there.
+    </p>
+  </section>
+</ToolLayout>
+
+<script>
+  interface Cfg {
+    sweetLow: number; sweetHigh: number; scaleMin: number; scaleMax: number;
+    tds: Record<'filter' | 'espresso', { min: number; max: number; typical: number; inputMax: number; bevMax: number }>;
+  }
+
+  const root = document.querySelector<HTMLElement>('.ey');
+  if (root) {
+    const cfg: Cfg = JSON.parse(root.dataset.cfg || '{}');
+
+    const modes = [...root.querySelectorAll<HTMLButtonElement>('.mode')];
+    const dose = root.querySelector<HTMLInputElement>('#dose')!;
+    const bev = root.querySelector<HTMLInputElement>('#bev')!;
+    const tds = root.querySelector<HTMLInputElement>('#tds')!;
+    const bevLabel = root.querySelector<HTMLElement>('#bev-label')!;
+    const eyValue = root.querySelector<HTMLElement>('#ey-value')!;
+    const zone = root.querySelector<HTMLElement>('#zone')!;
+    const marker = root.querySelector<HTMLElement>('#scale-marker')!;
+    const sweet = root.querySelector<HTMLElement>('#scale-sweet')!;
+    const advice = root.querySelector<HTMLElement>('#advice')!;
+    const tdsEcho = root.querySelector<HTMLElement>('#tds-echo')!;
+    const tdsVerdict = root.querySelector<HTMLElement>('#tds-verdict')!;
+    const tdsRange = root.querySelector<HTMLElement>('#tds-range')!;
+
+    let mode: 'filter' | 'espresso' = 'filter';
+
+    // Sweet-spot band position on the 10–30% scale.
+    const span = cfg.scaleMax - cfg.scaleMin;
+    sweet.style.left = `${((cfg.sweetLow - cfg.scaleMin) / span) * 100}%`;
+    sweet.style.width = `${((cfg.sweetHigh - cfg.sweetLow) / span) * 100}%`;
+
+    const clamp = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, n));
+
+    const ADVICE = {
+      under: {
+        filter: 'Grind finer, raise water temp, or brew longer to extract more.',
+        espresso: 'Grind finer, increase dose, or raise temperature to extract more.',
+      },
+      sweet: {
+        filter: 'Perfect extraction — enjoy your cup.',
+        espresso: 'Perfect extraction — enjoy your shot.',
+      },
+      over: {
+        filter: 'Grind coarser, lower water temp, or reduce brew time.',
+        espresso: 'Grind coarser, reduce dose, or lower temperature to extract less.',
+      },
+    };
+
+    function setMode(next: 'filter' | 'espresso') {
+      mode = next;
+      const t = cfg.tds[mode];
+      modes.forEach((m) => m.setAttribute('aria-checked', m.dataset.mode === next ? 'true' : 'false'));
+      bevLabel.innerHTML = mode === 'espresso'
+        ? 'Yield <span class="sub">liquid out</span>'
+        : 'Beverage <span class="sub">in the cup</span>';
+      tds.max = String(t.inputMax);
+      bev.max = String(t.bevMax);
+      tds.value = String(t.typical);
+      bev.value = mode === 'espresso' ? '36' : '290';
+      dose.value = '18';
+      tdsRange.textContent = `(${mode}: ${t.min}–${t.max}%)`;
+      render();
+    }
+
+    function render() {
+      const d = clamp(parseFloat(dose.value) || 0, 0, 500);
+      const b = clamp(parseFloat(bev.value) || 0, 0, cfg.tds[mode].bevMax);
+      const t = clamp(parseFloat(tds.value) || 0, 0, cfg.tds[mode].inputMax);
+
+      const ey = d > 0 && b > 0 && t > 0 ? (t / 100) * b / d * 100 : null;
+
+      if (ey === null) {
+        eyValue.textContent = '—';
+        zone.textContent = '';
+        zone.className = 'zone';
+        advice.textContent = 'Enter your dose, beverage weight, and TDS to see the yield.';
+        marker.style.left = '0%';
+        marker.style.opacity = '0';
+      } else {
+        eyValue.textContent = `${ey.toFixed(1)}%`;
+        marker.style.opacity = '1';
+        marker.style.left = `${clamp((ey - cfg.scaleMin) / span, 0, 1) * 100}%`;
+
+        let key: 'under' | 'sweet' | 'over';
+        if (ey < cfg.sweetLow) key = 'under';
+        else if (ey <= cfg.sweetHigh) key = 'sweet';
+        else key = 'over';
+
+        zone.textContent = key === 'under' ? 'Under-extracted' : key === 'sweet' ? 'Sweet spot' : 'Over-extracted';
+        zone.className = `zone zone-${key}`;
+        advice.textContent = ADVICE[key][mode];
+      }
+
+      const range = cfg.tds[mode];
+      tdsEcho.textContent = `${t.toFixed(2)}%`;
+      if (t <= 0) tdsVerdict.textContent = '—';
+      else if (t < range.min) tdsVerdict.textContent = 'weak';
+      else if (t > range.max) tdsVerdict.textContent = 'strong';
+      else tdsVerdict.textContent = 'ideal';
+    }
+
+    modes.forEach((m) => m.addEventListener('click', () => setMode(m.dataset.mode as 'filter' | 'espresso')));
+    [dose, bev, tds].forEach((el) => el.addEventListener('input', render));
+
+    render();
+  }
+</script>
+
+<style>
+  .ey {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* ── Mode toggle ── */
+  .modes {
+    display: inline-flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    background: var(--cream);
+    border-radius: 100px;
+    align-self: flex-start;
+  }
+
+  .mode {
+    font-family: var(--font-sans);
+    font-size: 0.86rem;
+    padding: 0.5rem 1.1rem;
+    border: none;
+    border-radius: 100px;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .mode:hover { color: var(--text-dark); }
+  .mode:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .mode[aria-checked='true'] { background: var(--dark); color: var(--cream); font-weight: 500; }
+
+  /* ── Fields ── */
+  .fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; }
+
+  .field label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .field .sub { color: var(--text-light); text-transform: none; letter-spacing: 0; }
+
+  .row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .row input {
+    width: 100%;
+    min-width: 0;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-variant-numeric: tabular-nums;
+    -moz-appearance: textfield;
+  }
+
+  .row input::-webkit-outer-spin-button,
+  .row input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .row input:focus { outline: none; }
+  .row input:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; border-radius: 4px; }
+
+  .unit { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
+
+  /* ── Result ── */
+  .result {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .result-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .result-key {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: rgba(250,247,242,0.45);
+    margin-bottom: 0.2rem;
+  }
+
+  .result-value {
+    font-family: var(--font-serif);
+    font-size: clamp(2.3rem, 7vw, 3rem);
+    line-height: 1;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .zone {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 100px;
+    color: rgba(250,247,242,0.6);
+    background: rgba(250,247,242,0.08);
+    white-space: nowrap;
+  }
+
+  .zone-under { color: #7FB3F5; background: rgba(59,130,246,0.16); }
+  .zone-sweet { color: #6FD79B; background: rgba(22,163,74,0.18); }
+  .zone-over  { color: #F08C7F; background: rgba(220,38,38,0.18); }
+
+  /* ── Scale ── */
+  .scale { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .scale-track {
+    position: relative;
+    height: 8px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #3B82F6 0%, #16A34A 40%, #16A34A 60%, #DC2626 100%);
+    opacity: 0.85;
+  }
+
+  .scale-sweet {
+    position: absolute;
+    top: -3px; bottom: -3px;
+    border: 1.5px solid rgba(250,247,242,0.5);
+    border-radius: 100px;
+  }
+
+  .scale-marker {
+    position: absolute;
+    top: 50%;
+    width: 16px; height: 16px;
+    margin-left: -8px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 3px solid var(--dark);
+    transform: translateY(-50%);
+    transition: left 0.2s ease, opacity 0.2s;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  }
+
+  .scale-ends {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: rgba(250,247,242,0.4);
+  }
+
+  .scale-mid { color: rgba(250,247,242,0.6); }
+
+  .advice { font-size: 0.95rem; color: rgba(250,247,242,0.75); line-height: 1.65; margin: 0; }
+
+  .tds-note {
+    font-size: 0.82rem;
+    color: rgba(250,247,242,0.45);
+    margin: 0;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border-dark);
+  }
+
+  .tds-note strong { color: rgba(250,247,242,0.8); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .tds-range { color: rgba(250,247,242,0.3); }
+
+  .formula {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding: 0.85rem 1.1rem;
+    background: rgba(196,123,48,0.07);
+    border-radius: 12px;
+    margin: 0;
+  }
+
+  .formula-key {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--amber);
+  }
+
+  /* ── Reference ── */
+  .reference { margin-top: 3.5rem; }
+
+  .ref-heading {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .ref-heading-2 { margin-top: 3rem; }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 0.875rem;
+  }
+
+  .ref-card {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ref-badge {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  .ref-under { color: #2563EB; background: rgba(59,130,246,0.12); }
+  .ref-sweet { color: #15803D; background: rgba(22,163,74,0.12); }
+  .ref-over  { color: #B91C1C; background: rgba(220,38,38,0.12); }
+
+  .ref-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.08rem;
+    color: var(--text-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .ref-card p { font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); margin: 0; }
+
+  .table-scroll { overflow-x: auto; }
+
+  table { border-collapse: collapse; width: 100%; min-width: 30rem; font-size: 0.92rem; }
+
+  th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--text-muted);
+    font-weight: 400;
+    padding: 0 1rem 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 0.85rem 1rem 0.85rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+  }
+
+  td:first-child { color: var(--text-dark); }
+  .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  .ref-foot {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-top: 1.25rem;
+    max-width: 36rem;
+  }
+
+  @media (max-width: 640px) {
+    .ey { padding: 1.25rem; border-radius: 16px; }
+    .fields { grid-template-columns: 1fr; }
+    .result { padding: 1.25rem; }
+  }
+</style>

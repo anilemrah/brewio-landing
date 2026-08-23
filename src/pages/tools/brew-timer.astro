@@ -1,0 +1,592 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import { BREW_METHODS, totalTime } from '../../data/brewMethods';
+
+const methods = BREW_METHODS;
+const methodData = methods.map((m) => ({
+  id: m.id,
+  name: m.name,
+  ratio: m.defaultRatio,
+  basis: m.ratioBasis,
+  grindSize: m.grindSize,
+  steps: m.steps,
+}));
+
+const fmt = (s: number) => {
+  const min = Math.floor(s / 60);
+  const sec = s % 60;
+  return min > 0 ? `${min}m ${sec ? `${sec}s` : ''}`.trim() : `${sec}s`;
+};
+---
+
+<ToolLayout
+  title="Brew Timer"
+  description="A free step-by-step coffee brew timer for 12 methods — V60, AeroPress, Chemex, French press, moka pot, espresso, cold brew, Turkish and more. Real timings and technique for each stage, running in your browser."
+  headline="Brew <em>Timer</em>"
+  subtitle="Pick a method and follow it stage by stage. Same timings and technique notes as the Brewio app — no install, no signup, nothing to dismiss."
+  slug="brew-timer"
+  relatedGuides={[
+    { slug: 'how-to-brew-v60', label: 'The full V60 walkthrough, pour by pour' },
+    { slug: 'aeropress-recipes', label: 'Three AeroPress recipes worth timing' },
+    { slug: 'french-press-guide', label: 'French press: why four minutes, and what next' },
+  ]}
+>
+  <div class="timer" data-methods={JSON.stringify(methodData)}>
+    <div class="picker">
+      <label class="picker-label" for="method-select">Brew method</label>
+      <div class="chips" role="radiogroup" aria-label="Brew method">
+        {methods.map((m, i) => (
+          <button type="button" class="chip" role="radio" aria-checked={i === 0 ? 'true' : 'false'} data-method={m.id}>
+            <span class="chip-emoji" aria-hidden="true">{m.emoji}</span>
+            {m.name}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2 class="panel-title" id="method-name">V60 Pour Over</h2>
+          <p class="panel-meta" id="method-meta">6 steps · 1:15 · Medium-Fine</p>
+        </div>
+        <div class="clock-wrap">
+          <output class="clock" id="clock" for="method-select">0:00</output>
+          <span class="clock-key" id="clock-key">Step timer</span>
+        </div>
+      </div>
+
+      <div class="progress" aria-hidden="true"><div class="progress-fill" id="progress"></div></div>
+
+      <div class="current">
+        <span class="current-index" id="step-index">Step 1 of 6</span>
+        <h3 class="current-label" id="step-label">Rinse &amp; preheat</h3>
+        <p class="current-note" id="step-note">Rinse the filter with hot water, then discard the water.</p>
+      </div>
+
+      <div class="controls">
+        <button type="button" class="btn btn-ghost" id="prev">‹ Back</button>
+        <button type="button" class="btn btn-primary" id="play">Start</button>
+        <button type="button" class="btn btn-ghost" id="next">Next ›</button>
+      </div>
+      <button type="button" class="reset" id="reset">Reset</button>
+    </div>
+
+    <!-- Full step list, always rendered so it is crawlable and useful without JS -->
+    <ol class="steps" id="steps"></ol>
+  </div>
+
+  <!-- Static per-method recipes: the real SEO payload on this page -->
+  <section class="recipes">
+    <h2 class="section-heading">Every method, step by step</h2>
+    <p class="section-note">
+      The full sequence for all 12 methods, with the timing for each stage. These are the same
+      recipes the app runs.
+    </p>
+
+    {methods.map((m) => (
+      <article class="recipe">
+        <header class="recipe-head">
+          <h3><span aria-hidden="true">{m.emoji}</span> {m.name}</h3>
+          <span class="recipe-meta">
+            1:{m.defaultRatio} · {m.grindSize}
+            {totalTime(m) > 0 && <> · {fmt(totalTime(m))} timed</>}
+          </span>
+        </header>
+        <ol class="recipe-steps">
+          {m.steps.map((s) => (
+            <li>
+              <span class="rs-label">
+                {s.label}
+                {s.duration > 0 && <span class="rs-time">{fmt(s.duration)}</span>}
+              </span>
+              <span class="rs-note">{s.note}</span>
+            </li>
+          ))}
+        </ol>
+      </article>
+    ))}
+  </section>
+</ToolLayout>
+
+<script>
+  interface Step { label: string; note: string; duration: number }
+  interface MethodData {
+    id: string; name: string; ratio: number;
+    basis: 'water' | 'liquid'; grindSize: string; steps: Step[];
+  }
+
+  const root = document.querySelector<HTMLElement>('.timer');
+  if (root) {
+    const methods: MethodData[] = JSON.parse(root.dataset.methods || '[]');
+
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('.chip')];
+    const nameEl = root.querySelector<HTMLElement>('#method-name')!;
+    const metaEl = root.querySelector<HTMLElement>('#method-meta')!;
+    const clock = root.querySelector<HTMLElement>('#clock')!;
+    const clockKey = root.querySelector<HTMLElement>('#clock-key')!;
+    const progress = root.querySelector<HTMLElement>('#progress')!;
+    const idxEl = root.querySelector<HTMLElement>('#step-index')!;
+    const labelEl = root.querySelector<HTMLElement>('#step-label')!;
+    const noteEl = root.querySelector<HTMLElement>('#step-note')!;
+    const playBtn = root.querySelector<HTMLButtonElement>('#play')!;
+    const prevBtn = root.querySelector<HTMLButtonElement>('#prev')!;
+    const nextBtn = root.querySelector<HTMLButtonElement>('#next')!;
+    const resetBtn = root.querySelector<HTMLButtonElement>('#reset')!;
+    const stepsEl = root.querySelector<HTMLOListElement>('#steps')!;
+
+    let method = methods[0];
+    let stepIdx = 0;
+    let remaining = 0;
+    let running = false;
+    let ticker: number | undefined;
+
+    const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.max(0, s) % 60).padStart(2, '0')}`;
+
+    function stopTicker() {
+      if (ticker !== undefined) { clearInterval(ticker); ticker = undefined; }
+    }
+
+    function beep() {
+      try {
+        const Ctx = window.AudioContext || (window as any).webkitAudioContext;
+        if (!Ctx) return;
+        const ctx = new Ctx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain); gain.connect(ctx.destination);
+        osc.frequency.value = 880;
+        gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.15, ctx.currentTime + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.45);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.5);
+        osc.onended = () => ctx.close();
+      } catch { /* audio blocked — the visual state is enough */ }
+    }
+
+    function renderSteps() {
+      stepsEl.innerHTML = '';
+      method.steps.forEach((s, i) => {
+        const li = document.createElement('li');
+        li.className = 'step' + (i === stepIdx ? ' step-active' : '') + (i < stepIdx ? ' step-done' : '');
+        li.innerHTML =
+          `<span class="step-num">${i + 1}</span>` +
+          `<span class="step-body"><span class="step-label">${s.label}` +
+          (s.duration > 0 ? `<span class="step-time">${mmss(s.duration)}</span>` : '') +
+          `</span><span class="step-note">${s.note}</span></span>`;
+        li.addEventListener('click', () => goTo(i));
+        stepsEl.appendChild(li);
+      });
+    }
+
+    function renderStep() {
+      const s = method.steps[stepIdx];
+      idxEl.textContent = `Step ${stepIdx + 1} of ${method.steps.length}`;
+      labelEl.textContent = s.label;
+      noteEl.textContent = s.note;
+
+      if (s.duration > 0) {
+        clock.textContent = mmss(remaining);
+        clockKey.textContent = running ? 'Counting down' : 'Step timer';
+        progress.style.width = `${((s.duration - remaining) / s.duration) * 100}%`;
+        playBtn.disabled = false;
+        playBtn.textContent = running ? 'Pause' : remaining === 0 ? 'Restart' : 'Start';
+      } else {
+        clock.textContent = '—';
+        clockKey.textContent = 'Untimed step';
+        progress.style.width = '0%';
+        playBtn.disabled = true;
+        playBtn.textContent = 'Start';
+      }
+
+      prevBtn.disabled = stepIdx === 0;
+      nextBtn.disabled = stepIdx === method.steps.length - 1;
+      renderSteps();
+    }
+
+    function goTo(i: number) {
+      stopTicker();
+      running = false;
+      stepIdx = Math.min(Math.max(0, i), method.steps.length - 1);
+      remaining = method.steps[stepIdx].duration;
+      renderStep();
+    }
+
+    function tick() {
+      remaining -= 1;
+      if (remaining <= 0) {
+        remaining = 0;
+        running = false;
+        stopTicker();
+        beep();
+        renderStep();
+        // Advance automatically if there is a next step.
+        if (stepIdx < method.steps.length - 1) {
+          window.setTimeout(() => goTo(stepIdx + 1), 900);
+        }
+        return;
+      }
+      renderStep();
+    }
+
+    function toggle() {
+      const s = method.steps[stepIdx];
+      if (s.duration === 0) return;
+      if (running) {
+        running = false;
+        stopTicker();
+      } else {
+        if (remaining === 0) remaining = s.duration;
+        running = true;
+        ticker = window.setInterval(tick, 1000);
+      }
+      renderStep();
+    }
+
+    function selectMethod(id: string) {
+      const m = methods.find((x) => x.id === id);
+      if (!m) return;
+      method = m;
+      chips.forEach((c) => c.setAttribute('aria-checked', c.dataset.method === id ? 'true' : 'false'));
+      nameEl.textContent = m.name;
+      const timed = m.steps.filter((s) => s.duration > 0).length;
+      metaEl.textContent =
+        `${m.steps.length} steps · 1:${m.ratio} · ${m.grindSize}` + (timed ? ` · ${timed} timed` : '');
+      goTo(0);
+    }
+
+    chips.forEach((c) => c.addEventListener('click', () => selectMethod(c.dataset.method!)));
+    playBtn.addEventListener('click', toggle);
+    prevBtn.addEventListener('click', () => goTo(stepIdx - 1));
+    nextBtn.addEventListener('click', () => goTo(stepIdx + 1));
+    resetBtn.addEventListener('click', () => goTo(0));
+
+    selectMethod(methods[0].id);
+  }
+</script>
+
+<style>
+  .timer { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .picker-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+
+  .chip:hover { border-color: var(--amber); color: var(--text-dark); }
+  .chip:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .chip[aria-checked='true'] { background: var(--amber); border-color: var(--amber); color: #fff; font-weight: 500; }
+  .chip-emoji { font-size: 0.9rem; }
+
+  /* ── Panel ── */
+  .panel {
+    background: var(--dark);
+    border-radius: 20px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .panel-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .panel-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+  }
+
+  .panel-meta {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(250,247,242,0.4);
+    margin-top: 0.3rem;
+  }
+
+  .clock-wrap { text-align: right; }
+
+  .clock {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    line-height: 1;
+    color: var(--amber);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .clock-key {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: rgba(250,247,242,0.35);
+  }
+
+  .progress {
+    height: 4px;
+    border-radius: 100px;
+    background: rgba(250,247,242,0.1);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--amber);
+    border-radius: 100px;
+    transition: width 0.9s linear;
+  }
+
+  .current { display: flex; flex-direction: column; gap: 0.35rem; }
+
+  .current-index {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--amber);
+  }
+
+  .current-label {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--cream);
+    letter-spacing: -0.015em;
+  }
+
+  .current-note { font-size: 0.95rem; line-height: 1.65; color: rgba(250,247,242,0.6); margin: 0; }
+
+  .controls { display: flex; gap: 0.5rem; align-items: center; }
+
+  .btn {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.65rem 1.35rem;
+    border-radius: 100px;
+    border: 1px solid var(--border-dark);
+    background: transparent;
+    color: var(--cream);
+    cursor: pointer;
+    transition: border-color 0.15s, opacity 0.15s, background 0.15s;
+  }
+
+  .btn:hover:not(:disabled) { border-color: var(--text-muted); }
+  .btn:focus-visible { outline: 2px solid var(--amber-light); outline-offset: 2px; }
+  .btn:disabled { opacity: 0.35; cursor: default; }
+
+  .btn-primary {
+    flex: 1;
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  .btn-primary:hover:not(:disabled) { opacity: 0.9; border-color: var(--amber); }
+
+  .reset {
+    align-self: center;
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    background: none;
+    border: none;
+    color: rgba(250,247,242,0.35);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .reset:hover { color: rgba(250,247,242,0.6); }
+  .reset:focus-visible { outline: 2px solid var(--amber-light); outline-offset: 2px; border-radius: 4px; }
+
+  /* ── Step list ── */
+  .steps { list-style: none; display: flex; flex-direction: column; gap: 1px; margin: 0; padding: 0; }
+
+  .steps :global(.step) {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0 0.85rem;
+    padding: 0.95rem 1.15rem;
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .steps :global(.step:first-child) { border-radius: 12px 12px 0 0; }
+  .steps :global(.step:last-child) { border-radius: 0 0 12px 12px; }
+  .steps :global(.step:hover) { border-color: var(--amber); }
+
+  .steps :global(.step-num) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.65rem; height: 1.65rem;
+    border-radius: 50%;
+    background: var(--cream);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .steps :global(.step-active) { border-color: var(--amber); background: rgba(196,123,48,0.05); }
+  .steps :global(.step-active .step-num) { background: var(--amber); color: #fff; }
+  .steps :global(.step-done .step-num) { background: var(--border-subtle); color: var(--text-light); }
+
+  .steps :global(.step-body) { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+
+  .steps :global(.step-label) {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  .steps :global(.step-time) {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--amber);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .steps :global(.step-note) { font-size: 0.86rem; line-height: 1.55; color: var(--text-muted); }
+
+  /* ── Static recipes ── */
+  .recipes { margin-top: 3.5rem; }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-note {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 36rem;
+    margin-bottom: 2rem;
+  }
+
+  .recipe { margin-bottom: 2.25rem; }
+
+  .recipe-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.85rem;
+  }
+
+  .recipe-head h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    letter-spacing: -0.015em;
+  }
+
+  .recipe-meta {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .recipe-steps {
+    list-style: none;
+    counter-reset: rs;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .recipe-steps li {
+    counter-increment: rs;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding-left: 1.75rem;
+    position: relative;
+  }
+
+  .recipe-steps li::before {
+    content: counter(rs);
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--amber);
+  }
+
+  .rs-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: 0.94rem;
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  .rs-time {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    color: var(--amber);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rs-note { font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); }
+
+  @media (max-width: 640px) {
+    .panel { padding: 1.25rem; border-radius: 16px; }
+    .panel-head { gap: 0.75rem; }
+    .clock-wrap { text-align: left; }
+    .controls { flex-wrap: wrap; }
+    .btn-primary { order: -1; flex-basis: 100%; }
+  }
+</style>

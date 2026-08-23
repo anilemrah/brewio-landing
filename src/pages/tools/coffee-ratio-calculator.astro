@@ -1,0 +1,488 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import { BREW_METHODS } from '../../data/brewMethods';
+
+const methods = BREW_METHODS;
+const methodData = methods.map((m) => ({
+  id: m.id,
+  name: m.name,
+  ratio: m.defaultRatio,
+  basis: m.ratioBasis,
+  grindSize: m.grindSize,
+  grindHint: m.grindHint,
+}));
+---
+
+<ToolLayout
+  title="Coffee Ratio Calculator"
+  description="Free coffee-to-water ratio calculator for 12 brew methods — V60, AeroPress, French press, Chemex, espresso, cold brew, moka pot, Turkish and more. Enter your coffee or your water and get the other number instantly."
+  headline="Coffee Ratio <em>Calculator</em>"
+  subtitle="Pick a method, type in what you have, and get the number you're missing. Every method carries its own ratio — the one Brewio uses in the app."
+  slug="coffee-ratio-calculator"
+  relatedGuides={[
+    { slug: 'coffee-to-water-ratio', label: 'Why the golden ratio works, and when to break it' },
+    { slug: 'coffee-grind-size-chart', label: 'Matching grind size to your brew method' },
+    { slug: 'extraction-yield-guide', label: 'What ratio actually does to extraction' },
+  ]}
+>
+  <div class="calc" data-methods={JSON.stringify(methodData)}>
+    <!-- Method picker -->
+    <div class="field">
+      <label class="field-label" for="method">Brew method</label>
+      <div class="chips" role="radiogroup" aria-label="Brew method">
+        {methods.map((m, i) => (
+          <button
+            type="button"
+            class="chip"
+            role="radio"
+            aria-checked={i === 0 ? 'true' : 'false'}
+            data-method={m.id}
+          >
+            <span class="chip-emoji" aria-hidden="true">{m.emoji}</span>
+            {m.name}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Ratio readout -->
+    <div class="readout">
+      <div class="ratio-block">
+        <span class="ratio-label" id="ratio-label">V60 Pour Over ratio</span>
+        <output class="ratio-value" id="ratio-value" for="ratio-slider">1:15</output>
+        <span class="ratio-basis" id="ratio-basis">coffee : water</span>
+      </div>
+      <div class="slider-block">
+        <input
+          type="range"
+          id="ratio-slider"
+          min="8"
+          max="20"
+          step="0.5"
+          value="15"
+          aria-label="Ratio strength"
+        />
+        <div class="slider-ends">
+          <span>Stronger</span>
+          <span>Weaker</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="inputs">
+      <div class="input-card">
+        <label class="input-label" for="coffee">Coffee</label>
+        <div class="input-row">
+          <input type="number" id="coffee" value="18" min="0" max="500" step="0.1" inputmode="decimal" />
+          <span class="unit">g</span>
+        </div>
+      </div>
+
+      <div class="input-swap" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>
+      </div>
+
+      <div class="input-card">
+        <label class="input-label" for="water" id="water-label">Water</label>
+        <div class="input-row">
+          <input type="number" id="water" value="270" min="0" max="5000" step="1" inputmode="decimal" />
+          <span class="unit">g</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">
+      Edit either box — the other updates to match the ratio. Water in grams is the same as
+      millilitres, so a scale and a jug agree.
+    </p>
+
+    <!-- Grind reminder -->
+    <div class="grind-note">
+      <span class="grind-key">Grind</span>
+      <span><strong id="grind-size">Medium-Fine</strong> — <span id="grind-hint">Similar to table salt</span></span>
+    </div>
+  </div>
+
+  <!-- Static reference table: crawlable, and useful without JS -->
+  <section class="reference">
+    <h2 class="ref-heading">Ratio reference for every method</h2>
+    <p class="ref-note">
+      Starting points, not rules. Ratio sets strength; grind and time set extraction. If a cup
+      tastes thin, go stronger before you go finer.
+    </p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Ratio</th>
+            <th>Example</th>
+            <th>Grind</th>
+          </tr>
+        </thead>
+        <tbody>
+          {methods.map((m) => {
+            const dose = m.ratioBasis === 'liquid' ? 18 : 15;
+            const out = Math.round(dose * m.defaultRatio);
+            return (
+              <tr>
+                <td class="td-method"><span aria-hidden="true">{m.emoji}</span> {m.name}</td>
+                <td class="td-ratio">1:{m.defaultRatio}</td>
+                <td class="td-example">{dose}g → {out}g {m.ratioBasis === 'liquid' ? 'out' : 'water'}</td>
+                <td class="td-grind">{m.grindSize}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</ToolLayout>
+
+<script>
+  interface MethodData {
+    id: string;
+    name: string;
+    ratio: number;
+    basis: 'water' | 'liquid';
+    grindSize: string;
+    grindHint: string;
+  }
+
+  const root = document.querySelector<HTMLElement>('.calc');
+  if (root) {
+    const methods: MethodData[] = JSON.parse(root.dataset.methods || '[]');
+
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('.chip')];
+    const slider = root.querySelector<HTMLInputElement>('#ratio-slider')!;
+    const coffee = root.querySelector<HTMLInputElement>('#coffee')!;
+    const water = root.querySelector<HTMLInputElement>('#water')!;
+    const ratioValue = root.querySelector<HTMLElement>('#ratio-value')!;
+    const ratioLabel = root.querySelector<HTMLElement>('#ratio-label')!;
+    const ratioBasis = root.querySelector<HTMLElement>('#ratio-basis')!;
+    const waterLabel = root.querySelector<HTMLElement>('#water-label')!;
+    const grindSize = root.querySelector<HTMLElement>('#grind-size')!;
+    const grindHint = root.querySelector<HTMLElement>('#grind-hint')!;
+
+    let current = methods[0];
+    let ratio = current.ratio;
+    let lastEdited: 'coffee' | 'water' = 'coffee';
+
+    const round = (n: number) => Math.round(n * 10) / 10;
+
+    function renderRatio() {
+      ratioValue.textContent = `1:${ratio % 1 === 0 ? ratio : ratio.toFixed(1)}`;
+      ratioLabel.textContent = `${current.name} ratio`;
+      ratioBasis.textContent = current.basis === 'liquid' ? 'coffee : liquid out' : 'coffee : water';
+      waterLabel.textContent = current.basis === 'liquid' ? 'Liquid out' : 'Water';
+      grindSize.textContent = current.grindSize;
+      grindHint.textContent = current.grindHint;
+    }
+
+    function recalc() {
+      if (lastEdited === 'coffee') {
+        const c = parseFloat(coffee.value);
+        water.value = c > 0 ? String(round(c * ratio)) : '';
+      } else {
+        const w = parseFloat(water.value);
+        coffee.value = w > 0 ? String(round(w / ratio)) : '';
+      }
+    }
+
+    function selectMethod(id: string) {
+      const m = methods.find((x) => x.id === id);
+      if (!m) return;
+      current = m;
+      ratio = m.ratio;
+      // Espresso-style ratios live on a much shorter scale than filter ratios.
+      const espressoScale = m.basis === 'liquid';
+      slider.min = espressoScale ? '1.5' : '8';
+      slider.max = espressoScale ? '4' : '20';
+      slider.step = espressoScale ? '0.1' : '0.5';
+      slider.value = String(ratio);
+      chips.forEach((c) => c.setAttribute('aria-checked', c.dataset.method === id ? 'true' : 'false'));
+      // Anchor on the dose when switching methods — "I have 18g, what water do I need?".
+      // Recalculating from a fixed water weight instead gives absurd doses on espresso.
+      lastEdited = 'coffee';
+      renderRatio();
+      recalc();
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => selectMethod(chip.dataset.method!));
+    });
+
+    slider.addEventListener('input', () => {
+      ratio = parseFloat(slider.value);
+      renderRatio();
+      recalc();
+    });
+
+    coffee.addEventListener('input', () => { lastEdited = 'coffee'; recalc(); });
+    water.addEventListener('input', () => { lastEdited = 'water'; recalc(); });
+
+    renderRatio();
+    recalc();
+  }
+</script>
+
+<style>
+  .calc {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .field-label, .input-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  /* ── Method chips ── */
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+
+  .chip:hover { border-color: var(--amber); color: var(--text-dark); }
+  .chip:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  .chip[aria-checked='true'] {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .chip-emoji { font-size: 0.9rem; }
+
+  /* ── Ratio readout ── */
+  .readout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.35rem;
+    background: var(--cream);
+    border-radius: 14px;
+  }
+
+  .ratio-block { display: flex; flex-direction: column; gap: 0.15rem; }
+
+  .ratio-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .ratio-value {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 6vw, 2.9rem);
+    line-height: 1;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ratio-basis {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+  }
+
+  .slider-block { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 100px;
+    background: var(--border);
+    outline: none;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--amber);
+    border: 3px solid #fff;
+    box-shadow: 0 1px 5px rgba(26,23,20,0.25);
+    cursor: pointer;
+  }
+
+  input[type='range']::-moz-range-thumb {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--amber);
+    border: 3px solid #fff;
+    box-shadow: 0 1px 5px rgba(26,23,20,0.25);
+    cursor: pointer;
+  }
+
+  input[type='range']:focus-visible { outline: 2px solid var(--amber); outline-offset: 6px; }
+
+  .slider-ends {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+  }
+
+  /* ── Inputs ── */
+  .inputs {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.85rem;
+    align-items: end;
+  }
+
+  .input-card {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 1rem 1.15rem;
+  }
+
+  .input-row { display: flex; align-items: baseline; gap: 0.3rem; }
+
+  .input-row input {
+    width: 100%;
+    min-width: 0;
+    font-family: var(--font-serif);
+    font-size: 1.9rem;
+    color: var(--text-dark);
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-variant-numeric: tabular-nums;
+    -moz-appearance: textfield;
+  }
+
+  .input-row input::-webkit-outer-spin-button,
+  .input-row input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .input-row input:focus { outline: none; }
+  .input-row input:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; border-radius: 4px; }
+
+  .unit {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .input-swap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px; height: 34px;
+    margin-bottom: 0.9rem;
+    border-radius: 50%;
+    background: var(--cream);
+    color: var(--amber);
+  }
+
+  .input-swap svg { width: 16px; height: 16px; }
+
+  .hint { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+  .grind-note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.1rem;
+    background: rgba(196,123,48,0.07);
+    border-radius: 12px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .grind-key {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--amber);
+  }
+
+  .grind-note strong { color: var(--text-dark); font-weight: 600; }
+
+  /* ── Reference table ── */
+  .reference { margin-top: 3.5rem; }
+
+  .ref-heading {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .ref-note {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 36rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .table-scroll { overflow-x: auto; }
+
+  table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.92rem; }
+
+  th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--text-muted);
+    font-weight: 400;
+    padding: 0 1rem 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 0.85rem 1rem 0.85rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+  }
+
+  .td-method { color: var(--text-dark); }
+  .td-ratio, .td-example { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  .td-ratio { color: var(--amber); }
+
+  @media (max-width: 640px) {
+    .calc { padding: 1.25rem; border-radius: 16px; }
+    .readout { grid-template-columns: 1fr; gap: 1.1rem; }
+    .inputs { grid-template-columns: 1fr; }
+    .input-swap { transform: rotate(90deg); margin: 0 auto; }
+  }
+</style>

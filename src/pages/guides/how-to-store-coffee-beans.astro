@@ -159,6 +159,14 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
   </div>
 </div>
 
+
+<aside class="tool-promo">
+  <a href="/tools/coffee-ratio-calculator/">
+    <span class="tp-label">Get the ratio right too</span>
+    <span class="tp-desc">Fresh beans deserve the right dose — calculate it for any of 12 methods.</span>
+  </a>
+</aside>
+
 </GuideLayout>
 
 <style>
@@ -270,4 +278,30 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
     .tl-period { width: auto; }
     .freeze-rules { grid-template-columns: 1fr; }
   }
+
+  .tool-promo { margin: 2.5rem 0; }
+
+  .tool-promo a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.2rem 1.4rem;
+    background: rgba(196,123,48,0.07);
+    border: 1px solid rgba(196,123,48,0.22);
+    border-radius: 14px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .tool-promo a:hover { border-color: var(--amber); background: rgba(196,123,48,0.11); }
+  .tool-promo a:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  .tool-promo .tp-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--amber);
+  }
+
+  .tool-promo .tp-desc { font-size: 0.92rem; line-height: 1.6; color: var(--text-muted); }
 </style>
