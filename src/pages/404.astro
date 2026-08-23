@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { GUIDES } from '../data/guides';
+
+const suggestions = GUIDES.slice(0, 4);
+---
+
+<Layout
+  title="Page not found — Brewio"
+  description="That page doesn't exist. Browse the Brewio coffee guides or the specialty roaster directory instead."
+  noindex
+>
+  <Nav />
+
+  <section class="nf">
+    <div class="nf-bg" aria-hidden="true">
+      <div class="orb"></div>
+    </div>
+    <div class="nf-inner">
+      <p class="nf-code">404</p>
+      <h1 class="nf-headline">This cup went <em>cold.</em></h1>
+      <p class="nf-sub">
+        The page you're after doesn't exist — it may have moved, or the link may be wrong.
+        Here's where most people are heading.
+      </p>
+
+      <div class="nf-actions">
+        <a href="/guides/" class="nf-btn nf-btn-primary">Browse the guides</a>
+        <a href="/roasters/" class="nf-btn">Find a roaster</a>
+      </div>
+
+      <ul class="nf-list">
+        {suggestions.map((g) => (
+          <li>
+            <a href={`/guides/${g.slug}/`}>
+              <span class="nf-list-title">{g.title}</span>
+              <span class="nf-list-meta">{g.category} · {g.readTime} read</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .nf {
+    position: relative;
+    background: var(--dark);
+    padding: 10rem 2rem 6rem;
+    overflow: hidden;
+  }
+
+  .nf-bg { position: absolute; inset: 0; pointer-events: none; }
+
+  .orb {
+    position: absolute;
+    top: -220px;
+    right: -120px;
+    width: 620px;
+    height: 620px;
+    border-radius: 50%;
+    filter: blur(100px);
+    background: radial-gradient(circle, rgba(196,123,48,0.12) 0%, transparent 70%);
+  }
+
+  .nf-inner {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .nf-code {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+  }
+
+  .nf-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    color: var(--cream);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  .nf-headline em { color: var(--amber); font-style: italic; }
+
+  .nf-sub {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(250,247,242,0.55);
+    max-width: 30rem;
+    margin: 0 auto 2rem;
+  }
+
+  .nf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .nf-btn {
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 0.7rem 1.5rem;
+    border-radius: 100px;
+    border: 1px solid var(--border-dark);
+    color: var(--cream);
+    transition: border-color 0.2s, opacity 0.2s;
+  }
+
+  .nf-btn:hover { border-color: var(--text-muted); }
+
+  .nf-btn-primary {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--dark);
+  }
+
+  .nf-btn-primary:hover { opacity: 0.9; }
+
+  .nf-btn:focus-visible { outline: 2px solid var(--amber-light); outline-offset: 3px; }
+
+  .nf-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border-top: 1px solid var(--border-dark);
+  }
+
+  .nf-list li { border-bottom: 1px solid var(--border-dark); }
+
+  .nf-list a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1rem 0.25rem;
+    transition: padding-left 0.2s;
+  }
+
+  .nf-list a:hover { padding-left: 0.75rem; }
+  .nf-list a:focus-visible { outline: 2px solid var(--amber); outline-offset: -2px; }
+
+  .nf-list-title { color: var(--cream); font-size: 0.98rem; }
+
+  .nf-list-meta {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 580px) {
+    .nf { padding: 8rem 1.25rem 4rem; }
+    .orb { filter: none; opacity: 0.07; }
+  }
+</style>

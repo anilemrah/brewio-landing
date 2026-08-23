@@ -26,4 +26,4 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
-Sitemap: https://brewio.app/sitemap.xml
+Sitemap: https://brewio.app/sitemap-index.xml

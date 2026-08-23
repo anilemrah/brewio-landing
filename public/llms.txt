@@ -1,25 +1,45 @@
 # Brewio
 
-> Brewio is a free coffee journal app for iOS and Android. It helps coffee lovers log their brews, time pour-overs, calculate ratios, track extraction yield, and discover their perfect cup.
+> Brewio is a free coffee journal app for iOS. It helps coffee lovers log their brews, time pour-overs, calculate ratios, track extraction yield, and discover their perfect cup.
 
 ## About
-Brewio is built for the curious coffee drinker who wants more than just caffeine. Whether you pull espresso or brew V60, Brewio gives you the tools to dial in your craft and remember every great cup.
+Brewio is built for the curious coffee drinker who wants more than just caffeine. Whether you pull espresso or brew V60, Brewio gives you the tools to dial in your craft and remember every great cup. Made by Fjord Labs AB, Sweden.
 
 ## Key Features
 - Coffee brew journal — log every brew with method, bean, dose, ratio, and tasting notes
-- 12 brew method guides — V60, Espresso, Chemex, AeroPress, French Press, Moka Pot, and more
-- Step-by-step brew timers with alerts for each pour stage
-- Coffee-to-water ratio calculator
-- Extraction yield (EY%) calculator from TDS%
-- Grind size guide per brew method
-- Bean stash — track your coffee inventory
-- Streak tracking and personal stats
+- 12 brew methods with step-by-step timers — V60, Espresso, Chemex, AeroPress, French Press, Moka Pot, Cold Brew, Kalita Wave, Siphon, Drip, Ibrik/Cezve, and Freddo Espresso
+- Coffee-to-water ratio calculator per method
+- Extraction yield (EY%) calculator from TDS%, for filter and espresso
+- Grind size guidance per brew method
+- Dial-in advice — diagnoses sour, bitter, or flat cups and suggests corrections
+- Bean stash — track roast dates, freshness windows, and remaining weight
+- Specialty roaster directory — curated roasters worldwide, filterable by origin and shipping
+- Taste profile, origin map, streaks, badges, and a weekly recap
+- Available in 15 languages
 
 ## Availability
 - Free on iOS: https://apps.apple.com/app/brewio-brew-track/id6762492301
-- Free on Android (Google Play — coming soon)
+- Android: not yet released
+
+## Guides
+- [The Ultimate Coffee-to-Water Ratio Guide](https://brewio.app/guides/coffee-to-water-ratio/)
+- [How to Brew the Perfect V60 Pour Over](https://brewio.app/guides/how-to-brew-v60/)
+- [How to Taste Coffee Like a Pro](https://brewio.app/guides/coffee-tasting-notes/)
+- [AeroPress Brewing: 3 Recipes from Beginner to Advanced](https://brewio.app/guides/aeropress-recipes/)
+- [Understanding Extraction Yield & TDS](https://brewio.app/guides/extraction-yield-guide/)
+- [How to Make Cold Brew Coffee at Home](https://brewio.app/guides/cold-brew-coffee/)
+- [Coffee Grind Size Chart: The Complete Guide](https://brewio.app/guides/coffee-grind-size-chart/)
+- [How to Make French Press Coffee](https://brewio.app/guides/french-press-guide/)
+- [Espresso for Beginners: Everything You Need to Know](https://brewio.app/guides/espresso-for-beginners/)
+- [How Much Caffeine Is in Coffee?](https://brewio.app/guides/caffeine-in-coffee/)
+- [Arabica vs. Robusta: What's the Difference?](https://brewio.app/guides/arabica-vs-robusta/)
+- [How to Store Coffee Beans (And Keep Them Fresh)](https://brewio.app/guides/how-to-store-coffee-beans/)
+- [What is Specialty Coffee?](https://brewio.app/guides/what-is-specialty-coffee/)
+- [Mushroom Coffee: Is It Worth It?](https://brewio.app/guides/mushroom-coffee/)
 
 ## Pages
-- [Home](https://brewio.app/): Landing page with full feature overview and app download links
-- [Privacy Policy](https://brewio.app/privacy): How Brewio handles user data
-- [Terms of Service](https://brewio.app/terms): Terms of use for the Brewio app and website
+- [Home](https://brewio.app/): Feature overview and app download
+- [All guides](https://brewio.app/guides/): Index of every coffee guide
+- [Specialty roasters](https://brewio.app/roasters/): Curated directory of specialty coffee roasters
+- [Privacy Policy](https://brewio.app/privacy/): How Brewio handles user data
+- [Terms of Service](https://brewio.app/terms/): Terms of use for the Brewio app and website

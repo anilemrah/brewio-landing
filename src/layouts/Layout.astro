@@ -1,17 +1,52 @@
 ---
+import { SITE_URL, OG_IMAGE, APP_STORE_URL, ORGANIZATION, GA_MEASUREMENT_ID } from '../data/site';
+
 interface Props {
   title?: string;
   description?: string;
   canonicalUrl?: string;
+  ogType?: 'website' | 'article';
+  publishDate?: string;
+  updatedDate?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown>[];
 }
 
 const {
   title = 'Brewio — Coffee Journal, Brew Timer & Ratio Calculator',
-  description = 'Brewio is the coffee app for curious drinkers. Log brews, time pour-overs, calculate ratios, track extraction yield, and discover your perfect cup. Free on iOS & Android.',
-  canonicalUrl = 'https://brewio.app',
+  description = 'Brewio is the coffee app for curious drinkers. Log brews, time pour-overs, calculate ratios, track extraction yield, and discover your perfect cup. Free on iOS.',
+  canonicalUrl,
+  ogType = 'website',
+  publishDate,
+  updatedDate,
+  noindex = false,
+  schema,
 } = Astro.props;
 
-const ogImage = `${canonicalUrl}/og-image.png`;
+// GitHub Pages 301s the bare path to the trailing-slash URL, so a canonical without
+// the slash points at a redirect. Derive it here rather than trusting each page.
+const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonical = canonicalUrl ?? `${SITE_URL}${path}`;
+
+const defaultSchema = [
+  {
+    '@type': 'MobileApplication',
+    name: 'Brewio',
+    description,
+    url: `${SITE_URL}/`,
+    downloadUrl: APP_STORE_URL,
+    applicationCategory: 'LifestyleApplication',
+    operatingSystem: 'iOS',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: ORGANIZATION,
+  },
+  ORGANIZATION,
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': schema ?? defaultSchema,
+};
 ---
 
 <!doctype html>
@@ -23,37 +58,31 @@ const ogImage = `${canonicalUrl}/og-image.png`;
     <!-- Primary SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="coffee app, brew journal, pour over timer, coffee ratio calculator, extraction yield, coffee log, brewio, brew methods, coffee tracking" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large"} />
+    <link rel="canonical" href={canonical} />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={OG_IMAGE} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Brewio" />
     <meta property="og:locale" content="en_US" />
+    {publishDate && <meta property="article:published_time" content={publishDate} />}
+    {updatedDate && <meta property="article:modified_time" content={updatedDate} />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={OG_IMAGE} />
+    <meta name="twitter:image:alt" content="Brewio — coffee journal, brew timer and ratio calculator" />
 
     <!-- Structured data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "MobileApplication",
-      "name": "Brewio",
-      "description": description,
-      "url": canonicalUrl,
-      "applicationCategory": "LifestyleApplication",
-      "operatingSystem": "iOS, Android",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "120" }
-    })} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64" />
     <link rel="apple-touch-icon" href="/favicon.png" />
@@ -66,6 +95,54 @@ const ogImage = `${canonicalUrl}/og-image.png`;
   </head>
   <body>
     <slot />
+
+    {GA_MEASUREMENT_ID && (
+      <div id="consent" class="consent" hidden>
+        <p class="consent-text">
+          We use Google Analytics to understand which guides people find useful.
+          Nothing is collected unless you agree.
+        </p>
+        <div class="consent-actions">
+          <button type="button" id="consent-decline" class="consent-btn">Decline</button>
+          <button type="button" id="consent-accept" class="consent-btn consent-btn-primary">Accept</button>
+        </div>
+      </div>
+      <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+        (function () {
+          var KEY = 'brewio-consent';
+          var banner = document.getElementById('consent');
+
+          function loadAnalytics() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { window.dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+          }
+
+          function decide(value) {
+            try { localStorage.setItem(KEY, value); } catch (e) {}
+            if (banner) banner.hidden = true;
+            if (value === 'granted') loadAnalytics();
+          }
+
+          var stored = null;
+          try { stored = localStorage.getItem(KEY); } catch (e) {}
+
+          if (stored === 'granted') {
+            loadAnalytics();
+          } else if (stored !== 'denied' && banner) {
+            banner.hidden = false;
+            document.getElementById('consent-accept').addEventListener('click', function () { decide('granted'); });
+            document.getElementById('consent-decline').addEventListener('click', function () { decide('denied'); });
+          }
+        })();
+      </script>
+    )}
   </body>
 </html>
 
@@ -120,5 +197,65 @@ const ogImage = `${canonicalUrl}/og-image.png`;
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  .consent {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 200;
+    max-width: 30rem;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    padding: 1.125rem 1.25rem;
+    background: var(--dark);
+    border: 1px solid var(--border-dark);
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(26, 23, 20, 0.28);
+  }
+
+  .consent[hidden] { display: none; }
+
+  .consent-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  .consent-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .consent-btn {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.5rem 1.125rem;
+    border-radius: 100px;
+    border: 1px solid var(--border-dark);
+    background: transparent;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+  }
+
+  .consent-btn:hover { color: var(--cream); border-color: var(--text-muted); }
+
+  .consent-btn-primary {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--dark);
+  }
+
+  .consent-btn-primary:hover { opacity: 0.9; color: var(--dark); border-color: var(--amber); }
+
+  .consent-btn:focus-visible {
+    outline: 2px solid var(--amber-light);
+    outline-offset: 2px;
   }
 </style>

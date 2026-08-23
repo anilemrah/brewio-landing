@@ -2,6 +2,8 @@
 import Layout from './Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { SITE_URL, OG_IMAGE, ORGANIZATION } from '../data/site';
+import { PUBLISHED, UPDATED, relatedGuides } from '../data/guides';
 
 interface Props {
   title: string;
@@ -10,7 +12,8 @@ interface Props {
   subtitle: string;
   heroAccent?: string;
   readTime: string;
-  publishDate: string;
+  publishDate?: string;
+  updatedDate?: string;
   category: string;
 }
 
@@ -21,14 +24,55 @@ const {
   subtitle,
   heroAccent = 'ratio',
   readTime,
-  publishDate,
+  publishDate = PUBLISHED,
+  updatedDate = UPDATED,
   category,
 } = Astro.props;
 
-const canonicalUrl = `https://brewio.app${Astro.url.pathname}`;
+const slug = Astro.url.pathname.replace(/^\/guides\//, '').replace(/\/$/, '');
+const canonicalUrl = `${SITE_URL}/guides/${slug}/`;
+const related = relatedGuides(slug);
+
+const updatedLabel = new Date(updatedDate).toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const schema = [
+  {
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: OG_IMAGE,
+    datePublished: publishDate,
+    dateModified: updatedDate,
+    author: ORGANIZATION,
+    publisher: ORGANIZATION,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    articleSection: category,
+    inLanguage: 'en',
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: `${SITE_URL}/guides/` },
+      { '@type': 'ListItem', position: 3, name: title, item: canonicalUrl },
+    ],
+  },
+];
 ---
 
-<Layout title={`${title} — Brewio`} description={description} canonicalUrl={canonicalUrl}>
+<Layout
+  title={`${title} — Brewio`}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogType="article"
+  publishDate={publishDate}
+  updatedDate={updatedDate}
+  schema={schema}
+>
   <Nav />
 
   <article class="guide">
@@ -44,6 +88,8 @@ const canonicalUrl = `https://brewio.app${Astro.url.pathname}`;
           <span class="hero-category">{category}</span>
           <span class="hero-dot">·</span>
           <span class="hero-read">{readTime} read</span>
+          <span class="hero-dot">·</span>
+          <time class="hero-read" datetime={updatedDate}>Updated {updatedLabel}</time>
         </div>
         <h1 class="hero-headline" set:html={headline} />
         <p class="hero-subtitle">{subtitle}</p>
@@ -56,13 +102,31 @@ const canonicalUrl = `https://brewio.app${Astro.url.pathname}`;
         <slot />
       </div>
 
+      <!-- Related guides -->
+      {related.length > 0 && (
+        <nav class="related" aria-labelledby="related-heading">
+          <h2 id="related-heading" class="related-heading">Keep reading</h2>
+          <ul class="related-list">
+            {related.map((g) => (
+              <li>
+                <a href={`/guides/${g.slug}/`} class="related-card">
+                  <span class="related-category">{g.category}</span>
+                  <span class="related-title">{g.title}</span>
+                  <span class="related-desc">{g.desc}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+
       <!-- CTA Banner -->
       <aside class="guide-cta">
         <div class="cta-glow" aria-hidden="true"></div>
         <div class="cta-inner">
           <div class="cta-badge">
             <img src="/brewio-logo.png" alt="" class="cta-logo" />
-            Free on iOS & Android
+            Free on iOS
           </div>
           <h3 class="cta-heading">Put this into <em>practice.</em></h3>
           <p class="cta-text">
@@ -72,9 +136,6 @@ const canonicalUrl = `https://brewio.app${Astro.url.pathname}`;
           <div class="cta-badges">
             <a href="https://apps.apple.com/app/brewio-brew-track/id6762492301" class="badge-link" target="_blank" rel="noopener">
               <img src="/badge-app-store.svg" alt="Download on the App Store" class="cta-store-badge" />
-            </a>
-            <a href="#" class="badge-link">
-              <img src="/badge-google-play.png" alt="Get it on Google Play" class="cta-store-badge cta-store-badge-google" />
             </a>
           </div>
         </div>
@@ -233,6 +294,77 @@ const canonicalUrl = `https://brewio.app${Astro.url.pathname}`;
     color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 0.5rem;
+  }
+
+  /* ══════════════════════════════════
+     RELATED GUIDES
+  ══════════════════════════════════ */
+  .related {
+    max-width: 760px;
+    margin: 4.5rem auto 0;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .related-heading {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .related-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.875rem;
+  }
+
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    height: 100%;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .related-card:hover {
+    border-color: var(--amber);
+    transform: translateY(-2px);
+  }
+
+  .related-card:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  .related-category {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+  }
+
+  .related-title {
+    font-family: var(--font-serif);
+    font-size: 1.02rem;
+    line-height: 1.3;
+    color: var(--text-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .related-desc {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--text-muted);
   }
 
   /* ══════════════════════════════════

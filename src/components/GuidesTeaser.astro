@@ -1,27 +1,8 @@
 ---
-const featured = [
-  {
-    slug: 'coffee-to-water-ratio',
-    title: 'Coffee-to-Water Ratio Guide',
-    desc: 'The golden ratio for every brew method — visual charts, dose calculator, and quick reference cards.',
-    category: 'Fundamentals',
-    readTime: '8 min',
-  },
-  {
-    slug: 'espresso-for-beginners',
-    title: 'Espresso for Beginners',
-    desc: 'Your first recipe, essential equipment, how to dial in, and every cafe drink explained.',
-    category: 'Brew Guide',
-    readTime: '10 min',
-  },
-  {
-    slug: 'coffee-grind-size-chart',
-    title: 'Coffee Grind Size Chart',
-    desc: 'A visual reference matching grind size to brew method — plus how to adjust based on taste.',
-    category: 'Fundamentals',
-    readTime: '7 min',
-  },
-];
+import { GUIDES } from '../data/guides';
+
+const FEATURED = ['coffee-to-water-ratio', 'espresso-for-beginners', 'coffee-grind-size-chart'];
+const featured = FEATURED.map((slug) => GUIDES.find((g) => g.slug === slug)!);
 ---
 
 <section class="guides-teaser">
@@ -35,7 +16,7 @@ const featured = [
           you need to get more out of every cup.
         </p>
       </div>
-      <a href="/guides" class="gt-view-all">
+      <a href="/guides/" class="gt-view-all">
         View all guides
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
@@ -43,7 +24,7 @@ const featured = [
 
     <div class="gt-grid">
       {featured.map(g => (
-        <a href={`/guides/${g.slug}`} class="gt-card">
+        <a href={`/guides/${g.slug}/`} class="gt-card">
           <div class="gt-meta">
             <span class="gt-category">{g.category}</span>
             <span class="gt-dot">·</span>
