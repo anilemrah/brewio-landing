@@ -1,0 +1,366 @@
+{
+ "tr": {
+  "meta": {
+   "code": "tr",
+   "hreflang": "tr",
+   "native": "Türkçe",
+   "ogLocale": "tr_TR"
+  },
+  "seo": {
+   "title": "Brewio — Kahve Günlüğü ve Demleme Uygulaması",
+   "desc": "Brewio, kahve tutkunları için bir kahve günlüğü uygulaması. Demlediğin her fincanı kaydet, demleme zamanlayıcısını kullan, kahve su oranını hesapla ve tat profilini keşfet. iOS'ta ücretsiz."
+  },
+  "hero": {
+   "h1": "Her fincanın bir <em>hikâyesi</em> var.",
+   "sub": "Demlediğin kahveleri kaydet, sürelerini tut, oranları hesapla. Kafeinden fazlasını arayan meraklılar için bir kahve günlüğü.",
+   "free": "Ücretsiz · 15 dil · Reklamsız"
+  },
+  "sections": {
+   "features": "Uygulamada neler var",
+   "methods": "Desteklenen demleme yöntemleri"
+  },
+  "hook": "Türk kahvesi için cezve adımları ve süreleri dahil — çoğu kahve uygulamasında bulamayacağın bir şey.",
+  "cta": {
+   "heading": "Bir sonraki fincanı kaydet.",
+   "sub": "Brewio iOS'ta ücretsiz. Reklam yok, hesap zorunluluğu yok."
+  }
+ },
+ "sv": {
+  "meta": {
+   "code": "sv",
+   "hreflang": "sv",
+   "native": "Svenska",
+   "ogLocale": "sv_SE"
+  },
+  "seo": {
+   "title": "Brewio — kaffeapp med bryggdagbok och timer",
+   "desc": "Brewio är en kaffeapp för dig som vill brygga bättre. Logga varje kopp, använd bryggtimern, räkna ut ratio mellan kaffe och vatten och upptäck din smakprofil. Gratis på iOS."
+  },
+  "hero": {
+   "h1": "Varje kopp har en <em>historia.</em>",
+   "sub": "Logga kaffet du brygger, ta tid på bryggningen och räkna ut ration. En kaffedagbok för dig som vill ha mer än bara koffeinet.",
+   "free": "Gratis · 15 språk · Inga annonser"
+  },
+  "sections": {
+   "features": "Det här finns i appen",
+   "methods": "Bryggmetoder som stöds"
+  },
+  "hook": "Cezve och freddo espresso ingår — två metoder du sällan hittar i en bryggapp.",
+  "cta": {
+   "heading": "Logga nästa kopp.",
+   "sub": "Brewio är gratis på iOS. Inga annonser, inget konto som krävs."
+  }
+ },
+ "da": {
+  "meta": {
+   "code": "da",
+   "hreflang": "da",
+   "native": "Dansk",
+   "ogLocale": "da_DK"
+  },
+  "seo": {
+   "title": "Brewio — kaffeapp med bryggedagbog og timer",
+   "desc": "Brewio er en kaffeapp til dig, der vil brygge bedre. Log hver kop, brug bryggetimeren, regn forholdet mellem kaffe og vand ud, og find din smagsprofil. Gratis på iOS."
+  },
+  "hero": {
+   "h1": "Hver kop har en <em>historie.</em>",
+   "sub": "Log kaffen du brygger, tag tid på bryggningen, og regn forholdet ud. En kaffedagbog til dig, der vil have mere end bare koffeinen.",
+   "free": "Gratis · 15 sprog · Ingen reklamer"
+  },
+  "sections": {
+   "features": "Det finder du i appen",
+   "methods": "Understøttede bryggemetoder"
+  },
+  "hook": "Cezve og freddo espresso er med — to metoder, du sjældent finder i en bryggeapp.",
+  "cta": {
+   "heading": "Log den næste kop.",
+   "sub": "Brewio er gratis på iOS. Ingen reklamer, ingen tvungen oprettelse."
+  }
+ },
+ "no": {
+  "meta": {
+   "code": "no",
+   "hreflang": "no",
+   "native": "Norsk",
+   "ogLocale": "nb_NO"
+  },
+  "seo": {
+   "title": "Brewio — kaffeapp med bryggedagbok og timer",
+   "desc": "Brewio er en kaffeapp for deg som vil brygge bedre. Logg hver kopp, bruk bryggetimeren, regn ut forholdet mellom kaffe og vann, og finn smaksprofilen din. Gratis på iOS."
+  },
+  "hero": {
+   "h1": "Hver kopp har en <em>historie.</em>",
+   "sub": "Logg kaffen du brygger, ta tiden på bryggingen og regn ut forholdet. En kaffedagbok for deg som vil ha mer enn bare koffeinet.",
+   "free": "Gratis · 15 språk · Ingen reklame"
+  },
+  "sections": {
+   "features": "Dette finner du i appen",
+   "methods": "Bryggemetoder som støttes"
+  },
+  "hook": "Cezve og freddo espresso er med — to metoder du sjelden finner i en bryggeapp.",
+  "cta": {
+   "heading": "Logg den neste koppen.",
+   "sub": "Brewio er gratis på iOS. Ingen reklame, ingen konto som kreves."
+  }
+ },
+ "fi": {
+  "meta": {
+   "code": "fi",
+   "hreflang": "fi",
+   "native": "Suomi",
+   "ogLocale": "fi_FI"
+  },
+  "seo": {
+   "title": "Brewio — kahvisovellus: kahvipäiväkirja ja ajastin",
+   "desc": "Brewio on kahvisovellus, jolla haudutat parempaa kahvia. Kirjaa jokainen kuppi, käytä haudutusajastinta, laske kahvin ja veden suhde ja löydä makuprofiilisi. Ilmainen iOS-laitteille."
+  },
+  "hero": {
+   "h1": "Jokaisella kupilla on <em>tarina.</em>",
+   "sub": "Kirjaa haudattamasi kahvit, ota aikaa ja laske suhteet. Kahvipäiväkirja niille, jotka haluavat muutakin kuin kofeiinia.",
+   "free": "Ilmainen · 15 kieltä · Ei mainoksia"
+  },
+  "sections": {
+   "features": "Mitä sovelluksesta löytyy",
+   "methods": "Tuetut valmistustavat"
+  },
+  "hook": "Mukana cezve ja freddo espresso — kaksi tapaa, joita harvoin näkee kahvisovelluksissa.",
+  "cta": {
+   "heading": "Kirjaa seuraava kuppi.",
+   "sub": "Brewio on ilmainen iOS-laitteille. Ei mainoksia, ei pakollista tiliä."
+  }
+ },
+ "de": {
+  "meta": {
+   "code": "de",
+   "hreflang": "de",
+   "native": "Deutsch",
+   "ogLocale": "de_DE"
+  },
+  "seo": {
+   "title": "Brewio — Kaffee App mit Brühtagebuch und Timer",
+   "desc": "Brewio ist die Kaffee App für alle, die besser brühen wollen. Jede Tasse protokollieren, Brüh-Timer nutzen, Kaffee-Wasser-Verhältnis berechnen und das eigene Geschmacksprofil entdecken. Kostenlos für iOS."
+  },
+  "hero": {
+   "h1": "Jede Tasse hat eine <em>Geschichte.</em>",
+   "sub": "Protokolliere, was du brühst, stoppe die Zeit und berechne das Verhältnis. Ein Kaffeetagebuch für alle, denen Koffein allein nicht reicht.",
+   "free": "Kostenlos · 15 Sprachen · Werbefrei"
+  },
+  "sections": {
+   "features": "Das steckt in der App",
+   "methods": "Unterstützte Brühmethoden"
+  },
+  "hook": "Cezve und Freddo Espresso sind dabei — zwei Methoden, die in Brüh-Apps fast nie vorkommen.",
+  "cta": {
+   "heading": "Halt die nächste Tasse fest.",
+   "sub": "Brewio ist kostenlos für iOS. Keine Werbung, kein Pflichtkonto."
+  }
+ },
+ "nl": {
+  "meta": {
+   "code": "nl",
+   "hreflang": "nl",
+   "native": "Nederlands",
+   "ogLocale": "nl_NL"
+  },
+  "seo": {
+   "title": "Brewio — koffie app met koffiedagboek en timer",
+   "desc": "Brewio is de koffie app voor wie beter wil zetten. Leg elke kop vast, gebruik de zettimer, bereken de koffie-waterverhouding en ontdek je smaakprofiel. Gratis voor iOS."
+  },
+  "hero": {
+   "h1": "Elke kop heeft een <em>verhaal.</em>",
+   "sub": "Leg vast wat je zet, klok de tijd en bereken de verhouding. Een koffiedagboek voor wie meer wil dan alleen cafeïne.",
+   "free": "Gratis · 15 talen · Geen advertenties"
+  },
+  "sections": {
+   "features": "Dit zit in de app",
+   "methods": "Ondersteunde zetmethodes"
+  },
+  "hook": "Cezve en freddo espresso zitten erbij — twee methodes die je zelden in een koffie-app vindt.",
+  "cta": {
+   "heading": "Leg je volgende kop vast.",
+   "sub": "Brewio is gratis voor iOS. Geen advertenties, geen verplicht account."
+  }
+ },
+ "el": {
+  "meta": {
+   "code": "el",
+   "hreflang": "el",
+   "native": "Ελληνικά",
+   "ogLocale": "el_GR"
+  },
+  "seo": {
+   "title": "Brewio — εφαρμογή για καφέ με ημερολόγιο και χρονόμετρο",
+   "desc": "Το Brewio είναι μια εφαρμογή για καφέ, για όσους θέλουν να φτιάχνουν καλύτερο καφέ. Κατάγραψε κάθε κούπα, χρησιμοποίησε το χρονόμετρο, υπολόγισε την αναλογία καφέ-νερού και βρες το γευστικό σου προφίλ. Δωρεάν για iOS."
+  },
+  "hero": {
+   "h1": "Κάθε κούπα έχει μια <em>ιστορία.</em>",
+   "sub": "Κατάγραψε τι φτιάχνεις, μέτρα τον χρόνο και υπολόγισε τις αναλογίες. Ένα ημερολόγιο καφέ για όσους θέλουν κάτι παραπάνω από την καφεΐνη.",
+   "free": "Δωρεάν · 15 γλώσσες · Χωρίς διαφημίσεις"
+  },
+  "sections": {
+   "features": "Τι θα βρεις στην εφαρμογή",
+   "methods": "Υποστηριζόμενοι τρόποι παρασκευής"
+  },
+  "hook": "Περιλαμβάνει ελληνικό καφέ στο μπρίκι και freddo espresso — δύο τρόποι που σπάνια υπάρχουν σε εφαρμογές καφέ.",
+  "cta": {
+   "heading": "Κατάγραψε την επόμενη κούπα.",
+   "sub": "Το Brewio είναι δωρεάν για iOS. Χωρίς διαφημίσεις, χωρίς υποχρεωτικό λογαριασμό."
+  }
+ },
+ "es": {
+  "meta": {
+   "code": "es",
+   "hreflang": "es",
+   "native": "Español",
+   "ogLocale": "es_ES"
+  },
+  "seo": {
+   "title": "Brewio — app de café con diario y temporizador",
+   "desc": "Brewio es la app de café para quienes quieren preparar mejor café. Registra cada taza, usa el temporizador, calcula la proporción de café y agua y descubre tu perfil de sabor. Gratis en iOS."
+  },
+  "hero": {
+   "h1": "Cada taza tiene una <em>historia.</em>",
+   "sub": "Registra lo que preparas, cronometra la extracción y calcula las proporciones. Un diario de café para quien busca algo más que cafeína.",
+   "free": "Gratis · 15 idiomas · Sin anuncios"
+  },
+  "sections": {
+   "features": "Lo que incluye la app",
+   "methods": "Métodos de preparación compatibles"
+  },
+  "hook": "Incluye cezve y freddo espresso — dos métodos que casi ninguna app de café contempla.",
+  "cta": {
+   "heading": "Registra tu próxima taza.",
+   "sub": "Brewio es gratis en iOS. Sin anuncios y sin cuenta obligatoria."
+  }
+ },
+ "pt": {
+  "meta": {
+   "code": "pt",
+   "hreflang": "pt",
+   "native": "Português",
+   "ogLocale": "pt_PT"
+  },
+  "seo": {
+   "title": "Brewio — app de café com diário e temporizador",
+   "desc": "O Brewio é a app de café para quem quer tirar melhor café. Regista cada chávena, usa o temporizador, calcula a proporção de café e água e descobre o teu perfil de sabor. Grátis em iOS."
+  },
+  "hero": {
+   "h1": "Cada chávena tem uma <em>história.</em>",
+   "sub": "Regista o que preparas, cronometra a extração e calcula as proporções. Um diário de café para quem procura mais do que cafeína.",
+   "free": "Grátis · 15 idiomas · Sem anúncios"
+  },
+  "sections": {
+   "features": "O que traz a app",
+   "methods": "Métodos de preparação suportados"
+  },
+  "hook": "Inclui cezve e freddo espresso — dois métodos que quase nenhuma app de café contempla.",
+  "cta": {
+   "heading": "Regista a próxima chávena.",
+   "sub": "O Brewio é grátis em iOS. Sem anúncios e sem conta obrigatória."
+  }
+ },
+ "fr": {
+  "meta": {
+   "code": "fr",
+   "hreflang": "fr",
+   "native": "Français",
+   "ogLocale": "fr_FR"
+  },
+  "seo": {
+   "title": "Brewio — application café : carnet de dégustation et minuteur",
+   "desc": "Brewio est l'application café pour mieux préparer son café. Note chaque tasse, lance le minuteur, calcule le ratio café-eau et découvre ton profil de goût. Gratuite sur iOS."
+  },
+  "hero": {
+   "h1": "Chaque tasse a son <em>histoire.</em>",
+   "sub": "Note ce que tu prépares, chronomètre l'extraction et calcule les ratios. Un carnet de café pour celles et ceux qui cherchent plus que la caféine.",
+   "free": "Gratuite · 15 langues · Sans publicité"
+  },
+  "sections": {
+   "features": "Ce que contient l'application",
+   "methods": "Méthodes de préparation prises en charge"
+  },
+  "hook": "Cezve et freddo espresso sont inclus — deux méthodes qu'on ne trouve presque jamais dans une application café.",
+  "cta": {
+   "heading": "Note ta prochaine tasse.",
+   "sub": "Brewio est gratuite sur iOS. Sans publicité, sans compte obligatoire."
+  }
+ },
+ "it": {
+  "meta": {
+   "code": "it",
+   "hreflang": "it",
+   "native": "Italiano",
+   "ogLocale": "it_IT"
+  },
+  "seo": {
+   "title": "Brewio — app per il caffè con diario e timer",
+   "desc": "Brewio è l'app per il caffè pensata per chi vuole estrarre meglio. Registra ogni tazza, usa il timer, calcola il rapporto caffè-acqua e scopri il tuo profilo di gusto. Gratis su iOS."
+  },
+  "hero": {
+   "h1": "Ogni tazza ha una <em>storia.</em>",
+   "sub": "Registra quello che prepari, cronometra l'estrazione e calcola i rapporti. Un diario del caffè per chi cerca qualcosa in più della caffeina.",
+   "free": "Gratis · 15 lingue · Senza pubblicità"
+  },
+  "sections": {
+   "features": "Cosa trovi nell'app",
+   "methods": "Metodi di preparazione supportati"
+  },
+  "hook": "Include cezve e freddo espresso — due metodi che quasi nessuna app per il caffè prevede.",
+  "cta": {
+   "heading": "Registra la prossima tazza.",
+   "sub": "Brewio è gratis su iOS. Nessuna pubblicità, nessun account obbligatorio."
+  }
+ },
+ "ja": {
+  "meta": {
+   "code": "ja",
+   "hreflang": "ja",
+   "native": "日本語",
+   "ogLocale": "ja_JP"
+  },
+  "seo": {
+   "title": "Brewio — コーヒー記録アプリ（抽出タイマー・比率計算）",
+   "desc": "Brewioは、もっとおいしく淹れたい人のためのコーヒーアプリです。淹れた一杯を記録し、抽出タイマーを使い、コーヒーと湯量の比率を計算して、自分の好みの傾向を見つけられます。iOSで無料。"
+  },
+  "hero": {
+   "h1": "一杯ごとに<em>物語</em>がある。",
+   "sub": "淹れたコーヒーを記録し、抽出時間を計り、比率を計算する。カフェイン以上のものを求める人のためのコーヒー記録アプリです。",
+   "free": "無料 · 15言語 · 広告なし"
+  },
+  "sections": {
+   "features": "アプリでできること",
+   "methods": "対応している抽出方法"
+  },
+  "hook": "イブリック（ジェズヴェ）とフレドエスプレッソにも対応 — 他のコーヒーアプリではほとんど見かけない2つの淹れ方です。",
+  "cta": {
+   "heading": "次の一杯を記録しよう。",
+   "sub": "BrewioはiOSで無料。広告なし、アカウント登録も不要です。"
+  }
+ },
+ "ko": {
+  "meta": {
+   "code": "ko",
+   "hreflang": "ko",
+   "native": "한국어",
+   "ogLocale": "ko_KR"
+  },
+  "seo": {
+   "title": "Brewio — 커피 기록 앱 (추출 타이머·비율 계산)",
+   "desc": "Brewio는 더 맛있게 내리고 싶은 사람을 위한 커피 앱입니다. 내린 커피를 기록하고, 추출 타이머를 사용하고, 커피와 물의 비율을 계산하고, 나만의 취향을 발견해 보세요. iOS에서 무료."
+  },
+  "hero": {
+   "h1": "모든 잔에는 <em>이야기</em>가 있습니다.",
+   "sub": "내린 커피를 기록하고, 추출 시간을 재고, 비율을 계산하세요. 카페인 그 이상을 찾는 사람을 위한 커피 기록 앱입니다.",
+   "free": "무료 · 15개 언어 · 광고 없음"
+  },
+  "sections": {
+   "features": "앱에 담긴 기능",
+   "methods": "지원하는 추출 방식"
+  },
+  "hook": "이브릭(제즈베)과 프레도 에스프레소까지 지원합니다 — 다른 커피 앱에서는 보기 힘든 두 가지 방식입니다.",
+  "cta": {
+   "heading": "다음 한 잔을 기록하세요.",
+   "sub": "Brewio는 iOS에서 무료입니다. 광고 없고, 계정 가입도 필요 없습니다."
+  }
+ }
+}

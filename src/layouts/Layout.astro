@@ -1,5 +1,6 @@
 ---
 import { SITE_URL, OG_IMAGE, APP_STORE_URL, ORGANIZATION, GA_MEASUREMENT_ID } from '../data/site';
+import locales from '../data/i18n/locales.json';
 
 interface Props {
   title?: string;
@@ -10,6 +11,11 @@ interface Props {
   updatedDate?: string;
   noindex?: boolean;
   schema?: Record<string, unknown>[];
+  /** Page language. Defaults to English. */
+  lang?: string;
+  ogLocale?: string;
+  /** Emit the hreflang cluster (the localized landing pages + English home). */
+  hreflangCluster?: boolean;
 }
 
 const {
@@ -21,6 +27,9 @@ const {
   updatedDate,
   noindex = false,
   schema,
+  lang = 'en',
+  ogLocale = 'en_US',
+  hreflangCluster = false,
 } = Astro.props;
 
 // GitHub Pages 301s the bare path to the trailing-slash URL, so a canonical without
@@ -43,6 +52,18 @@ const defaultSchema = [
   ORGANIZATION,
 ];
 
+// Landing pages form one hreflang cluster: English home + every localized page.
+const alternates = hreflangCluster
+  ? [
+      { hreflang: 'x-default', href: `${SITE_URL}/` },
+      { hreflang: 'en', href: `${SITE_URL}/` },
+      ...Object.entries(locales as Record<string, any>).map(([code, l]) => ({
+        hreflang: l.meta.hreflang,
+        href: `${SITE_URL}/${code}/`,
+      })),
+    ]
+  : [];
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': schema ?? defaultSchema,
@@ -50,7 +71,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,6 +81,9 @@ const jsonLd = {
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large"} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((a) => (
+      <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+    ))}
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
@@ -70,7 +94,7 @@ const jsonLd = {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Brewio" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocale} />
     {publishDate && <meta property="article:published_time" content={publishDate} />}
     {updatedDate && <meta property="article:modified_time" content={updatedDate} />}
 
@@ -197,6 +221,23 @@ const jsonLd = {
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  /* Japanese and Korean don't use italics for emphasis — a synthesised slant on
+     Mincho/Myeongjo reads as a rendering fault. Let colour carry it instead.
+     Playfair stays first in the stack so Latin words keep the brand face. */
+  html[lang="ja"] {
+    --font-serif: 'Playfair Display', 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
+  }
+
+  html[lang="ko"] {
+    --font-serif: 'Playfair Display', 'Apple SD Gothic Neo', 'Noto Serif KR', serif;
+  }
+
+  /* Korean wraps at any character by default, which splits words like 이야기
+     across lines. keep-all restricts breaks to spaces, as Korean typography expects. */
+  html[lang="ko"] {
+    word-break: keep-all;
   }
 
   .consent {

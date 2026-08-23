@@ -1,4 +1,11 @@
 ---
+interface Props {
+  /** Set on localized landing pages — hides links that only exist in English. */
+  locale?: string;
+}
+
+const { locale } = Astro.props;
+const localized = Boolean(locale);
 ---
 
 <footer class="footer">
@@ -17,9 +24,13 @@
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2026 Brewio. All rights reserved.</p>
       <div class="footer-links">
-        <a href="/tools/">Tools</a>
-        <a href="/guides/">Guides</a>
-        <a href="/roasters/">Roasters</a>
+        {!localized && (
+          <>
+            <a href="/tools/">Tools</a>
+            <a href="/guides/">Guides</a>
+            <a href="/roasters/">Roasters</a>
+          </>
+        )}
         <a href="/privacy/">Privacy Policy</a>
         <a href="/terms/">Terms of Service</a>
         <a href="mailto:hello@brewio.app">Contact</a>
