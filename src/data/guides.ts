@@ -83,8 +83,8 @@ const entries = [
   {
     slug: 'coffee-grind-size-chart',
     category: 'Fundamentals',
-    title: 'Coffee Grind Size Chart: The Complete Guide',
-    desc: 'A visual grind size reference for every brew method — from Turkish to cold brew. Plus how to adjust based on taste.',
+    title: 'Coffee Grind Size Chart (With Grinder Numbers)',
+    desc: 'Grind size for every brew method, click settings for popular grinders, and a taste chart for fixing sour or bitter cups.',
     readTime: '7 min',
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>`,
   },

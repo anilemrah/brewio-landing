@@ -3,11 +3,12 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
 ---
 
 <GuideLayout
-  title="The Ultimate Coffee-to-Water Ratio Guide"
-  description="A complete visual guide to coffee-to-water ratios for every brew method. Learn the golden ratio, how to calculate dose, and dial in your perfect cup."
+  title="Coffee to Water Ratio: Chart, Grams per Cup & Golden Ratio"
+  description="The best coffee to water ratio is 1:15 to 1:18 for most filter coffee. See the ratio for every brew method, how many grams of coffee per cup, and how to adjust by taste."
   headline="The Ultimate Coffee-to-Water <em>Ratio Guide</em>"
   subtitle="The single most important variable in brewing great coffee — and most people get it wrong. Here's your complete visual reference."
   heroAccent="ratio"
+  updatedDate="2026-10-08"
   readTime="8 min"
   category="Fundamentals"
 >
@@ -132,6 +133,24 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
   </div>
 </div>
 
+<h2>How Much Coffee per Cup? (Grams)</h2>
+
+<p>At the standard 1:16 ratio, here's how much coffee to weigh for common amounts of water. Go to 1:15 for a stronger cup.</p>
+
+<div class="cups-wrap">
+  <table class="cups-table">
+    <thead>
+      <tr><th>Water</th><th>Coffee at 1:16</th><th>Coffee at 1:15</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>1 mug</strong> · 250 ml</td><td>16 g</td><td>17 g</td></tr>
+      <tr><td><strong>2 mugs</strong> · 500 ml</td><td>31 g</td><td>33 g</td></tr>
+      <tr><td><strong>Chemex / large pot</strong> · 750 ml</td><td>47 g</td><td>50 g</td></tr>
+      <tr><td><strong>1 litre</strong></td><td>63 g</td><td>67 g</td></tr>
+    </tbody>
+  </table>
+</div>
+
 <h2>Adjusting for Taste</h2>
 
 <p>
@@ -227,6 +246,41 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
 </GuideLayout>
 
 <style>
+  .cups-wrap {
+    margin: 1.5rem 0 2rem;
+    overflow-x: auto;
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+  }
+  .cups-table {
+    width: 100%;
+    min-width: 380px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .cups-table th {
+    background: var(--dark);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(250,247,242,0.6);
+    text-align: left;
+    padding: 0.85rem 1rem;
+  }
+  .cups-table td {
+    padding: 0.85rem 1rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .cups-table td strong { color: var(--text-dark); }
+  .cups-table td:not(:first-child) {
+    font-family: var(--font-mono);
+    color: var(--brown);
+  }
+
   /* ── Key Insight ── */
   .key-insight {
     display: flex;

@@ -3,11 +3,12 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
 ---
 
 <GuideLayout
-  title="Coffee Grind Size Chart: The Complete Guide"
-  description="A visual coffee grind size chart for every brew method. Learn why grind size matters, how to adjust it, and what each level looks like — from Turkish to cold brew."
-  headline="Coffee Grind Size Chart: <em>The Complete Guide</em>"
+  title="Coffee Grind Size Chart (With Grinder Numbers)"
+  description="Grind size for every brew method, click settings for Comandante, Timemore, Baratza Encore and Fellow Ode, and a taste chart: sour means grind finer, bitter means coarser."
+  headline="Coffee Grind Size Chart: <em>Every Method, Every Grinder</em>"
   subtitle="Grind size is the single most impactful variable you control. Get it right and everything else falls into place. Get it wrong and no technique will save you."
   heroAccent="grind"
+  updatedDate="2026-10-08"
   readTime="7 min"
   category="Fundamentals"
 >
@@ -96,6 +97,53 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
   </div>
 </div>
 
+<h2>Grind Size Numbers for Popular Grinders</h2>
+
+<p>
+  "Medium-fine" means nothing until it's a number on <em>your</em> grinder. These are starting ranges in clicks or dial settings, counted from zero. Pick the middle of the range for your method, brew once, and then adjust by taste using the chart below.
+</p>
+
+<div class="table-wrap">
+  <table class="settings-table">
+    <thead>
+      <tr>
+        <th>Grinder</th>
+        <th>Espresso</th>
+        <th>AeroPress</th>
+        <th>V60 / pour-over</th>
+        <th>French press</th>
+        <th>Cold brew</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Comandante C40</strong><span>clicks</span></td>
+        <td>7–13</td><td>12–24</td><td>18–28</td><td>26–36</td><td>30–40</td>
+      </tr>
+      <tr>
+        <td><strong>Timemore C2</strong><span>clicks</span></td>
+        <td>6–12 <em>(tight)</em></td><td>11–20</td><td>13–22</td><td>22–30</td><td>26–30</td>
+      </tr>
+      <tr>
+        <td><strong>Timemore C3</strong><span>clicks</span></td>
+        <td>5–10 <em>(tight)</em></td><td>9–18</td><td>11–18</td><td>19–25</td><td>22–25</td>
+      </tr>
+      <tr>
+        <td><strong>Baratza Encore</strong><span>dial 0–40</span></td>
+        <td>Not ideal</td><td>8–18</td><td>12–18</td><td>24–32</td><td>28–40</td>
+      </tr>
+      <tr>
+        <td><strong>Fellow Ode Gen 2</strong><span>dial 1–11</span></td>
+        <td>Not designed for it</td><td>3–5</td><td>4–7</td><td>8–10</td><td>9–11</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="table-note">
+  <strong>Find your zero first.</strong> With the grinder empty, close the burrs gently until they just touch — that's zero — and count from there. If your zero sits a few clicks away from the one a chart assumes, every range shifts by that amount, which is why two people with the same grinder can swear by different numbers. Once a setting works, log it in Brewio with the bean so you never have to find it twice.
+</p>
+
 <h2>The Relationship: Grind ↔ Contact Time</h2>
 
 <p>Here's the principle that makes grind size intuitive:</p>
@@ -108,9 +156,9 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
   </div>
 </div>
 
-<h2>How to Adjust: The Taste Feedback Loop</h2>
+<h2>Coffee Grind Taste Chart: Sour, Bitter or Weak?</h2>
 
-<p>You don't need to memorize grind settings. Just taste and adjust:</p>
+<p>Your cup tells you which way to turn the grinder. Taste, then adjust one step at a time — about 2 clicks on a hand grinder:</p>
 
 <div class="feedback-grid">
   <div class="fb-card fb-card--sour">
@@ -131,6 +179,21 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
     <div class="fb-action">Grind <strong>coarser</strong></div>
     <p>Over-extracted. Too much surface area, or contact time was too long for this grind.</p>
   </div>
+</div>
+
+<div class="table-wrap">
+  <table class="settings-table taste-table">
+    <thead>
+      <tr><th>If it tastes…</th><th>What's happening</th><th>Fix</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Sour, sharp, salty, thin</strong></td><td>Under-extracted: water ran through too fast</td><td>Grind <strong>finer</strong></td></tr>
+      <tr><td><strong>Bitter, harsh, drying</strong></td><td>Over-extracted: too much surface area or contact time</td><td>Grind <strong>coarser</strong></td></tr>
+      <tr><td><strong>Weak or watery, but not sour</strong></td><td>Usually too little coffee, not the grind</td><td>Check your <a href="/guides/coffee-to-water-ratio/">ratio</a> first</td></tr>
+      <tr><td><strong>Sour <em>and</em> bitter at once</strong></td><td>Uneven extraction — channeling, or a grinder making dust and boulders</td><td>Pour more evenly; a burr grinder helps most</td></tr>
+      <tr><td><strong>Muddy or silty</strong></td><td>Too fine for the filter (common in French press)</td><td>Grind <strong>coarser</strong></td></tr>
+    </tbody>
+  </table>
 </div>
 
 <h2>Burr vs. Blade Grinder: Does It Matter?</h2>
@@ -225,6 +288,70 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
 </GuideLayout>
 
 <style>
+  /* ── Settings & taste tables ── */
+  .table-wrap {
+    margin: 2rem 0 1rem;
+    overflow-x: auto;
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+  }
+
+  .settings-table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .settings-table th {
+    background: var(--dark);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(250,247,242,0.6);
+    text-align: left;
+    padding: 0.85rem 1rem;
+    white-space: nowrap;
+  }
+
+  .settings-table td {
+    padding: 0.85rem 1rem;
+    border-top: 1px solid var(--border-subtle);
+    vertical-align: top;
+  }
+
+  .settings-table td:first-child { min-width: 9.5rem; }
+
+  .settings-table td:first-child strong {
+    display: block;
+    font-family: var(--font-serif);
+    color: var(--text-dark);
+  }
+
+  .settings-table td:first-child span {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-light);
+  }
+
+  .settings-table td em {
+    font-style: normal;
+    font-size: 0.75rem;
+    color: var(--text-light);
+  }
+
+  .taste-table { min-width: 520px; }
+  .taste-table td:first-child strong { font-family: var(--font-sans); }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
   /* ── Grind Chart ── */
   .grind-chart {
     margin: 2rem 0;
