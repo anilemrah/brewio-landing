@@ -1,0 +1,136 @@
+---
+import '../../styles/native-calc.css';
+
+/**
+ * 그라인더 분쇄도 변환. Ranges are the same starting points as the English grind guide.
+ * A setting is mapped through the brew-method midpoints both grinders share, so the
+ * answer is an estimate between two calibrated points, never a fake micron conversion.
+ */
+const METHODS = ['에스프레소', '에어로프레스', '핸드드립 (V60)', '프렌치프레스', '콜드브루'];
+
+const GRINDERS = [
+  { id: 'comandante', name: '코만단테 C40', unit: '클릭', step: 1, min: 0, max: 45, ranges: [[7, 13], [12, 24], [18, 28], [26, 36], [30, 40]] },
+  { id: 'c2', name: '타임모어 C2', unit: '클릭', step: 1, min: 0, max: 36, ranges: [[6, 12], [11, 20], [13, 22], [22, 30], [26, 30]] },
+  { id: 'c3', name: '타임모어 C3', unit: '클릭', step: 1, min: 0, max: 30, ranges: [[5, 10], [9, 18], [11, 18], [19, 25], [22, 25]] },
+  { id: 'encore', name: '바라짜 엔코', unit: '단계 (0–40)', step: 1, min: 0, max: 40, ranges: [null, [8, 18], [12, 18], [24, 32], [28, 40]] },
+  { id: 'ode', name: '펠로우 오드 Gen 2', unit: '다이얼 (1–11)', step: 0.1, min: 1, max: 11, ranges: [null, [3, 5], [4, 7], [8, 10], [9, 11]] },
+] as const;
+---
+
+<div class="nc-card nc-grind" data-grinders={JSON.stringify(GRINDERS)} data-methods={JSON.stringify(METHODS)}>
+  <div class="nc-inputs">
+    <label>
+      <span class="nc-label">내 그라인더</span>
+      <select class="nc-select" data-in="from">
+        {GRINDERS.map((g, i) => <option value={i} selected={i === 0}>{g.name}</option>)}
+      </select>
+    </label>
+    <label class="nc-input">
+      <span class="nc-label">지금 설정값</span>
+      <span class="nc-input-row">
+        <input type="number" min="0" max="45" step="1" value="24" inputmode="decimal" data-in="value" />
+        <span class="nc-unit" data-out="from-unit">클릭</span>
+      </span>
+    </label>
+    <label>
+      <span class="nc-label">바꿀 그라인더</span>
+      <select class="nc-select" data-in="to">
+        {GRINDERS.map((g, i) => <option value={i} selected={i === 1}>{g.name}</option>)}
+      </select>
+    </label>
+  </div>
+
+  <div class="nc-result" aria-live="polite">
+    <div class="nc-out">
+      <span class="nc-out-label" data-out="to-name">타임모어 C2</span>
+      <span class="nc-out-value">약 <span data-out="result">19</span> <small data-out="to-unit">클릭</small></span>
+      <span class="nc-out-extra" data-out="range">핸드드립 (V60) 범위: 13–22</span>
+    </div>
+  </div>
+
+  <p class="nc-hint" data-out="hint">
+    지금 설정은 코만단테 C40 기준 에어로프레스 · 핸드드립 (V60) 범위입니다. 변환값은 출발점일 뿐, 맛을 보고 1~2클릭씩 조정하세요.
+  </p>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>그라인더</th>
+        {METHODS.map((m) => <th>{m}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {GRINDERS.map((g) => (
+        <tr>
+          <td><strong>{g.name}</strong><br /><span class="unit-note">{g.unit}</span></td>
+          {g.ranges.map((r) => <td class="num">{r ? `${r[0]}–${r[1]}` : '비추천'}</td>)}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .unit-note { font-size: 0.78rem; color: var(--text-muted); }
+</style>
+
+<script>
+  interface Grinder { id: string; name: string; unit: string; step: number; min: number; max: number; ranges: ([number, number] | null)[] }
+
+  document.querySelectorAll<HTMLElement>('.nc-grind').forEach((root) => {
+    const grinders: Grinder[] = JSON.parse(root.dataset.grinders!);
+    const methods: string[] = JSON.parse(root.dataset.methods!);
+    const from = root.querySelector<HTMLSelectElement>('[data-in="from"]')!;
+    const to = root.querySelector<HTMLSelectElement>('[data-in="to"]')!;
+    const value = root.querySelector<HTMLInputElement>('[data-in="value"]')!;
+    const out = (n: string) => root.querySelector<HTMLElement>(`[data-out="${n}"]`)!;
+    const mid = (r: [number, number]) => (r[0] + r[1]) / 2;
+
+    function convert(x: number, a: Grinder, b: Grinder) {
+      const pts = a.ranges
+        .map((r, i) => (r && b.ranges[i] ? [mid(r), mid(b.ranges[i]!)] : null))
+        .filter((p): p is number[] => p !== null)
+        .sort((p, q) => p[0] - q[0]);
+      if (pts.length < 2) return pts[0]?.[1] ?? x;
+      let i = pts.findIndex((p) => p[0] >= x);
+      if (i <= 0) i = i === 0 ? 1 : pts.length - 1;
+      const [x0, y0] = pts[i - 1];
+      const [x1, y1] = pts[i];
+      const y = x1 === x0 ? y0 : y0 + ((x - x0) * (y1 - y0)) / (x1 - x0);
+      return Math.min(b.max, Math.max(b.min, y));
+    }
+
+    function render() {
+      const a = grinders[Number(from.value)];
+      const b = grinders[Number(to.value)];
+      const x = parseFloat(value.value) || 0;
+      value.step = String(a.step);
+      value.min = String(a.min);
+      value.max = String(a.max);
+      out('from-unit').textContent = a.unit.split(' ')[0];
+
+      const y = convert(x, a, b);
+      out('result').textContent = b.step < 1 ? y.toFixed(1) : String(Math.round(y));
+      out('to-name').textContent = b.name;
+      out('to-unit').textContent = b.unit.split(' ')[0];
+
+      const hits = a.ranges.map((r, i) => (r && x >= r[0] && x <= r[1] ? i : -1)).filter((i) => i >= 0);
+      // A click can sit in two overlapping ranges; show the one whose centre it is closest to.
+      const shown = hits
+        .filter((i) => b.ranges[i])
+        .sort((i, j) => Math.abs(x - mid(a.ranges[i]!)) - Math.abs(x - mid(a.ranges[j]!)))[0];
+      out('range').textContent = shown !== undefined && b.ranges[shown]
+        ? `${methods[shown]} 범위: ${b.ranges[shown]![0]}–${b.ranges[shown]![1]}`
+        : '';
+      out('hint').textContent = hits.length
+        ? `지금 설정은 ${a.name} 기준 ${hits.map((i) => methods[i]).join(' · ')} 범위입니다. 변환값은 출발점일 뿐, 맛을 보고 1~2클릭씩 조정하세요.`
+        : `이 설정은 ${a.name}의 일반적인 추출 범위 밖입니다. 변환값은 참고만 하세요.`;
+    }
+
+    [from, to].forEach((s) => s.addEventListener('change', render));
+    value.addEventListener('input', render);
+    render();
+  });
+</script>

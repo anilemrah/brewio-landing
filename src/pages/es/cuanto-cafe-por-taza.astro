@@ -1,0 +1,133 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+const strengths = [
+  { label: 'Suave', factor: 0.85 },
+  { label: 'Normal', factor: 1 },
+  { label: 'Intenso', factor: 1.15 },
+];
+
+const methods: DoseMethod[] = [
+  {
+    id: 'italiana',
+    label: 'Cafetera italiana',
+    gPerL: 110,
+    waterLabel: 'Café en la taza (aprox.)',
+    defaultVessel: 2,
+    vessels: [
+      { label: '1 taza', water: 60, coffee: [6, 7] },
+      { label: '2 tazas', water: 90, coffee: [10, 12] },
+      { label: '3 tazas', water: 130, coffee: [15, 17] },
+      { label: '4 tazas', water: 190, coffee: [20, 22] },
+      { label: '6 tazas', water: 270, coffee: [27, 30] },
+    ],
+    note: 'Llena el filtro hasta el borde, enrasado y sin apretar. Agua en el depósito hasta la válvula.',
+  },
+  {
+    id: 'prensa',
+    label: 'Prensa francesa',
+    gPerL: 65,
+    defaultVessel: 1,
+    vessels: [
+      { label: '3 tazas (350 ml)', water: 350 },
+      { label: '4 tazas (500 ml)', water: 500 },
+      { label: '8 tazas (1 l)', water: 1000 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Molienda gruesa, 4 minutos de infusión; baja el émbolo despacio y sirve enseguida.',
+  },
+  {
+    id: 'goteo',
+    label: 'Cafetera de goteo',
+    gPerL: 56,
+    defaultVessel: 1,
+    vessels: [
+      { label: '2 tazas (250 ml)', water: 250 },
+      { label: '4 tazas (500 ml)', water: 500 },
+      { label: '6 tazas (750 ml)', water: 750 },
+      { label: '8 tazas (1 l)', water: 1000 },
+      { label: '10 tazas (1,25 l)', water: 1250 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Molienda media. La "taza" de la jarra es de unos 125 ml.',
+  },
+];
+---
+
+<NativeLayout
+  locale="es"
+  slug="cuanto-cafe-por-taza"
+  headline="¿Cuánto café <em>por taza</em>?"
+  subtitle="Unos 7 gramos por taza: una cucharada sopera colmada. Calcula los gramos y las cucharadas para tu cafetera italiana, prensa francesa o cafetera de goteo."
+  appNote="En Brewio apuntas cada café: el grano, la cantidad, el método y qué tal salió. La cafetera italiana y la prensa francesa tienen su propio temporizador guiado, así sabrás exactamente qué te dio la mejor taza."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[{ grams: 7, format: '≈ {n} cucharadas soperas colmadas' }]}
+    numberLocale="es-ES"
+    t={{
+      method: 'Cafetera',
+      vessel: 'Cantidad',
+      strength: 'Intensidad',
+      coffee: 'Café molido',
+      water: 'Agua',
+      custom: 'Otra cantidad',
+      customLabel: 'Agua',
+      tableVessel: 'Cantidad',
+      tableWater: 'Agua',
+      tableCoffee: 'Café molido',
+      tableSpoons: 'Cucharadas',
+    }}
+  />
+
+  <h2>La regla básica: 7 gramos por taza</h2>
+  <p>
+    Para café de filtro o de prensa, la referencia es de unos <strong>7 gramos por cada taza de 125 ml</strong>, es decir, entre 55 y 65 gramos por litro.
+    En cucharas, viene a ser una cucharada sopera colmada por taza. Si lo quieres más intenso, sube la cantidad de café; no reduzcas el agua.
+  </p>
+
+  <h2>Cafetera italiana: cuánto café poner</h2>
+  <p>
+    Aquí no eliges la dosis: la marca el filtro. Llénalo hasta el borde, enrasa con el dedo o con el dorso de una cucharilla y <strong>no lo aprietes</strong>.
+    El café prensado frena el agua, que se queda más tiempo al fuego y saca amargor.
+  </p>
+  <p>
+    Ojo con las "tazas": las de la cafetera italiana son tacitas de café. Una de 3 tazas da unos 130 ml, y una de 6, unos 270 ml.
+    Los gramos de la tabla son orientativos para una Moka Express de Bialetti; otros modelos cambian un par de gramos.
+  </p>
+  <ol>
+    <li>Agua en el depósito hasta la válvula, nunca por encima. Si la pones ya caliente, la cafetera pasa menos tiempo al fuego.</li>
+    <li>Filtro lleno y enrasado, sin apretar. Limpia los bordes antes de enroscar.</li>
+    <li>Fuego medio-bajo y la tapa abierta, para ver cómo sube el café.</li>
+    <li>En cuanto el café se aclare y empiece a borbotear, retírala del fuego.</li>
+    <li>Remueve el café dentro de la cafetera antes de servir: lo primero que sale es mucho más fuerte que lo último.</li>
+  </ol>
+
+  <h2>Prensa francesa: la proporción</h2>
+  <p>
+    Algo más de café que en el goteo: 60–65 gramos por litro, molido grueso. Para una prensa de 350 ml, unos 22 gramos;
+    para la de un litro, unos 65.
+  </p>
+  <ol>
+    <li>Café molido grueso en la jarra. Si está demasiado fino, el café sale turbio y cuesta bajar el émbolo.</li>
+    <li>Agua a 92–96 °C, recién retirada del hervor. Remueve una vez.</li>
+    <li>Tapa y deja infusionar 4 minutos.</li>
+    <li>Baja el émbolo despacio y sirve todo enseguida. Si se queda sobre los posos, amarga.</li>
+  </ol>
+
+  <h2>Cafetera de goteo</h2>
+  <p>
+    Las marcas de la jarra suelen contar tazas de unos 125 ml. Una cafetera de 10 tazas hace 1,25 litros y pide unos 70 gramos de café, unas 10 cucharadas colmadas.
+    Si sirves en tazones, cuenta por el agua, no por las tazas.
+  </p>
+
+  <h2>¿Cuánto pesa una cucharada de café?</h2>
+  <p>
+    Una cucharada sopera colmada de café molido pesa unos 7 gramos; rasa, alrededor de la mitad. Depende de la cuchara y del tueste:
+    el café tostado oscuro pesa menos por cucharada que el claro. Si quieres que te salga igual cada mañana, pesa tu cuchara una vez.
+  </p>
+</NativeLayout>

@@ -1,4 +1,6 @@
 ---
+import locales from '../data/i18n/locales.json';
+
 interface Props {
   /** Set on localized landing pages — hides links that only exist in English. */
   locale?: string;
@@ -6,6 +8,17 @@ interface Props {
 
 const { locale } = Astro.props;
 const localized = Boolean(locale);
+
+// Plain anchors, not the switcher's <select>: crawlers don't follow option values,
+// so without these the localized pages have no internal links pointing at them.
+const languages = [
+  { hreflang: 'en', native: 'English', href: '/' },
+  ...Object.entries(locales as Record<string, any>).map(([code, l]) => ({
+    hreflang: l.meta.hreflang,
+    native: l.meta.native,
+    href: `/${code}/`,
+  })),
+];
 ---
 
 <footer class="footer">
@@ -20,6 +33,12 @@ const localized = Boolean(locale);
     </div>
 
     <div class="footer-divider"></div>
+
+    <nav class="footer-langs" aria-label="Languages">
+      {languages.map((l) => (
+        <a href={l.href} hreflang={l.hreflang} lang={l.hreflang}>{l.native}</a>
+      ))}
+    </nav>
 
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2026 Brewio. All rights reserved.</p>
@@ -98,6 +117,23 @@ const localized = Boolean(locale);
     margin-bottom: 2rem;
   }
 
+  .footer-langs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-langs a {
+    font-size: 0.75rem;
+    color: rgba(250, 247, 242, 0.3);
+    transition: color 0.2s;
+  }
+
+  .footer-langs a:hover {
+    color: rgba(250, 247, 242, 0.65);
+  }
+
   .footer-bottom {
     display: flex;
     align-items: center;
@@ -130,6 +166,10 @@ const localized = Boolean(locale);
     .footer-top {
       flex-direction: column;
       text-align: center;
+    }
+
+    .footer-langs {
+      justify-content: center;
     }
 
     .footer-bottom {

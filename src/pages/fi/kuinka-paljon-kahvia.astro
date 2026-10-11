@@ -1,0 +1,126 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// A kuppi on the keitin's scale is 1.25 dl. Pannukahvi follows the traditional method:
+// kahvi kuohahtaa kerran ja selkeytyy ennen kaatamista.
+const strengths = [
+  { label: 'Mieto', factor: 0.85 },
+  { label: 'Keskivahva', factor: 1 },
+  { label: 'Vahva', factor: 1.15 },
+];
+
+const methods: DoseMethod[] = [
+  {
+    id: 'keitin',
+    label: 'Moccamaster / kahvinkeitin',
+    gPerL: 60,
+    defaultVessel: 1,
+    vessels: [
+      { label: '2 kuppia (2,5 dl)', water: 250 },
+      { label: '4 kuppia (5 dl)', water: 500 },
+      { label: '6 kuppia (7,5 dl)', water: 750 },
+      { label: '8 kuppia (1 l)', water: 1000 },
+      { label: '10 kuppia – täysi kannu (1,25 l)', water: 1250 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Suodatinjauhatus. Kahvinkeittimen asteikossa yksi kuppi on 1,25 dl.',
+  },
+  {
+    id: 'pannu',
+    label: 'Pannukahvi',
+    gPerL: 65,
+    defaultVessel: 1,
+    vessels: [
+      { label: '5 dl', water: 500 },
+      { label: '1 litra', water: 1000 },
+      { label: '1,5 litraa', water: 1500 },
+      { label: '2 litraa – täysi pannu', water: 2000 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Pannujauhatus. Kiehauta vesi, lisää kahvi, anna kuohahtaa kerran ja anna selkeytyä 5 minuuttia.',
+  },
+  {
+    id: 'presso',
+    label: 'Pressopannu',
+    gPerL: 65,
+    vessels: [
+      { label: '3,5 dl', water: 350 },
+      { label: '5 dl', water: 500 },
+      { label: '1 litra', water: 1000 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Karkea jauhatus, 4 minuuttia, paina mäntä hitaasti alas ja kaada heti.',
+  },
+];
+---
+
+<NativeLayout
+  locale="fi"
+  slug="kuinka-paljon-kahvia"
+  headline="Kuinka paljon kahvia <em>kuppiin</em>?"
+  subtitle="Yksi mitta kuppiin, lukee paketissa. Mutta kuinka iso on kuppi? Laske grammat ja kahvimitat Moccamasterille, kahvinkeittimelle, pressopannulle ja pannukahville."
+  appNote="Brewiossa kirjaat jokaisen keittokerran: pavut, määrän ja maun. Kahvinkeittimelle ja pressopannulle on omat ajastimet, joten näet tarkalleen, mistä tuli paras kannullinen."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[{ grams: 7, format: 'kahvimittoja ≈ {n}' }]}
+    numberLocale="fi-FI"
+    t={{
+      method: 'Valmistustapa',
+      vessel: 'Määrä',
+      strength: 'Vahvuus',
+      coffee: 'Kahvia',
+      water: 'Vettä',
+      custom: 'Muu määrä',
+      customLabel: 'Vettä',
+      tableVessel: 'Määrä',
+      tableWater: 'Vettä',
+      tableCoffee: 'Kahvia (keskivahva)',
+      tableSpoons: 'Kahvimittoja',
+    }}
+  />
+
+  <h2>Nyrkkisääntö: 60 grammaa litraan</h2>
+  <p>
+    Suodatinkahvin lähtökohta on noin 60 grammaa kahvia litraan vettä. Moccamaster itse suosittelee 55–60 grammaa.
+    Se on 7–8 grammaa keittimen asteikon kuppia kohden, eli suunnilleen <strong>yksi kahvimitta kuppiin</strong>.
+  </p>
+
+  <h2>Kuinka iso on kuppi?</h2>
+  <p>
+    Kahvinkeittimen asteikossa kuppi on 1,25 dl, mutta tavallinen kahvikuppi on usein 1,5 dl ja muki 2,5–3 dl.
+    Jos lasket kupit keittimen mukaan mutta kaadat mukeihin, kannu riittää vain puolelle siitä, mitä luulit. Mittaa siis veden mukaan, älä mukien.
+  </p>
+
+  <h2>Moccamaster: montako mittaa?</h2>
+  <ul>
+    <li><strong>Puoli kannua (5 dl):</strong> noin 30 g, eli noin 4 kahvimittaa</li>
+    <li><strong>Täysi kannu (1,25 l):</strong> noin 75 g, eli noin 10–11 kahvimittaa</li>
+  </ul>
+  <p>
+    Sekoita kannu ennen kaatamista: ensimmäisenä valuva kahvi on paljon vahvempaa kuin viimeinen.
+  </p>
+
+  <h2>Pannukahvi – näin se keitetään</h2>
+  <ol>
+    <li>Kiehauta vesi pannussa.</li>
+    <li>Nosta pannu hetkeksi pois levyltä ja lisää karkeaa pannujauhatusta, noin 65 grammaa litraan.</li>
+    <li>Palauta levylle ja anna kahvin kuohahtaa kerran. Varo, ettei se kiehu yli.</li>
+    <li>Nosta pois levyltä ja anna selkeytyä noin 5 minuuttia, jotta porot laskeutuvat pohjalle.</li>
+    <li>Kaada varovasti, ettei pohjalta tule poroja kuppiin.</li>
+  </ol>
+  <p class="note">
+    Kuinka paljon kahvia täyteen pannuun? Kahden litran pannuun tarvitaan noin 130 grammaa, eli reilut 18 kahvimittaa.
+  </p>
+
+  <h2>Paljonko kahvimitta painaa?</h2>
+  <p>
+    Tavallinen kahvimitta vetää noin ruokalusikallisen, 15 ml, eli noin 6–7 grammaa jauhettua kahvia. Kukkurainen mitta vähän enemmän.
+    Tumma paahto painaa mittaa kohden vähemmän kuin vaalea, joten jos haluat joka aamu saman kannullisen, punnitse kahvi kerran ja opettele, miltä mitta näyttää.
+  </p>
+</NativeLayout>

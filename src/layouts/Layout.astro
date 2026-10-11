@@ -16,6 +16,8 @@ interface Props {
   ogLocale?: string;
   /** Emit the hreflang cluster (the localized landing pages + English home). */
   hreflangCluster?: boolean;
+  /** An explicit hreflang set, for page clusters other than the landing pages. */
+  alternates?: { hreflang: string; href: string }[];
 }
 
 const {
@@ -30,6 +32,7 @@ const {
   lang = 'en',
   ogLocale = 'en_US',
   hreflangCluster = false,
+  alternates: explicitAlternates,
 } = Astro.props;
 
 // GitHub Pages 301s the bare path to the trailing-slash URL, so a canonical without
@@ -62,7 +65,7 @@ const alternates = hreflangCluster
         href: `${SITE_URL}/${code}/`,
       })),
     ]
-  : [];
+  : explicitAlternates ?? [];
 
 const jsonLd = {
   '@context': 'https://schema.org',

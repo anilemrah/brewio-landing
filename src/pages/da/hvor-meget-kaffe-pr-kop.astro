@@ -1,0 +1,103 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// Stempelkande sizes are Bodum Chambord's — a Danish design, and the "kopper" on the
+// box are about 1.2 dl, which is why an 8-kops kande holds only a litre.
+const strengths = [
+  { label: 'Mild', factor: 0.85 },
+  { label: 'Normal', factor: 1 },
+  { label: 'Stærk', factor: 1.15 },
+];
+
+const methods: DoseMethod[] = [
+  {
+    id: 'filter',
+    label: 'Moccamaster / kaffemaskine',
+    gPerL: 60,
+    defaultVessel: 1,
+    vessels: [
+      { label: '2 kopper (2,5 dl)', water: 250 },
+      { label: '4 kopper (5 dl)', water: 500 },
+      { label: '6 kopper (7,5 dl)', water: 750 },
+      { label: '8 kopper (1 l)', water: 1000 },
+      { label: '10 kopper – fuld kande (1,25 l)', water: 1250 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Filtermalet kaffe. En kop på kaffemaskinens skala er 1,25 dl.',
+  },
+  {
+    id: 'stempel',
+    label: 'Stempelkande',
+    gPerL: 65,
+    defaultVessel: 2,
+    vessels: [
+      { label: '3 kopper (0,35 l)', water: 350 },
+      { label: '4 kopper (0,5 l)', water: 500 },
+      { label: '8 kopper (1 l)', water: 1000 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Groftmalet kaffe, 4 minutters trækketid, pres langsomt ned og hæld op med det samme.',
+  },
+];
+---
+
+<NativeLayout
+  locale="da"
+  slug="hvor-meget-kaffe-pr-kop"
+  headline="Hvor meget kaffe <em>pr. kop</em>?"
+  subtitle="En skefuld pr. kop, står der på posen. Men hvor stor er en kop? Beregn gram og skefulde til Moccamaster, kaffemaskine og stempelkande."
+  appNote="I Brewio logger du hver kop: bønner, mængde og hvordan den smagte. Kaffemaskinen og stempelkanden har hver deres timer, så du kan se præcis, hvad der gav den bedste kande."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[{ grams: 7, format: '≈ {n} skefulde (à ca. 7 g)' }]}
+    numberLocale="da-DK"
+    t={{
+      method: 'Bryggemetode',
+      vessel: 'Mængde',
+      strength: 'Styrke',
+      coffee: 'Kaffe',
+      water: 'Vand',
+      custom: 'Anden mængde',
+      customLabel: 'Vand',
+      tableVessel: 'Mængde',
+      tableWater: 'Vand',
+      tableCoffee: 'Kaffe (normal)',
+      tableSpoons: 'Skefulde',
+    }}
+  />
+
+  <h2>Tommelfingerreglen: 60 gram pr. liter</h2>
+  <p>
+    Til filterkaffe er udgangspunktet omkring 60 gram kaffe pr. liter vand – det, kaffebranchen og Moccamaster selv anbefaler.
+    Det svarer til 7–8 gram pr. kop på maskinens skala, altså cirka <strong>én kaffeske pr. kop</strong>.
+  </p>
+
+  <h2>Hvor stor er en kop?</h2>
+  <p>
+    En kop på kaffemaskinens skala er 1,25 dl, men en almindelig kaffekop rummer tit 1,5 dl og et krus 2,5–3 dl.
+    Tæller du kopper efter maskinen og skænker op i krus, rækker kanden kun til halvt så mange, som du tror. Mål efter vandet, ikke efter krusene.
+  </p>
+
+  <h2>Stempelkande: hvor meget kaffe?</h2>
+  <p>
+    Stempelkandens "kopper" er endnu mindre: Bodums kopper er cirka 1,2 dl, så en 8-kops kande rummer 1 liter.
+    Brug 60–65 gram kaffe pr. liter – til en 8-kops kande cirka 60–65 gram, til en 3-kops 21–23 gram.
+  </p>
+  <ol>
+    <li>Kom groftmalet kaffe i kanden. Er den malet for fint, bliver kaffen grumset og svær at presse.</li>
+    <li>Hæld vand ved 92–96 °C over, altså lige under kogepunktet, og rør en enkelt gang.</li>
+    <li>Læg låget på og lad kaffen trække i 4 minutter.</li>
+    <li>Pres stemplet langsomt ned og hæld al kaffen op med det samme. Bliver den stående på grumset, bliver den bitter.</li>
+  </ol>
+
+  <h2>Hvor meget vejer en skefuld?</h2>
+  <p>
+    En kaffeske rummer typisk 6–7 gram malet kaffe, lidt mere hvis den er toppet. Mørkristet kaffe vejer mindre pr. ske end lysristet,
+    så vil du have den samme kande hver morgen, så vej kaffen én gang og lær, hvordan skeen ser ud.
+  </p>
+</NativeLayout>

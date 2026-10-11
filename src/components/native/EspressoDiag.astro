@@ -1,0 +1,116 @@
+---
+import '../../styles/native-calc.css';
+
+/**
+ * Bezugszeit + Geschmack → what to change next. Speed alone is ambiguous (fast and
+ * bitter means channeling, not "grind finer"), so taste decides between the rows.
+ * German-only page, so the copy lives here.
+ */
+const VERDICTS: Record<string, [string, string]> = {
+  'fast-sour': ['Feiner mahlen', 'Der Klassiker: Das Wasser läuft zu schnell durch und löst zu wenig. Stell die Mühle ein bis zwei Stufen feiner und lass Dosis und Ausbeute gleich – immer nur eine Sache auf einmal ändern.'],
+  'fast-good': ['Schmeckt – also passt es', 'Die Zeit ist kurz, aber der Geschmack zählt. Fehlt dir Körper, probier eine Stufe feiner.'],
+  'fast-bitter': ['Erst den Puck prüfen, dann feiner', 'Schnell und trotzdem bitter deutet auf Channeling: Das Wasser findet einen Kanal durch den Kaffee und überextrahiert ihn dort. Kaffee im Sieb gleichmäßig verteilen (z. B. mit einer WDT-Nadel), gerade tampern, danach eine Stufe feiner.'],
+  'ok-sour': ['Ausbeute erhöhen', 'Die Zeit passt, aber es fehlt Extraktion. Lass etwas mehr in die Tasse laufen (etwa 1:2,2 statt 1:2) oder geh mit der Brühtemperatur auf 93–94 °C. Helle Röstungen brauchen das oft.'],
+  'ok-good': ['Eingestellt!', 'Zeit, Verhältnis und Geschmack passen. Notier dir Mahlgrad, Dosis und Bohne – beim nächsten Beutel derselben Bohne startest du genau hier.'],
+  'ok-bitter': ['Ausbeute senken', 'Die Zeit passt, aber es ist zu viel gelöst. Stopp früher (etwa 1:1,8) oder senk die Temperatur auf 90–92 °C. Dunkle Röstungen mögen es kürzer und kühler.'],
+  'slow-sour': ['Gröber mahlen – und Temperatur prüfen', 'Langsam und sauer ist ungewöhnlich. Meist ist so fein gemahlen, dass der Puck dichtmacht und das Wasser ungleichmäßig durchläuft. Eine Stufe gröber, und prüf, ob die Maschine wirklich durchgeheizt ist.'],
+  'slow-good': ['Schmeckt – also passt es', 'Der Bezug läuft lang, aber das Ergebnis stimmt. Für mehr Klarheit in der Tasse eine Stufe gröber probieren.'],
+  'slow-bitter': ['Gröber mahlen', 'Zu lange Kontaktzeit, zu viel gelöst: Stell die Mühle ein bis zwei Stufen gröber. Dosis und Ausbeute bleiben gleich.'],
+};
+---
+
+<div class="nc-card nc-espresso" data-verdicts={JSON.stringify(VERDICTS)}>
+  <div class="nc-inputs">
+    <label class="nc-input">
+      <span class="nc-label">Dosis (Pulver)</span>
+      <span class="nc-input-row">
+        <input type="number" min="5" max="30" step="0.5" value="18" inputmode="decimal" data-in="dose" />
+        <span class="nc-unit">g</span>
+      </span>
+    </label>
+    <label class="nc-input">
+      <span class="nc-label">Ausbeute (Tasse)</span>
+      <span class="nc-input-row">
+        <input type="number" min="5" max="120" step="1" value="36" inputmode="decimal" data-in="yield" />
+        <span class="nc-unit">g</span>
+      </span>
+    </label>
+    <label class="nc-input">
+      <span class="nc-label">Bezugszeit</span>
+      <span class="nc-input-row">
+        <input type="number" min="5" max="90" step="1" value="28" inputmode="numeric" data-in="time" />
+        <span class="nc-unit">s</span>
+      </span>
+    </label>
+  </div>
+
+  <div>
+    <span class="nc-label" id="es-taste">Geschmack</span>
+    <div class="nc-chips" role="radiogroup" aria-labelledby="es-taste">
+      <button type="button" class="nc-chip" role="radio" aria-checked="false" data-taste="sour">Sauer, dünn</button>
+      <button type="button" class="nc-chip" role="radio" aria-checked="true" data-taste="good">Ausgewogen, süß</button>
+      <button type="button" class="nc-chip" role="radio" aria-checked="false" data-taste="bitter">Bitter, trocken</button>
+    </div>
+  </div>
+
+  <div class="nc-result" aria-live="polite">
+    <div class="nc-out">
+      <span class="nc-out-label">Verhältnis</span>
+      <span class="nc-out-value" data-out="ratio">1:2</span>
+      <span class="nc-out-extra" data-out="style">klassischer Espresso</span>
+    </div>
+    <div class="nc-out">
+      <span class="nc-out-label">Bezugszeit</span>
+      <span class="nc-out-value"><span data-out="time">28</span> <small>s</small></span>
+      <span class="nc-out-extra" data-out="speed">im Zielbereich (25–32 s)</span>
+    </div>
+  </div>
+
+  <div class="nc-verdict" aria-live="polite">
+    <p class="nc-verdict-title" data-out="title">{VERDICTS['ok-good'][0]}</p>
+    <p class="nc-verdict-body" data-out="body">{VERDICTS['ok-good'][1]}</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.nc-espresso').forEach((root) => {
+    const verdicts: Record<string, [string, string]> = JSON.parse(root.dataset.verdicts!);
+    const num = (n: string) => parseFloat(root.querySelector<HTMLInputElement>(`[data-in="${n}"]`)!.value) || 0;
+    const out = (n: string) => root.querySelector<HTMLElement>(`[data-out="${n}"]`)!;
+    const de = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 1 });
+    let taste = 'good';
+
+    function render() {
+      const dose = num('dose');
+      const yieldG = num('yield');
+      const time = num('time');
+      const ratio = dose > 0 ? yieldG / dose : 0;
+
+      out('ratio').textContent = `1:${de.format(Math.round(ratio * 10) / 10)}`;
+      out('style').textContent = ratio < 1.5 ? 'Ristretto-Bereich' : ratio > 3 ? 'Lungo-Bereich' : 'klassischer Espresso';
+      out('time').textContent = de.format(time);
+
+      const speed = time < 25 ? 'fast' : time > 32 ? 'slow' : 'ok';
+      out('speed').textContent =
+        time < 20 ? 'viel zu schnell' :
+        time < 25 ? 'etwas zu schnell' :
+        time <= 32 ? 'im Zielbereich (25–32 s)' :
+        time <= 38 ? 'etwas zu langsam' : 'viel zu langsam';
+
+      const [title, body] = verdicts[`${speed}-${taste}`];
+      out('title').textContent = title;
+      out('body').textContent = body;
+    }
+
+    root.addEventListener('click', (e) => {
+      const chip = (e.target as HTMLElement).closest<HTMLElement>('[data-taste]');
+      if (!chip) return;
+      root.querySelectorAll('[data-taste]').forEach((c) => c.setAttribute('aria-checked', String(c === chip)));
+      taste = chip.dataset.taste!;
+      render();
+    });
+
+    root.querySelectorAll('input').forEach((i) => i.addEventListener('input', render));
+    render();
+  });
+</script>

@@ -1,0 +1,173 @@
+/* Shared look for the calculators on the localized pages. Mirrors the English
+   ratio calculator so the tools feel like one family across languages. */
+
+.nc-card {
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin: 0 0 2.5rem;
+}
+
+/* Grid/flex display on these classes would otherwise beat the hidden attribute. */
+.nc-card [hidden] { display: none !important; }
+
+.nc-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.nc-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.nc-chip {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.nc-chip:hover { border-color: var(--amber); color: var(--text-dark); }
+.nc-chip:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+.nc-chip[aria-checked='true'] {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: #fff;
+  font-weight: 500;
+}
+
+.nc-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.nc-input {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+}
+
+.nc-input-row { display: flex; align-items: baseline; gap: 0.3rem; }
+
+.nc-input input {
+  width: 100%;
+  min-width: 0;
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  color: var(--text-dark);
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-variant-numeric: tabular-nums;
+  -moz-appearance: textfield;
+}
+
+.nc-input input::-webkit-outer-spin-button,
+.nc-input input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.nc-input input:focus { outline: none; }
+.nc-input input:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; border-radius: 4px; }
+
+.nc-unit { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); }
+
+.nc-result {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem 1.5rem;
+  padding: 1.35rem 1.4rem;
+  background: var(--cream);
+  border-radius: 14px;
+}
+
+.nc-out { display: flex; flex-direction: column; gap: 0.2rem; }
+
+.nc-out-label { font-size: 0.8rem; color: var(--text-muted); }
+
+.nc-out-value {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+  line-height: 1.05;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.nc-out-value small { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-muted); letter-spacing: 0; }
+
+.nc-out-extra { font-size: 0.86rem; color: var(--amber); }
+
+.nc-hint { font-size: 0.86rem; line-height: 1.65; color: var(--text-muted); margin: 0; }
+
+.nc-verdict {
+  padding: 1.2rem 1.35rem;
+  border-radius: 14px;
+  background: rgba(196,123,48,0.09);
+  border-left: 3px solid var(--amber);
+}
+
+.nc-verdict-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  letter-spacing: -0.015em;
+  margin-bottom: 0.35rem;
+}
+
+.nc-verdict-body { font-size: 0.97rem; line-height: 1.7; color: var(--text-dark); }
+
+.nc-schedule { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+
+.nc-schedule th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-weight: 400;
+  padding: 0 0.75rem 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.nc-schedule td {
+  padding: 0.7rem 0.75rem 0.7rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-dark);
+}
+
+.nc-schedule td.nc-dim { color: var(--text-muted); }
+.nc-schedule td.nc-strong { font-family: var(--font-serif); font-size: 1.15rem; }
+.nc-schedule tr.nc-phase-2 td:first-child { color: var(--amber); }
+
+.nc-select {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-dark);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+}
+
+.nc-select:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (max-width: 640px) {
+  .nc-card { padding: 1.2rem; border-radius: 16px; }
+  .nc-result { padding: 1.1rem; }
+}

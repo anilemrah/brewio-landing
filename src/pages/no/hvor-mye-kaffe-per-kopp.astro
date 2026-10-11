@@ -1,0 +1,120 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// Norsk Kaffeinformasjon's rule of thumb is at least 60 g per litre, measured with a
+// 10 g kaffemål — so "Normal" is 60 g/L and the spoon unit is 10 g, not the usual 7 g.
+const strengths = [
+  { label: 'Mild', factor: 0.9 },
+  { label: 'Normal', factor: 1 },
+  { label: 'Sterk', factor: 1.15 },
+];
+
+const methods: DoseMethod[] = [
+  {
+    id: 'trakter',
+    label: 'Moccamaster / kaffetrakter',
+    gPerL: 60,
+    defaultVessel: 1,
+    vessels: [
+      { label: '2 kopper (2,5 dl)', water: 250 },
+      { label: '4 kopper (5 dl)', water: 500 },
+      { label: '6 kopper (7,5 dl)', water: 750 },
+      { label: '8 kopper (1 l)', water: 1000 },
+      { label: '10 kopper – full kanne (1,25 l)', water: 1250 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Filtermalt kaffe. En kopp på trakterens skala er 1,25 dl.',
+  },
+  {
+    id: 'koke',
+    label: 'Kokekaffe',
+    gPerL: 65,
+    defaultVessel: 2,
+    vessels: [
+      { label: '2 kopper (3 dl)', water: 300 },
+      { label: '4 kopper (6 dl)', water: 600 },
+      { label: '1 liter', water: 1000 },
+      { label: '1,5 liter (stor kjele)', water: 1500 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Kokmalt kaffe. Kok opp vannet, ta kjelen av varmen, rør inn kaffen og la den trekke i 4–5 minutter.',
+  },
+  {
+    id: 'press',
+    label: 'Presskanne',
+    gPerL: 65,
+    vessels: [
+      { label: '3,5 dl', water: 350 },
+      { label: '5 dl', water: 500 },
+      { label: '1 liter', water: 1000 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Grovmalt kaffe, 4 minutter, press sakte og hell opp med en gang.',
+  },
+];
+---
+
+<NativeLayout
+  locale="no"
+  slug="hvor-mye-kaffe-per-kopp"
+  headline="Hvor mye kaffe <em>per kopp</em>?"
+  subtitle="Tommelfingerregelen er minst 60 gram kaffe per liter vann. Regn ut gram og kaffemål for trakter, Moccamaster, presskanne og kokekaffe."
+  appNote="I Brewio logger du hver kopp: bønner, mengde og hvordan den smakte. Trakteren og presskannen har egne tidtakere, så du ser nøyaktig hva som ga den beste kannen."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[{ grams: 10, format: '≈ {n} kaffemål à 10 g' }]}
+    numberLocale="nb-NO"
+    t={{
+      method: 'Bryggemetode',
+      vessel: 'Mengde',
+      strength: 'Styrke',
+      coffee: 'Kaffe',
+      water: 'Vann',
+      custom: 'Annen mengde',
+      customLabel: 'Vann',
+      tableVessel: 'Mengde',
+      tableWater: 'Vann',
+      tableCoffee: 'Kaffe (normal)',
+      tableSpoons: 'Kaffemål',
+    }}
+  />
+
+  <h2>Tommelfingerregelen: 60 gram per liter</h2>
+  <p>
+    Norsk Kaffeinformasjon anbefaler minst 60 gram kaffe per liter vann, og å bruke et kaffemål som rommer 10 gram.
+    Da blir regnestykket enkelt: <strong>6 mål per liter</strong>, eller drøye 7 mål til en full Moccamaster-kanne.
+    Liker du kaffen kraftigere, går du opp mot 70 gram.
+  </p>
+  <p>
+    Like viktig som mengden er trakteren: Vannet bør holde 92–96 °C, og en full kanne bør ta rundt fire til seks minutter.
+    Moccamaster er godkjent av ECBC, det europeiske kaffebryggesenteret, som tester nettopp temperatur og traktetid.
+  </p>
+
+  <h2>Hvor stor er en kopp?</h2>
+  <p>
+    En kopp på trakterens skala er 1,25 dl. En kaffekopp på bordet er gjerne 1,5 dl, og et krus rommer 2,5–3 dl.
+    Teller du kopper på trakteren og heller opp i krus, rekker kannen til halvparten så mange som du tror. Mål etter vannet, ikke etter krusene.
+  </p>
+
+  <h2>Kokekaffe – slik gjør du</h2>
+  <ol>
+    <li>Kok opp vannet i kjelen.</li>
+    <li>Ta kjelen av varmen og rør inn kokmalt kaffe, rundt 65 gram per liter.</li>
+    <li>La kaffen trekke i 4–5 minutter. Den skal trekke, ikke koke – kokende kaffe blir bitter.</li>
+    <li>En skvett kaldt vann får gruten til å synke raskere.</li>
+    <li>Hell forsiktig, så gruten blir liggende i bunnen.</li>
+  </ol>
+  <p>
+    På tur fungerer det likt på primus eller bål: samme mengde, og la kjelen stå i ro et par minutter før du heller.
+  </p>
+  <p class="note">
+    Kokekaffe i presskanne går helt fint: Kokmalt kaffe er grov nok. Bruk samme mengde, la den trekke i 4 minutter og press sakte.
+    I trakteren derimot renner vannet for fort gjennom den grove kaffen, og resultatet blir tynt.
+  </p>
+</NativeLayout>

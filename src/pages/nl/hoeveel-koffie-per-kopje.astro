@@ -1,0 +1,107 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// "7 gram per kopje, 1 maatschepje" is what Dutch filter-coffee packs print. A kopje on
+// the machine's scale is 125 ml, so that lands right on the 55–60 g/L Moccamaster advises.
+const strengths = [
+  { label: 'Mild', factor: 0.85 },
+  { label: 'Normaal', factor: 1 },
+  { label: 'Sterk', factor: 1.15 },
+];
+
+const methods: DoseMethod[] = [
+  {
+    id: 'filter',
+    label: 'Moccamaster / filterapparaat',
+    gPerL: 56,
+    defaultVessel: 1,
+    vessels: [
+      { label: '2 kopjes (0,25 l)', water: 250 },
+      { label: '4 kopjes (0,5 l)', water: 500 },
+      { label: '6 kopjes (0,75 l)', water: 750 },
+      { label: '8 kopjes (1 l)', water: 1000 },
+      { label: '10 kopjes – volle kan (1,25 l)', water: 1250 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Snelfiltermaling. Een kopje op de schaal van het apparaat is 125 ml.',
+  },
+  {
+    id: 'press',
+    label: 'French press',
+    gPerL: 65,
+    defaultVessel: 2,
+    vessels: [
+      { label: '0,35 l', water: 350 },
+      { label: '0,5 l', water: 500 },
+      { label: '1 l', water: 1000 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Grove maling, 4 minuten laten trekken, langzaam aandrukken en meteen inschenken.',
+  },
+];
+---
+
+<NativeLayout
+  locale="nl"
+  slug="hoeveel-koffie-per-kopje"
+  headline="Hoeveel koffie <em>per kopje</em>?"
+  subtitle="Eén schepje per kopje, staat er op het pak. Maar hoe groot is een kopje? Reken uit hoeveel schepjes en grammen je nodig hebt voor je Moccamaster, filterapparaat of french press."
+  appNote="In Brewio leg je elke kan vast: bonen, hoeveelheid en hoe het smaakte. Het filterapparaat en de french press hebben elk een eigen timer, zodat je precies ziet wat de lekkerste kan opleverde."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[{ grams: 7, format: '≈ {n} maatschepjes' }]}
+    numberLocale="nl-NL"
+    t={{
+      method: 'Zetmethode',
+      vessel: 'Hoeveelheid',
+      strength: 'Sterkte',
+      coffee: 'Koffie',
+      water: 'Water',
+      custom: 'Andere hoeveelheid',
+      customLabel: 'Water',
+      tableVessel: 'Hoeveelheid',
+      tableWater: 'Water',
+      tableCoffee: 'Koffie (normaal)',
+      tableSpoons: 'Maatschepjes',
+    }}
+  />
+
+  <h2>De vuistregel: 7 gram per kopje</h2>
+  <p>
+    Op de meeste pakken filterkoffie staat het al: <strong>7 gram per kopje</strong>, één maatschepje of twee afgestreken eetlepels.
+    Met een kopje van 125 ml kom je dan uit op zo'n 56 gram per liter, precies binnen de 55–60 gram die Moccamaster zelf aanraadt.
+  </p>
+
+  <h2>Hoe groot is een kopje?</h2>
+  <p>
+    Een kopje op de schaal van je koffiezetapparaat is 125 ml. Een gewone koffiekop is vaak 150 ml en een mok 250 tot 300 ml.
+    Tel je kopjes op het apparaat maar schenk je in mokken, dan is de kan na de helft al leeg. Reken dus met het water, niet met de mokken.
+  </p>
+
+  <h2>Moccamaster: hoeveel schepjes?</h2>
+  <ul>
+    <li><strong>Halve kan (0,5 l):</strong> zo'n 28 gram, 4 maatschepjes</li>
+    <li><strong>Volle kan (1,25 l):</strong> zo'n 70 gram, 10 maatschepjes</li>
+  </ul>
+  <p>
+    De Moccamaster wordt al sinds de jaren zestig in Amerongen gemaakt, en is ontworpen om precies deze hoeveelheden met water van de juiste temperatuur te zetten.
+    Roer de kan even door voor je inschenkt: de koffie die er als eerste doorloopt, is veel sterker dan de laatste.
+  </p>
+
+  <h2>Hoeveel weegt een schepje?</h2>
+  <p>
+    Een gewoon maatschepje bevat zo'n 7 gram gemalen koffie. Maar donker gebrande koffie weegt per schepje minder dan licht gebrande,
+    en niet elk schepje is even groot. Wil je elke ochtend dezelfde kan, weeg je koffie dan één keer en onthoud hoe het schepje eruitziet.
+  </p>
+
+  <h2>French press: de juiste verhouding</h2>
+  <p>
+    Voor de french press gebruik je iets meer koffie: 60 tot 65 gram per liter, grof gemalen. Laat 4 minuten trekken, druk de pers langzaam
+    naar beneden en schenk alles meteen in. Blijft de koffie op het drab staan, dan wordt hij bitter.
+  </p>
+</NativeLayout>

@@ -1,0 +1,77 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import EspressoDiag from '../../components/native/EspressoDiag.astro';
+---
+
+<NativeLayout
+  locale="de"
+  slug="siebtraeger-mahlgrad"
+  headline="Siebträger: <em>Mahlgrad</em> richtig einstellen"
+  subtitle="Läuft dein Espresso zu schnell oder zu langsam, schmeckt er sauer oder bitter? Gib Dosis, Ausbeute und Bezugszeit ein – der Check sagt dir, was du als Nächstes änderst."
+  appNote="In Brewio protokollierst du jeden Bezug mit Dosis, Ausbeute, Zeit und Geschmack. Die Verbesserungstipps schlagen dir die nächste Anpassung vor, und du siehst, bei welcher Bohne welcher Mahlgrad gepasst hat."
+>
+  <EspressoDiag />
+
+  <h2>Die Zielwerte für einen klassischen Espresso</h2>
+  <ul>
+    <li><strong>Dosis:</strong> je nach Siebgröße meist 16–20 g im Doppelsieb</li>
+    <li><strong>Ausbeute:</strong> etwa das Doppelte, also 1:2 – aus 18 g Pulver werden 36 g Espresso</li>
+    <li><strong>Bezugszeit:</strong> 25–32 Sekunden</li>
+    <li><strong>Brühtemperatur:</strong> 92–94 °C, bei hellen Röstungen eher höher, bei dunklen eher niedriger</li>
+  </ul>
+  <p>
+    Das sind Startwerte, kein Gesetz. Am Ende entscheidet der Geschmack: Ein süßer, ausgewogener Espresso nach 23 Sekunden ist besser als
+    ein bitterer nach exakt 28.
+  </p>
+
+  <h2>Bezugszeit: Ab wann zählt man?</h2>
+  <p>
+    Ab dem Moment, in dem du den Bezug startest – also ab Pumpenstart, eine eventuelle Preinfusion eingeschlossen. Nicht ab dem ersten Tropfen.
+    Wichtig ist vor allem, dass du immer gleich misst. Sonst vergleichst du Äpfel mit Birnen.
+  </p>
+
+  <h2>Feiner oder gröber? Die Faustregeln</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Was du siehst und schmeckst</th><th>Ursache</th><th>Was du tust</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Zu schnell, sauer, dünn, helle Crema</td><td>Mahlgrad zu grob</td><td>Feiner mahlen</td></tr>
+        <tr><td>Zu langsam, bitter, trocken, tröpfelt nur</td><td>Mahlgrad zu fein</td><td>Gröber mahlen</td></tr>
+        <tr><td>Schnell und trotzdem bitter, Spritzer aus dem Sieb</td><td>Channeling</td><td>Pulver verteilen, gerade tampern</td></tr>
+        <tr><td>Zeit stimmt, aber sauer</td><td>Zu wenig extrahiert</td><td>Mehr Ausbeute oder heißer brühen</td></tr>
+        <tr><td>Zeit stimmt, aber bitter</td><td>Zu viel extrahiert</td><td>Weniger Ausbeute oder kühler brühen</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li><strong>Immer nur eine Sache ändern.</strong> Wer gleichzeitig Mahlgrad und Dosis verstellt, weiß hinterher nicht, was gewirkt hat.</li>
+    <li><strong>Nach dem Verstellen ein paar Gramm durchmahlen.</strong> Im Mahlwerk bleibt Pulver von der alten Einstellung zurück und verfälscht sonst den nächsten Bezug.</li>
+    <li><strong>Frische Bohnen ändern alles.</strong> Mit jedem neuen Beutel, und auch wenn eine Bohne älter wird, musst du nachjustieren.</li>
+  </ul>
+
+  <h2>Sage Barista Express: Mahlgrad einstellen</h2>
+  <p>
+    Die Barista Express ist für viele der Einstieg in die Siebträger-Welt, und ihre Mühle hat ein paar Eigenheiten.
+  </p>
+  <ul>
+    <li><strong>Der Regler an der Seite:</strong> Kleinere Zahl heißt feiner. Starte im unteren Mittelfeld und taste dich stufenweise heran, mit dem Check oben als Kompass.</li>
+    <li><strong>Einwandige Siebe nehmen:</strong> Die doppelwandigen Siebe sind für vorgemahlenen Kaffee gedacht. Sie verzeihen viel, aber mit ihnen lässt sich der Mahlgrad nicht sinnvoll einstellen.</li>
+    <li><strong>Das Manometer ist ein Hinweis, nicht das Ziel:</strong> Steht die Nadel im Espresso-Bereich, ist das ein gutes Zeichen. Entscheidend bleiben Zeit und Geschmack.</li>
+    <li><strong>Dosis mit dem Razor abstreifen:</strong> Das mitgelieferte Trimm-Werkzeug sorgt dafür, dass jedes Mal gleich viel Kaffee im Sieb liegt.</li>
+    <li><strong>Am feinsten Ende und immer noch zu schnell?</strong> Dann lässt sich laut Anleitung der obere Mahlkegel innen eine Stufe feiner einsetzen. Danach verschiebt sich die ganze Skala, du stellst also neu ein.</li>
+  </ul>
+
+  <h2>Mahlgrad zu fein: woran du es erkennst</h2>
+  <p>
+    Der Espresso tröpfelt nur, braucht deutlich über 35 Sekunden und schmeckt bitter, trocken und adstringierend. Die Crema ist dunkel, fast fleckig.
+    Stell eine bis zwei Stufen gröber und lass Dosis und Ausbeute gleich.
+  </p>
+
+  <h2>Mahlgrad zu grob: woran du es erkennst</h2>
+  <p>
+    Der Espresso schießt in unter 20 Sekunden durch, schmeckt sauer und wässrig, die Crema ist hell und fällt schnell zusammen.
+    Stell eine bis zwei Stufen feiner. Bei sehr hellen Röstungen hilft zusätzlich eine höhere Brühtemperatur.
+  </p>
+</NativeLayout>

@@ -1,0 +1,123 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// Brazilian copy (the searches are Brazilian), served under /pt/ with lang="pt-BR".
+// Médio sits at 65 g/L — the specialty filter standard, and right where the popular
+// "5 a 6 colheres por litro" lands with a heaped colher de sopa of about 10 g.
+const strengths = [
+  { label: 'Suave', factor: 0.8 },
+  { label: 'Médio', factor: 1 },
+  { label: 'Forte', factor: 1.25 },
+];
+
+const methods: DoseMethod[] = [
+  {
+    id: 'coado',
+    label: 'Café coado',
+    gPerL: 65,
+    defaultVessel: 3,
+    vessels: [
+      { label: '1 xícara (200 ml)', water: 200 },
+      { label: '300 ml', water: 300 },
+      { label: '500 ml', water: 500 },
+      { label: '1 litro', water: 1000 },
+      { label: 'Garrafa térmica (1,8 L)', water: 1800 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Água entre 90 e 96 °C: desligue o fogo quando surgirem as primeiras bolhinhas, antes de ferver.',
+  },
+  {
+    id: 'prensa',
+    label: 'Prensa francesa',
+    gPerL: 65,
+    defaultVessel: 1,
+    vessels: [
+      { label: '350 ml', water: 350 },
+      { label: '600 ml', water: 600 },
+      { label: '1 litro', water: 1000 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Moagem grossa, 4 minutos de infusão, depois pressione devagar e sirva tudo de uma vez.',
+  },
+];
+---
+
+<NativeLayout
+  locale="pt"
+  slug="quantas-colheres-de-cafe"
+  headline="Quantas colheres de café para <em>1 litro de água</em>?"
+  subtitle="Resposta curta: de 5 a 7 colheres de sopa cheias por litro, conforme você gosta do café mais fraco ou mais forte. Calcule para uma xícara, meio litro ou a garrafa térmica inteira."
+  appNote="No Brewio você registra cada café: o pó, a medida, a água e como ficou. Assim você descobre a sua medida ideal e repete sempre que quiser."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[
+      { grams: 10, format: '≈ {n} colheres de sopa cheias' },
+      { grams: 5, format: 'ou {n} rasas' },
+    ]}
+    numberLocale="pt-BR"
+    t={{
+      method: 'Como você faz',
+      vessel: 'Quantidade de água',
+      strength: 'Intensidade',
+      coffee: 'Pó de café',
+      water: 'Água',
+      custom: 'Outra',
+      customLabel: 'Água',
+      tableVessel: 'Quantidade',
+      tableWater: 'Água',
+      tableCoffee: 'Pó (médio)',
+      tableSpoons: 'Colheres cheias',
+    }}
+  />
+
+  <h2>A medida certa, em colheres e em gramas</h2>
+  <ul>
+    <li><strong>Suave:</strong> 5 colheres de sopa cheias por litro (cerca de 50 g)</li>
+    <li><strong>Médio:</strong> 6 a 7 colheres (cerca de 65 g), a medida que a maioria das cafeterias de café especial usa</li>
+    <li><strong>Forte:</strong> 8 colheres (cerca de 80 g)</li>
+  </ul>
+  <p>
+    Uma colher de sopa <strong>cheia</strong> de pó tem por volta de 10 g; <strong>rasa</strong>, uns 5 g. Como cada colher é de um jeito,
+    vale pesar a sua uma vez na balança de cozinha. Depois disso, a conta fica fácil.
+  </p>
+
+  <h2>Meio litro, uma xícara ou a garrafa inteira</h2>
+  <ul>
+    <li><strong>500 ml:</strong> 3 a 3½ colheres cheias</li>
+    <li><strong>1 xícara (200 ml):</strong> 1 a 1½ colher cheia</li>
+    <li><strong>Garrafa térmica de 1,8 L:</strong> cerca de 12 colheres cheias</li>
+  </ul>
+  <p class="note">
+    Cafeteira elétrica de "30 xícaras"? A jarra costuma ter cerca de 1,2 litro, porque a "xícara" da cafeteira é a de cafezinho.
+    Use a medida de pouco mais de 1 litro, e não 30 colheres.
+  </p>
+
+  <h2>E o açúcar?</h2>
+  <p>
+    Quem adoça na água costuma usar de 3 a 6 colheres de sopa de açúcar por litro, a gosto. O açúcar vai na água, antes de aquecer,
+    e a medida do pó continua a mesma.
+  </p>
+
+  <h2>Água quase fervendo, nunca fervendo</h2>
+  <p>
+    Desligue o fogo quando aparecerem as primeiras bolhinhas no fundo da chaleira, entre 90 e 96 °C. Água fervendo extrai o amargo do pó,
+    e pó fervido junto com a água deixa o café pesado e queimado.
+  </p>
+
+  <h2>Coado no pano ou no papel?</h2>
+  <p>
+    O <strong>coador de pano</strong> deixa passar mais óleos do café e dá mais corpo. Lave só com água quente, sem sabão, e guarde úmido
+    num pote na geladeira para não pegar cheiro. O <strong>filtro de papel</strong> deixa o café mais limpo: molhe o papel com água quente
+    antes de colocar o pó, para tirar o gosto de papel.
+  </p>
+  <ol>
+    <li>Coloque o pó no filtro e despeje só um pouco de água, o suficiente para molhar todo o pó.</li>
+    <li>Espere uns 30 segundos: o pó "estufa" e solta gás.</li>
+    <li>Despeje o resto da água aos poucos, em círculos, sem encher o filtro de uma vez.</li>
+  </ol>
+</NativeLayout>

@@ -1,0 +1,115 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// 1杯10g・2杯18g・3杯25g・4杯30g — the classic Japanese drip table, where the dose
+// per cup falls as the batch grows (more water means a longer, fuller extraction).
+const methods: DoseMethod[] = [
+  {
+    id: 'hot',
+    label: 'ハンドドリップ（ホット）',
+    gPerL: 65,
+    vessels: [
+      { label: '1杯（120ml）', water: 120, coffee: 10 },
+      { label: '2杯（240ml）', water: 240, coffee: 18 },
+      { label: '3杯（360ml）', water: 360, coffee: 25 },
+      { label: '4杯（480ml）', water: 480, coffee: 30 },
+      { label: 'マグカップ（250ml）', water: 250, coffee: 18 },
+      { label: '500ml', water: 500, coffee: 31 },
+    ],
+    strengths: [
+      { label: '軽め', factor: 0.85 },
+      { label: 'ふつう', factor: 1 },
+      { label: '濃いめ', factor: 1.15 },
+    ],
+    custom: true,
+    note: '湯温は90℃前後、挽き目は中細挽き（グラニュー糖くらい）が目安です。',
+  },
+  {
+    id: 'iced',
+    label: 'アイスコーヒー（急冷式）',
+    gPerL: 100,
+    waterLabel: 'お湯（氷は粉の5倍）',
+    vessels: [
+      { label: 'グラス1杯', water: 150, coffee: 15 },
+      { label: 'グラス2杯', water: 250, coffee: 25 },
+      { label: 'グラス3杯', water: 350, coffee: 35 },
+    ],
+    note: 'サーバーに氷を入れ、その上に直接ドリップします。お湯が少ないぶん、挽き目はホットより少し細かめに。',
+  },
+];
+---
+
+<NativeLayout
+  locale="ja"
+  slug="coffee-amount"
+  headline="コーヒー粉の量は<em>1杯何グラム？</em>"
+  subtitle="基本は1杯10g・お湯120ml。2杯なら18g、4杯なら30g。杯数やマグカップ、500mlから、粉の量とスプーン換算をすぐに出せます。"
+  appNote="Brewioなら、粉とお湯の量から比率を自動で計算。淹れた一杯ごとに豆・粉の量・味を記録できるので、自分にとっての「ちょうどいい量」がデータとして残ります。"
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[
+      { grams: 10, format: 'メジャースプーン約{n}杯' },
+      { grams: 6, format: '大さじ約{n}杯' },
+    ]}
+    numberLocale="ja-JP"
+    t={{
+      method: '淹れ方',
+      vessel: '量',
+      strength: '濃さ',
+      coffee: 'コーヒー粉',
+      water: 'お湯',
+      custom: 'mlで指定',
+      customLabel: 'お湯の量',
+      tableVessel: '量',
+      tableWater: 'お湯',
+      tableCoffee: 'コーヒー粉',
+      tableSpoons: 'メジャースプーン',
+    }}
+  />
+
+  <h2>1杯＝粉10g・お湯120mlが基本</h2>
+  <p>
+    ドリップでいう「1杯」は、コーヒーカップ1杯ぶんの約120ml。ここに粉10gが、多くのメーカーやコーヒー店が示している目安です。
+    ドリップパックの多くが1袋10g前後なのも同じ理由です。
+  </p>
+
+  <h2>杯数が増えたら、1杯あたりの粉は少なめに</h2>
+  <p>
+    2杯で18g、3杯で25g、4杯で30g。人数分をそのまま掛け算しないのがポイントです。
+    量が増えるとお湯が粉の層を通る時間が長くなり、そのぶん成分がしっかり出るため、粉を少し減らしてもちょうどいい濃さになります。
+  </p>
+  <p>
+    マグカップ（約250ml）なら18g前後、500mlなら30g前後がスタート地点です。
+  </p>
+
+  <h2>スプーンで量るときの目安</h2>
+  <ul>
+    <li><strong>メジャースプーン すりきり1杯：</strong>約10g（メーカーによって8〜12gほどの差があります）</li>
+    <li><strong>大さじ すりきり1杯：</strong>約6g</li>
+    <li><strong>ティースプーン 1杯：</strong>約2〜3g</li>
+  </ul>
+  <p>
+    同じスプーンでも、挽き目や焙煎度で重さは変わります。手持ちのスプーンを一度だけキッチンスケールで量っておくと、その後はずっと迷いません。
+  </p>
+
+  <h2>アイスコーヒーの比率</h2>
+  <p>
+    急冷式なら、減らしたお湯のぶんを氷で補います。目安は<strong>お湯は粉の10倍、氷は粉の5倍</strong>。
+    粉20gならお湯200g、サーバーに氷100gです。氷が溶けて、ホットとほぼ同じ濃さに落ち着きます。
+  </p>
+  <p>
+    水出しにするなら、粉と水を1:10〜1:12で合わせ、冷蔵庫で8〜12時間。粉50gなら水500〜600mlです。
+  </p>
+
+  <h2>濃い・薄いと感じたら</h2>
+  <ul>
+    <li><strong>薄い・物足りない：</strong>粉を1〜2g増やすか、挽き目を少し細かく。</li>
+    <li><strong>濃すぎる・苦い：</strong>粉を減らすか、できあがりにお湯を少し足します。</li>
+  </ul>
+  <p>
+    もう一歩こだわるなら、湯量とタイミングで味を決める<a href="/ja/46-method/">46メソッド</a>や、ミル別の<a href="/ja/grind-size/">挽き目の目安</a>もどうぞ。
+  </p>
+</NativeLayout>

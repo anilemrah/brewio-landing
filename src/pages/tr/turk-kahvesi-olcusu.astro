@@ -1,0 +1,120 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// 6 g kahve / 65 ml su per fincan — what Turkey's best-known brand prints on the pack.
+const methods: DoseMethod[] = [
+  {
+    id: 'cezve',
+    label: 'Cezve',
+    gPerL: 92,
+    vessels: [
+      { label: '1 fincan', water: 65, coffee: 6 },
+      { label: '2 fincan', water: 130, coffee: 12 },
+      { label: '3 fincan', water: 195, coffee: 18 },
+      { label: '4 fincan', water: 260, coffee: 24 },
+    ],
+    strengths: [
+      { label: 'Hafif', factor: 0.85 },
+      { label: 'Normal', factor: 1 },
+      { label: 'Koyu', factor: 1.2 },
+    ],
+    note: 'Su soğuk olmalı. Suyu, kahveyi içeceğin fincanla ölçmek en doğrusu.',
+  },
+];
+---
+
+<NativeLayout
+  locale="tr"
+  slug="turk-kahvesi-olcusu"
+  headline="Türk kahvesi <em>kaç gram</em>?"
+  subtitle="Bir fincan için yaklaşık 6 gram kahve ve 65 ml su. 1'den 4 fincana kadar ölçüyü hesapla; cezvede ne kadar pişeceğini ve şekeri nasıl ayarlayacağını öğren."
+  appNote="Brewio'da Türk kahvesi için adım adım zamanlayıcı var: suyu koymaktan köpüğün kabarmasına kadar sana eşlik eder. Hangi kahveyle, kaç gramla en güzel köpüğü yakaladığını da kaydedersin."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[
+      { grams: 6, format: '≈ {n} tepeleme tatlı kaşığı' },
+      { grams: 3, format: 'ya da {n} çay kaşığı' },
+    ]}
+    numberLocale="tr-TR"
+    t={{
+      method: 'Yöntem',
+      vessel: 'Kaç fincan?',
+      strength: 'Kıvam',
+      coffee: 'Türk kahvesi',
+      water: 'Soğuk su',
+      custom: 'Diğer',
+      customLabel: 'Su',
+      tableVessel: 'Fincan',
+      tableWater: 'Su',
+      tableCoffee: 'Kahve',
+      tableSpoons: 'Tatlı kaşığı',
+    }}
+  />
+
+  <h2>Bir fincan Türk kahvesinin ölçüsü</h2>
+  <ul>
+    <li><strong>Kahve:</strong> 6–7 gram, yani bir tepeleme tatlı kaşığı ya da iki çay kaşığı</li>
+    <li><strong>Su:</strong> 65–70 ml, bir Türk kahvesi fincanı dolusu soğuk su</li>
+  </ul>
+  <p>
+    Suyu, kahveyi içeceğin fincanla ölç. Fincanların boyu birbirinden farklı olduğu için en doğru ölçü budur. Koyu seviyorsan kahveyi biraz artır,
+    suyu değiştirme: Su fazla gelirse köpük de, lezzet de dağılır.
+  </p>
+
+  <h2>Şeker ölçüsü</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Kahve</th><th>Bir fincan için şeker</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sade</td><td>Şeker yok</td></tr>
+        <tr><td>Az şekerli</td><td>Yarım küp ya da yarım çay kaşığı</td></tr>
+        <tr><td>Orta şekerli</td><td>Bir küp ya da bir çay kaşığı</td></tr>
+        <tr><td>Şekerli</td><td>İki küp ya da iki çay kaşığı</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Şeker, kahveyle birlikte en başta cezveye konur. Pişerken ya da fincana döktükten sonra eklenmez.
+  </p>
+
+  <h2>Türk kahvesi kaç dakikada pişer?</h2>
+  <p>
+    Kısık ateşte bir iki fincan için yaklaşık <strong>3–4 dakika</strong>. Fincan sayısı arttıkça süre biraz uzar.
+    Acele edip ateşi açarsan kahve çabuk kabarır ama köpük tutmaz.
+  </p>
+  <p class="note">
+    Peki kaç dakika kaynatılır? Hiç. Türk kahvesi kaynatılmaz: köpük kabarıp cezvenin ağzına doğru yükseldiği anda ocaktan alınır.
+    Kaynayan kahvenin köpüğü kaçar ve tadı acılaşır.
+  </p>
+
+  <h2>Cezvede adım adım</h2>
+  <ol>
+    <li>Soğuk suyu fincanla ölçüp cezveye koy.</li>
+    <li>Kahveyi, şekerli içeceksen şekeri de ekle.</li>
+    <li>Ocağa koymadan iyice karıştır, topak kalmasın. Ocaktayken bir daha karıştırma.</li>
+    <li>Kısık ateşe koy. Bir süre sonra kenarlarda köpük toplanmaya başlar.</li>
+    <li>Köpük kabarmaya başlayınca, taşmadan ocaktan al ve köpüğü kaşıkla fincanlara paylaştır.</li>
+    <li>Cezveyi tekrar ateşe koy. Bir kez daha kabarınca kalan kahveyi fincanlara yavaşça, köpüğü bozmadan dök.</li>
+    <li>Telvenin çökmesi için bir dakika beklet ve yanında bir bardak suyla ikram et.</li>
+  </ol>
+
+  <h2>Bol köpüklü Türk kahvesinin püf noktaları</h2>
+  <ul>
+    <li><strong>Taze ve un gibi ince çekilmiş kahve:</strong> Bayatlayan kahve köpük yapmaz.</li>
+    <li><strong>Soğuk su:</strong> Ilık su kahveyi hızlı ısıtır, köpük oluşmadan kabarır.</li>
+    <li><strong>Kısık ateş:</strong> Yavaş ısınan kahve daha çok ve daha sık köpük yapar.</li>
+    <li><strong>Fincan sayısına uygun cezve:</strong> Tek fincanı büyük cezvede yaparsan köpük cezvenin tabanına yayılır, fincana az kalır.</li>
+    <li><strong>Önce köpük, sonra kahve:</strong> Köpüğü fincanlara paylaştırmadan kahveyi dökme.</li>
+  </ul>
+
+  <h2>Türk kahvesi makinesinde ölçü</h2>
+  <p>
+    Makinede de ölçü aynı: her fincan için 6–7 gram kahve ve bir fincan soğuk su. Suyu yine kahveyi içeceğin fincanla ölç ve makinenin modeline göre
+    cezvesine ya da su haznesine koy. Çoğu makine, köpük kabardığında kendiliğinden durur.
+  </p>
+</NativeLayout>

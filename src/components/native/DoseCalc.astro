@@ -1,0 +1,303 @@
+---
+import '../../styles/native-calc.css';
+
+/**
+ * "How much coffee for this many cups?" in local units. One engine for every
+ * market; each page supplies its own vessels (moka sizes, Moccamaster cups,
+ * garrafa térmica), spoons (kaffemått, colher de sopa, メジャースプーン) and strengths.
+ */
+export interface DoseVessel {
+  label: string;
+  /** Water in ml (for moka pots: what ends up in the cup). */
+  water: number;
+  /** Fixed dose in grams, or a range when the vessel itself sets it (moka basket). */
+  coffee?: number | [number, number];
+}
+
+export interface DoseMethod {
+  id: string;
+  label: string;
+  /** Base strength in grams per litre — used when a vessel has no fixed dose, and for custom amounts. */
+  gPerL: number;
+  vessels: DoseVessel[];
+  defaultVessel?: number;
+  strengths?: { label: string; factor: number }[];
+  defaultStrength?: number;
+  custom?: boolean;
+  waterLabel?: string;
+  note?: string;
+}
+
+export interface DoseSpoon {
+  grams: number;
+  /** Template with {n}, so word order follows the language: "≈ {n} kaffemått", "メジャースプーン約{n}杯". */
+  format: string;
+}
+
+export interface DoseCalcStrings {
+  method: string;
+  vessel: string;
+  strength: string;
+  coffee: string;
+  water: string;
+  custom: string;
+  customLabel: string;
+  tableVessel: string;
+  tableWater: string;
+  tableCoffee: string;
+  tableSpoons: string;
+}
+
+interface Props {
+  methods: DoseMethod[];
+  spoons: DoseSpoon[];
+  t: DoseCalcStrings;
+  /** BCP 47 tag for number formatting (decimal comma etc.). */
+  numberLocale: string;
+  /** Render the crawlable reference table under the calculator. */
+  table?: boolean;
+}
+
+const { methods, spoons, t, numberLocale, table = true } = Astro.props;
+
+const nf = new Intl.NumberFormat(numberLocale, { maximumFractionDigits: 1 });
+
+const doseFor = (m: DoseMethod, v: DoseVessel, factor = 1): number | [number, number] => {
+  if (Array.isArray(v.coffee)) return v.coffee;
+  return (v.coffee ?? (v.water * m.gPerL) / 1000) * factor;
+};
+
+const fmtDose = (d: number | [number, number]) =>
+  Array.isArray(d) ? `${nf.format(d[0])}–${nf.format(d[1])}` : nf.format(d < 10 ? Math.round(d * 2) / 2 : Math.round(d));
+
+const fmtSpoons = (d: number | [number, number], s: DoseSpoon) => {
+  const g = Array.isArray(d) ? (d[0] + d[1]) / 2 : d;
+  return s.format.replace('{n}', nf.format(Math.max(0.5, Math.round((g / s.grams) * 2) / 2)));
+};
+
+const first = methods[0];
+const firstVessel = first.defaultVessel ?? 0;
+const firstStrength = first.defaultStrength ?? Math.floor((first.strengths?.length ?? 1) / 2);
+const firstFactor = first.strengths?.[firstStrength]?.factor ?? 1;
+const firstDose = doseFor(first, first.vessels[firstVessel], firstFactor);
+---
+
+<div
+  class="nc-card nc-dose"
+  data-config={JSON.stringify({ methods, spoons, numberLocale })}
+>
+  {methods.length > 1 && (
+    <div>
+      <span class="nc-label" id="dose-method-label">{t.method}</span>
+      <div class="nc-chips" role="radiogroup" aria-labelledby="dose-method-label" data-group="method">
+        {methods.map((m, i) => (
+          <button type="button" class="nc-chip" role="radio" aria-checked={i === 0 ? 'true' : 'false'} data-index={i}>
+            {m.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <div>
+    <span class="nc-label" id="dose-vessel-label">{t.vessel}</span>
+    <div class="nc-chips" role="radiogroup" aria-labelledby="dose-vessel-label" data-group="vessel">
+      {first.vessels.map((v, i) => (
+        <button type="button" class="nc-chip" role="radio" aria-checked={i === firstVessel ? 'true' : 'false'} data-index={i}>
+          {v.label}
+        </button>
+      ))}
+      {first.custom && (
+        <button type="button" class="nc-chip" role="radio" aria-checked="false" data-index="custom">{t.custom}</button>
+      )}
+    </div>
+  </div>
+
+  <div class="nc-inputs" data-custom hidden>
+    <label class="nc-input">
+      <span class="nc-label">{t.customLabel}</span>
+      <span class="nc-input-row">
+        <input type="number" min="10" max="5000" step="10" value="500" inputmode="numeric" data-custom-water />
+        <span class="nc-unit">ml</span>
+      </span>
+    </label>
+  </div>
+
+  <div data-strength-wrap hidden={!first.strengths}>
+    <span class="nc-label" id="dose-strength-label">{t.strength}</span>
+    <div class="nc-chips" role="radiogroup" aria-labelledby="dose-strength-label" data-group="strength">
+      {first.strengths?.map((s, i) => (
+        <button type="button" class="nc-chip" role="radio" aria-checked={i === firstStrength ? 'true' : 'false'} data-index={i}>
+          {s.label}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="nc-result" aria-live="polite">
+    <div class="nc-out">
+      <span class="nc-out-label">{t.coffee}</span>
+      <span class="nc-out-value"><span data-out="coffee">{fmtDose(firstDose)}</span> <small>g</small></span>
+      <span class="nc-out-extra" data-out="spoons">
+        {spoons.map((s) => fmtSpoons(firstDose, s)).join(' · ')}
+      </span>
+    </div>
+    <div class="nc-out">
+      <span class="nc-out-label" data-out="water-label">{first.waterLabel ?? t.water}</span>
+      <span class="nc-out-value"><span data-out="water">{nf.format(first.vessels[firstVessel].water)}</span> <small>ml</small></span>
+    </div>
+  </div>
+
+  <p class="nc-hint" data-out="note" hidden={!first.note}>{first.note}</p>
+</div>
+
+{table && methods.map((m) => (
+  <div class="table-wrap">
+    <table>
+      <caption class="sr-only">{m.label}</caption>
+      <thead>
+        <tr>
+          <th>{methods.length > 1 ? m.label : t.tableVessel}</th>
+          <th>{m.waterLabel ?? t.tableWater}</th>
+          <th>{t.tableCoffee}</th>
+          {spoons.length > 0 && <th>{t.tableSpoons}</th>}
+        </tr>
+      </thead>
+      <tbody>
+        {m.vessels.map((v) => {
+          const factor = m.strengths?.[m.defaultStrength ?? Math.floor(m.strengths.length / 2)]?.factor ?? 1;
+          const d = doseFor(m, v, factor);
+          return (
+            <tr>
+              <td>{v.label}</td>
+              <td class="num">{nf.format(v.water)} ml</td>
+              <td class="num">{fmtDose(d)} g</td>
+              {spoons.length > 0 && <td>{fmtSpoons(d, spoons[0])}</td>}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+))}
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<script>
+  type Dose = number | [number, number];
+  interface Vessel { label: string; water: number; coffee?: Dose }
+  interface Method {
+    id: string; label: string; gPerL: number; vessels: Vessel[]; defaultVessel?: number;
+    strengths?: { label: string; factor: number }[]; defaultStrength?: number;
+    custom?: boolean; waterLabel?: string; note?: string;
+  }
+  interface Spoon { grams: number; format: string }
+
+  document.querySelectorAll<HTMLElement>('.nc-dose').forEach((root) => {
+    const { methods, spoons, numberLocale } = JSON.parse(root.dataset.config!) as {
+      methods: Method[]; spoons: Spoon[]; numberLocale: string;
+    };
+    const nf = new Intl.NumberFormat(numberLocale, { maximumFractionDigits: 1 });
+    const defaultWaterLabel = root.querySelector('[data-out="water-label"]')!.textContent ?? '';
+    const customText = root.querySelector('[data-group="vessel"] [data-index="custom"]')?.textContent ?? '';
+
+    const group = (name: string) => root.querySelector<HTMLElement>(`[data-group="${name}"]`);
+    const out = (name: string) => root.querySelector<HTMLElement>(`[data-out="${name}"]`)!;
+    const customWrap = root.querySelector<HTMLElement>('[data-custom]')!;
+    const customInput = root.querySelector<HTMLInputElement>('[data-custom-water]')!;
+    const strengthWrap = root.querySelector<HTMLElement>('[data-strength-wrap]')!;
+
+    let m = methods[0];
+    let vessel: number | 'custom' = m.defaultVessel ?? 0;
+    let strength = m.defaultStrength ?? Math.floor((m.strengths?.length ?? 1) / 2);
+
+    const fmtDose = (d: Dose) =>
+      Array.isArray(d)
+        ? `${nf.format(d[0])}–${nf.format(d[1])}`
+        : nf.format(d < 10 ? Math.round(d * 2) / 2 : Math.round(d));
+
+    const fmtSpoons = (d: Dose) => {
+      const g = Array.isArray(d) ? (d[0] + d[1]) / 2 : d;
+      return spoons
+        .map((s) => s.format.replace('{n}', nf.format(Math.max(0.5, Math.round((g / s.grams) * 2) / 2))))
+        .join(' · ');
+    };
+
+    function chips(container: HTMLElement, labels: string[], active: number | string, withCustom: boolean) {
+      container.replaceChildren();
+      const items: [string, string][] = labels.map((l, i) => [l, String(i)]);
+      if (withCustom) items.push([customText, 'custom']);
+      for (const [label, index] of items) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'nc-chip';
+        b.setAttribute('role', 'radio');
+        b.dataset.index = index;
+        b.setAttribute('aria-checked', String(index === String(active)));
+        b.textContent = label;
+        container.append(b);
+      }
+    }
+
+    function render() {
+      const factor = m.strengths?.[strength]?.factor ?? 1;
+      let water: number;
+      let dose: Dose;
+      if (vessel === 'custom') {
+        water = Math.max(0, parseFloat(customInput.value) || 0);
+        dose = (water * m.gPerL / 1000) * factor;
+      } else {
+        const v = m.vessels[vessel];
+        water = v.water;
+        dose = Array.isArray(v.coffee) ? v.coffee : (v.coffee ?? (v.water * m.gPerL) / 1000) * factor;
+      }
+      out('coffee').textContent = fmtDose(dose);
+      out('spoons').textContent = fmtSpoons(dose);
+      out('water').textContent = nf.format(water);
+      out('water-label').textContent = m.waterLabel ?? defaultWaterLabel;
+      out('note').textContent = m.note ?? '';
+      out('note').hidden = !m.note;
+      customWrap.hidden = vessel !== 'custom';
+      const fixed = vessel !== 'custom' && Array.isArray(m.vessels[vessel].coffee);
+      strengthWrap.hidden = !m.strengths || fixed;
+    }
+
+    function selectMethod(i: number) {
+      m = methods[i];
+      vessel = m.defaultVessel ?? 0;
+      strength = m.defaultStrength ?? Math.floor((m.strengths?.length ?? 1) / 2);
+      group('method')?.querySelectorAll('.nc-chip').forEach((c) =>
+        c.setAttribute('aria-checked', String((c as HTMLElement).dataset.index === String(i))));
+      chips(group('vessel')!, m.vessels.map((v) => v.label), vessel, !!m.custom);
+      chips(group('strength')!, (m.strengths ?? []).map((s) => s.label), strength, false);
+      render();
+    }
+
+    root.addEventListener('click', (e) => {
+      const chip = (e.target as HTMLElement).closest<HTMLElement>('.nc-chip');
+      if (!chip) return;
+      const name = chip.parentElement?.dataset.group;
+      const index = chip.dataset.index!;
+      if (name === 'method') return selectMethod(Number(index));
+      chip.parentElement!.querySelectorAll('.nc-chip').forEach((c) =>
+        c.setAttribute('aria-checked', String(c === chip)));
+      if (name === 'vessel') vessel = index === 'custom' ? 'custom' : Number(index);
+      if (name === 'strength') strength = Number(index);
+      render();
+      if (vessel === 'custom' && name === 'vessel') customInput.focus();
+    });
+
+    customInput.addEventListener('input', render);
+    render();
+  });
+</script>

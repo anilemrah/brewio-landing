@@ -1,0 +1,99 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+
+// Comandante and Timemore ranges match the English grind guide. The みるっこ and
+// ナイスカットG dials vary more between units, so they are framed as starting points.
+const grinders = [
+  { name: 'コマンダンテ C40', unit: 'クリック', espresso: '7〜13', paper: '18〜28', fourSix: '25〜30', press: '26〜36' },
+  { name: 'タイムモア C2', unit: 'クリック', espresso: '6〜12（調整幅は狭め）', paper: '13〜22', fourSix: '20〜24', press: '22〜30' },
+  { name: 'タイムモア C3', unit: 'クリック', espresso: '5〜10（調整幅は狭め）', paper: '11〜18', fourSix: '17〜21', press: '19〜25' },
+  { name: 'フジローヤル みるっこ', unit: '目盛り', espresso: '不向き', paper: '3.5〜5', fourSix: '5.5〜7', press: '7〜9' },
+  { name: 'カリタ ナイスカットG', unit: '目盛り', espresso: '不向き', paper: '3〜4.5', fourSix: '4.5〜5.5', press: '5.5〜6.5' },
+];
+---
+
+<NativeLayout
+  locale="ja"
+  slug="grind-size"
+  headline="コーヒーの挽き目、<em>ミル別</em>の目安"
+  subtitle="「中細挽き」と言われても、自分のミルで何クリックなのかがわからない。コマンダンテ・タイムモアのクリック数と、みるっこ・ナイスカットGの目盛りでまとめました。"
+  appNote="Brewioのレシピには挽き目の設定も一緒に保存できます。豆ごとに「何クリックでどんな味だったか」を記録しておけば、新しい豆でもすぐに合わせられます。"
+>
+  <h2>挽き目の基本</h2>
+  <p>
+    挽き目が細かいほど、お湯に触れる面積が増えて成分が早く出ます。粗いほどゆっくり。
+    お湯と粉が触れている時間が短い淹れ方ほど細かく、長い淹れ方ほど粗くするのが基本です。
+  </p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>挽き目</th><th>粒の大きさ</th><th>向いている淹れ方</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>極細挽き</td><td>小麦粉くらい</td><td>イブリック（トルココーヒー）</td></tr>
+        <tr><td>細挽き</td><td>上白糖くらい</td><td>エスプレッソ、マキネッタ</td></tr>
+        <tr><td>中細挽き</td><td>グラニュー糖くらい</td><td>ペーパードリップ、カリタウェーブ、エアロプレス</td></tr>
+        <tr><td>中挽き</td><td>グラニュー糖とざらめの間</td><td>ネルドリップ、サイフォン、コーヒーメーカー</td></tr>
+        <tr><td>粗挽き</td><td>ざらめくらい</td><td>46メソッド、フレンチプレス</td></tr>
+        <tr><td>極粗挽き</td><td>粗挽きよりさらに大きい</td><td>水出しコーヒー</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>ミル別の挽き目の目安</h2>
+  <p>
+    クリック数・目盛りは、最初の一杯を淹れるためのスタート地点です。範囲の真ん中から始めて、味を見ながら調整してください。
+  </p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>ミル</th><th>エスプレッソ</th><th>ペーパードリップ</th><th>46メソッド</th><th>フレンチプレス</th></tr>
+      </thead>
+      <tbody>
+        {grinders.map((g) => (
+          <tr>
+            <td><strong>{g.name}</strong><br /><span class="unit">{g.unit}</span></td>
+            <td class="num">{g.espresso}</td>
+            <td class="num">{g.paper}</td>
+            <td class="num">{g.fourSix}</td>
+            <td class="num">{g.press}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li><strong>クリック数はゼロ点から数えます。</strong>コマンダンテやタイムモアは、調整ダイヤルを細かい側に止まるまで回しきった位置がゼロです。</li>
+    <li><strong>みるっこ・ナイスカットG</strong>は、個体差や刃の状態で同じ数字でも粒の大きさが少しずれます。表の数字を出発点に、味で合わせてください。</li>
+    <li>ナイスカットGはカット刃でキリッとした味に、みるっこは臼式の刃でまろやかな味になりやすい、と言われます。</li>
+  </ul>
+
+  <h2>酸っぱい・苦いときの直し方</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>感じた味</th><th>考えられる原因</th><th>直し方</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>酸っぱい・薄い・物足りない</td><td>成分が出きっていない</td><td>1〜2クリック細かく</td></tr>
+        <tr><td>甘い・バランスがいい</td><td>ちょうどいい</td><td>その設定を記録しておく</td></tr>
+        <tr><td>苦い・渋い・えぐい</td><td>成分が出すぎている</td><td>1〜2クリック粗く</td></tr>
+        <tr><td>落ちきるまでが長すぎる</td><td>粉が細かすぎて目詰まり</td><td>粗くする</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    浅煎りの豆は成分が出にくいので少し細かめから、深煎りは苦味が出やすいので少し粗めから始めるのがおすすめです。
+    一度に変えるのは挽き目だけ。粉の量や湯温を同時に変えると、何が効いたのかわからなくなります。
+  </p>
+
+  <h2>46メソッドの挽き目</h2>
+  <p>
+    <a href="/ja/46-method/">46メソッド</a>は5回に分けて注ぐぶん、お湯と粉が触れる時間が長くなります。
+    そのためペーパードリップの一般的な挽き目よりも粗い、粗挽きが基本です。落ちきるのが遅いと感じたら、さらに1〜2クリック粗くしてみてください。
+  </p>
+</NativeLayout>
+
+<style>
+  .unit { font-size: 0.78rem; color: var(--text-muted); }
+</style>

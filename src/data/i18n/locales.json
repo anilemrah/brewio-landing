@@ -13,7 +13,7 @@
   "hero": {
    "h1": "Her fincanın bir <em>hikâyesi</em> var.",
    "sub": "Demlediğin kahveleri kaydet, sürelerini tut, oranları hesapla. Kafeinden fazlasını arayan meraklılar için bir kahve günlüğü.",
-   "free": "Ücretsiz · 15 dil · Reklamsız"
+   "free": "Ücretsiz · Reklamsız"
   },
   "sections": {
    "features": "Uygulamada neler var",
@@ -23,6 +23,10 @@
   "cta": {
    "heading": "Bir sonraki fincanı kaydet.",
    "sub": "Brewio iOS'ta ücretsiz. Reklam yok, hesap zorunluluğu yok."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Kahve rehberi",
+   "heading": "Demleme rehberleri ve araçlar"
   }
  },
  "sv": {
@@ -39,7 +43,7 @@
   "hero": {
    "h1": "Varje kopp har en <em>historia.</em>",
    "sub": "Logga kaffet du brygger, ta tid på bryggningen och räkna ut ration. En kaffedagbok för dig som vill ha mer än bara koffeinet.",
-   "free": "Gratis · 15 språk · Inga annonser"
+   "free": "Gratis · Inga annonser"
   },
   "sections": {
    "features": "Det här finns i appen",
@@ -49,6 +53,10 @@
   "cta": {
    "heading": "Logga nästa kopp.",
    "sub": "Brewio är gratis på iOS. Inga annonser, inget konto som krävs."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Kaffeguide",
+   "heading": "Guider och verktyg"
   }
  },
  "da": {
@@ -65,7 +73,7 @@
   "hero": {
    "h1": "Hver kop har en <em>historie.</em>",
    "sub": "Log kaffen du brygger, tag tid på bryggningen, og regn forholdet ud. En kaffedagbog til dig, der vil have mere end bare koffeinen.",
-   "free": "Gratis · 15 sprog · Ingen reklamer"
+   "free": "Gratis · Ingen reklamer"
   },
   "sections": {
    "features": "Det finder du i appen",
@@ -75,6 +83,10 @@
   "cta": {
    "heading": "Log den næste kop.",
    "sub": "Brewio er gratis på iOS. Ingen reklamer, ingen tvungen oprettelse."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Kaffeguide",
+   "heading": "Guides og værktøjer"
   }
  },
  "no": {
@@ -91,7 +103,7 @@
   "hero": {
    "h1": "Hver kopp har en <em>historie.</em>",
    "sub": "Logg kaffen du brygger, ta tiden på bryggingen og regn ut forholdet. En kaffedagbok for deg som vil ha mer enn bare koffeinet.",
-   "free": "Gratis · 15 språk · Ingen reklame"
+   "free": "Gratis · Ingen reklame"
   },
   "sections": {
    "features": "Dette finner du i appen",
@@ -101,6 +113,10 @@
   "cta": {
    "heading": "Logg den neste koppen.",
    "sub": "Brewio er gratis på iOS. Ingen reklame, ingen konto som kreves."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Kaffeguide",
+   "heading": "Guider og verktøy"
   }
  },
  "fi": {
@@ -117,7 +133,7 @@
   "hero": {
    "h1": "Jokaisella kupilla on <em>tarina.</em>",
    "sub": "Kirjaa haudattamasi kahvit, ota aikaa ja laske suhteet. Kahvipäiväkirja niille, jotka haluavat muutakin kuin kofeiinia.",
-   "free": "Ilmainen · 15 kieltä · Ei mainoksia"
+   "free": "Ilmainen · Ei mainoksia"
   },
   "sections": {
    "features": "Mitä sovelluksesta löytyy",
@@ -127,6 +143,10 @@
   "cta": {
    "heading": "Kirjaa seuraava kuppi.",
    "sub": "Brewio on ilmainen iOS-laitteille. Ei mainoksia, ei pakollista tiliä."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Kahviopas",
+   "heading": "Oppaat ja laskurit"
   }
  },
  "de": {
@@ -143,7 +163,7 @@
   "hero": {
    "h1": "Jede Tasse hat eine <em>Geschichte.</em>",
    "sub": "Protokolliere, was du brühst, stoppe die Zeit und berechne das Verhältnis. Ein Kaffeetagebuch für alle, denen Koffein allein nicht reicht.",
-   "free": "Kostenlos · 15 Sprachen · Werbefrei"
+   "free": "Kostenlos · Werbefrei"
   },
   "sections": {
    "features": "Das steckt in der App",
@@ -153,6 +173,10 @@
   "cta": {
    "heading": "Halt die nächste Tasse fest.",
    "sub": "Brewio ist kostenlos für iOS. Keine Werbung, kein Pflichtkonto."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Kaffee-Guide",
+   "heading": "Guides und Rechner"
   }
  },
  "nl": {
@@ -169,7 +193,7 @@
   "hero": {
    "h1": "Elke kop heeft een <em>verhaal.</em>",
    "sub": "Leg vast wat je zet, klok de tijd en bereken de verhouding. Een koffiedagboek voor wie meer wil dan alleen cafeïne.",
-   "free": "Gratis · 15 talen · Geen advertenties"
+   "free": "Gratis · Geen advertenties"
   },
   "sections": {
    "features": "Dit zit in de app",
@@ -179,6 +203,10 @@
   "cta": {
    "heading": "Leg je volgende kop vast.",
    "sub": "Brewio is gratis voor iOS. Geen advertenties, geen verplicht account."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Koffiegids",
+   "heading": "Gidsen en rekenhulpen"
   }
  },
  "el": {
@@ -195,7 +223,7 @@
   "hero": {
    "h1": "Κάθε κούπα έχει μια <em>ιστορία.</em>",
    "sub": "Κατάγραψε τι φτιάχνεις, μέτρα τον χρόνο και υπολόγισε τις αναλογίες. Ένα ημερολόγιο καφέ για όσους θέλουν κάτι παραπάνω από την καφεΐνη.",
-   "free": "Δωρεάν · 15 γλώσσες · Χωρίς διαφημίσεις"
+   "free": "Δωρεάν · Χωρίς διαφημίσεις"
   },
   "sections": {
    "features": "Τι θα βρεις στην εφαρμογή",
@@ -205,6 +233,10 @@
   "cta": {
    "heading": "Κατάγραψε την επόμενη κούπα.",
    "sub": "Το Brewio είναι δωρεάν για iOS. Χωρίς διαφημίσεις, χωρίς υποχρεωτικό λογαριασμό."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Οδηγός καφέ",
+   "heading": "Οδηγοί και εργαλεία"
   }
  },
  "es": {
@@ -221,7 +253,7 @@
   "hero": {
    "h1": "Cada taza tiene una <em>historia.</em>",
    "sub": "Registra lo que preparas, cronometra la extracción y calcula las proporciones. Un diario de café para quien busca algo más que cafeína.",
-   "free": "Gratis · 15 idiomas · Sin anuncios"
+   "free": "Gratis · Sin anuncios"
   },
   "sections": {
    "features": "Lo que incluye la app",
@@ -231,6 +263,10 @@
   "cta": {
    "heading": "Registra tu próxima taza.",
    "sub": "Brewio es gratis en iOS. Sin anuncios y sin cuenta obligatoria."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Guía de café",
+   "heading": "Guías y calculadoras"
   }
  },
  "pt": {
@@ -247,7 +283,7 @@
   "hero": {
    "h1": "Cada chávena tem uma <em>história.</em>",
    "sub": "Regista o que preparas, cronometra a extração e calcula as proporções. Um diário de café para quem procura mais do que cafeína.",
-   "free": "Grátis · 15 idiomas · Sem anúncios"
+   "free": "Grátis · Sem anúncios"
   },
   "sections": {
    "features": "O que traz a app",
@@ -257,6 +293,10 @@
   "cta": {
    "heading": "Regista a próxima chávena.",
    "sub": "O Brewio é grátis em iOS. Sem anúncios e sem conta obrigatória."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Guia de café",
+   "heading": "Guias e calculadoras"
   }
  },
  "fr": {
@@ -273,7 +313,7 @@
   "hero": {
    "h1": "Chaque tasse a son <em>histoire.</em>",
    "sub": "Note ce que tu prépares, chronomètre l'extraction et calcule les ratios. Un carnet de café pour celles et ceux qui cherchent plus que la caféine.",
-   "free": "Gratuite · 15 langues · Sans publicité"
+   "free": "Gratuite · Sans publicité"
   },
   "sections": {
    "features": "Ce que contient l'application",
@@ -283,6 +323,10 @@
   "cta": {
    "heading": "Note ta prochaine tasse.",
    "sub": "Brewio est gratuite sur iOS. Sans publicité, sans compte obligatoire."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Guide café",
+   "heading": "Guides et calculateurs"
   }
  },
  "it": {
@@ -299,7 +343,7 @@
   "hero": {
    "h1": "Ogni tazza ha una <em>storia.</em>",
    "sub": "Registra quello che prepari, cronometra l'estrazione e calcola i rapporti. Un diario del caffè per chi cerca qualcosa in più della caffeina.",
-   "free": "Gratis · 15 lingue · Senza pubblicità"
+   "free": "Gratis · Senza pubblicità"
   },
   "sections": {
    "features": "Cosa trovi nell'app",
@@ -309,6 +353,10 @@
   "cta": {
    "heading": "Registra la prossima tazza.",
    "sub": "Brewio è gratis su iOS. Nessuna pubblicità, nessun account obbligatorio."
+  },
+  "pages": {
+   "eyebrow": "Brewio · Guida al caffè",
+   "heading": "Guide e calcolatori"
   }
  },
  "ja": {
@@ -325,7 +373,7 @@
   "hero": {
    "h1": "一杯ごとに<em>物語</em>がある。",
    "sub": "淹れたコーヒーを記録し、抽出時間を計り、比率を計算する。カフェイン以上のものを求める人のためのコーヒー記録アプリです。",
-   "free": "無料 · 15言語 · 広告なし"
+   "free": "無料 · 広告なし"
   },
   "sections": {
    "features": "アプリでできること",
@@ -335,6 +383,10 @@
   "cta": {
    "heading": "次の一杯を記録しよう。",
    "sub": "BrewioはiOSで無料。広告なし、アカウント登録も不要です。"
+  },
+  "pages": {
+   "eyebrow": "Brewio コーヒーガイド",
+   "heading": "淹れ方ガイドと計算ツール"
   }
  },
  "ko": {
@@ -351,7 +403,7 @@
   "hero": {
    "h1": "모든 잔에는 <em>이야기</em>가 있습니다.",
    "sub": "내린 커피를 기록하고, 추출 시간을 재고, 비율을 계산하세요. 카페인 그 이상을 찾는 사람을 위한 커피 기록 앱입니다.",
-   "free": "무료 · 15개 언어 · 광고 없음"
+   "free": "무료 · 광고 없음"
   },
   "sections": {
    "features": "앱에 담긴 기능",
@@ -361,6 +413,10 @@
   "cta": {
    "heading": "다음 한 잔을 기록하세요.",
    "sub": "Brewio는 iOS에서 무료입니다. 광고 없고, 계정 가입도 필요 없습니다."
+  },
+  "pages": {
+   "eyebrow": "Brewio 커피 가이드",
+   "heading": "추출 가이드와 도구"
   }
  }
 }

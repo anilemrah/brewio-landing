@@ -1,0 +1,85 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import GrindConvert from '../../components/native/GrindConvert.astro';
+---
+
+<NativeLayout
+  locale="ko"
+  slug="grind-size"
+  headline="원두 분쇄도, <em>그라인더별</em> 가이드"
+  subtitle="'중간 굵기'가 내 그라인더로 몇 클릭인지 헷갈린다면. 코만단테, 타임모어, 바라짜 엔코, 펠로우 오드 기준 분쇄도와 그라인더 변환기를 정리했습니다."
+  appNote="Brewio의 '나의 레시피'에는 그라인더 설정까지 함께 저장할 수 있어요. 원두마다 몇 클릭에서 어떤 맛이 났는지 기록해 두면 새 원두도 금방 맞출 수 있습니다."
+>
+  <h2>그라인더 변환기</h2>
+  <p>
+    코만단테로 맞춰 둔 레시피를 타임모어로 옮기고 싶을 때, 지금 설정값을 넣으면 다른 그라인더에서 비슷한 굵기를 찾아 줍니다.
+  </p>
+  <GrindConvert />
+  <p class="note">
+    두 그라인더의 추출 방식별 권장 범위를 기준으로 계산한 추정치예요. 마이크론 단위의 정확한 변환은 아니니,
+    변환값으로 한 번 내려 보고 맛을 보면서 1~2클릭씩 조정하세요.
+  </p>
+
+  <h2>추출 방식별 분쇄도</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>분쇄도</th><th>입자 느낌</th><th>추출 방식</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>아주 가늘게</td><td>밀가루</td><td>이브릭 (터키식 커피)</td></tr>
+        <tr><td>가늘게</td><td>고운 소금</td><td>에스프레소, 모카포트</td></tr>
+        <tr><td>중간보다 가늘게</td><td>설탕</td><td>핸드드립 (V60), 칼리타 웨이브, 에어로프레스</td></tr>
+        <tr><td>중간</td><td>굵은 모래</td><td>커피메이커, 사이폰</td></tr>
+        <tr><td>굵게</td><td>굵은 소금</td><td>프렌치프레스</td></tr>
+        <tr><td>아주 굵게</td><td>통후추</td><td>콜드브루</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>클릭 수는 영점부터</h2>
+  <p>
+    클릭 수는 영점에서부터 셉니다. 다이얼을 가장 가는 쪽으로, 더 이상 돌아가지 않을 때까지 돌린 위치가 0이에요.
+    같은 '20클릭'이라도 영점을 다르게 잡으면 전혀 다른 굵기가 되니, 레시피를 공유할 때는 영점 기준인지 꼭 확인하세요.
+  </p>
+
+  <h2>맛으로 분쇄도 조절하기</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>이런 맛이라면</th><th>원인</th><th>이렇게</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>시큼하고 밍밍하다</td><td>덜 추출됨</td><td>1~2클릭 가늘게</td></tr>
+        <tr><td>달고 균형 잡혔다</td><td>딱 좋음</td><td>그 설정을 기록해 두기</td></tr>
+        <tr><td>쓰고 떫다</td><td>과하게 추출됨</td><td>1~2클릭 굵게</td></tr>
+        <tr><td>물이 너무 늦게 빠진다</td><td>너무 가늘어서 막힘</td><td>굵게</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    라이트 로스팅 원두는 성분이 잘 안 나오니 조금 가늘게, 다크 로스팅은 쓴맛이 쉽게 나오니 조금 굵게 시작하세요.
+    한 번에 하나만 바꾸는 게 원칙입니다. 분쇄도와 원두 양을 같이 바꾸면 무엇이 효과가 있었는지 알 수 없어요.
+  </p>
+
+  <h2>핸드드립 원두와 물 비율</h2>
+  <p>
+    핸드드립은 원두와 물을 <strong>1:15~1:16</strong>으로 맞추는 게 기본입니다. 1인분은 원두 15g에 물 240ml 정도에서 시작하세요.
+  </p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>원두</th><th>물 (1:15, 진하게)</th><th>물 (1:16, 깔끔하게)</th></tr>
+      </thead>
+      <tbody>
+        {[12, 15, 18, 20, 25, 30].map((g) => (
+          <tr><td class="num">{g}g</td><td class="num">{g * 15}ml</td><td class="num">{g * 16}ml</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p>
+    아이스 핸드드립이라면 서버에 얼음을 넣고 그 위로 바로 내립니다. 원두 20g에 뜨거운 물 200ml, 얼음 100g이 기준이에요.
+    물이 적은 만큼 분쇄도는 핫보다 1~2클릭 가늘게 하면 맛이 살아납니다.
+  </p>
+</NativeLayout>

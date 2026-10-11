@@ -5,6 +5,7 @@ import LangSwitcher from '../../components/LangSwitcher.astro';
 import { SITE_URL, APP_STORE_URL, ORGANIZATION } from '../../data/site';
 import locales from '../../data/i18n/locales.json';
 import appStrings from '../../data/i18n/app-strings.json';
+import { pagesFor } from '../../data/i18n/native-pages';
 
 export function getStaticPaths() {
   return Object.keys(locales).map((locale) => ({ params: { locale } }));
@@ -15,6 +16,7 @@ const t = (locales as Record<string, any>)[locale!];
 const app = (appStrings as Record<string, any>)[locale!];
 
 const canonicalUrl = `${SITE_URL}/${locale}/`;
+const guides = pagesFor(locale!);
 
 // Feature list, paired with the value-prop slides from the app's onboarding.
 const featureKeys = [
@@ -117,6 +119,25 @@ const schema = [
         <p class="hook">{t.hook}</p>
       </div>
     </section>
+
+    <!-- Native guides and tools written for this language -->
+    {guides.length > 0 && (
+      <section class="guides">
+        <div class="wrap">
+          <h2 class="section-h2">{t.pages.heading}</h2>
+          <ul class="guide-list">
+            {guides.map((p) => (
+              <li>
+                <a href={`/${locale}/${p.slug}/`} class="guide-card">
+                  <span class="guide-title">{p.label}</span>
+                  <span class="guide-desc">{p.description}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
 
     <!-- CTA -->
     <section class="cta">
@@ -348,6 +369,40 @@ const schema = [
     max-width: 42rem;
   }
 
+  /* ── Guides ── */
+  .guides { background: var(--cream); padding: 3.5rem 2rem; }
+
+  .guide-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.875rem;
+  }
+
+  .guide-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    height: 100%;
+    padding: 1.25rem 1.35rem;
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .guide-card:hover { border-color: var(--amber); transform: translateY(-2px); }
+  .guide-card:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  .guide-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .guide-desc { font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); }
+
   /* ── CTA ── */
   .cta {
     position: relative;
@@ -388,7 +443,7 @@ const schema = [
   @media (max-width: 640px) {
     .bar { padding: 1rem 1.25rem; }
     .hero { padding: 7rem 1.25rem 3.5rem; }
-    .props, .features, .methods { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .props, .features, .methods, .guides { padding-left: 1.25rem; padding-right: 1.25rem; }
     .cta { padding: 3.25rem 1.25rem; }
     .orb { filter: none; opacity: 0.07; }
     .grain { display: none; }

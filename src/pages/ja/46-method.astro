@@ -1,0 +1,124 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import FourSixCalc from '../../components/native/FourSixCalc.astro';
+
+const doses = [12, 15, 18, 20, 25, 30];
+---
+
+<NativeLayout
+  locale="ja"
+  slug="46-method"
+  headline="46メソッド<em>計算ツール</em>"
+  subtitle="粉の量を入れるだけで、5投それぞれの湯量と注ぐタイミングがわかります。甘さと酸味のバランス、濃さの調整、アイスコーヒーにも対応しています。"
+  appNote="計算したレシピは、Brewioの「マイレシピ」に投ごとのステップとして保存できます。抽出中はタイマーが次の1投を知らせてくれるので、画面を見ながら注ぐだけ。淹れた一杯の味もそのまま記録できます。"
+>
+  <FourSixCalc />
+
+  <h2>46メソッドとは</h2>
+  <p>
+    2016年のワールド・ブリュワーズ・カップで、粕谷哲さんがアジア人として初めて優勝したときの淹れ方です。
+    総湯量を「4」と「6」に分けて考えることから、この名前がつきました。
+  </p>
+  <ul>
+    <li><strong>前半の40%</strong>（1投目と2投目）で、甘さと酸味のバランスを決める</li>
+    <li><strong>後半の60%</strong>（3投目以降）で、濃さを決める</li>
+  </ul>
+  <p>
+    注ぎ方のテクニックではなく、湯量とタイミングだけで味をコントロールできるのが特徴です。
+    ハンドドリップを始めたばかりでも同じ味を再現しやすく、日本で最も広く知られたレシピのひとつになりました。
+  </p>
+
+  <h2>基本のレシピ（粉20g・お湯300g）</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>投</th><th>時間</th><th>注ぐ量</th><th>累計</th></tr>
+      </thead>
+      <tbody>
+        {[0, 1, 2, 3, 4].map((i) => (
+          <tr>
+            <td>{i + 1}投目</td>
+            <td class="num">{`${Math.floor((i * 45) / 60)}:${String((i * 45) % 60).padStart(2, '0')}`}</td>
+            <td class="num">60g</td>
+            <td class="num">{(i + 1) * 60}g</td>
+          </tr>
+        ))}
+        <tr>
+          <td>完成</td>
+          <td class="num">3:30</td>
+          <td colspan="2">ドリッパーを外す</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li><strong>比率：</strong>1:15（お湯は粉の15倍）</li>
+    <li><strong>湯温：</strong>90〜93℃。浅煎りは高め、深煎りは低めに。</li>
+    <li><strong>挽き目：</strong>粗挽き。注ぐ回数が多いぶん、細かいと過抽出になりやすいためです。ミル別のクリック数は<a href="/ja/grind-size/">挽き目の目安</a>にまとめています。</li>
+    <li><strong>ドリッパー：</strong>V60などの円錐形がおすすめです。</li>
+  </ul>
+
+  <h2>粉15g・30gのときの湯量（早見表）</h2>
+  <p>比率は1:15のまま、標準（後半3回）で5投に分けた場合です。</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>コーヒー粉</th><th>総湯量</th><th>前半40%</th><th>後半60%</th><th>1投あたり</th></tr>
+      </thead>
+      <tbody>
+        {doses.map((d) => (
+          <tr>
+            <td class="num">{d}g</td>
+            <td class="num">{d * 15}g</td>
+            <td class="num">{d * 6}g</td>
+            <td class="num">{d * 9}g</td>
+            <td class="num">{d * 3}g</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>甘さと酸味の調整（前半40%）</h2>
+  <p>
+    前半の合計量は変えずに、1投目と2投目の配分だけを変えます。<strong>1投目を少なくすると甘く、多くすると酸味が立ちます。</strong>
+    粉20gなら、前半は合計120gです。
+  </p>
+  <ul>
+    <li><strong>甘め：</strong>1投目50g → 2投目70g</li>
+    <li><strong>バランス：</strong>60g → 60g</li>
+    <li><strong>明るい酸味：</strong>70g → 50g</li>
+  </ul>
+
+  <h2>濃さの調整（後半60%）</h2>
+  <p>
+    後半の180gを何回に分けて注ぐかで濃さが変わります。<strong>回数を増やすと濃く、減らすと軽く</strong>なります。
+  </p>
+  <ul>
+    <li><strong>軽め：</strong>90g × 2回</li>
+    <li><strong>標準：</strong>60g × 3回</li>
+    <li><strong>濃いめ：</strong>45g × 4回</li>
+  </ul>
+
+  <h2>46メソッドでアイスコーヒーを淹れるなら</h2>
+  <p>
+    サーバーに氷を入れ、その上に直接落とす急冷式にします。粉20gなら、お湯は粉の10倍の200gを同じ4:6の配分で注ぎ、サーバーには氷を100g。
+    氷が溶けて、仕上がりはホットとほぼ同じ1:15前後になります。湯量が少ないぶん、挽き目はホットより1〜2段階細かめにすると味がのります。
+  </p>
+  <p class="note">
+    これは粕谷さんの公式レシピではなく、46メソッドの配分を急冷式に当てはめたBrewioのアレンジです。上の計算ツールで「アイス（急冷）」を選ぶと、この分量で計算します。
+  </p>
+
+  <h2>うまくいかないときは</h2>
+  <ul>
+    <li><strong>落ちるのが遅い・苦い：</strong>挽き目を粗くします。</li>
+    <li><strong>落ちるのが早い・酸っぱくて薄い：</strong>挽き目を細かくします。</li>
+    <li><strong>時間どおりに次を注げない：</strong>前のお湯が落ちきるのを待ってから注いで大丈夫です。時間はあくまで目安です。</li>
+  </ul>
+  <p>
+    一度に変えるのはひとつだけ。挽き目、湯温、配分のどれを変えたかを記録しておくと、自分の好みに早くたどり着けます。
+  </p>
+  <p class="note">
+    Brewioは粕谷哲さん、Philocoffeaとは提携していません。46メソッドの考え方を、家で使いやすい計算ツールにしたものです。
+  </p>
+</NativeLayout>

@@ -1,0 +1,146 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+const strengths = [
+  { label: 'Léger', factor: 0.85 },
+  { label: 'Normal', factor: 1 },
+  { label: 'Corsé', factor: 1.15 },
+];
+
+const methods: DoseMethod[] = [
+  {
+    id: 'piston',
+    label: 'Cafetière à piston',
+    gPerL: 65,
+    defaultVessel: 1,
+    vessels: [
+      { label: '3 tasses (0,35 l)', water: 350 },
+      { label: '4 tasses (0,5 l)', water: 500 },
+      { label: '8 tasses (1 l)', water: 1000 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Mouture grosse, 4 minutes d’infusion, puis on presse doucement et on sert tout de suite.',
+  },
+  {
+    id: 'italienne',
+    label: 'Cafetière italienne',
+    gPerL: 110,
+    waterLabel: 'Café dans la tasse (env.)',
+    defaultVessel: 2,
+    vessels: [
+      { label: '1 tasse', water: 60, coffee: [6, 7] },
+      { label: '2 tasses', water: 90, coffee: [10, 12] },
+      { label: '3 tasses', water: 130, coffee: [15, 17] },
+      { label: '4 tasses', water: 190, coffee: [20, 22] },
+      { label: '6 tasses', water: 270, coffee: [27, 30] },
+    ],
+    note: 'Filtre rempli à ras bord, sans tasser. Eau jusqu’à la soupape, pas au-delà.',
+  },
+  {
+    id: 'filtre',
+    label: 'Cafetière filtre',
+    gPerL: 56,
+    defaultVessel: 1,
+    vessels: [
+      { label: '2 tasses (0,25 l)', water: 250 },
+      { label: '4 tasses (0,5 l)', water: 500 },
+      { label: '6 tasses (0,75 l)', water: 750 },
+      { label: '8 tasses (1 l)', water: 1000 },
+      { label: '10 tasses (1,25 l)', water: 1250 },
+      { label: '12 tasses (1,5 l)', water: 1500 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Mouture moyenne. La « tasse » de la verseuse fait environ 125 ml.',
+  },
+];
+---
+
+<NativeLayout
+  locale="fr"
+  slug="dosage-cafe"
+  headline="Dosage du café : combien <em>par tasse</em> ?"
+  subtitle="Environ 7 grammes par tasse, soit une cuillère à soupe bombée. Calculez la bonne dose pour votre cafetière à piston, italienne ou filtre."
+  appNote="Dans Brewio, vous notez chaque café : le grain, la dose, la méthode et le résultat en tasse. La cafetière à piston et l’italienne ont chacune leur minuteur guidé, pour savoir exactement ce qui a donné la meilleure tasse."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[{ grams: 7, format: '≈ {n} cuillères à soupe bombées' }]}
+    numberLocale="fr-FR"
+    t={{
+      method: 'Cafetière',
+      vessel: 'Quantité',
+      strength: 'Intensité',
+      coffee: 'Café moulu',
+      water: 'Eau',
+      custom: 'Autre quantité',
+      customLabel: 'Eau',
+      tableVessel: 'Quantité',
+      tableWater: 'Eau',
+      tableCoffee: 'Café moulu',
+      tableSpoons: 'Cuillères',
+    }}
+  />
+
+  <h2>La règle de base : 7 grammes par tasse</h2>
+  <p>
+    Pour un café filtre ou à piston, comptez environ <strong>7 grammes de café pour une tasse de 125 ml</strong>, soit 55 à 65 grammes par litre.
+    En cuillères, cela fait à peu près une cuillère à soupe bombée par tasse. Vous le voulez plus corsé ? Ajoutez du café, ne retirez pas d’eau.
+  </p>
+
+  <h2>Cafetière à piston : le dosage à la cuillère</h2>
+  <p>
+    Le piston demande un peu plus de café que le filtre : 60 à 65 grammes par litre, moulu gros. Pour une cafetière de 3 tasses (0,35 l),
+    comptez environ 22 grammes, soit 3 cuillères bombées ; pour 8 tasses (1 l), environ 65 grammes, soit 9 cuillères.
+  </p>
+  <ol>
+    <li>Café moulu gros dans la verseuse. Trop fin, il passe à travers le filtre et le piston force.</li>
+    <li>Eau à 92–96 °C, juste en dessous de l’ébullition. Remuez une fois.</li>
+    <li>Couvrez et laissez infuser 4 minutes.</li>
+    <li>Pressez doucement et servez tout de suite. Laissé sur le marc, le café devient amer.</li>
+  </ol>
+  <p class="note">
+    Attention aux « tasses » des cafetières à piston : elles font environ 12 cl. Une 8 tasses contient donc 1 litre, soit quatre grands mugs à peine.
+  </p>
+
+  <h2>Cafetière italienne : quel dosage ?</h2>
+  <p>
+    Dans une italienne, c’est le filtre qui fixe la dose. Remplissez-le à ras bord, égalisez du doigt et <strong>ne tassez pas</strong> :
+    un café tassé freine l’eau, qui reste plus longtemps sur le feu et extrait l’amertume.
+  </p>
+  <p>
+    Les grammes du tableau sont indicatifs pour une Moka Express Bialetti ; d’autres modèles varient de quelques grammes.
+    Et les « tasses » sont des tasses à expresso : une 3 tasses donne environ 13 cl.
+  </p>
+  <ol>
+    <li>Eau dans le réservoir jusqu’à la soupape. Avec de l’eau déjà chaude, la cafetière reste moins longtemps sur le feu.</li>
+    <li>Filtre plein, égalisé, non tassé. Essuyez les bords avant de visser.</li>
+    <li>Feu doux à moyen, couvercle ouvert pour surveiller la montée.</li>
+    <li>Dès que le café s’éclaircit et commence à gargouiller, retirez du feu.</li>
+    <li>Mélangez dans la cafetière avant de servir : le premier café qui monte est bien plus fort que le dernier.</li>
+  </ol>
+
+  <h2>Cafetière filtre : combien de café pour 12 tasses ?</h2>
+  <p>
+    Les graduations de la verseuse comptent des tasses d’environ 125 ml. Une cafetière 12 tasses fait donc 1,5 litre et demande environ 85 grammes de café,
+    soit une douzaine de cuillères bombées. Si vous servez dans des mugs, comptez l’eau, pas les tasses.
+  </p>
+
+  <h2>Quelle mouture pour quelle cafetière ?</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Cafetière</th><th>Mouture</th><th>Au toucher</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Expresso</td><td>Fine</td><td>Sel fin</td></tr>
+        <tr><td>Italienne</td><td>Fine, mais moins que l’expresso</td><td>Sel fin à semoule</td></tr>
+        <tr><td>Filtre</td><td>Moyenne</td><td>Sable</td></tr>
+        <tr><td>Piston</td><td>Grosse</td><td>Gros sel</td></tr>
+      </tbody>
+    </table>
+  </div>
+</NativeLayout>

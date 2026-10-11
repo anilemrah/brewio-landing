@@ -1,0 +1,100 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// Bialetti Moka Express: cup yield per size, and the dose a level, untamped basket holds.
+// The basket sets the dose in a moka, so these are ranges rather than a ratio.
+const methods: DoseMethod[] = [
+  {
+    id: 'moka',
+    label: 'Moka',
+    gPerL: 110,
+    waterLabel: 'Caffè in tazza (circa)',
+    defaultVessel: 2,
+    vessels: [
+      { label: '1 tazza', water: 60, coffee: [6, 7] },
+      { label: '2 tazze', water: 90, coffee: [10, 12] },
+      { label: '3 tazze', water: 130, coffee: [15, 17] },
+      { label: '4 tazze', water: 190, coffee: [20, 22] },
+      { label: '6 tazze', water: 270, coffee: [27, 30] },
+    ],
+    note: "Filtro pieno fino all'orlo, livellato e mai pressato. Acqua nella caldaia fino alla valvola, non oltre.",
+  },
+];
+---
+
+<NativeLayout
+  locale="it"
+  slug="dosi-moka"
+  headline="Quanto caffè nella <em>moka</em>?"
+  subtitle="Dalla moka da 1 tazza a quella da 6: quanti grammi di caffè servono, quanto caffè esce e come evitare che venga amaro."
+  appNote="In Brewio la moka ha il suo timer guidato, dalla caldaia al primo gorgoglio. E ogni caffè che registri, con miscela e macinatura, ti aiuta a capire cosa ti piace davvero."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[]}
+    numberLocale="it-IT"
+    t={{
+      method: 'Metodo',
+      vessel: 'Misura della moka',
+      strength: 'Intensità',
+      coffee: 'Caffè macinato',
+      water: 'Acqua',
+      custom: 'Altro',
+      customLabel: 'Acqua',
+      tableVessel: 'Moka',
+      tableWater: 'Caffè in tazza',
+      tableCoffee: 'Caffè macinato',
+      tableSpoons: '',
+    }}
+  />
+
+  <h2>La regola d'oro: è il filtro a decidere la dose</h2>
+  <p>
+    Nella moka la dose non si sceglie come con un filtro all'americana: la decide l'imbuto. Riempilo fino all'orlo,
+    livella con il dorso di un cucchiaino e <strong>non pressare</strong>. Il caffè pressato rallenta l'acqua, che resta più a lungo
+    sul fuoco e tira fuori l'amaro.
+  </p>
+  <p>
+    E la montagnetta? Divide le famiglie italiane da generazioni. Provala pure, ma se il tuo caffè viene amaro è il primo indiziato.
+  </p>
+  <p class="note">
+    I grammi in tabella sono indicativi per una Moka Express Bialetti: altri modelli cambiano di qualche grammo. Per il numero esatto della tua,
+    pesa una volta il filtro pieno a raso. Per le moke da 9 e 12 tazze vale lo stesso principio.
+  </p>
+
+  <h2>Moka da 3 tazze: quanti ml?</h2>
+  <p>
+    Circa 130 ml di caffè, cioè tre tazzine da caffè, non tre tazze da colazione. La "tazza" della moka è la tazzina dell'espresso:
+    una 6 tazze riempie più o meno due tazze grandi.
+  </p>
+  <p>
+    L'acqua va sempre fino alla valvola di sicurezza, mai sopra. In una 3 tazze sono circa 150 ml: un po' di più di quanto esce,
+    perché una parte resta nel caffè e nella caldaia.
+  </p>
+
+  <h2>Che macinatura per la moka?</h2>
+  <p>
+    Più grossa dell'espresso, più fine del filtro: al tatto, come sale fino. Il caffè "per moka" del supermercato è già macinato così.
+    Se usi un caffè macinato per espresso, l'acqua fatica a passare e la moka sbuffa e borbotta prima del tempo.
+  </p>
+
+  <h2>Come si fa, passo per passo</h2>
+  <ol>
+    <li>Riempi la caldaia fino alla valvola. Il trucco da barista: usa acqua già calda, così la moka sta meno sul fuoco e il caffè non "cuoce".</li>
+    <li>Riempi il filtro a raso, senza pressare, e pulisci i bordi dai granelli.</li>
+    <li>Avvita bene. Se l'acqua è calda, usa un panno: la caldaia scotta.</li>
+    <li>Fuoco basso, coperchio aperto per vedere la salita del caffè.</li>
+    <li>Quando il caffè diventa chiaro e comincia a gorgogliare, togli subito dal fuoco. Passare la base sotto l'acqua fredda ferma l'estrazione.</li>
+    <li>Mescola il caffè nella moka prima di versarlo: quello che esce per primo è molto più forte dell'ultimo.</li>
+  </ol>
+
+  <h2>Perché il caffè della moka viene amaro</h2>
+  <ul>
+    <li><strong>Fuoco troppo alto:</strong> l'acqua passa troppo calda e troppo in fretta.</li>
+    <li><strong>Lasciata sul fuoco fino alla fine:</strong> l'ultimo gorgoglio è vapore che brucia il caffè.</li>
+    <li><strong>Caffè pressato o macinato troppo fine.</strong></li>
+    <li><strong>Guarnizione consumata:</strong> se il caffè esce dai lati o la moka fischia, è ora di cambiarla.</li>
+  </ul>
+</NativeLayout>

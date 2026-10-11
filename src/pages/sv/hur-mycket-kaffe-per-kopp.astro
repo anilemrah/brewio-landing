@@ -1,0 +1,128 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// A "kopp" on a bryggare's scale is 1.25 dl; the packaging's kopp is often 1.5 dl.
+// That gap is the most common reason the kanna comes out weak.
+const strengths = [
+  { label: 'Mild', factor: 0.85 },
+  { label: 'Mellan', factor: 1 },
+  { label: 'Stark', factor: 1.15 },
+];
+
+const methods: DoseMethod[] = [
+  {
+    id: 'brygg',
+    label: 'Moccamaster / bryggare',
+    gPerL: 60,
+    defaultVessel: 1,
+    vessels: [
+      { label: '2 koppar (2,5 dl)', water: 250 },
+      { label: '4 koppar (5 dl)', water: 500 },
+      { label: '6 koppar (7,5 dl)', water: 750 },
+      { label: '8 koppar (1 l)', water: 1000 },
+      { label: '10 koppar – full kanna (1,25 l)', water: 1250 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Bryggmalet kaffe. En kopp på bryggarens skala är 1,25 dl.',
+  },
+  {
+    id: 'kok',
+    label: 'Kokkaffe',
+    gPerL: 65,
+    defaultVessel: 1,
+    vessels: [
+      { label: '2 koppar (3 dl)', water: 300 },
+      { label: '4 koppar (6 dl)', water: 600 },
+      { label: '1 liter', water: 1000 },
+      { label: '1,5 liter', water: 1500 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Grovmalet kokkaffe. Koka upp, rör ner kaffet, låt det koka upp en gång till och låt sumpen sjunka 4–5 minuter.',
+  },
+  {
+    id: 'press',
+    label: 'Presskanna',
+    gPerL: 65,
+    vessels: [
+      { label: '3,5 dl', water: 350 },
+      { label: '5 dl', water: 500 },
+      { label: '1 liter', water: 1000 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Grovmalet kaffe, 4 minuter, tryck ner långsamt och häll upp direkt.',
+  },
+];
+---
+
+<NativeLayout
+  locale="sv"
+  slug="hur-mycket-kaffe-per-kopp"
+  headline="Hur mycket kaffe <em>per kopp</em>?"
+  subtitle="Ett mått per kopp, står det på paketet. Men hur stor är en kopp, och hur mycket rymmer måttet? Räkna ut gram och kaffemått för bryggare, Moccamaster, presskanna och kokkaffe."
+  appNote="I Brewio loggar du varje bryggning: bönor, mängd och hur det smakade. Bryggaren och presskannan har egna timers, så du ser precis vad som gav den bästa kannan."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[{ grams: 7, format: '≈ {n} kaffemått' }]}
+    numberLocale="sv-SE"
+    t={{
+      method: 'Bryggmetod',
+      vessel: 'Mängd',
+      strength: 'Styrka',
+      coffee: 'Kaffe',
+      water: 'Vatten',
+      custom: 'Annan mängd',
+      customLabel: 'Vatten',
+      tableVessel: 'Mängd',
+      tableWater: 'Vatten',
+      tableCoffee: 'Kaffe (mellan)',
+      tableSpoons: 'Kaffemått',
+    }}
+  />
+
+  <h2>Tumregeln: 60 gram per liter</h2>
+  <p>
+    Kaffebranschens riktmärke för bryggkaffe är runt 60 gram kaffe per liter vatten, och Moccamaster själva rekommenderar 55–60 gram.
+    Det blir ungefär 7–8 gram per kopp på bryggarens skala, alltså ungefär <strong>ett kaffemått per kopp</strong>.
+  </p>
+
+  <h2>Hur stor är en kopp?</h2>
+  <p>
+    Här går det oftast fel. En kopp på bryggarens skala är 1,25 dl, kaffepaketets kopp är ofta 1,5 dl och en mugg rymmer 2,5–3 dl.
+    Räknar du "koppar" efter bryggaren men häller upp i muggar räcker kannan bara till hälften så många som du tror. Mät därför efter vattnet,
+    inte efter muggarna.
+  </p>
+
+  <h2>Moccamaster: hur många mått?</h2>
+  <ul>
+    <li><strong>Halv kanna (5 dl):</strong> cirka 30 g, ungefär 4 kaffemått</li>
+    <li><strong>Full kanna (1,25 l):</strong> cirka 75 g, ungefär 10–11 kaffemått</li>
+  </ul>
+  <p>
+    Rör om i kannan innan du häller upp. Kaffet som rinner ner först är mycket starkare än det som kommer sist.
+  </p>
+
+  <h2>Hur mycket väger ett kaffemått?</h2>
+  <p>
+    Ett vanligt kaffemått rymmer ungefär en matsked, 15 ml, och väger runt 6–7 gram malet kaffe. Lite mer om det är rågat. Mörkrost väger
+    mindre per mått än ljusrost, så den som vill ha exakt samma kanna varje morgon väger kaffet en gång och lär sig hur måttet ser ut.
+  </p>
+
+  <h2>Kokkaffe – så gör du</h2>
+  <ol>
+    <li>Koka upp vattnet i en kastrull eller kaffepanna.</li>
+    <li>Dra kastrullen av plattan och rör ner grovmalet kokkaffe, ungefär ett rågat mått per kopp.</li>
+    <li>Låt det koka upp en gång till, kort, och ta sedan bort det från värmen.</li>
+    <li>Låt sumpen sjunka i 4–5 minuter. En skvätt kallt vatten får den att sjunka snabbare.</li>
+    <li>Häll försiktigt, så att sumpen stannar i botten.</li>
+  </ol>
+  <p class="note">
+    Kokkaffe i bryggaren? Det fungerar dåligt. Kokkaffe är för grovt malet: vattnet rinner igenom för snabbt och kaffet blir tunt.
+    Använd bryggmalet kaffe i bryggaren och spara kokkaffet till spisen eller stugan.
+  </p>
+</NativeLayout>
