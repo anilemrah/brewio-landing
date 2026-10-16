@@ -3,7 +3,7 @@
 > Brewio is a free coffee journal app for iOS. It helps coffee lovers log their brews, time pour-overs, calculate ratios, track extraction yield, and discover their perfect cup.
 
 ## About
-Brewio is built for the curious coffee drinker who wants more than just caffeine. Whether you pull espresso or brew V60, Brewio gives you the tools to dial in your craft and remember every great cup. Made by Fjord Labs AB, Sweden.
+Brewio is built for the curious coffee drinker who wants more than just caffeine. Whether you pull espresso or brew V60, Brewio gives you the tools to dial in your craft and remember every great cup. Made in Sweden.
 
 ## Key Features
 - Coffee brew journal — log every brew with method, bean, dose, ratio, and tasting notes

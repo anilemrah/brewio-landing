@@ -4,10 +4,10 @@ export const APP_STORE_URL = 'https://apps.apple.com/app/brewio-brew-track/id676
 
 export const ORGANIZATION = {
   '@type': 'Organization',
-  name: 'Fjord Labs AB',
+  name: 'Brewio',
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/brewio-logo.png`,
 };
 
 /** GA4 Measurement ID (G-XXXXXXXXXX). Empty disables analytics and the consent banner. */
-export const GA_MEASUREMENT_ID = '';
+export const GA_MEASUREMENT_ID = 'G-0X45ZSWRV6';
