@@ -1,0 +1,156 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import DoseCalc from '../../components/native/DoseCalc.astro';
+import type { DoseMethod } from '../../components/native/DoseCalc.astro';
+
+// 1:15 (원두 15g · 물 225ml) is the usual Korean hand-drip starting point. Water is what
+// you pour, not what lands in the cup: the grounds hold about twice their weight.
+const methods: DoseMethod[] = [
+  {
+    id: 'hot',
+    label: '핸드드립',
+    gPerL: 66.7,
+    vessels: [
+      { label: '1인분 (225ml)', water: 225, coffee: 15 },
+      { label: '2인분 (450ml)', water: 450, coffee: 30 },
+      { label: '머그컵 (350ml)', water: 350 },
+      { label: '텀블러 (470ml)', water: 470 },
+    ],
+    strengths: [
+      { label: '연하게', factor: 0.85 },
+      { label: '보통', factor: 1 },
+      { label: '진하게', factor: 1.15 },
+    ],
+    custom: true,
+    note: '물 온도는 90~93℃, 분쇄도는 설탕 알갱이 정도의 중간 굵기가 기준이에요. 원두가 물을 머금기 때문에 컵에는 부은 물보다 조금 적게 나옵니다.',
+  },
+  {
+    id: 'iced',
+    label: '아이스 (급랭식)',
+    gPerL: 100,
+    waterLabel: '뜨거운 물 (얼음은 원두의 5배)',
+    vessels: [
+      { label: '1잔', water: 200, coffee: 20 },
+      { label: '텀블러 1잔', water: 300, coffee: 30 },
+      { label: '2잔', water: 400, coffee: 40 },
+    ],
+    note: '서버에 얼음을 넣고 그 위로 바로 내리세요. 물이 적은 만큼 분쇄도는 핫보다 1~2클릭 가늘게.',
+  },
+  {
+    id: 'moka',
+    label: '모카포트',
+    gPerL: 110,
+    waterLabel: '추출량 (약)',
+    defaultVessel: 2,
+    vessels: [
+      { label: '1컵', water: 60, coffee: [6, 7] },
+      { label: '2컵', water: 90, coffee: [10, 12] },
+      { label: '3컵', water: 130, coffee: [15, 17] },
+      { label: '4컵', water: 190, coffee: [20, 22] },
+      { label: '6컵', water: 270, coffee: [27, 30] },
+    ],
+    note: '바스켓에 원두를 가득 채우고 윗면만 평평하게 깎으세요. 누르지 않습니다. 물은 안전 밸브 바로 아래까지.',
+  },
+];
+---
+
+<NativeLayout
+  locale="ko"
+  slug="coffee-amount"
+  headline="원두 양, <em>1인분 몇 g?</em>"
+  subtitle="핸드드립 1인분은 원두 15g에 물 225ml(1:15)가 기준이에요. 머그컵·텀블러·2인분, 급랭식 아이스, 모카포트까지 원두 양과 계량스푼 환산을 바로 계산해 드려요."
+  appNote="Brewio는 원두와 물의 양을 넣으면 비율을 자동으로 계산해 줘요. 한 잔마다 원두, 원두 양, 맛을 기록해 두면 나에게 딱 맞는 양이 데이터로 남습니다."
+>
+  <DoseCalc
+    methods={methods}
+    spoons={[
+      { grams: 10, format: '계량스푼 약 {n}스푼' },
+      { grams: 6, format: '약 {n}큰술' },
+    ]}
+    numberLocale="ko-KR"
+    t={{
+      method: '추출 방식',
+      vessel: '양',
+      strength: '농도',
+      coffee: '원두',
+      water: '물',
+      custom: 'ml로 입력',
+      customLabel: '물 양',
+      tableVessel: '양',
+      tableWater: '물',
+      tableCoffee: '원두',
+      tableSpoons: '계량스푼',
+    }}
+  />
+
+  <h2>핸드드립 1인분은 원두 15g, 물 225ml</h2>
+  <p>
+    기준은 원두와 물 <strong>1:15</strong>, 즉 원두 1g에 물 15ml입니다. 원두 15g이면 물 225ml, 20g이면 300ml예요.
+    원두 판매처나 카페마다 1:14에서 1:17까지 조금씩 다르지만, 처음이라면 1:15로 시작해 입맛에 맞게 조절하면 됩니다.
+  </p>
+  <p>
+    여기서 물은 '붓는 물'의 양이에요. 원두가 자기 무게의 약 2배만큼 물을 머금기 때문에, 15g에 225ml를 부으면 컵에는 190ml 정도가 나옵니다.
+  </p>
+
+  <h2>머그컵·텀블러·2인분일 때</h2>
+  <p>
+    비율만 지키면 됩니다. 머그컵(350ml)은 약 23g, 텀블러(470ml)는 약 31g, 2인분(450ml)은 30g이에요.
+  </p>
+  <p>
+    다만 양이 많아지면 물이 원두층을 지나는 시간이 길어져 성분이 더 많이 우러나요.
+    2인분 이상을 한 번에 내릴 때는 분쇄도를 한두 클릭 굵게 하면 쓴맛 없이 깔끔합니다.
+    드리퍼 크기도 확인하세요. V60 01은 2인분, 02는 4인분까지가 적당해요.
+  </p>
+
+  <h2>진하게 내리고 물을 더하는 방법 (가수)</h2>
+  <p>
+    카페에서도 많이 쓰는 방식입니다. 원두 양은 그대로 두고 추출량을 줄인 뒤, 뜨거운 물을 더해 농도를 맞춰요.
+    예를 들어 원두 20g으로 150ml만 내리고, 뜨거운 물 100~150ml를 더하면 머그컵 한 잔이 됩니다.
+  </p>
+  <p>
+    추출 후반에 나오는 쓰고 떫은 맛을 덜 담을 수 있고, 더하는 물의 양으로 농도를 정할 수 있어 같은 맛을 내기 쉬워요.
+    물은 한 번에 다 넣지 말고, 맛을 보면서 조금씩 더하세요.
+  </p>
+
+  <h2>계량스푼으로 잴 때</h2>
+  <ul>
+    <li><strong>커피 계량스푼 깎아서 1스푼:</strong> 약 10g (브랜드에 따라 8~12g 정도 차이가 있어요)</li>
+    <li><strong>계량 큰술(15ml) 1큰술:</strong> 약 6g</li>
+    <li><strong>티스푼 1스푼:</strong> 약 2~3g</li>
+  </ul>
+  <p>
+    같은 스푼이라도 분쇄도와 로스팅 정도에 따라 무게가 달라집니다. 가지고 있는 스푼을 한 번만 저울에 재 두면 그다음부터는 헷갈리지 않아요.
+    가장 정확한 건 역시 0.1g 단위 커피 저울입니다.
+  </p>
+
+  <h2>아이스 아메리카노와 콜드브루</h2>
+  <p>
+    급랭식은 줄인 물만큼을 얼음으로 채웁니다. 기준은 <strong>뜨거운 물은 원두의 10배, 얼음은 원두의 5배</strong>.
+    원두 20g이면 뜨거운 물 200ml, 서버에 얼음 100g이에요. 얼음이 녹으면 핫과 거의 같은 농도가 되니, 얼음 가득한 잔에 따라 마시면 됩니다.
+    4:6 레시피로 내리고 싶다면 <a href="/ko/46-method/">4:6 레시피 계산기</a>에서 '아이스 (급랭식)'를 고르세요.
+  </p>
+  <p>
+    콜드브루를 바로 마실 농도로 만들려면 원두와 찬물을 1:10~1:12로 섞어 냉장고에서 12시간 안팎 우리세요. 원두 50g이면 물 500~600ml입니다.
+    진한 원액으로 만들어 물이나 우유에 타고 싶다면 1:5 정도로 우린 뒤 1:1~1:2로 희석하면 돼요. 분쇄도는 굵게 합니다.
+  </p>
+
+  <h2>모카포트는 바스켓이 양을 정해요</h2>
+  <p>
+    모카포트는 비율보다 바스켓 크기가 원두 양을 정합니다. 바스켓에 원두를 가득 채우고 윗면을 평평하게 깎으면 끝이에요.
+    비알레띠 모카 익스프레스 3컵이라면 15~17g 정도 들어갑니다.
+  </p>
+  <p>
+    꾹꾹 눌러 담으면 물이 잘 올라오지 않고 쓴맛이 강해지고, 덜 채우면 묽어져요. 분쇄도는 에스프레소보다 조금 굵게 하세요.
+    모카포트의 '1컵'은 에스프레소 잔 기준(약 40~60ml)이라, 아메리카노로 마시려면 뜨거운 물을 더하면 됩니다.
+  </p>
+
+  <h2>진하거나 연하게 느껴진다면</h2>
+  <ul>
+    <li><strong>연하고 밍밍하다:</strong> 원두를 1~2g 늘리거나 분쇄도를 조금 가늘게 합니다.</li>
+    <li><strong>너무 진하고 쓰다:</strong> 원두를 줄이거나, 다 내린 뒤 뜨거운 물을 조금 더하세요.</li>
+  </ul>
+  <p>
+    한 번에 하나만 바꾸세요. 원두 양을 정했다면 다음은 그라인더별 클릭 수를 정리한 <a href="/ko/grind-size/">원두 분쇄도 가이드</a>,
+    물양과 타이밍으로 맛을 정하는 <a href="/ko/46-method/">4:6 레시피</a>도 참고해 보세요.
+  </p>
+</NativeLayout>

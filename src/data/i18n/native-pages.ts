@@ -155,6 +155,16 @@ export const NATIVE_PAGES: NativePage[] = [
     updated: '2026-10-29',
   },
   {
+    locale: 'ko',
+    slug: 'coffee-amount',
+    title: '원두 몇 g? 핸드드립 1인분 원두 양 계산기 | 물 비율·머그컵·아이스·모카포트 — Brewio',
+    description: '핸드드립 1인분 원두 양을 1:15 비율로 계산해 드려요. 머그컵·텀블러·2인분, 급랭식 아이스 아메리카노, 모카포트 컵수별 원두 g과 계량스푼 환산까지 한 번에.',
+    label: '원두 양 계산기 (1인분 몇 g)',
+    kind: 'tool',
+    cluster: 'per-cup',
+    updated: '2026-10-31',
+  },
+  {
     locale: 'es',
     slug: 'cuanto-cafe-por-taza',
     title: '¿Cuánto café por taza? Calculadora para cafetera italiana, prensa francesa y goteo — Brewio',
