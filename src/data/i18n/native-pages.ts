@@ -16,7 +16,9 @@ export interface NativePage {
   lang?: string;
   ogLocale?: string;
   /** Pages answering the same question in different languages share an hreflang cluster. */
-  cluster?: 'per-cup';
+  cluster?: 'per-cup' | '46-method';
+  /** For pages added after the 11 Oct batch; defaults to that date. */
+  updated?: string;
 }
 
 export const NATIVE_PAGES: NativePage[] = [
@@ -27,6 +29,7 @@ export const NATIVE_PAGES: NativePage[] = [
     description: '粕谷哲さんの46メソッドを、粉の量を入れるだけで計算。5投それぞれの湯量・累計・注ぐタイミングを表示し、甘さと酸味のバランス、濃さの調整、アイスコーヒーにも対応します。',
     label: '46メソッド計算ツール',
     kind: 'tool',
+    cluster: '46-method',
   },
   {
     locale: 'ja',
@@ -140,6 +143,16 @@ export const NATIVE_PAGES: NativePage[] = [
     description: '핸드드립, 에스프레소, 프렌치프레스, 콜드브루에 맞는 분쇄도를 코만단테, 타임모어, 바라짜 엔코, 펠로우 오드 기준으로 정리하고 그라인더 사이의 클릭 수를 변환해 줍니다.',
     label: '원두 분쇄도 가이드 & 변환기',
     kind: 'tool',
+  },
+  {
+    locale: 'ko',
+    slug: '46-method',
+    title: '4:6 레시피 계산기 | 카스야 테츠 4:6 메소드, 원두 15g·20g 물양과 타이밍 — Brewio',
+    description: '카스야 테츠의 4:6 레시피를 원두 양만 넣으면 계산해 줍니다. 푸어마다 물양·누적량·붓는 타이밍을 보여 주고, 단맛과 산미의 밸런스, 농도 조절, 급랭식 아이스도 지원해요.',
+    label: '4:6 레시피 계산기',
+    kind: 'tool',
+    cluster: '46-method',
+    updated: '2026-10-29',
   },
   {
     locale: 'es',

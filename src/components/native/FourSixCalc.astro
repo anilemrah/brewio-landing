@@ -4,19 +4,66 @@ import '../../styles/native-calc.css';
 /**
  * 粕谷哲さんの4:6メソッド. The first 40% of the water (two pours) sets the
  * sweetness/acidity balance; the last 60% sets strength through the number of pours.
- * Japanese-only page, so the UI copy lives here rather than in a strings prop.
+ * Only the Japanese and Korean pages use it, so the UI copy for both lives here.
  */
 
+interface Props {
+  locale?: 'ja' | 'ko';
+}
+
+const { locale = 'ja' } = Astro.props;
+
+const COPY = {
+  ja: {
+    tastes: ['甘め', 'バランス', '明るい酸味'],
+    strengths: ['軽め（2回）', '標準（3回）', '濃いめ（4回）'],
+    dose: 'コーヒー粉',
+    mode: '淹れ方',
+    hot: 'ホット',
+    iced: 'アイス（急冷）',
+    taste: '前半40%：味のバランス',
+    strength: '後半60%：濃さ（注ぐ回数）',
+    total: '総湯量',
+    ice: 'サーバーに入れる氷',
+    finish: 'ドリッパーを外す',
+    head: ['投', '時間', '注ぐ量', '累計'],
+    pour: '{n}投目',
+    ratioHot: '比率 1:15',
+    ratioIced: '湯は粉の10倍（氷込みで約1:15）',
+    hint: '時間は目安です。前のお湯がほぼ落ちきったら次を注ぐ、が基本。',
+    hintHot: '湯温は90〜93℃、挽き目は粗挽き。',
+    hintIced: '湯温は90〜93℃。湯量が少ないぶん、挽き目はホットより1〜2段階細かめに。',
+  },
+  ko: {
+    tastes: ['단맛 강조', '밸런스', '산미 강조'],
+    strengths: ['가볍게 (2회)', '기본 (3회)', '진하게 (4회)'],
+    dose: '원두',
+    mode: '추출 방식',
+    hot: '핫',
+    iced: '아이스 (급랭식)',
+    taste: '전반 40%: 맛의 밸런스',
+    strength: '후반 60%: 농도 (붓는 횟수)',
+    total: '총 물양',
+    ice: '서버에 넣을 얼음',
+    finish: '드리퍼 빼기',
+    head: ['회차', '시간', '붓는 양', '누적'],
+    pour: '{n}차',
+    ratioHot: '비율 1:15',
+    ratioIced: '물은 원두의 10배 (얼음 포함 약 1:15)',
+    // Korean separates sentences with a space; Japanese runs them together.
+    hint: '시간은 참고용이에요. 앞서 부은 물이 거의 다 빠지면 다음 물을 붓는 게 기본입니다. ',
+    hintHot: '물 온도는 90~93℃, 분쇄도는 굵게.',
+    hintIced: '물 온도는 90~93℃. 물양이 적은 만큼 분쇄도는 핫보다 1~2클릭 가늘게.',
+  },
+};
+const c = COPY[locale];
+
 const TASTES = [
-  { id: 'sweet', label: '甘め', split: [5 / 12, 7 / 12] },
-  { id: 'balance', label: 'バランス', split: [0.5, 0.5] },
-  { id: 'bright', label: '明るい酸味', split: [7 / 12, 5 / 12] },
+  { id: 'sweet', split: [5 / 12, 7 / 12] },
+  { id: 'balance', split: [0.5, 0.5] },
+  { id: 'bright', split: [7 / 12, 5 / 12] },
 ];
-const STRENGTHS = [
-  { pours: 2, label: '軽め（2回）' },
-  { pours: 3, label: '標準（3回）' },
-  { pours: 4, label: '濃いめ（4回）' },
-];
+const STRENGTHS = [2, 3, 4];
 
 // Iced: hot water = dose × 10, ice = dose × 5 in the server — the 急冷式 trade, so the
 // melted ice brings the cup back to roughly the 1:15 of the hot recipe.
@@ -31,69 +78,71 @@ function schedule(dose: number, taste: number[], pours: number, iced: boolean) {
 }
 
 const mmss = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+const pourLabel = (n: number) => c.pour.replace('{n}', String(n));
 const initial = schedule(20, TASTES[1].split, 3, false);
+const scriptCopy = { pour: c.pour, ratioHot: c.ratioHot, ratioIced: c.ratioIced, hintHot: c.hintHot, hintIced: c.hintIced };
 ---
 
-<div class="nc-card nc-46" data-tastes={JSON.stringify(TASTES.map((t) => t.split))}>
+<div class="nc-card nc-46" data-tastes={JSON.stringify(TASTES.map((t) => t.split))} data-copy={JSON.stringify(scriptCopy)}>
   <div class="nc-inputs">
     <label class="nc-input">
-      <span class="nc-label">コーヒー粉</span>
+      <span class="nc-label">{c.dose}</span>
       <span class="nc-input-row">
         <input type="number" min="5" max="60" step="1" value="20" inputmode="decimal" data-dose />
         <span class="nc-unit">g</span>
       </span>
     </label>
     <div>
-      <span class="nc-label" id="fs-mode">淹れ方</span>
+      <span class="nc-label" id="fs-mode">{c.mode}</span>
       <div class="nc-chips" role="radiogroup" aria-labelledby="fs-mode" data-group="mode">
-        <button type="button" class="nc-chip" role="radio" aria-checked="true" data-index="0">ホット</button>
-        <button type="button" class="nc-chip" role="radio" aria-checked="false" data-index="1">アイス（急冷）</button>
+        <button type="button" class="nc-chip" role="radio" aria-checked="true" data-index="0">{c.hot}</button>
+        <button type="button" class="nc-chip" role="radio" aria-checked="false" data-index="1">{c.iced}</button>
       </div>
     </div>
   </div>
 
   <div>
-    <span class="nc-label" id="fs-taste">前半40%：味のバランス</span>
+    <span class="nc-label" id="fs-taste">{c.taste}</span>
     <div class="nc-chips" role="radiogroup" aria-labelledby="fs-taste" data-group="taste">
-      {TASTES.map((t, i) => (
-        <button type="button" class="nc-chip" role="radio" aria-checked={i === 1 ? 'true' : 'false'} data-index={i}>{t.label}</button>
+      {TASTES.map((_, i) => (
+        <button type="button" class="nc-chip" role="radio" aria-checked={i === 1 ? 'true' : 'false'} data-index={i}>{c.tastes[i]}</button>
       ))}
     </div>
   </div>
 
   <div>
-    <span class="nc-label" id="fs-strength">後半60%：濃さ（注ぐ回数）</span>
+    <span class="nc-label" id="fs-strength">{c.strength}</span>
     <div class="nc-chips" role="radiogroup" aria-labelledby="fs-strength" data-group="strength">
-      {STRENGTHS.map((s, i) => (
-        <button type="button" class="nc-chip" role="radio" aria-checked={i === 1 ? 'true' : 'false'} data-index={s.pours}>{s.label}</button>
+      {STRENGTHS.map((pours, i) => (
+        <button type="button" class="nc-chip" role="radio" aria-checked={i === 1 ? 'true' : 'false'} data-index={pours}>{c.strengths[i]}</button>
       ))}
     </div>
   </div>
 
   <div class="nc-result" aria-live="polite">
     <div class="nc-out">
-      <span class="nc-out-label">総湯量</span>
+      <span class="nc-out-label">{c.total}</span>
       <span class="nc-out-value"><span data-out="total">{initial.total}</span> <small>g</small></span>
-      <span class="nc-out-extra" data-out="ratio">比率 1:15</span>
+      <span class="nc-out-extra" data-out="ratio">{c.ratioHot}</span>
     </div>
     <div class="nc-out" data-ice hidden>
-      <span class="nc-out-label">サーバーに入れる氷</span>
+      <span class="nc-out-label">{c.ice}</span>
       <span class="nc-out-value"><span data-out="ice">0</span> <small>g</small></span>
     </div>
     <div class="nc-out">
-      <span class="nc-out-label">ドリッパーを外す</span>
+      <span class="nc-out-label">{c.finish}</span>
       <span class="nc-out-value" data-out="finish">{mmss(initial.finish)}</span>
     </div>
   </div>
 
   <table class="nc-schedule">
     <thead>
-      <tr><th>投</th><th>時間</th><th>注ぐ量</th><th>累計</th></tr>
+      <tr>{c.head.map((h) => <th>{h}</th>)}</tr>
     </thead>
     <tbody data-out="rows">
       {initial.rows.map((r) => (
         <tr class={r.n > 2 ? 'nc-phase-2' : ''}>
-          <td>{r.n}投目</td>
+          <td>{pourLabel(r.n)}</td>
           <td class="nc-dim">{mmss(r.at)}</td>
           <td class="nc-strong">{r.g}g</td>
           <td class="nc-dim">{r.sum}g</td>
@@ -102,12 +151,13 @@ const initial = schedule(20, TASTES[1].split, 3, false);
     </tbody>
   </table>
 
-  <p class="nc-hint">時間は目安です。前のお湯がほぼ落ちきったら次を注ぐ、が基本。<span data-out="hint">湯温は90〜93℃、挽き目は粗挽き。</span></p>
+  <p class="nc-hint">{c.hint}<span data-out="hint">{c.hintHot}</span></p>
 </div>
 
 <script>
   document.querySelectorAll<HTMLElement>('.nc-46').forEach((root) => {
     const tastes: number[][] = JSON.parse(root.dataset.tastes!);
+    const copy: Record<string, string> = JSON.parse(root.dataset.copy!);
     const doseInput = root.querySelector<HTMLInputElement>('[data-dose]')!;
     const out = (n: string) => root.querySelector<HTMLElement>(`[data-out="${n}"]`)!;
     const iceBox = root.querySelector<HTMLElement>('[data-ice]')!;
@@ -131,7 +181,7 @@ const initial = schedule(20, TASTES[1].split, 3, false);
         const tr = document.createElement('tr');
         if (i > 1) tr.className = 'nc-phase-2';
         const cells: [string, string][] = [
-          [`${i + 1}投目`, ''], [mmss(i * 45), 'nc-dim'], [`${g}g`, 'nc-strong'], [`${sum}g`, 'nc-dim'],
+          [copy.pour.replace('{n}', String(i + 1)), ''], [mmss(i * 45), 'nc-dim'], [`${g}g`, 'nc-strong'], [`${sum}g`, 'nc-dim'],
         ];
         for (const [text, cls] of cells) {
           const td = document.createElement('td');
@@ -143,13 +193,11 @@ const initial = schedule(20, TASTES[1].split, 3, false);
       });
 
       out('total').textContent = String(total);
-      out('ratio').textContent = state.iced ? '湯は粉の10倍（氷込みで約1:15）' : '比率 1:15';
+      out('ratio').textContent = state.iced ? copy.ratioIced : copy.ratioHot;
       out('ice').textContent = String(Math.round(dose * 5));
       iceBox.hidden = !state.iced;
       out('finish').textContent = mmss((amounts.length - 1) * 45 + 30);
-      out('hint').textContent = state.iced
-        ? '湯温は90〜93℃。湯量が少ないぶん、挽き目はホットより1〜2段階細かめに。'
-        : '湯温は90〜93℃、挽き目は粗挽き。';
+      out('hint').textContent = state.iced ? copy.hintIced : copy.hintHot;
     }
 
     root.addEventListener('click', (e) => {

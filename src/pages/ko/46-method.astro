@@ -1,0 +1,125 @@
+---
+import NativeLayout from '../../layouts/NativeLayout.astro';
+import FourSixCalc from '../../components/native/FourSixCalc.astro';
+
+const doses = [12, 15, 18, 20, 25, 30];
+---
+
+<NativeLayout
+  locale="ko"
+  slug="46-method"
+  headline="4:6 레시피 <em>계산기</em>"
+  subtitle="원두 양만 넣으면 푸어마다 붓는 물양과 타이밍을 알려 드려요. 단맛과 산미의 밸런스, 농도 조절, 급랭식 아이스까지 한 번에 계산합니다."
+  appNote="계산한 레시피는 Brewio의 '나의 레시피'에 푸어별 단계로 저장할 수 있어요. 추출 중에는 타이머가 다음 푸어를 알려 주니 화면을 보며 붓기만 하면 됩니다. 내린 커피의 맛도 바로 기록할 수 있어요."
+>
+  <FourSixCalc locale="ko" />
+
+  <h2>4:6 레시피란?</h2>
+  <p>
+    2016년 월드 브루어스 컵(WBrC)에서 아시아인 최초로 우승한 카스야 테츠(粕谷哲)의 추출법입니다.
+    전체 물양을 '4'와 '6'으로 나눠 생각한다고 해서 4:6이라는 이름이 붙었어요.
+  </p>
+  <ul>
+    <li><strong>전반 40%</strong>(1차·2차 푸어)로 단맛과 산미의 밸런스를 정하고</li>
+    <li><strong>후반 60%</strong>(3차 이후)로 농도를 정합니다</li>
+  </ul>
+  <p>
+    붓는 기술이 아니라 물양과 타이밍만으로 맛을 조절한다는 게 핵심입니다.
+    핸드드립을 막 시작했어도 같은 맛을 재현하기 쉬워서, 홈카페에서 가장 많이 쓰이는 레시피 중 하나가 됐어요.
+  </p>
+
+  <h2>기본 레시피 (원두 20g · 물 300g)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>회차</th><th>시간</th><th>붓는 양</th><th>누적</th></tr>
+      </thead>
+      <tbody>
+        {[0, 1, 2, 3, 4].map((i) => (
+          <tr>
+            <td>{i + 1}차</td>
+            <td class="num">{`${Math.floor((i * 45) / 60)}:${String((i * 45) % 60).padStart(2, '0')}`}</td>
+            <td class="num">60g</td>
+            <td class="num">{(i + 1) * 60}g</td>
+          </tr>
+        ))}
+        <tr>
+          <td>완성</td>
+          <td class="num">3:30</td>
+          <td colspan="2">드리퍼 빼기</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li><strong>비율:</strong> 1:15 (물은 원두의 15배)</li>
+    <li><strong>물 온도:</strong> 90~93℃. 라이트 로스팅은 높게, 다크 로스팅은 낮게 잡으세요.</li>
+    <li><strong>분쇄도:</strong> 굵게. 붓는 횟수가 많아서 가늘면 과추출되기 쉽습니다. 그라인더별 클릭 수는 <a href="/ko/grind-size/">원두 분쇄도 가이드</a>에 정리해 두었어요.</li>
+    <li><strong>드리퍼:</strong> V60 같은 원뿔형을 추천합니다.</li>
+  </ul>
+
+  <h2>원두 15g · 30g일 때 물양 (한눈에 보기)</h2>
+  <p>비율은 1:15 그대로, 후반을 3번(기본)으로 나눠 총 5번 붓는 경우입니다.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>원두</th><th>총 물양</th><th>전반 40%</th><th>후반 60%</th><th>1회당</th></tr>
+      </thead>
+      <tbody>
+        {doses.map((d) => (
+          <tr>
+            <td class="num">{d}g</td>
+            <td class="num">{d * 15}g</td>
+            <td class="num">{d * 6}g</td>
+            <td class="num">{d * 9}g</td>
+            <td class="num">{d * 3}g</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>단맛과 산미 조절 (전반 40%)</h2>
+  <p>
+    전반의 합계는 그대로 두고 1차와 2차의 배분만 바꿉니다. <strong>1차를 적게 부으면 달게, 많이 부으면 산미가 살아나요.</strong>
+    원두 20g이라면 전반은 합계 120g입니다.
+  </p>
+  <ul>
+    <li><strong>단맛 강조:</strong> 1차 50g → 2차 70g</li>
+    <li><strong>밸런스:</strong> 60g → 60g</li>
+    <li><strong>산미 강조:</strong> 70g → 50g</li>
+  </ul>
+
+  <h2>농도 조절 (후반 60%)</h2>
+  <p>
+    후반 180g을 몇 번에 나눠 붓느냐에 따라 농도가 달라집니다. <strong>횟수를 늘리면 진하게, 줄이면 가볍게</strong> 나와요.
+  </p>
+  <ul>
+    <li><strong>가볍게:</strong> 90g × 2회</li>
+    <li><strong>기본:</strong> 60g × 3회</li>
+    <li><strong>진하게:</strong> 45g × 4회</li>
+  </ul>
+
+  <h2>4:6 레시피로 아이스 커피 내리기</h2>
+  <p>
+    서버에 얼음을 넣고 그 위로 바로 내리는 급랭식으로 합니다. 원두 20g이라면 뜨거운 물은 원두의 10배인 200g을 같은 4:6 배분으로 붓고,
+    서버에는 얼음 100g을 넣으세요. 얼음이 녹으면 핫과 거의 같은 1:15 정도가 됩니다.
+    물이 적은 만큼 분쇄도는 핫보다 1~2클릭 가늘게 하면 맛이 살아나요.
+  </p>
+  <p class="note">
+    카스야 테츠의 공식 레시피가 아니라, 4:6 배분을 급랭식에 적용한 Brewio의 응용입니다. 위 계산기에서 '아이스 (급랭식)'를 고르면 이 분량으로 계산해요.
+  </p>
+
+  <h2>잘 안 될 때</h2>
+  <ul>
+    <li><strong>물이 늦게 빠지고 쓰다:</strong> 분쇄도를 굵게 합니다.</li>
+    <li><strong>물이 빨리 빠지고 시큼하고 밍밍하다:</strong> 분쇄도를 가늘게 합니다.</li>
+    <li><strong>시간에 맞춰 다음 물을 못 붓겠다:</strong> 앞서 부은 물이 다 빠질 때까지 기다렸다가 부어도 괜찮아요. 시간은 어디까지나 참고용입니다.</li>
+  </ul>
+  <p>
+    한 번에 하나만 바꾸세요. 분쇄도, 물 온도, 배분 중 무엇을 바꿨는지 기록해 두면 내 취향에 더 빨리 닿을 수 있어요.
+  </p>
+  <p class="note">
+    Brewio는 카스야 테츠, Philocoffea와 제휴 관계가 아닙니다. 4:6 레시피의 아이디어를 집에서 쓰기 쉬운 계산기로 만든 것입니다.
+  </p>
+</NativeLayout>

@@ -22,6 +22,7 @@ const UPDATED = '2026-10-11';
 const all = locales as Record<string, any>;
 const t = all[locale];
 const page = findPage(locale, slug);
+const updated = page.updated ?? UPDATED;
 const lang = page.lang ?? t.meta.hreflang;
 const canonicalUrl = `${SITE_URL}/${locale}/${slug}/`;
 const others = pagesFor(locale).filter((p) => p.slug !== slug);
@@ -55,8 +56,8 @@ const main =
         headline: headlineText,
         description: page.description,
         image: OG_IMAGE,
-        datePublished: UPDATED,
-        dateModified: UPDATED,
+        datePublished: updated,
+        dateModified: updated,
         author: ORGANIZATION,
         publisher: ORGANIZATION,
         mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
@@ -82,7 +83,7 @@ const schema = [
   lang={lang}
   ogLocale={page.ogLocale ?? t.meta.ogLocale}
   ogType={page.kind === 'guide' ? 'article' : 'website'}
-  updatedDate={UPDATED}
+  updatedDate={updated}
   alternates={alternates}
   schema={schema}
 >
