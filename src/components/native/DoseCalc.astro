@@ -17,7 +17,7 @@ export interface DoseVessel {
 export interface DoseMethod {
   id: string;
   label: string;
-  /** Base strength in grams per litre — used when a vessel has no fixed dose, and for custom amounts. */
+  /** Base strength in grams per litre, used when a vessel has no fixed dose and for custom amounts. */
   gPerL: number;
   vessels: DoseVessel[];
   defaultVessel?: number;

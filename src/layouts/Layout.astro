@@ -21,8 +21,8 @@ interface Props {
 }
 
 const {
-  title = 'Brewio — Coffee Journal, Brew Timer & Ratio Calculator',
-  description = 'Brewio is the coffee app for curious drinkers. Log brews, time pour-overs, calculate ratios, track extraction yield, and discover your perfect cup. Free on iOS.',
+  title = 'Brewio: coffee journal and brew timer for iPhone',
+  description = 'Brewio is a coffee journal for iPhone. Log your brews, follow recipes with a step-by-step timer, keep track of your beans and see what you like. Free, in 15 languages.',
   canonicalUrl,
   ogType = 'website',
   publishDate,
@@ -106,7 +106,7 @@ const jsonLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={OG_IMAGE} />
-    <meta name="twitter:image:alt" content="Brewio — coffee journal, brew timer and ratio calculator" />
+    <meta name="twitter:image:alt" content="Brewio, a coffee journal and brew timer for iPhone" />
 
     <!-- Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -217,6 +217,17 @@ const jsonLd = {
     --border-subtle: #F0EDE8;
     --border-dark: #3A342E;
 
+    /* Landing page palette: paper, ink and one accent */
+    --paper: #FAF7F2;
+    --surface: #FFFFFF;
+    --sand: #F1E7D8;
+    --ink: #1C1A17;
+    --ink-2: #57524A;
+    --ink-3: #8A847A;
+    --line: #E6E0D6;
+    --accent: #C47B30;
+    --accent-ink: #94551A;
+
     --font-sans: 'DM Sans', system-ui, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-mono: 'DM Mono', 'Courier New', monospace;
@@ -224,7 +235,8 @@ const jsonLd = {
 
   html {
     scroll-behavior: smooth;
-    background: var(--dark);
+    scroll-padding-top: 80px;
+    background: var(--paper);
   }
 
   body {
@@ -246,7 +258,7 @@ const jsonLd = {
     color: inherit;
   }
 
-  /* Japanese and Korean don't use italics for emphasis — a synthesised slant on
+  /* Japanese and Korean don't use italics for emphasis: a synthesised slant on
      Mincho/Myeongjo reads as a rendering fault. Let colour carry it instead.
      Playfair stays first in the stack so Latin words keep the brand face. */
   html[lang="ja"] {
@@ -262,6 +274,9 @@ const jsonLd = {
   html[lang="ko"] {
     word-break: keep-all;
   }
+
+  /* Unbreakable phrase in a Japanese heading (see components/home/phrase.ts) */
+  .ph { display: inline-block; }
 
   .consent {
     position: fixed;

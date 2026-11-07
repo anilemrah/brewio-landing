@@ -65,7 +65,7 @@ const TASTES = [
 ];
 const STRENGTHS = [2, 3, 4];
 
-// Iced: hot water = dose × 10, ice = dose × 5 in the server — the 急冷式 trade, so the
+// Iced: hot water = dose × 10, ice = dose × 5 in the server (the 急冷式 trade), so the
 // melted ice brings the cup back to roughly the 1:15 of the hot recipe.
 function schedule(dose: number, taste: number[], pours: number, iced: boolean) {
   const total = Math.round(dose * (iced ? 10 : 15));

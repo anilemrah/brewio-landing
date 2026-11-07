@@ -1,40 +1,41 @@
 # Brewio
 
-> Brewio is a free coffee journal app for iOS. It helps coffee lovers log their brews, time pour-overs, calculate ratios, track extraction yield, and discover their perfect cup.
+> Brewio is a coffee journal and brew timer for iPhone. You log what you brew and how it tasted, follow recipes with a step-by-step timer, and keep track of the beans you have at home. It is free, with an optional Brewio Pro subscription, and available in 15 languages. Made in Sweden.
 
-## About
-Brewio is built for the curious coffee drinker who wants more than just caffeine. Whether you pull espresso or brew V60, Brewio gives you the tools to dial in your craft and remember every great cup. Made in Sweden.
+## Features
+- Brew journal: beans, roaster, dose, water, grinder and grind setting, temperature, brew time, TDS and extraction yield, rating and tasting notes for every brew, plus coffees drunk at cafés
+- Step-by-step brew timer with water targets for each pour, for 20 methods: V60, Origami, Kalita Wave, April Brewer, Kalita 102 / Melitta, Chemex, Hario Switch, Clever Dripper, Nel Drip, drip bags, AeroPress, French press, siphon, drip machine, moka pot, espresso, freddo espresso, ibrik / cezve, cold brew and cold drip
+- Custom recipes, hot and iced versions, a ratio calculator and an extraction yield calculator
+- Bean stash: grams left after each brew, days since roast, cost per cup, a reminder when a bag gets old, past bags, and label scanning to fill in a bag's details
+- Taste profile, origin map, statistics, a weekly recap and dial-in tips for sour or bitter cups
+- Beanie, a small plant in a coffee cup that grows as you log brews, with stickers and seasonal outfits
+- Your grinders with their own settings, share images for Instagram stories and posts, data export (CSV and JSON), and an evening streak reminder
+- A list of 57 specialty roasters the Brewio team recommends, with what they focus on and where they ship; nobody pays to be listed
 
-## Key Features
-- Coffee brew journal — log every brew with method, bean, dose, ratio, and tasting notes
-- 12 brew methods with step-by-step timers — V60, Espresso, Chemex, AeroPress, French Press, Moka Pot, Cold Brew, Kalita Wave, Siphon, Drip, Ibrik/Cezve, and Freddo Espresso
-- Coffee-to-water ratio calculator per method
-- Extraction yield (EY%) calculator from TDS%, for filter and espresso
-- Grind size guidance per brew method
-- Dial-in advice — diagnoses sour, bitter, or flat cups and suggests corrections
-- Bean stash — track roast dates, freshness windows, and remaining weight
-- Specialty roaster directory — curated roasters worldwide, filterable by origin and shipping
-- Taste profile, origin map, streaks, badges, and a weekly recap
-- Available in 15 languages
+## Free and Pro
+- Free: 15 brews a month, the last 30 brews in the journal, 3 bags, 1 recipe and 1 grinder, every brew method and the timer, the ratio calculator, Beanie, stickers and the roaster list
+- Brewio Pro (monthly or yearly): unlimited brews, history, bags, recipes and grinders, photos, label scanning, taste profile, origin map and full stats, weekly recap, extraction yield calculator and dial-in tips, past bags, data export, and choosing Beanie's stickers
 
 ## Availability
-- Free on iOS: https://apps.apple.com/app/brewio-brew-track/id6762492301
-- Android: not yet released
+- iPhone: https://apps.apple.com/app/brewio-brew-track/id6762492301
+- Android: not available yet
+- Sign-in: Apple or Google. Data is stored on Supabase servers in the European Union.
+- Languages: English, Swedish, Norwegian, Danish, Finnish, German, Dutch, French, Spanish, Italian, Portuguese, Greek, Turkish, Japanese and Korean
 
-## Free Tools (no signup)
+## Free tools (no sign-up)
 - [Coffee Ratio Calculator](https://brewio.app/tools/coffee-ratio-calculator/): Coffee-to-water ratio for 12 brew methods
-- [Coffee Grind Size Chart](https://brewio.app/tools/grind-size-chart/): Visual grind scale from Turkish-fine to cold-brew coarse
+- [Coffee Grind Size Chart](https://brewio.app/tools/grind-size-chart/): Grind scale from Turkish-fine to cold-brew coarse
 - [Extraction Yield Calculator](https://brewio.app/tools/extraction-yield-calculator/): TDS% to EY%, filter and espresso modes
-- [Brew Timer](https://brewio.app/tools/brew-timer/): Step-by-step timers for all 12 methods
+- [Brew Timer](https://brewio.app/tools/brew-timer/): Step-by-step timers for 12 methods
 
 ## Guides
-- [The Ultimate Coffee-to-Water Ratio Guide](https://brewio.app/guides/coffee-to-water-ratio/)
-- [How to Brew the Perfect V60 Pour Over](https://brewio.app/guides/how-to-brew-v60/)
-- [How to Taste Coffee Like a Pro](https://brewio.app/guides/coffee-tasting-notes/)
+- [Coffee-to-Water Ratio Guide](https://brewio.app/guides/coffee-to-water-ratio/)
+- [How to Brew V60 Pour-Over Coffee](https://brewio.app/guides/how-to-brew-v60/)
+- [How to Taste Coffee](https://brewio.app/guides/coffee-tasting-notes/)
 - [AeroPress Brewing: 3 Recipes from Beginner to Advanced](https://brewio.app/guides/aeropress-recipes/)
 - [Understanding Extraction Yield & TDS](https://brewio.app/guides/extraction-yield-guide/)
 - [How to Make Cold Brew Coffee at Home](https://brewio.app/guides/cold-brew-coffee/)
-- [Coffee Grind Size Chart: The Complete Guide](https://brewio.app/guides/coffee-grind-size-chart/)
+- [Coffee Grind Size Chart (With Grinder Numbers)](https://brewio.app/guides/coffee-grind-size-chart/)
 - [How to Make French Press Coffee](https://brewio.app/guides/french-press-guide/)
 - [Espresso for Beginners: Everything You Need to Know](https://brewio.app/guides/espresso-for-beginners/)
 - [How Much Caffeine Is in Coffee?](https://brewio.app/guides/caffeine-in-coffee/)
@@ -44,9 +45,9 @@ Brewio is built for the curious coffee drinker who wants more than just caffeine
 - [Mushroom Coffee: Is It Worth It?](https://brewio.app/guides/mushroom-coffee/)
 
 ## Pages
-- [Home](https://brewio.app/): Feature overview and app download
+- [Home](https://brewio.app/): What the app does, Free and Pro, questions
 - [All tools](https://brewio.app/tools/): Free coffee calculators and timers
-- [All guides](https://brewio.app/guides/): Index of every coffee guide
-- [Specialty roasters](https://brewio.app/roasters/): Curated directory of specialty coffee roasters
-- [Privacy Policy](https://brewio.app/privacy/): How Brewio handles user data
-- [Terms of Service](https://brewio.app/terms/): Terms of use for the Brewio app and website
+- [All guides](https://brewio.app/guides/): Every coffee guide
+- [Specialty roasters](https://brewio.app/roasters/): The roasters listed in the app
+- [Privacy policy](https://brewio.app/privacy/): How Brewio handles user data
+- [Terms of service](https://brewio.app/terms/): Terms of use for the app and website

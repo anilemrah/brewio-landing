@@ -1,0 +1,92 @@
+---
+import { phrased } from './phrase';
+
+/** One product section: heading, a paragraph, an optional list of details, and screenshots beside it. */
+interface Props {
+  id?: string;
+  title: string;
+  body: string;
+  points?: string[];
+  note?: string;
+  reverse?: boolean;
+}
+
+const { id, title, body, points = [], note, reverse = false } = Astro.props;
+---
+
+<section class={`feature ${reverse ? 'feature-reverse' : ''}`} id={id}>
+  <div class="feature-text">
+    <h2 set:html={phrased(title)} />
+    <p class="feature-body">{body}</p>
+    {points.length > 0 && (
+      <ul class="feature-points">
+        {points.map((p) => <li>{p}</li>)}
+      </ul>
+    )}
+    {note && <p class="feature-note">{note}</p>}
+  </div>
+  <div class="feature-media">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .feature-reverse .feature-text { order: 2; }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    text-wrap: balance;
+  }
+
+  .feature-body {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 34rem;
+  }
+
+  .feature-points {
+    list-style: none;
+    margin-top: 1.75rem;
+    max-width: 34rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .feature-points li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .feature-note {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--ink-3);
+  }
+
+  .feature-media {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 860px) {
+    .feature { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+    .feature-reverse .feature-text { order: 0; }
+  }
+</style>

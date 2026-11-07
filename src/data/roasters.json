@@ -1,0 +1,1074 @@
+[
+  {
+    "id": "tadah",
+    "name": "Tadah",
+    "city": "Lenhovda",
+    "country": "SE",
+    "flag": "🇸🇪",
+    "description": "Hand-roasted in the forests of Småland by Julia & Michael. Thoughtful sourcing, ethical producers, quiet perfection.",
+    "quote": "A hidden gem you discover once and never stop talking about.",
+    "focus": [
+      "Single Origin",
+      "Filter",
+      "Ethical Sourcing"
+    ],
+    "website": "https://tadah.se/en",
+    "ships": "EU",
+    "featured": true,
+    "logo": "/roasters/tadah.png",
+    "banner": "/roasters/tadah-photo.jpg"
+  },
+  {
+    "id": "drop-coffee",
+    "name": "Drop Coffee",
+    "city": "Stockholm",
+    "country": "SE",
+    "flag": "🇸🇪",
+    "description": "Stockholm roastery known for being open about what it pays farmers.",
+    "quote": "Possibly the most transparent roastery on the planet.",
+    "focus": [
+      "Ethiopia",
+      "Kenya",
+      "Filter"
+    ],
+    "website": "https://dropcoffee.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/drop-coffee.png",
+    "banner": null
+  },
+  {
+    "id": "koppi",
+    "name": "Koppi",
+    "city": "Helsingborg",
+    "country": "SE",
+    "flag": "🇸🇪",
+    "description": "Nordic roasting pioneers and World Cup judges. Extremely precise, expressive light roasts.",
+    "quote": "If you're chasing extraordinary terroir, this is where you find it.",
+    "focus": [
+      "Africa",
+      "Single Origin",
+      "Competition"
+    ],
+    "website": "https://koppi.se",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/koppi.png",
+    "banner": null
+  },
+  {
+    "id": "johan-nystrom",
+    "name": "Johan & Nyström",
+    "city": "Stockholm",
+    "country": "SE",
+    "flag": "🇸🇪",
+    "description": "One of Scandinavia's most established specialty brands with wide origin selection and reliable quality.",
+    "quote": "The reliable backbone of Scandinavian specialty. Consistent, accessible, always good.",
+    "focus": [
+      "Espresso",
+      "Filter",
+      "Subscription"
+    ],
+    "website": "https://www.johananynystrom.com",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/johan-nystrom.png",
+    "banner": null
+  },
+  {
+    "id": "tim-wendelboe",
+    "name": "Tim Wendelboe",
+    "city": "Oslo",
+    "country": "NO",
+    "flag": "🇳🇴",
+    "description": "The legend. World Barista Champion turned farmer-direct roaster. A pilgrimage destination for any coffee geek.",
+    "quote": "Every coffee geek should try at least one Wendelboe pour-over in their life.",
+    "focus": [
+      "Ethiopia",
+      "Colombia",
+      "Filter"
+    ],
+    "website": "https://timwendelboe.no",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/tim-wendelboe.png",
+    "banner": null
+  },
+  {
+    "id": "kaffa",
+    "name": "Kaffa",
+    "city": "Oslo",
+    "country": "NO",
+    "flag": "🇳🇴",
+    "description": "Oslo institution with deep direct trade relationships and a focus on clean, sweet filter profiles.",
+    "quote": "Oslo's neighbourhood hero. Honest, clean, and absolutely dependable.",
+    "focus": [
+      "Ethiopia",
+      "Kenya",
+      "Filter"
+    ],
+    "website": "https://kaffa.no",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/kaffa.png",
+    "banner": null
+  },
+  {
+    "id": "coffee-collective",
+    "name": "The Coffee Collective",
+    "city": "Copenhagen",
+    "country": "DK",
+    "flag": "🇩🇰",
+    "description": "Multiple World Barista Champions. Radical transparency: every bag shows the exact price paid to farmers.",
+    "quote": "They show every farmer's name and payment on the bag. Revolutionary honesty.",
+    "focus": [
+      "Africa",
+      "Filter",
+      "Direct Trade"
+    ],
+    "website": "https://coffeecollective.dk",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/coffee-collective.png",
+    "banner": null
+  },
+  {
+    "id": "april-coffee",
+    "name": "April Coffee Roasters",
+    "city": "Copenhagen",
+    "country": "DK",
+    "flag": "🇩🇰",
+    "description": "World Brewers Cup champion Patrik Rolf's roastery. Obsessively light, focused, and brilliant.",
+    "quote": "Patrik Rolf's pursuit of clarity in a cup is unmatched. Every bag is a lesson.",
+    "focus": [
+      "Filter",
+      "Single Origin",
+      "Competition"
+    ],
+    "website": "https://aprilcoffeeroasters.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/april-coffee.png",
+    "banner": null
+  },
+  {
+    "id": "la-cabra",
+    "name": "La Cabra",
+    "city": "Aarhus",
+    "country": "DK",
+    "flag": "🇩🇰",
+    "description": "Beautiful packaging, even more beautiful cups. Precision roasting for the filter-obsessed.",
+    "quote": "The most beautiful bags in specialty coffee, and the coffee lives up to them.",
+    "focus": [
+      "Ethiopia",
+      "Filter"
+    ],
+    "website": "https://lacabra.dk",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/la-cabra.png",
+    "banner": null
+  },
+  {
+    "id": "good-life-coffee",
+    "name": "Good Life Coffee",
+    "city": "Helsinki",
+    "country": "FI",
+    "flag": "🇫🇮",
+    "description": "Finland's leading specialty roaster. Transparent sourcing, strong direct trade ethos.",
+    "quote": "Finland's finest. Their sourcing relationships run deeper than most.",
+    "focus": [
+      "Africa",
+      "Americas",
+      "Filter"
+    ],
+    "website": "https://goodlifecoffee.fi",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/good-life-coffee.png",
+    "banner": null
+  },
+  {
+    "id": "the-barn",
+    "name": "The Barn",
+    "city": "Berlin",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "description": "Berlin's most celebrated roastery. Extremely light, precise roasting that spotlights terroir above all.",
+    "quote": "They take light roasting to its logical, stunning extreme.",
+    "focus": [
+      "Ethiopia",
+      "Kenya",
+      "Filter"
+    ],
+    "website": "https://thebarn.de",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/the-barn.png",
+    "banner": null
+  },
+  {
+    "id": "five-elephant",
+    "name": "Five Elephant",
+    "city": "Berlin",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "description": "Famous for their cheesecake and their coffee equally. Approachable specialty with a warm community feel.",
+    "quote": "Come for the cheesecake, stay for the coffee. Berlin's most welcoming specialty spot.",
+    "focus": [
+      "Africa",
+      "Americas"
+    ],
+    "website": "https://fiveelephant.com",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/five-elephant.png",
+    "banner": null
+  },
+  {
+    "id": "bonanza",
+    "name": "Bonanza Coffee",
+    "city": "Berlin",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "description": "Transparent, direct-trade focused roastery with a dedicated following across Europe.",
+    "quote": "Quietly excellent. Their Colombian lots are some of the best in Europe.",
+    "focus": [
+      "Ethiopia",
+      "Colombia"
+    ],
+    "website": "https://bonanzacoffee.de",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/bonanza.png",
+    "banner": null
+  },
+  {
+    "id": "square-mile",
+    "name": "Square Mile Coffee",
+    "city": "London",
+    "country": "GB",
+    "flag": "🇬🇧",
+    "description": "Founded by World Barista Champions. The benchmark for precision specialty roasting in the UK.",
+    "quote": "The textbook example of great specialty roasting. Used in competitions worldwide.",
+    "focus": [
+      "Ethiopia",
+      "Kenya",
+      "Filter"
+    ],
+    "website": "https://squaremilecoffee.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/square-mile.png",
+    "banner": null
+  },
+  {
+    "id": "origin-coffee",
+    "name": "Origin Coffee",
+    "city": "Cornwall",
+    "country": "GB",
+    "flag": "🇬🇧",
+    "description": "Farm-to-cup roaster from Cornwall with genuine producer relationships across three continents.",
+    "quote": "Cornwall-born but globally minded. Their direct trade is genuinely deep.",
+    "focus": [
+      "Africa",
+      "Americas",
+      "Single Origin"
+    ],
+    "website": "https://origincoffee.co.uk",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/origin-coffee.png",
+    "banner": null
+  },
+  {
+    "id": "bocca",
+    "name": "Bocca Coffee",
+    "city": "Amsterdam",
+    "country": "NL",
+    "flag": "🇳🇱",
+    "description": "Amsterdam institution with deep sustainability roots and remarkable sourcing transparency.",
+    "quote": "Sustainability isn't a buzzword here. The whole company is built on it.",
+    "focus": [
+      "Africa",
+      "Americas",
+      "Filter"
+    ],
+    "website": "https://bocca.nl",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/bocca.png",
+    "banner": null
+  },
+  {
+    "id": "friedhats",
+    "name": "Friedhats",
+    "city": "Amsterdam",
+    "country": "NL",
+    "flag": "🇳🇱",
+    "description": "Ultra-light roasters pushing boundaries. Known for Nordic-style clarity with Dutch directness.",
+    "quote": "They roast lighter than Scandinavia and somehow make it work perfectly.",
+    "focus": [
+      "Africa",
+      "Filter",
+      "Micro-lots"
+    ],
+    "website": "https://friedhats.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/friedhats.png",
+    "banner": null
+  },
+  {
+    "id": "belleville",
+    "name": "Belleville Brûlerie",
+    "city": "Paris",
+    "country": "FR",
+    "flag": "🇫🇷",
+    "description": "Paris's specialty pioneer, and one of the first to bring light roasts to a city that drank its coffee dark.",
+    "quote": "They proved Paris could do specialty. The café is a pilgrimage for French coffee lovers.",
+    "focus": [
+      "Ethiopia",
+      "Colombia",
+      "Filter"
+    ],
+    "website": "https://cafesbelleville.com",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/belleville.png",
+    "banner": null
+  },
+  {
+    "id": "lomi",
+    "name": "Lomi Roasters",
+    "city": "Paris",
+    "country": "FR",
+    "flag": "🇫🇷",
+    "description": "Housed in a converted train station, Lomi trained a generation of French baristas and sources with care.",
+    "quote": "Where Parisian specialty was born. Their training programs changed French coffee culture.",
+    "focus": [
+      "Africa",
+      "Americas",
+      "Espresso"
+    ],
+    "website": "https://lomi.cafe",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/lomi.png",
+    "banner": null
+  },
+  {
+    "id": "coutume",
+    "name": "Coutume Café",
+    "city": "Paris",
+    "country": "FR",
+    "flag": "🇫🇷",
+    "description": "Elegant Parisian roastery merging French café culture with third-wave precision. Beautiful spaces, beautiful coffee.",
+    "quote": "The most Parisian of specialty roasters. Elegant, refined and quietly excellent.",
+    "focus": [
+      "Single Origin",
+      "Filter",
+      "Ethical Sourcing"
+    ],
+    "website": "https://coutumecafe.com",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/coutume.png",
+    "banner": null
+  },
+  {
+    "id": "reykjavik-roasters",
+    "name": "Reykjavík Roasters",
+    "city": "Reykjavík",
+    "country": "IS",
+    "flag": "🇮🇸",
+    "description": "Remote but world-class. Iceland's most loved specialty roastery ships their precision roasts globally.",
+    "quote": "From the edge of the world, some of the world's finest filter coffee.",
+    "focus": [
+      "Ethiopia",
+      "Filter"
+    ],
+    "website": "https://reykjavikroasters.is",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/reykjavik-roasters.png",
+    "banner": null
+  },
+  {
+    "id": "gardelli",
+    "name": "Gardelli Specialty Coffees",
+    "city": "Forlì",
+    "country": "IT",
+    "flag": "🇮🇹",
+    "description": "World Cup of Tasters champion. They buy exceptional small lots and are one of Italy's leading specialty roasters.",
+    "quote": "The Italian who proved Italy could lead the specialty world, not just espresso.",
+    "focus": [
+      "Ethiopia",
+      "Micro-lots",
+      "Competition"
+    ],
+    "website": "https://gardellicoffee.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/gardelli.png",
+    "banner": null
+  },
+  {
+    "id": "ditta-artigianale",
+    "name": "Ditta Artigianale",
+    "city": "Florence",
+    "country": "IT",
+    "flag": "🇮🇹",
+    "description": "Florence's specialty icon, bridging Italian espresso tradition with modern third-wave roasting.",
+    "quote": "Where Italian coffee culture meets the third wave. Florence has never tasted better.",
+    "focus": [
+      "Espresso",
+      "Filter",
+      "Single Origin"
+    ],
+    "website": "https://dittaartigianale.it",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/ditta-artigianale.png",
+    "banner": null
+  },
+  {
+    "id": "nomad-coffee",
+    "name": "Nomad Coffee",
+    "city": "Barcelona",
+    "country": "ES",
+    "flag": "🇪🇸",
+    "description": "Spain's most internationally celebrated roastery. Immaculate sourcing, precision roasting.",
+    "quote": "Spain's flag-bearer for world-class specialty. Their Ethiopian lots are legendary.",
+    "focus": [
+      "Ethiopia",
+      "Colombia",
+      "Filter"
+    ],
+    "website": "https://nomadcoffee.es",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/nomad-coffee.png",
+    "banner": null
+  },
+  {
+    "id": "fabrica",
+    "name": "Fábrica Coffee Roasters",
+    "city": "Lisbon",
+    "country": "PT",
+    "flag": "🇵🇹",
+    "description": "Lisbon's specialty pioneer, with beautiful cafés and thoughtfully sourced beans.",
+    "quote": "Lisbon's beating heart for specialty. The café is as stunning as the coffee.",
+    "focus": [
+      "Africa",
+      "Americas"
+    ],
+    "website": "https://fabricacoffeeroasters.com",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/fabrica.png",
+    "banner": null
+  },
+  {
+    "id": "petra-roasting",
+    "name": "Petra Roasting Co.",
+    "city": "Istanbul",
+    "country": "TR",
+    "flag": "🇹🇷",
+    "description": "Istanbul's specialty vanguard. World-class roasting in a city with 500 years of coffee heritage.",
+    "quote": "Where Ottoman coffee heritage meets third-wave precision. Istanbul's finest.",
+    "focus": [
+      "Ethiopia",
+      "Colombia",
+      "Filter"
+    ],
+    "website": "https://petraroastingco.com",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/petra-roasting.png",
+    "banner": null
+  },
+  {
+    "id": "kronotrop",
+    "name": "Kronotrop Coffee",
+    "city": "Istanbul",
+    "country": "TR",
+    "flag": "🇹🇷",
+    "description": "Turkish roaster with many awards, and several Turkish Barista Champions on the team.",
+    "quote": "Turkey's most decorated roastery. Competition-grade quality, every single bag.",
+    "focus": [
+      "Africa",
+      "Competition",
+      "Espresso"
+    ],
+    "website": "https://kronotrop.com.tr",
+    "ships": "EU",
+    "featured": false,
+    "logo": "/roasters/kronotrop.png",
+    "banner": null
+  },
+  {
+    "id": "montag",
+    "name": "Montag Coffee Roasters",
+    "city": "Istanbul",
+    "country": "TR",
+    "flag": "🇹🇷",
+    "description": "Young, bold Istanbul roastery focused on single origins and meticulous profiling. Rising fast in the specialty world.",
+    "quote": "The new wave of Turkish specialty. Bold choices, exceptional results.",
+    "focus": [
+      "Single Origin",
+      "Africa",
+      "Filter"
+    ],
+    "website": "https://montagcoffee.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/montag.png",
+    "banner": null
+  },
+  {
+    "id": "arabica",
+    "name": "%Arabica",
+    "city": "Kyoto",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "One of the most famous specialty coffee brands in the world, with a minimal Kyoto style and careful sourcing.",
+    "quote": "The coffee actually matches the aesthetic. That alone is extraordinary.",
+    "focus": [
+      "Ethiopia",
+      "Yemen",
+      "Single Origin"
+    ],
+    "website": "https://arabica.coffee",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/arabica.png",
+    "banner": null
+  },
+  {
+    "id": "light-up-coffee",
+    "name": "Light Up Coffee",
+    "city": "Tokyo",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "Kichijoji gem beloved by Japan's specialty scene for delicate, expressive light roasting.",
+    "quote": "Tokyo's best-kept secret. Regulars call it the finest cup in the city.",
+    "focus": [
+      "Ethiopia",
+      "Kenya",
+      "Filter"
+    ],
+    "website": "https://lightupcoffee.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/light-up-coffee.png",
+    "banner": null
+  },
+  {
+    "id": "glitch",
+    "name": "Glitch Coffee & Roasters",
+    "city": "Tokyo",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "Jimbocho roastery devoted to light-roasted single origins, brewed cup by cup at the bar.",
+    "quote": "Light roasts brewed one cup at a time. A must for filter lovers in Tokyo.",
+    "focus": [
+      "Light roast",
+      "Single Origin",
+      "Filter"
+    ],
+    "website": "https://glitchcoffee.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/glitch.png",
+    "banner": null
+  },
+  {
+    "id": "onibus",
+    "name": "Onibus Coffee",
+    "city": "Tokyo",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "Tokyo roaster behind the much-loved Nakameguro coffee stand by the train tracks, with clean, sweet single origins.",
+    "quote": "Clean, sweet cups and a much-loved stand by the Nakameguro train tracks.",
+    "focus": [
+      "Single Origin",
+      "Filter",
+      "Espresso"
+    ],
+    "website": "https://onibuscoffee.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/onibus.png",
+    "banner": null
+  },
+  {
+    "id": "fuglen-tokyo",
+    "name": "Fuglen Tokyo",
+    "city": "Tokyo",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "The Oslo café's Tokyo home in Tomigaya, roasting Nordic-style light coffee for the city.",
+    "quote": "A slice of Oslo in Tomigaya: Nordic light roasts and vintage Norwegian design.",
+    "focus": [
+      "Nordic roast",
+      "Filter",
+      "Single Origin"
+    ],
+    "website": "https://fuglencoffee.jp",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/fuglen-tokyo.png",
+    "banner": null
+  },
+  {
+    "id": "leaves",
+    "name": "Leaves Coffee Roasters",
+    "city": "Tokyo",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "Small roastery in Honjo, Sumida, roasting bright single origins with great care.",
+    "quote": "A small Sumida roastery that treats every single origin with real care.",
+    "focus": [
+      "Single Origin",
+      "Filter"
+    ],
+    "website": "https://leavescoffee.jp",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/leaves.png",
+    "banner": null
+  },
+  {
+    "id": "philocoffea",
+    "name": "Philocoffea",
+    "city": "Funabashi",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "Tetsu Kasuya's roastery, home of the 4:6 method that won him the 2016 World Brewers Cup.",
+    "quote": "Brew the 4:6 method at its source, from the World Brewers Cup champion.",
+    "focus": [
+      "Pour-over",
+      "4:6 method",
+      "Filter"
+    ],
+    "website": "https://philocoffea.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/philocoffea.png",
+    "banner": null
+  },
+  {
+    "id": "kurasu",
+    "name": "Kurasu",
+    "city": "Kyoto",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "Kyoto café and roastery that ships its beans, partner roasters' coffee and Japanese brewing gear worldwide.",
+    "quote": "Kyoto in a parcel: their own beans, guest roasters and Japanese brewing gear, shipped worldwide.",
+    "focus": [
+      "Filter",
+      "Partner roasters",
+      "Brewing gear"
+    ],
+    "website": "https://kurasu.kyoto",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/kurasu.png",
+    "banner": null
+  },
+  {
+    "id": "maruyama",
+    "name": "Maruyama Coffee",
+    "city": "Karuizawa",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "Karuizawa specialty pioneer since 1991, known for travelling to origin to buy its coffee.",
+    "quote": "Over three decades of travelling to origin, and a cornerstone of Japanese specialty coffee.",
+    "focus": [
+      "Origin trips",
+      "Espresso",
+      "Filter"
+    ],
+    "website": "https://official.maruyamacoffee.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/maruyama.png",
+    "banner": null
+  },
+  {
+    "id": "unir",
+    "name": "Unir",
+    "city": "Nagaokakyo",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "Kyoto roaster since 2006; co-founder Tomoko Yamamoto represented Japan at the 2019 World Barista Championship.",
+    "quote": "Competition-level Kyoto roasting with a quiet, careful touch.",
+    "focus": [
+      "Single Origin",
+      "Espresso",
+      "Filter"
+    ],
+    "website": "https://unir-coffee.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/unir.png",
+    "banner": null
+  },
+  {
+    "id": "koffee-mameya",
+    "name": "Koffee Mameya",
+    "city": "Tokyo",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "description": "Omotesando bean shop where baristas help you choose from carefully picked roasters, with a brew recipe for every bean.",
+    "quote": "Like a sommelier for coffee: talk it through with the barista and take home a recipe.",
+    "focus": [
+      "Curated beans",
+      "Brew recipes"
+    ],
+    "website": "https://koffee-mameya.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/koffee-mameya.png",
+    "banner": null
+  },
+  {
+    "id": "fritz",
+    "name": "Fritz Coffee Company",
+    "city": "Seoul",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Seoul roastery and bakery known for its seal logo, retro Korean design and carefully sourced single origins.",
+    "quote": "Retro Korean design, fresh bread and serious coffee under one roof.",
+    "focus": [
+      "Ethiopia",
+      "Colombia",
+      "Filter"
+    ],
+    "website": "https://fritz.co.kr",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/fritz.png",
+    "banner": null
+  },
+  {
+    "id": "momos",
+    "name": "Momos Coffee",
+    "city": "Busan",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Busan roastery whose head barista Jeon Jooyeon became the first Korean World Barista Champion in 2019.",
+    "quote": "Home of Korea's first World Barista Champion. Busan is worth the trip.",
+    "focus": [
+      "Competition",
+      "Single Origin",
+      "Espresso"
+    ],
+    "website": "https://momos.co.kr",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/momos.png",
+    "banner": null
+  },
+  {
+    "id": "coffee-libre",
+    "name": "Coffee Libre",
+    "city": "Seoul",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "One of Korea's specialty pioneers, known for direct sourcing and boldly designed bags.",
+    "quote": "One of the roasters that started Korea's specialty scene, and still one of its boldest.",
+    "focus": [
+      "Direct Trade",
+      "Single Origin",
+      "Espresso"
+    ],
+    "website": "https://coffeelibre.kr",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/coffee-libre.png",
+    "banner": null
+  },
+  {
+    "id": "anthracite",
+    "name": "Anthracite Coffee",
+    "city": "Seoul",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Seoul roaster whose first café opened in a former shoe factory in Hapjeong.",
+    "quote": "From a former shoe factory to a Seoul coffee landmark.",
+    "focus": [
+      "Espresso",
+      "Blends",
+      "Single Origin"
+    ],
+    "website": "https://anthracitecoffee.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/anthracite.png",
+    "banner": null
+  },
+  {
+    "id": "namusairo",
+    "name": "Namusairo",
+    "city": "Seoul",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Long-standing Seoul specialty roaster with a hanok café in Seochon, roasting for clarity and sweetness.",
+    "quote": "Quiet hanok mornings in Seochon and cups built on clarity and sweetness.",
+    "focus": [
+      "Single Origin",
+      "Filter"
+    ],
+    "website": "https://namusairo.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/namusairo.png",
+    "banner": null
+  },
+  {
+    "id": "terarosa",
+    "name": "Terarosa",
+    "city": "Gangneung",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Gangneung roaster that helped make the city Korea's coffee town, with a sprawling roastery café.",
+    "quote": "One of the reasons Gangneung became Korea's coffee city.",
+    "focus": [
+      "Single Origin",
+      "Espresso",
+      "Filter"
+    ],
+    "website": "https://terarosa.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/terarosa.png",
+    "banner": null
+  },
+  {
+    "id": "center-coffee",
+    "name": "Center Coffee",
+    "city": "Seoul",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Seoul roastery focused on clean, sweet filter coffee from carefully chosen lots.",
+    "quote": "Clean, sweet filter coffee, chosen lot by lot.",
+    "focus": [
+      "Filter",
+      "Single Origin"
+    ],
+    "website": "https://www.centercoffee.co.kr",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/center-coffee.png",
+    "banner": null
+  },
+  {
+    "id": "manufact",
+    "name": "Manufact Coffee Roasters",
+    "city": "Seoul",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Yeonhui-dong roastery with a tiny stand bar and a steady line of well-made blends and single origins.",
+    "quote": "A tiny Yeonhui-dong stand bar with blends that never miss.",
+    "focus": [
+      "Blends",
+      "Espresso",
+      "Filter"
+    ],
+    "website": "https://manufactcoffee.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/manufact.png",
+    "banner": null
+  },
+  {
+    "id": "bean-brothers",
+    "name": "Bean Brothers",
+    "city": "Seoul",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Seoul roaster that helped popularise coffee subscriptions in Korea.",
+    "quote": "One of the roasters that brought coffee subscriptions to Korean homes.",
+    "focus": [
+      "Subscription",
+      "Blends",
+      "Single Origin"
+    ],
+    "website": "https://beanbrothers.co.kr",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/bean-brothers.png",
+    "banner": null
+  },
+  {
+    "id": "coffee-temple",
+    "name": "Coffee Temple",
+    "city": "Jeju",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Specialty roastery and café on Jeju Island.",
+    "quote": "A reason to plan coffee into your Jeju trip.",
+    "focus": [
+      "Espresso",
+      "Blends"
+    ],
+    "website": "https://coffeetemple.co.kr",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/coffee-temple.png",
+    "banner": null
+  },
+  {
+    "id": "felt-coffee",
+    "name": "Felt Coffee",
+    "city": "Seoul",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "description": "Minimalist design meets exceptional roasting. One of Seoul's must-visit specialty destinations.",
+    "quote": "Seoul's most serene coffee experience. Minimal, considered, exceptional.",
+    "focus": [
+      "Africa",
+      "Americas",
+      "Filter"
+    ],
+    "website": "https://feltcoffee.com",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/felt-coffee.png",
+    "banner": null
+  },
+  {
+    "id": "counter-culture",
+    "name": "Counter Culture Coffee",
+    "city": "Durham, NC",
+    "country": "US",
+    "flag": "🇺🇸",
+    "description": "Pioneer of direct trade. Their annual transparency report set the industry standard.",
+    "quote": "The original transparency pioneer. They were doing it before anyone else.",
+    "focus": [
+      "Ethiopia",
+      "Colombia",
+      "Filter"
+    ],
+    "website": "https://counterculturecoffee.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/counter-culture.png",
+    "banner": null
+  },
+  {
+    "id": "onyx",
+    "name": "Onyx Coffee Lab",
+    "city": "Rogers, AR",
+    "country": "US",
+    "flag": "🇺🇸",
+    "description": "World Barista Champions. Obsessive attention to sourcing and roast consistency.",
+    "quote": "World champions who roast like it. Every release is an event.",
+    "focus": [
+      "Ethiopia",
+      "Colombia",
+      "Competition"
+    ],
+    "website": "https://onyxcoffeelab.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/onyx.png",
+    "banner": null
+  },
+  {
+    "id": "intelligentsia",
+    "name": "Intelligentsia Coffee",
+    "city": "Chicago, IL",
+    "country": "US",
+    "flag": "🇺🇸",
+    "description": "Godfather of the third wave. Invented direct trade. Still one of the best.",
+    "quote": "Without them, specialty coffee looks very different today.",
+    "focus": [
+      "Ethiopia",
+      "Americas",
+      "Filter"
+    ],
+    "website": "https://intelligentsiacoffee.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/intelligentsia.png",
+    "banner": null
+  },
+  {
+    "id": "blue-bottle",
+    "name": "Blue Bottle Coffee",
+    "city": "Oakland, CA",
+    "country": "US",
+    "flag": "🇺🇸",
+    "description": "Global specialty icon with massive presence in Japan. The gateway drug for millions of coffee lovers.",
+    "quote": "Made specialty coffee mainstream and kept the quality high.",
+    "focus": [
+      "Filter",
+      "Espresso",
+      "Subscription"
+    ],
+    "website": "https://bluebottlecoffee.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/blue-bottle.png",
+    "banner": null
+  },
+  {
+    "id": "devocion",
+    "name": "Devoción",
+    "city": "Bogotá",
+    "country": "CO",
+    "flag": "🇨🇴",
+    "description": "Faster from farm to cup than anyone. They roast Colombian beans within days of harvest.",
+    "quote": "No one sources Colombian coffee fresher than this. Days from harvest to your cup.",
+    "focus": [
+      "Colombia",
+      "Single Origin"
+    ],
+    "website": "https://devocion.com",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/devocion.png",
+    "banner": null
+  },
+  {
+    "id": "coffee-lab-brazil",
+    "name": "Coffee Lab",
+    "city": "São Paulo",
+    "country": "BR",
+    "flag": "🇧🇷",
+    "description": "Isabela Raposeiras's legendary lab. Brazil's most respected specialty roaster and coffee educator.",
+    "quote": "Isabela Raposeiras changed Brazilian coffee. Her lab is the country's gold standard.",
+    "focus": [
+      "Brazil",
+      "Single Origin",
+      "Competition"
+    ],
+    "website": "https://coffeelab.com.br",
+    "ships": "regional",
+    "featured": false,
+    "logo": "/roasters/coffee-lab-brazil.png",
+    "banner": null
+  },
+  {
+    "id": "ona-coffee",
+    "name": "Ona Coffee",
+    "city": "Canberra",
+    "country": "AU",
+    "flag": "🇦🇺",
+    "description": "World Barista Champion Sasa Sestic's roastery. Australia's finest, ships globally.",
+    "quote": "Sasa won the World Barista Championship with their coffee. Need more proof?",
+    "focus": [
+      "Competition",
+      "Single Origin",
+      "Filter"
+    ],
+    "website": "https://onacoffee.com.au",
+    "ships": "worldwide",
+    "featured": false,
+    "logo": "/roasters/ona-coffee.png",
+    "banner": null
+  }
+]

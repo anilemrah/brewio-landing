@@ -18,6 +18,8 @@ interface Props {
 const { title, description, headline, subtitle, slug, relatedGuides = [] } = Astro.props;
 
 const canonicalUrl = `${SITE_URL}/tools/${slug}/`;
+// Headlines used to carry an italic accent word; the new design sets them in one style.
+const plainHeadline = headline.replace(/<\/?em>/g, '');
 const others = otherTools(slug);
 
 const schema = [
@@ -46,7 +48,7 @@ const schema = [
 ---
 
 <Layout
-  title={`${title} — Brewio`}
+  title={`${title} | Brewio`}
   description={description}
   canonicalUrl={canonicalUrl}
   schema={schema}
@@ -55,15 +57,9 @@ const schema = [
 
   <article class="tool">
     <header class="tool-hero">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="orb"></div>
-        <div class="grain"></div>
-      </div>
-      <div class="hero-inner">
-        <a href="/tools/" class="hero-eyebrow">Brewio Tools</a>
-        <h1 class="hero-headline" set:html={headline} />
-        <p class="hero-subtitle">{subtitle}</p>
-      </div>
+      <p class="hero-meta"><a href="/tools/">Tools</a></p>
+      <h1 class="hero-headline" set:html={plainHeadline} />
+      <p class="hero-subtitle">{subtitle}</p>
     </header>
 
     <div class="tool-body">
@@ -72,7 +68,7 @@ const schema = [
 
         {relatedGuides.length > 0 && (
           <section class="theory">
-            <h2 class="theory-heading">The theory behind it</h2>
+            <h2 class="section-heading">The theory behind it</h2>
             <ul class="theory-list">
               {relatedGuides.map((g) => (
                 <li>
@@ -87,25 +83,18 @@ const schema = [
         )}
 
         <aside class="tool-cta">
-          <div class="cta-glow" aria-hidden="true"></div>
-          <div class="cta-inner">
-            <div class="cta-badge">
-              <img src="/brewio-logo.png" alt="" class="cta-logo" />
-              Free on iOS
-            </div>
-            <h2 class="cta-heading">Every brew, <em>remembered.</em></h2>
-            <p class="cta-text">
-              This calculator lives in Brewio too — alongside a journal that logs what you
-              brewed, how it tasted, and which beans are worth buying again.
-            </p>
-            <a href={APP_STORE_URL} class="badge-link" target="_blank" rel="noopener">
-              <img src="/badge-app-store.svg" alt="Download on the App Store" class="cta-store-badge" />
-            </a>
+          <img src="/app/icon.png" alt="" width="64" height="64" class="cta-icon" />
+          <div class="cta-text">
+            <h2 class="cta-heading">This is in the Brewio app too</h2>
+            <p>Next to a journal that keeps what you brewed, how it tasted and which beans are worth buying again. Free on iPhone.</p>
           </div>
+          <a href={APP_STORE_URL} class="cta-store" target="_blank" rel="noopener">
+            <img src="/badge-app-store.svg" alt="Download on the App Store" width="144" height="48" />
+          </a>
         </aside>
 
         <nav class="more-tools" aria-labelledby="more-tools-heading">
-          <h2 id="more-tools-heading" class="more-heading">More free tools</h2>
+          <h2 id="more-tools-heading" class="section-heading">More free tools</h2>
           <ul class="more-list">
             {others.map((t) => (
               <li>
@@ -126,91 +115,42 @@ const schema = [
 </Layout>
 
 <style>
-  /* ── Hero ── */
+  .tool { background: var(--paper); color: var(--ink); }
+
   .tool-hero {
-    position: relative;
-    background: var(--dark);
-    padding: 9.5rem 2rem 4rem;
-    overflow: hidden;
-    text-align: center;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: calc(64px + 4rem) 1.5rem 2rem;
   }
 
-  .hero-bg { position: absolute; inset: 0; pointer-events: none; }
-
-  .orb {
-    position: absolute;
-    top: -220px; right: -120px;
-    width: 620px; height: 620px;
-    border-radius: 50%;
-    filter: blur(100px);
-    background: radial-gradient(circle, rgba(196,123,48,0.12) 0%, transparent 70%);
-  }
-
-  .grain {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    opacity: 0.5;
-  }
-
-  .hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
-
-  .hero-eyebrow {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--amber);
-    background: rgba(196,123,48,0.1);
-    border: 1px solid rgba(196,123,48,0.2);
-    padding: 0.3rem 0.85rem;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
-    transition: background 0.2s;
-  }
-
-  .hero-eyebrow:hover { background: rgba(196,123,48,0.18); }
-  .hero-eyebrow:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .hero-meta { font-size: 0.9rem; margin-bottom: 1rem; }
+  .hero-meta a { color: var(--accent-ink); }
+  .hero-meta a:hover { color: var(--ink); }
 
   .hero-headline {
     font-family: var(--font-serif);
-    font-size: clamp(2.1rem, 4.5vw, 3.4rem);
-    color: var(--cream);
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-    margin-bottom: 1.1rem;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 4.4vw, 3.3rem);
+    line-height: 1.08;
+    letter-spacing: -0.022em;
     text-wrap: balance;
+    margin-bottom: 1.1rem;
   }
 
-  .hero-headline :global(em) { color: var(--amber); font-style: italic; }
+  .hero-subtitle { font-size: 1.15rem; line-height: 1.65; color: var(--ink-2); max-width: 38rem; }
 
-  .hero-subtitle {
-    font-size: 1.05rem;
-    color: rgba(250,247,242,0.55);
-    line-height: 1.7;
-    max-width: 34rem;
-    margin: 0 auto;
-  }
-
-  /* ── Body ── */
-  .tool-body { background: var(--cream); padding: 3.5rem 2rem 4rem; }
+  .tool-body { padding: 1rem 1.5rem 6rem; }
   .tool-inner { max-width: 820px; margin: 0 auto; }
 
-  /* ── Theory links ── */
-  .theory {
-    margin-top: 3.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .theory-heading {
+  .section-heading {
     font-family: var(--font-serif);
-    font-size: 1.35rem;
-    color: var(--text-dark);
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: -0.015em;
     margin-bottom: 1rem;
   }
+
+  .theory { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
 
   .theory-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
 
@@ -220,104 +160,50 @@ const schema = [
     justify-content: space-between;
     gap: 1rem;
     padding: 0.9rem 1.1rem;
-    background: #fff;
-    border: 1px solid var(--border-subtle);
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: 12px;
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    transition: border-color 0.2s, transform 0.2s;
+    font-size: 0.97rem;
+    color: var(--ink);
+    transition: border-color 0.15s;
   }
 
-  .theory-list a:hover { border-color: var(--amber); transform: translateX(2px); }
-  .theory-list a:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
-  .theory-list svg { width: 16px; height: 16px; color: var(--amber); flex-shrink: 0; }
+  .theory-list a:hover { border-color: var(--ink-3); }
+  .theory-list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .theory-list svg { width: 16px; height: 16px; color: var(--accent-ink); flex-shrink: 0; }
 
-  /* ── CTA ── */
   .tool-cta {
-    position: relative;
     margin-top: 3.5rem;
-    background: var(--dark);
-    border-radius: 22px;
-    padding: 3rem 2.5rem;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .cta-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(196,123,48,0.1) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .cta-inner {
-    position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 1.1rem;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
   }
 
-  .cta-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--amber);
-    background: rgba(196,123,48,0.1);
-    border: 1px solid rgba(196,123,48,0.2);
-    padding: 0.3rem 0.85rem 0.3rem 0.3rem;
-    border-radius: 100px;
-  }
-
-  .cta-logo {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    background: #F9F5EF;
-    object-fit: contain;
-    padding: 2px;
-  }
+  .cta-icon { flex: none; border-radius: 22.5%; box-shadow: 0 1px 2px rgba(28, 26, 23, 0.1); }
+  .cta-text { flex: 1; min-width: 0; }
 
   .cta-heading {
     font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    color: var(--cream);
-    letter-spacing: -0.025em;
-    line-height: 1.15;
-  }
-
-  .cta-heading em { color: var(--amber); font-style: italic; }
-
-  .cta-text {
-    font-size: 0.98rem;
-    color: rgba(250,247,242,0.5);
-    line-height: 1.7;
-    max-width: 30rem;
-  }
-
-  .badge-link { display: inline-flex; transition: transform 0.2s, opacity 0.2s; }
-  .badge-link:hover { transform: translateY(-2px); opacity: 0.88; }
-  .cta-store-badge { height: 46px; width: auto; display: block; }
-
-  /* ── More tools ── */
-  .more-tools { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-
-  .more-heading {
-    font-family: var(--font-serif);
+    font-weight: 600;
     font-size: 1.35rem;
-    color: var(--text-dark);
-    letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
   }
+
+  .cta-text p { font-size: 0.95rem; line-height: 1.6; color: var(--ink-2); }
+  .cta-store img { display: block; height: 48px; width: auto; }
+
+  .more-tools { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
 
   .more-list {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0.875rem;
+    gap: 1rem;
   }
 
   .more-card {
@@ -326,32 +212,23 @@ const schema = [
     gap: 0.45rem;
     height: 100%;
     padding: 1.25rem;
-    background: #fff;
-    border: 1px solid var(--border-subtle);
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: 14px;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: border-color 0.15s;
   }
 
-  .more-card:hover { border-color: var(--amber); transform: translateY(-2px); }
-  .more-card:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .more-card:hover { border-color: var(--ink-3); }
+  .more-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  .more-icon { display: block; width: 22px; height: 22px; color: var(--amber); }
+  .more-icon { display: block; width: 22px; height: 22px; color: var(--accent-ink); }
   .more-icon :global(svg) { width: 100%; height: 100%; }
-
-  .more-title {
-    font-family: var(--font-serif);
-    font-size: 1.02rem;
-    color: var(--text-dark);
-    letter-spacing: -0.01em;
-  }
-
-  .more-desc { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+  .more-title { font-weight: 600; font-size: 1rem; color: var(--ink); }
+  .more-desc { font-size: 0.9rem; line-height: 1.55; color: var(--ink-2); }
 
   @media (max-width: 640px) {
-    .tool-hero { padding: 8rem 1.25rem 3rem; }
-    .tool-body { padding: 2.5rem 1.25rem 3rem; }
-    .tool-cta { padding: 2.25rem 1.35rem; border-radius: 18px; }
-    .orb { filter: none; opacity: 0.07; }
-    .grain { display: none; }
+    .tool-hero { padding: calc(64px + 2.5rem) 1rem 1.5rem; }
+    .tool-body { padding: 0.5rem 1rem 4.5rem; }
+    .tool-cta { flex-direction: column; align-items: flex-start; }
   }
 </style>

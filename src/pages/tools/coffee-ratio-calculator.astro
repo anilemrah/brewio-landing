@@ -15,9 +15,9 @@ const methodData = methods.map((m) => ({
 
 <ToolLayout
   title="Coffee Ratio Calculator"
-  description="Free coffee-to-water ratio calculator for 12 brew methods — V60, AeroPress, French press, Chemex, espresso, cold brew, moka pot, Turkish and more. Enter your coffee or your water and get the other number instantly."
+  description="Free coffee-to-water ratio calculator for 12 brew methods: V60, AeroPress, French press, Chemex, espresso, cold brew, moka pot, Turkish and more. Enter your coffee or your water and get the other number instantly."
   headline="Coffee Ratio <em>Calculator</em>"
-  subtitle="Pick a method, type in what you have, and get the number you're missing. Every method carries its own ratio — the one Brewio uses in the app."
+  subtitle="Pick a method, type in what you have, and get the number you're missing. Every method has its own ratio, the same one Brewio uses in the app."
   slug="coffee-ratio-calculator"
   relatedGuides={[
     { slug: 'coffee-to-water-ratio', label: 'Why the golden ratio works, and when to break it' },
@@ -93,14 +93,14 @@ const methodData = methods.map((m) => ({
     </div>
 
     <p class="hint">
-      Edit either box — the other updates to match the ratio. Water in grams is the same as
+      Edit either box and the other updates to match the ratio. Water in grams is the same as
       millilitres, so a scale and a jug agree.
     </p>
 
     <!-- Grind reminder -->
     <div class="grind-note">
       <span class="grind-key">Grind</span>
-      <span><strong id="grind-size">Medium-Fine</strong> — <span id="grind-hint">Similar to table salt</span></span>
+      <span><strong id="grind-size">Medium-Fine</strong>: <span id="grind-hint">Similar to table salt</span></span>
     </div>
   </div>
 
@@ -202,7 +202,7 @@ const methodData = methods.map((m) => ({
       slider.step = espressoScale ? '0.1' : '0.5';
       slider.value = String(ratio);
       chips.forEach((c) => c.setAttribute('aria-checked', c.dataset.method === id ? 'true' : 'false'));
-      // Anchor on the dose when switching methods — "I have 18g, what water do I need?".
+      // Anchor on the dose when switching methods ("I have 18g, what water do I need?").
       // Recalculating from a fixed water weight instead gives absurd doses on espresso.
       lastEdited = 'coffee';
       renderRatio();

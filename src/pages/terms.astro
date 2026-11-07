@@ -7,15 +7,14 @@ const lastUpdated = 'April 16, 2025';
 ---
 
 <Layout
-  title="Terms of Service — Brewio"
+  title="Terms of service | Brewio"
   description="Terms and conditions for using the Brewio mobile application."
 >
   <Nav />
 
   <div class="page-header">
     <div class="page-header-inner">
-      <div class="page-eyebrow">Legal</div>
-      <h1 class="page-title">Terms of Service</h1>
+      <h1 class="page-title">Terms of service</h1>
       <p class="page-meta">Last updated: {lastUpdated}</p>
     </div>
   </div>
@@ -157,7 +156,7 @@ const lastUpdated = 'April 16, 2025';
         <p>
           To the fullest extent permitted by law, Brewio shall not be liable for any
           indirect, incidental, special, consequential, or punitive damages arising from
-          your use of, or inability to use, the App — even if we have been advised of
+          your use of, or inability to use, the App, even if we have been advised of
           the possibility of such damages.
         </p>
         <p>
@@ -208,9 +207,8 @@ const lastUpdated = 'April 16, 2025';
 <style>
   /* ── Page header ── */
   .page-header {
-    background: var(--dark);
-    padding: 8rem 2rem 4rem;
-    border-bottom: 1px solid var(--border-dark);
+    background: var(--paper);
+    padding: calc(64px + 4.5rem) 1.5rem 2.5rem;
   }
 
   .page-header-inner {
@@ -218,34 +216,25 @@ const lastUpdated = 'April 16, 2025';
     margin: 0 auto;
   }
 
-  .page-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--amber);
-    margin-bottom: 0.875rem;
-  }
-
   .page-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
-    color: var(--cream);
-    letter-spacing: -0.025em;
-    line-height: 1.1;
+    font-weight: 600;
+    font-size: clamp(2.3rem, 4.4vw, 3.3rem);
+    color: var(--ink);
+    letter-spacing: -0.022em;
+    line-height: 1.08;
     margin-bottom: 0.75rem;
   }
 
   .page-meta {
-    font-size: 0.875rem;
-    color: rgba(250,247,242,0.4);
-    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--ink-3);
   }
 
   /* ── Content ── */
   .content {
-    background: var(--cream);
-    padding: 5rem 2rem 7rem;
+    background: var(--paper);
+    padding: 0 1.5rem 7rem;
   }
 
   .content-inner {
@@ -255,7 +244,7 @@ const lastUpdated = 'April 16, 2025';
 
   .lead {
     font-size: 1.1rem;
-    color: var(--text-dark);
+    color: var(--ink);
     line-height: 1.75;
     margin-bottom: 3rem;
     padding-bottom: 3rem;
@@ -269,7 +258,7 @@ const lastUpdated = 'April 16, 2025';
   h2 {
     font-family: var(--font-serif);
     font-size: 1.5rem;
-    color: var(--text-dark);
+    color: var(--ink);
     letter-spacing: -0.02em;
     margin-bottom: 1rem;
     padding-top: 0.5rem;
@@ -279,14 +268,14 @@ const lastUpdated = 'April 16, 2025';
     font-family: var(--font-sans);
     font-size: 1rem;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--ink);
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
   p {
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: var(--ink-2);
     line-height: 1.75;
     margin-bottom: 0.875rem;
   }
@@ -300,17 +289,17 @@ const lastUpdated = 'April 16, 2025';
 
   li {
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: var(--ink-2);
     line-height: 1.65;
   }
 
   a {
-    color: var(--amber);
+    color: var(--accent-ink);
     text-decoration: underline;
     text-underline-offset: 3px;
   }
 
-  a:hover { color: var(--amber-light); }
+  a:hover { color: var(--ink); }
 
   /* Contact block */
   .contact-block {

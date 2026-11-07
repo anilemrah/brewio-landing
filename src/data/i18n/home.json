@@ -1,0 +1,2765 @@
+{
+  "en": {
+    "seo": {
+      "title": "Brewio: coffee journal and brew timer for iPhone",
+      "desc": "Brewio is a coffee journal for iPhone. Log your brews, follow recipes with a step-by-step timer, keep track of your beans and see what you like. Free, in 15 languages."
+    },
+    "nav": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "roasters": "Roasters",
+      "guides": "Guides",
+      "tools": "Tools",
+      "get": "Get the app",
+      "menu": "Menu",
+      "faq": "Questions"
+    },
+    "hero": {
+      "title": "The coffee journal for home brewers",
+      "sub": "Log what you brew and how it tasted, follow recipes with a step-by-step timer, and keep track of the beans on your shelf.",
+      "note": "Free on iPhone. Brewio Pro is optional.",
+      "altHome": "Brewio's home screen with Beanie and an 18-day brewing streak",
+      "altJournal": "The journal with a list of recent brews, their ratings and flavour notes"
+    },
+    "journal": {
+      "title": "Remember what worked",
+      "body": "Every brew gets its own page with the beans, roaster, dose, water, grinder setting, temperature, brew time and your tasting notes. Open the same bag next week and your earlier brews of it are right there, so you can repeat a good cup or fix a bad one.",
+      "points": [
+        "Ratings and flavour notes",
+        "Grind settings saved for each grinder",
+        "TDS and extraction yield, if you measure them",
+        "Coffees from cafés, with the café's name",
+        "Photos of your cups (Pro)"
+      ],
+      "alt": "A journal entry for a V60 of Yirgacheffe Konga with dose, water, temperature, time and tasting notes"
+    },
+    "timer": {
+      "title": "A timer that tells you when to pour",
+      "body": "Pick a method and Brewio takes you through it one step at a time: rinse, bloom, pour to a target weight, wait. There are recipes for 20 methods, from V60 and AeroPress to espresso, cezve, Nel Drip and cold brew. Change the dose and every water target changes with it.",
+      "points": [
+        "Your own recipes, saved",
+        "Hot and iced versions",
+        "Ratio calculator",
+        "Extraction yield calculator (Pro)"
+      ],
+      "alt": "The brew timer on the first pour of a V60, with 23 seconds left"
+    },
+    "stash": {
+      "title": "Know what's on your shelf",
+      "body": "Add the bags you buy and Brewio keeps count. It takes the grams off after each brew, shows how long it has been since roasting and works out what a cup costs. When a bag is finished it moves to your past bags, so you can find that coffee again.",
+      "points": [
+        "Scan a bag's label to fill in the details (Pro)",
+        "A reminder when a bag is getting old",
+        "Past bags (Pro)"
+      ],
+      "alt": "The bean stash with four bags on a shelf, each showing grams left and days since roast"
+    },
+    "taste": {
+      "title": "See what you like",
+      "body": "After a few weeks of logging, patterns start to show. Your taste profile maps the flavours you rate highest, the origin map shows where your coffee has come from, and a weekly recap sums up your week. When a cup comes out sour or bitter, dial-in tips suggest what to change next time.",
+      "note": "Part of Brewio Pro.",
+      "altTaste": "A taste profile titled The Comfort Brewer with a flavour chart",
+      "altRecap": "A weekly recap showing seven brews in seven days"
+    },
+    "beanie": {
+      "title": "Meet Beanie",
+      "body": "Beanie is a small plant in a coffee cup that grows a little with every brew you log, from a seedling to a flowering plant. Milestones earn stickers for Beanie's cup, and the wardrobe fills up with hats, glasses and aprons along the way, plus a few outfits that only turn up at certain times of the year.",
+      "note": "Beanie and the stickers are free for everyone.",
+      "altWardrobe": "Beanie's wardrobe with hats, glasses and aprons",
+      "altStickers": "The sticker book with eleven of twelve stickers collected"
+    },
+    "roasters": {
+      "title": "Roasters worth ordering from",
+      "body": "Discover lists {count} specialty roasters we like, from Lenhovda in Sweden to Seoul, with what they focus on and whether they ship to you. Nobody pays to be on the list.",
+      "link": "See all roasters"
+    },
+    "more": {
+      "title": "Also in Brewio",
+      "items": [
+        {
+          "title": "Share cards",
+          "body": "Turn a brew into an image sized for an Instagram story or a feed post."
+        },
+        {
+          "title": "Your grinders",
+          "body": "Add the grinders you own and Brewio remembers the setting you used for each brew. One grinder is free, more need Pro."
+        },
+        {
+          "title": "Streak reminder",
+          "body": "If you have a streak going and haven't logged anything by the evening, you get one reminder. You can turn it off."
+        },
+        {
+          "title": "Export",
+          "body": "Download your brews as a CSV file for a spreadsheet, or everything as JSON (Pro)."
+        },
+        {
+          "title": "15 languages",
+          "body": "Including Japanese, Korean, Swedish, Turkish and Greek, each written to read naturally."
+        },
+        {
+          "title": "No ads",
+          "body": "Brewio doesn't show ads or sell your data, and you can delete everything it stored about you from your profile."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Free, with an optional Pro",
+      "free": {
+        "name": "Free",
+        "sub": "No time limit",
+        "points": [
+          "15 brews a month",
+          "Your last 30 brews in the journal",
+          "3 bags in your stash",
+          "1 saved recipe and 1 grinder",
+          "Every brew method and the timer",
+          "Ratio calculator",
+          "Beanie, stickers and the roaster list"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Monthly or yearly",
+        "points": [
+          "Unlimited brews, history, bags, recipes and grinders",
+          "Photos of brews and bags",
+          "Label scanning",
+          "Taste profile, origin map and full stats",
+          "Weekly recap",
+          "Extraction yield calculator and dial-in tips",
+          "Past bags and data export",
+          "Choose which stickers Beanie wears"
+        ]
+      },
+      "note": "The App Store shows the price in your currency. You can cancel any time in your iPhone's subscription settings."
+    },
+    "faq": {
+      "title": "Questions",
+      "items": [
+        {
+          "q": "Do I need an account?",
+          "a": "Yes. You sign in with Apple or Google, so your journal is backed up and comes back if you get a new phone."
+        },
+        {
+          "q": "Is there an Android version?",
+          "a": "Not yet. Brewio is on iPhone for now."
+        },
+        {
+          "q": "Which languages does it come in?",
+          "a": "English, Swedish, Norwegian, Danish, Finnish, German, Dutch, French, Spanish, Italian, Portuguese, Greek, Turkish, Japanese and Korean."
+        },
+        {
+          "q": "Where is my data stored?",
+          "a": "On Supabase servers in the European Union. The privacy policy explains what Brewio stores and why."
+        },
+        {
+          "q": "How do I cancel Brewio Pro?",
+          "a": "On your iPhone, open Settings, tap your name, then Subscriptions. Pro stays on until the end of the period you paid for."
+        },
+        {
+          "q": "Can I delete my data?",
+          "a": "Yes. In the app, go to Profile and delete your data. That removes your brews, bags, recipes, photos and everything else Brewio stored about you."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Brewing guides",
+      "body": "Free guides and calculators. You don't need the app for these.",
+      "all": "All guides",
+      "tools": "Calculators and timers",
+      "min": "min read"
+    },
+    "cta": {
+      "title": "Brewio is free on the App Store",
+      "sub": "Download it and log your next brew."
+    },
+    "footer": {
+      "desc": "A coffee journal and brew timer for iPhone. Made in Sweden.",
+      "app": "App",
+      "learn": "Learn",
+      "legal": "Legal",
+      "faq": "Questions",
+      "privacy": "Privacy policy",
+      "terms": "Terms of service",
+      "cookies": "Cookie settings",
+      "contact": "Contact",
+      "languages": "Languages"
+    }
+  },
+  "sv": {
+    "seo": {
+      "title": "Brewio: kaffedagbok och bryggtimer för iPhone",
+      "desc": "Brewio är en kaffedagbok för iPhone. Logga dina bryggningar, följ recept med en timer steg för steg, håll koll på dina bönor och se vad du gillar. Gratis, på 15 språk."
+    },
+    "nav": {
+      "features": "Funktioner",
+      "pricing": "Pris",
+      "roasters": "Rosterier",
+      "guides": "Guider",
+      "tools": "Verktyg",
+      "get": "Hämta appen",
+      "menu": "Meny",
+      "faq": "Frågor"
+    },
+    "hero": {
+      "title": "Kaffedagboken för dig som brygger hemma",
+      "sub": "Skriv ner vad du bryggde och hur det smakade, följ recept med en timer steg för steg och håll koll på bönorna på hyllan.",
+      "note": "Gratis på iPhone. Brewio Pro är frivilligt.",
+      "altHome": "Brewios startsida med Beanie och en svit på 18 dagar",
+      "altJournal": "Journalen med de senaste bryggningarna, betyg och smaknoter"
+    },
+    "journal": {
+      "title": "Kom ihåg vad som fungerade",
+      "body": "Varje bryggning får en egen sida med bönorna, rosteriet, dos, vatten, kvarnens inställning, temperatur, bryggtid och dina smaknoter. Öppnar du samma påse nästa vecka ligger dina tidigare bryggningar av den där, så att du kan upprepa en bra kopp eller rätta till en dålig.",
+      "points": [
+        "Betyg och smaknoter",
+        "Malgrad sparad för varje kvarn",
+        "TDS och extraktionsutbyte, om du mäter dem",
+        "Kaffe från kaféer, med kaféets namn",
+        "Foton på dina koppar (Pro)"
+      ],
+      "alt": "En journalpost för en V60 med dos, vatten, temperatur, tid och smaknoter"
+    },
+    "timer": {
+      "title": "En timer som säger när du ska hälla",
+      "body": "Välj metod så tar Brewio dig igenom den ett steg i taget: skölj, bloom, häll till en målvikt, vänta. Det finns recept för 20 metoder, från V60 och AeroPress till espresso, cezve, Nel Drip och cold brew. Ändrar du dosen ändras alla vattenmängder med den.",
+      "points": [
+        "Spara egna recept",
+        "Varma och iskalla varianter",
+        "Kalkylator för bryggförhållande",
+        "Kalkylator för extraktionsutbyte (Pro)"
+      ],
+      "alt": "Bryggtimern på första hällningen i en V60, med 23 sekunder kvar"
+    },
+    "stash": {
+      "title": "Vet vad som står på hyllan",
+      "body": "Lägg in påsarna du köper så håller Brewio räkningen. Gramen dras av efter varje bryggning, du ser hur länge sedan bönorna rostades och vad en kopp kostar. När en påse är slut flyttas den till dina tidigare påsar, så att du kan hitta kaffet igen.",
+      "points": [
+        "Skanna etiketten för att fylla i en påse (Pro)",
+        "En påminnelse när en påse börjar bli gammal",
+        "Tidigare påsar (Pro)"
+      ],
+      "alt": "Kaffelagret med fyra påsar på en hylla, var och en med gram kvar och dagar sedan rostning"
+    },
+    "taste": {
+      "title": "Se vad du gillar",
+      "body": "Efter några veckors loggande börjar mönster synas. Smakprofilen visar vilka smaker du ger högst betyg, världskartan visar var ditt kaffe kommer ifrån och veckosammanfattningen visar hur veckan såg ut. Blir en kopp sur eller besk föreslår dial-in-tipsen vad du kan ändra nästa gång.",
+      "note": "Ingår i Brewio Pro.",
+      "altTaste": "En smakprofil med ett smakdiagram",
+      "altRecap": "En veckosammanfattning med sju bryggningar på sju dagar"
+    },
+    "beanie": {
+      "title": "Det här är Beanie",
+      "body": "Beanie är en liten planta i en kaffekopp som växer lite för varje bryggning du loggar, tills den till slut blommar. Milstolpar ger klistermärken till Beanies kopp, och garderoben fylls med hattar, glasögon och förkläden, plus några kläder som bara dyker upp vid vissa tider på året.",
+      "note": "Beanie och klistermärkena är gratis för alla.",
+      "altWardrobe": "Beanies garderob med hattar, glasögon och förkläden",
+      "altStickers": "Klistermärkesboken med elva av tolv klistermärken"
+    },
+    "roasters": {
+      "title": "Rosterier värda att beställa från",
+      "body": "Upptäck listar {count} specialrosterier vi gillar, från Lenhovda i Småland till Seoul, med vad de fokuserar på och om de skickar till dig. Ingen betalar för att vara med.",
+      "link": "Se alla rosterier"
+    },
+    "more": {
+      "title": "Mer i Brewio",
+      "items": [
+        {
+          "title": "Delningsbilder",
+          "body": "Gör en bryggning till en bild i rätt format för en Instagram-story eller ett inlägg."
+        },
+        {
+          "title": "Dina kvarnar",
+          "body": "Lägg in kvarnarna du har så kommer Brewio ihåg vilken inställning du använde till varje bryggning. En kvarn är gratis, fler kräver Pro."
+        },
+        {
+          "title": "Påminnelse om svit",
+          "body": "Har du en svit igång och inte loggat något på kvällen får du en påminnelse. Du kan stänga av den."
+        },
+        {
+          "title": "Export",
+          "body": "Ladda ner dina bryggningar som en CSV-fil till ett kalkylark, eller allt som JSON (Pro)."
+        },
+        {
+          "title": "15 språk",
+          "body": "Bland annat svenska, japanska, koreanska, turkiska och grekiska, skrivna för att låta naturliga på vart och ett."
+        },
+        {
+          "title": "Ingen reklam",
+          "body": "Brewio visar ingen reklam och säljer inte din data, och du kan radera allt som sparats om dig från din profil."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Gratis, med ett frivilligt Pro",
+      "free": {
+        "name": "Gratis",
+        "sub": "Ingen tidsgräns",
+        "points": [
+          "15 bryggningar i månaden",
+          "Dina 30 senaste bryggningar i journalen",
+          "3 påsar i kaffelagret",
+          "1 sparat recept och 1 kvarn",
+          "Alla bryggmetoder och timern",
+          "Kalkylator för bryggförhållande",
+          "Beanie, klistermärken och rosterilistan"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Per månad eller per år",
+        "points": [
+          "Obegränsat med bryggningar, historik, påsar, recept och kvarnar",
+          "Foton på bryggningar och påsar",
+          "Skanna etiketter",
+          "Smakprofil, världskarta och full statistik",
+          "Veckosammanfattning",
+          "Kalkylator för extraktionsutbyte och dial-in-tips",
+          "Tidigare påsar och dataexport",
+          "Välj vilka klistermärken Beanie bär"
+        ]
+      },
+      "note": "App Store visar priset i din valuta. Du kan säga upp när som helst i iPhonens prenumerationsinställningar."
+    },
+    "faq": {
+      "title": "Frågor",
+      "items": [
+        {
+          "q": "Behöver jag ett konto?",
+          "a": "Ja. Du loggar in med Apple eller Google, så att din journal säkerhetskopieras och följer med om du byter telefon."
+        },
+        {
+          "q": "Finns det en Android-version?",
+          "a": "Inte än. Brewio finns bara för iPhone just nu."
+        },
+        {
+          "q": "Vilka språk finns appen på?",
+          "a": "Engelska, svenska, norska, danska, finska, tyska, nederländska, franska, spanska, italienska, portugisiska, grekiska, turkiska, japanska och koreanska."
+        },
+        {
+          "q": "Var lagras min data?",
+          "a": "På Supabase-servrar i EU. Integritetspolicyn förklarar vad Brewio sparar och varför."
+        },
+        {
+          "q": "Hur säger jag upp Brewio Pro?",
+          "a": "Öppna Inställningar på iPhonen, tryck på ditt namn och sedan på Prenumerationer. Pro fortsätter till slutet av perioden du har betalat för."
+        },
+        {
+          "q": "Kan jag radera min data?",
+          "a": "Ja. Gå till Profil i appen och radera din data. Då tas dina bryggningar, påsar, recept, foton och allt annat Brewio har sparat om dig bort."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Guider och verktyg",
+      "body": "Gratis räknare och guider på svenska. Du behöver inte appen för dem."
+    },
+    "cta": {
+      "title": "Brewio är gratis i App Store",
+      "sub": "Ladda ner appen och logga din nästa bryggning."
+    },
+    "footer": {
+      "desc": "En kaffedagbok och bryggtimer för iPhone. Gjord i Sverige.",
+      "app": "Appen",
+      "learn": "Lär dig mer",
+      "legal": "Brewio",
+      "faq": "Frågor",
+      "privacy": "Integritetspolicy",
+      "terms": "Användarvillkor",
+      "cookies": "Cookie-inställningar",
+      "contact": "Kontakt",
+      "languages": "Språk"
+    }
+  },
+  "da": {
+    "seo": {
+      "title": "Brewio: kaffedagbog og brygtimer til iPhone",
+      "desc": "Brewio er en kaffedagbog til iPhone. Log dine bryg, følg opskrifter med en timer trin for trin, hold styr på dine bønner og find ud af, hvad du kan lide. Gratis, på 15 sprog."
+    },
+    "nav": {
+      "features": "Funktioner",
+      "pricing": "Priser",
+      "roasters": "Risterier",
+      "guides": "Guides",
+      "tools": "Værktøjer",
+      "get": "Hent appen",
+      "menu": "Menu",
+      "faq": "Spørgsmål"
+    },
+    "hero": {
+      "title": "Kaffedagbogen til dig, der brygger derhjemme",
+      "sub": "Skriv ned, hvad du bryggede, og hvordan det smagte, følg opskrifter med en timer trin for trin, og hold styr på bønnerne på hylden.",
+      "note": "Gratis på iPhone. Brewio Pro er valgfrit.",
+      "altHome": "Brewios startskærm med Beanie og en stime på 18 dage",
+      "altJournal": "Journalen med de seneste bryg, deres bedømmelser og smagsnoter"
+    },
+    "journal": {
+      "title": "Husk, hvad der virkede",
+      "body": "Hvert bryg får sin egen side med bønnerne, risteriet, dosis, vand, kværnens indstilling, temperatur, brygtid og dine smagsnoter. Åbner du den samme pose næste uge, ligger dine tidligere bryg af den lige der, så du kan gentage en god kop eller rette op på en dårlig.",
+      "points": [
+        "Bedømmelser og smagsnoter",
+        "Malegrad gemt for hver kværn",
+        "TDS og ekstraktionsudbytte, hvis du måler dem",
+        "Kaffe fra caféer, med caféens navn",
+        "Fotos af dine kopper (Pro)"
+      ],
+      "alt": "En journalpost for en V60 med dosis, vand, temperatur, tid og smagsnoter"
+    },
+    "timer": {
+      "title": "En timer, der siger, hvornår du skal hælde",
+      "body": "Vælg en metode, så tager Brewio dig igennem den et trin ad gangen: skyl, bloom, hæld op til en målvægt, vent. Der er opskrifter til 20 metoder, fra V60 og AeroPress til espresso, cezve, Nel Drip og cold brew. Ændrer du dosis, ændres alle vandmængderne med.",
+      "points": [
+        "Dine egne opskrifter, gemt",
+        "Varme og iskolde versioner",
+        "Forholdsberegner",
+        "Beregner til ekstraktionsudbytte (Pro)"
+      ],
+      "alt": "Brygtimeren ved første hældning i en V60, med 23 sekunder tilbage"
+    },
+    "stash": {
+      "title": "Vid, hvad der står på hylden",
+      "body": "Tilføj de poser, du køber, så holder Brewio regnskab. Grammene trækkes fra efter hvert bryg, du kan se, hvor længe siden bønnerne blev ristet, og hvad en kop koster. Når en pose er tom, flytter den over til dine tidligere poser, så du kan finde kaffen igen.",
+      "points": [
+        "Scan etiketten for at udfylde en pose (Pro)",
+        "En påmindelse, når en pose er ved at blive gammel",
+        "Tidligere poser (Pro)"
+      ],
+      "alt": "Kaffelageret med fire poser på en hylde, hver med gram tilbage og dage siden ristning"
+    },
+    "taste": {
+      "title": "Se, hvad du kan lide",
+      "body": "Efter et par ugers logning begynder der at vise sig mønstre. Din smagsprofil viser de smage, du giver de højeste karakterer, verdenskortet viser, hvor din kaffe kommer fra, og det ugentlige overblik samler din uge. Bliver en kop sur eller bitter, foreslår dial-in-tippene, hvad du kan ændre næste gang.",
+      "note": "En del af Brewio Pro.",
+      "altTaste": "En smagsprofil med et smagsdiagram",
+      "altRecap": "Et ugentligt overblik med syv bryg på syv dage"
+    },
+    "beanie": {
+      "title": "Mød Beanie",
+      "body": "Beanie er en lille plante i en kaffekop, der vokser lidt for hvert bryg, du logger, fra kimplante til blomstring. Milepæle giver klistermærker til Beanies kop, og garderoben fyldes med hatte, briller og forklæder, plus nogle få outfits, der kun dukker op på bestemte tider af året.",
+      "note": "Beanie og klistermærkerne er gratis for alle.",
+      "altWardrobe": "Beanies garderobe med hatte, briller og forklæder",
+      "altStickers": "Klistermærkebogen med elleve af tolv klistermærker"
+    },
+    "roasters": {
+      "title": "Risterier, det er værd at bestille fra",
+      "body": "Udforsk viser {count} specialristerier, vi godt kan lide, fra Lenhovda i Sverige til Seoul, med hvad de fokuserer på, og om de sender til dig. Ingen betaler for at være på listen.",
+      "link": "Se alle risterier"
+    },
+    "more": {
+      "title": "Også i Brewio",
+      "items": [
+        {
+          "title": "Billeder til deling",
+          "body": "Lav et bryg om til et billede i formatet til en Instagram-story eller et opslag."
+        },
+        {
+          "title": "Dine kværne",
+          "body": "Tilføj dine kværne, så husker Brewio, hvilken indstilling du brugte til hvert bryg. Én kværn er gratis, flere kræver Pro."
+        },
+        {
+          "title": "Påmindelse om stime",
+          "body": "Har du en stime i gang og har ikke logget noget om aftenen, får du én påmindelse. Du kan slå den fra."
+        },
+        {
+          "title": "Eksport",
+          "body": "Download dine bryg som en CSV-fil til et regneark, eller det hele som JSON (Pro)."
+        },
+        {
+          "title": "15 sprog",
+          "body": "Blandt andet dansk, japansk, koreansk, tyrkisk og græsk, hvert skrevet, så det lyder naturligt."
+        },
+        {
+          "title": "Ingen reklamer",
+          "body": "Brewio viser ingen reklamer og sælger ikke dine data, og du kan slette alt, hvad der er gemt om dig, fra din profil."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Gratis, med et valgfrit Pro",
+      "free": {
+        "name": "Gratis",
+        "sub": "Ingen tidsgrænse",
+        "points": [
+          "15 bryg om måneden",
+          "Dine seneste 30 bryg i journalen",
+          "3 poser i dit lager",
+          "1 gemt opskrift og 1 kværn",
+          "Alle brygmetoder og timeren",
+          "Forholdsberegner",
+          "Beanie, klistermærker og listen over risterier"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Månedligt eller årligt",
+        "points": [
+          "Ubegrænset bryg, historik, poser, opskrifter og kværne",
+          "Fotos af bryg og poser",
+          "Scanning af etiketter",
+          "Smagsprofil, verdenskort og fuld statistik",
+          "Ugentligt overblik",
+          "Ekstraktionsberegner og dial-in-tips",
+          "Tidligere poser og eksport af data",
+          "Vælg, hvilke klistermærker Beanie har på"
+        ]
+      },
+      "note": "App Store viser prisen i din valuta. Du kan opsige når som helst i abonnementsindstillingerne på din iPhone."
+    },
+    "faq": {
+      "title": "Spørgsmål",
+      "items": [
+        {
+          "q": "Skal jeg have en konto?",
+          "a": "Ja. Du logger ind med Apple eller Google, så din journal bliver sikkerhedskopieret og kommer tilbage, hvis du får en ny telefon."
+        },
+        {
+          "q": "Findes der en Android-version?",
+          "a": "Ikke endnu. Brewio findes kun til iPhone indtil videre."
+        },
+        {
+          "q": "Hvilke sprog findes appen på?",
+          "a": "Engelsk, svensk, norsk, dansk, finsk, tysk, hollandsk, fransk, spansk, italiensk, portugisisk, græsk, tyrkisk, japansk og koreansk."
+        },
+        {
+          "q": "Hvor gemmes mine data?",
+          "a": "På Supabase-servere i EU. Privatlivspolitikken forklarer, hvad Brewio gemmer og hvorfor."
+        },
+        {
+          "q": "Hvordan opsiger jeg Brewio Pro?",
+          "a": "Åbn Indstillinger på din iPhone, tryk på dit navn og derefter Abonnementer. Pro fortsætter til slutningen af den periode, du har betalt for."
+        },
+        {
+          "q": "Kan jeg slette mine data?",
+          "a": "Ja. Gå til Profil i appen, og slet dine data. Så fjernes dine bryg, poser, opskrifter, fotos og alt andet, Brewio har gemt om dig."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Guides og værktøjer",
+      "body": "Gratis beregnere og guides på dansk. Du behøver ikke appen til dem."
+    },
+    "cta": {
+      "title": "Brewio er gratis i App Store",
+      "sub": "Hent appen, og log dit næste bryg."
+    },
+    "footer": {
+      "desc": "En kaffedagbog og brygtimer til iPhone. Lavet i Sverige.",
+      "app": "Appen",
+      "learn": "Lær mere",
+      "legal": "Brewio",
+      "faq": "Spørgsmål",
+      "privacy": "Privatlivspolitik",
+      "terms": "Vilkår for brug",
+      "cookies": "Cookie-indstillinger",
+      "contact": "Kontakt",
+      "languages": "Sprog"
+    }
+  },
+  "no": {
+    "seo": {
+      "title": "Brewio: kaffedagbok og bryggetimer for iPhone",
+      "desc": "Brewio er en kaffedagbok for iPhone. Logg bryggene dine, følg oppskrifter med en timer steg for steg, hold oversikt over bønnene og finn ut hva du liker. Gratis, på 15 språk."
+    },
+    "nav": {
+      "features": "Funksjoner",
+      "pricing": "Priser",
+      "roasters": "Brennerier",
+      "guides": "Guider",
+      "tools": "Verktøy",
+      "get": "Last ned appen",
+      "menu": "Meny",
+      "faq": "Spørsmål"
+    },
+    "hero": {
+      "title": "Kaffedagboken for deg som brygger hjemme",
+      "sub": "Skriv ned hva du brygget og hvordan det smakte, følg oppskrifter med en timer steg for steg, og hold oversikt over bønnene på hylla.",
+      "note": "Gratis på iPhone. Brewio Pro er valgfritt.",
+      "altHome": "Startskjermen i Brewio med Beanie og en rekke på 18 dager",
+      "altJournal": "Journalen med de siste bryggene, vurderinger og smaksnotater"
+    },
+    "journal": {
+      "title": "Husk hva som fungerte",
+      "body": "Hvert brygg får sin egen side med bønnene, brenneriet, dose, vann, kverninnstilling, temperatur, bryggetid og smaksnotatene dine. Åpner du den samme posen neste uke, ligger de tidligere bryggene dine av den der, så du kan gjenta en god kopp eller rette opp en dårlig.",
+      "points": [
+        "Vurderinger og smaksnotater",
+        "Malegrad lagret for hver kvern",
+        "TDS og ekstraksjonsutbytte, hvis du måler dem",
+        "Kaffe fra kaféer, med navnet på kaféen",
+        "Bilder av koppene dine (Pro)"
+      ],
+      "alt": "En journaloppføring for en V60 med dose, vann, temperatur, tid og smaksnotater"
+    },
+    "timer": {
+      "title": "En timer som sier når du skal helle",
+      "body": "Velg en metode, så tar Brewio deg gjennom den ett steg om gangen: skyll, bloom, hell til en målvekt, vent. Det finnes oppskrifter for 20 metoder, fra V60 og AeroPress til espresso, cezve, Nel Drip og cold brew. Endrer du dosen, endres alle vannmengdene med den.",
+      "points": [
+        "Dine egne oppskrifter, lagret",
+        "Varme og iskalde versjoner",
+        "Forholdskalkulator",
+        "Kalkulator for ekstraksjonsutbytte (Pro)"
+      ],
+      "alt": "Bryggetimeren på første helling i en V60, med 23 sekunder igjen"
+    },
+    "stash": {
+      "title": "Vit hva som står på hylla",
+      "body": "Legg inn posene du kjøper, så holder Brewio tellingen. Grammene trekkes fra etter hvert brygg, du ser hvor lenge siden bønnene ble brent, og hva en kopp koster. Når en pose er tom, flyttes den til de tidligere posene dine, så du finner igjen kaffen.",
+      "points": [
+        "Skann etiketten for å fylle ut en pose (Pro)",
+        "En påminnelse når en pose begynner å bli gammel",
+        "Tidligere poser (Pro)"
+      ],
+      "alt": "Kaffelageret med fire poser på en hylle, hver med gram igjen og dager siden brenning"
+    },
+    "taste": {
+      "title": "Se hva du liker",
+      "body": "Etter noen ukers logging begynner mønstre å vise seg. Smaksprofilen viser smakene du gir høyest karakter, verdenskartet viser hvor kaffen din kommer fra, og den ukentlige oppsummeringen samler uka di. Blir en kopp sur eller bitter, foreslår dial-in-tipsene hva du kan endre neste gang.",
+      "note": "En del av Brewio Pro.",
+      "altTaste": "En smaksprofil med et smaksdiagram",
+      "altRecap": "En ukentlig oppsummering med sju brygg på sju dager"
+    },
+    "beanie": {
+      "title": "Møt Beanie",
+      "body": "Beanie er en liten plante i en kaffekopp som vokser litt for hvert brygg du logger, fra spire til blomstring. Milepæler gir klistremerker til Beanies kopp, og garderoben fylles med hatter, briller og forklær, pluss noen antrekk som bare dukker opp på bestemte tider av året.",
+      "note": "Beanie og klistremerkene er gratis for alle.",
+      "altWardrobe": "Beanies garderobe med hatter, briller og forklær",
+      "altStickers": "Klistremerkeboka med elleve av tolv klistremerker"
+    },
+    "roasters": {
+      "title": "Brennerier det er verdt å bestille fra",
+      "body": "Oppdag har {count} spesialbrennerier vi liker, fra Lenhovda i Sverige til Seoul, med hva de fokuserer på og om de sender til deg. Ingen betaler for å stå på lista.",
+      "link": "Se alle brennerier"
+    },
+    "more": {
+      "title": "Også i Brewio",
+      "items": [
+        {
+          "title": "Bilder til deling",
+          "body": "Gjør et brygg om til et bilde i formatet for en Instagram-story eller et innlegg."
+        },
+        {
+          "title": "Kvernene dine",
+          "body": "Legg inn kvernene du har, så husker Brewio hvilken innstilling du brukte til hvert brygg. Én kvern er gratis, flere krever Pro."
+        },
+        {
+          "title": "Påminnelse om rekke",
+          "body": "Har du en rekke på gang og ikke har logget noe om kvelden, får du én påminnelse. Du kan slå den av."
+        },
+        {
+          "title": "Eksport",
+          "body": "Last ned bryggene dine som en CSV-fil til et regneark, eller alt som JSON (Pro)."
+        },
+        {
+          "title": "15 språk",
+          "body": "Blant annet norsk, japansk, koreansk, tyrkisk og gresk, hvert skrevet for å høres naturlig ut."
+        },
+        {
+          "title": "Ingen reklame",
+          "body": "Brewio viser ikke reklame og selger ikke dataene dine, og du kan slette alt som er lagret om deg fra profilen din."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Gratis, med et valgfritt Pro",
+      "free": {
+        "name": "Gratis",
+        "sub": "Ingen tidsgrense",
+        "points": [
+          "15 brygg i måneden",
+          "De siste 30 bryggene dine i journalen",
+          "3 poser på lageret",
+          "1 lagret oppskrift og 1 kvern",
+          "Alle bryggemetoder og timeren",
+          "Forholdskalkulator",
+          "Beanie, klistremerker og lista over brennerier"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Månedlig eller årlig",
+        "points": [
+          "Ubegrenset med brygg, historikk, poser, oppskrifter og kverner",
+          "Bilder av brygg og poser",
+          "Skanning av etiketter",
+          "Smaksprofil, verdenskart og full statistikk",
+          "Ukentlig oppsummering",
+          "Ekstraksjonskalkulator og dial-in-tips",
+          "Tidligere poser og eksport av data",
+          "Velg hvilke klistremerker Beanie har på"
+        ]
+      },
+      "note": "App Store viser prisen i din valuta. Du kan si opp når som helst i abonnementsinnstillingene på iPhonen."
+    },
+    "faq": {
+      "title": "Spørsmål",
+      "items": [
+        {
+          "q": "Trenger jeg en konto?",
+          "a": "Ja. Du logger inn med Apple eller Google, så journalen din blir sikkerhetskopiert og kommer tilbake hvis du bytter telefon."
+        },
+        {
+          "q": "Finnes det en Android-versjon?",
+          "a": "Ikke ennå. Brewio finnes bare for iPhone foreløpig."
+        },
+        {
+          "q": "Hvilke språk finnes appen på?",
+          "a": "Engelsk, svensk, norsk, dansk, finsk, tysk, nederlandsk, fransk, spansk, italiensk, portugisisk, gresk, tyrkisk, japansk og koreansk."
+        },
+        {
+          "q": "Hvor lagres dataene mine?",
+          "a": "På Supabase-servere i EU. Personvernerklæringen forklarer hva Brewio lagrer og hvorfor."
+        },
+        {
+          "q": "Hvordan sier jeg opp Brewio Pro?",
+          "a": "Åpne Innstillinger på iPhonen, trykk på navnet ditt og deretter Abonnementer. Pro varer ut perioden du har betalt for."
+        },
+        {
+          "q": "Kan jeg slette dataene mine?",
+          "a": "Ja. Gå til Profil i appen og slett dataene dine. Da fjernes bryggene, posene, oppskriftene, bildene og alt annet Brewio har lagret om deg."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Guider og verktøy",
+      "body": "Gratis kalkulatorer og guider på norsk. Du trenger ikke appen for å bruke dem."
+    },
+    "cta": {
+      "title": "Brewio er gratis i App Store",
+      "sub": "Last ned appen og logg neste brygg."
+    },
+    "footer": {
+      "desc": "En kaffedagbok og bryggetimer for iPhone. Laget i Sverige.",
+      "app": "Appen",
+      "learn": "Lær mer",
+      "legal": "Brewio",
+      "faq": "Spørsmål",
+      "privacy": "Personvern",
+      "terms": "Vilkår for bruk",
+      "cookies": "Informasjonskapsler",
+      "contact": "Kontakt",
+      "languages": "Språk"
+    }
+  },
+  "fi": {
+    "seo": {
+      "title": "Brewio: kahvipäiväkirja ja haudutusajastin iPhonelle",
+      "desc": "Brewio on kahvipäiväkirja iPhonelle. Kirjaa keittosi, seuraa reseptejä vaihe vaiheelta etenevän ajastimen kanssa, pidä kirjaa papuistasi ja huomaa, mistä pidät. Ilmainen, 15 kielellä."
+    },
+    "nav": {
+      "features": "Ominaisuudet",
+      "pricing": "Hinnat",
+      "roasters": "Paahtimot",
+      "guides": "Oppaat",
+      "tools": "Työkalut",
+      "get": "Lataa sovellus",
+      "menu": "Valikko",
+      "faq": "Kysymyksiä"
+    },
+    "hero": {
+      "title": "Kahvipäiväkirja kotona keittäville",
+      "sub": "Kirjaa, mitä keitit ja miltä se maistui, seuraa reseptejä vaihe vaiheelta etenevän ajastimen kanssa ja pidä kirjaa hyllysi kahvipavuista.",
+      "note": "Ilmainen iPhonelle. Brewio Pro on vapaaehtoinen.",
+      "altHome": "Brewion aloitusnäkymä, jossa Beanie ja 18 päivän putki",
+      "altJournal": "Päiväkirja, jossa viimeisimmät keitot, arviot ja makuvivahteet"
+    },
+    "journal": {
+      "title": "Muista, mikä toimi",
+      "body": "Jokainen keitto saa oman sivunsa, jolla ovat pavut, paahtimo, annos, vesi, myllyn asetus, lämpötila, haudutusaika ja makumuistiinpanosi. Kun avaat saman pussin seuraavalla viikolla, sen aiemmat keitot näkyvät heti, joten voit toistaa hyvän kupin tai korjata huonon.",
+      "points": [
+        "Arviot ja makuvivahteet",
+        "Jauhatusasetus tallessa jokaiselle myllylle",
+        "TDS ja uuttoaste, jos mittaat niitä",
+        "Kahvit kahviloista, kahvilan nimen kanssa",
+        "Kuvat kupeistasi (Pro)"
+      ],
+      "alt": "Päiväkirjamerkintä V60-keitosta: annos, vesi, lämpötila, aika ja makuvivahteet"
+    },
+    "timer": {
+      "title": "Ajastin, joka kertoo, milloin kaataa",
+      "body": "Valitse menetelmä, niin Brewio vie sinut sen läpi vaihe kerrallaan: huuhtele, esihauduta, kaada tavoitepainoon, odota. Reseptejä on 20 menetelmälle V60:stä ja AeroPressista espressoon, cezveen, Nel Dripiin ja cold brew'hun. Kun muutat annosta, kaikki vesimäärät muuttuvat sen mukana.",
+      "points": [
+        "Omat reseptisi tallessa",
+        "Kuumat ja jääkahviversiot",
+        "Suhdelaskuri",
+        "Uuttoastelaskuri (Pro)"
+      ],
+      "alt": "Haudutusajastin V60:n ensimmäisessä kaadossa, 23 sekuntia jäljellä"
+    },
+    "stash": {
+      "title": "Tiedä, mitä hyllyssä on",
+      "body": "Lisää ostamasi pussit, niin Brewio pitää kirjaa. Grammat vähennetään jokaisen keiton jälkeen, näet, kuinka kauan paahdosta on, ja paljonko kuppi maksaa. Kun pussi loppuu, se siirtyy aiempiin pusseihin, joten löydät kahvin uudelleen.",
+      "points": [
+        "Skannaa etiketti ja täytä pussin tiedot (Pro)",
+        "Muistutus, kun pussi alkaa vanhentua",
+        "Aiemmat pussit (Pro)"
+      ],
+      "alt": "Kahvivarasto, jossa neljä pussia hyllyllä, kussakin jäljellä olevat grammat ja päivät paahdosta"
+    },
+    "taste": {
+      "title": "Näe, mistä pidät",
+      "body": "Muutaman viikon kirjaamisen jälkeen alkaa näkyä kuvioita. Makuprofiili näyttää maut, joille annat parhaat arviot, maailmankartta näyttää, mistä kahvisi tulee, ja viikkokooste tiivistää viikkosi. Jos kupista tulee hapan tai kitkerä, säätövinkit ehdottavat, mitä muuttaa ensi kerralla.",
+      "note": "Osa Brewio Prota.",
+      "altTaste": "Makuprofiili ja makukaavio",
+      "altRecap": "Viikkokooste, jossa seitsemän keittoa seitsemänä päivänä"
+    },
+    "beanie": {
+      "title": "Tässä on Beanie",
+      "body": "Beanie on pieni kasvi kahvikupissa, ja se kasvaa vähän jokaisen kirjaamasi keiton myötä taimesta kukintaan. Virstanpylväistä saa tarroja Beanien kuppiin, ja vaatekaappi täyttyy hatuista, laseista ja esiliinoista. Lisäksi on muutama asu, joka ilmestyy vain tiettyyn aikaan vuodesta.",
+      "note": "Beanie ja tarrat ovat ilmaisia kaikille.",
+      "altWardrobe": "Beanien vaatekaappi, jossa hattuja, laseja ja esiliinoja",
+      "altStickers": "Tarrakirja, jossa yksitoista tarraa kahdestatoista"
+    },
+    "roasters": {
+      "title": "Paahtimot, joilta kannattaa tilata",
+      "body": "Löydä-näkymässä on {count} erikoispaahtimoa, joista pidämme, Ruotsin Lenhovdasta Souliin. Näet, mihin ne keskittyvät ja toimittavatko ne sinulle. Kukaan ei maksa päästäkseen listalle.",
+      "link": "Katso kaikki paahtimot"
+    },
+    "more": {
+      "title": "Lisäksi Brewiossa",
+      "items": [
+        {
+          "title": "Jakokuvat",
+          "body": "Tee keitosta kuva Instagram-tarinan tai -julkaisun kokoon."
+        },
+        {
+          "title": "Myllysi",
+          "body": "Lisää omat myllysi, niin Brewio muistaa, mitä asetusta käytit kussakin keitossa. Yksi mylly on ilmainen, useampi vaatii Pron."
+        },
+        {
+          "title": "Putkimuistutus",
+          "body": "Jos sinulla on putki käynnissä etkä ole kirjannut mitään iltaan mennessä, saat yhden muistutuksen. Voit kytkeä sen pois."
+        },
+        {
+          "title": "Vienti",
+          "body": "Lataa keittosi CSV-tiedostona taulukkoon tai kaikki JSON-muodossa (Pro)."
+        },
+        {
+          "title": "15 kieltä",
+          "body": "Muun muassa suomi, japani, korea, turkki ja kreikka, kukin kirjoitettu kuulostamaan luontevalta."
+        },
+        {
+          "title": "Ei mainoksia",
+          "body": "Brewio ei näytä mainoksia eikä myy tietojasi, ja voit poistaa kaiken sinusta tallennetun profiilistasi."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Ilmainen, ja halutessasi Pro",
+      "free": {
+        "name": "Ilmainen",
+        "sub": "Ei aikarajaa",
+        "points": [
+          "15 keittoa kuukaudessa",
+          "30 viimeisintä keittoasi päiväkirjassa",
+          "3 pussia varastossa",
+          "1 tallennettu resepti ja 1 mylly",
+          "Kaikki menetelmät ja ajastin",
+          "Suhdelaskuri",
+          "Beanie, tarrat ja paahtimolista"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Kuukausittain tai vuosittain",
+        "points": [
+          "Rajattomasti keittoja, historiaa, pusseja, reseptejä ja myllyjä",
+          "Kuvat keitoista ja pusseista",
+          "Etikettien skannaus",
+          "Makuprofiili, maailmankartta ja kaikki tilastot",
+          "Viikkokooste",
+          "Uuttoastelaskuri ja säätövinkit",
+          "Aiemmat pussit ja tietojen vienti",
+          "Valitse, mitä tarroja Beanie käyttää"
+        ]
+      },
+      "note": "App Store näyttää hinnan omassa valuutassasi. Voit perua milloin tahansa iPhonen tilausasetuksista."
+    },
+    "faq": {
+      "title": "Kysymyksiä",
+      "items": [
+        {
+          "q": "Tarvitsenko tilin?",
+          "a": "Kyllä. Kirjaudut Applella tai Googlella, joten päiväkirjasi varmuuskopioidaan ja se palaa, jos vaihdat puhelinta."
+        },
+        {
+          "q": "Onko Android-versiota?",
+          "a": "Ei vielä. Brewio on toistaiseksi vain iPhonelle."
+        },
+        {
+          "q": "Millä kielillä sovellus on saatavilla?",
+          "a": "Englanti, ruotsi, norja, tanska, suomi, saksa, hollanti, ranska, espanja, italia, portugali, kreikka, turkki, japani ja korea."
+        },
+        {
+          "q": "Missä tietojani säilytetään?",
+          "a": "Supabasen palvelimilla Euroopan unionissa. Tietosuojaselosteessa kerrotaan, mitä Brewio tallentaa ja miksi."
+        },
+        {
+          "q": "Miten peruutan Brewio Pron?",
+          "a": "Avaa iPhonen Asetukset, napauta nimeäsi ja sitten Tilaukset. Pro on käytössä maksamasi jakson loppuun."
+        },
+        {
+          "q": "Voinko poistaa tietoni?",
+          "a": "Kyllä. Mene sovelluksessa Profiiliin ja poista tietosi. Silloin keittosi, pussisi, reseptisi, kuvasi ja kaikki muu Brewion sinusta tallentama poistetaan."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Oppaat ja laskurit",
+      "body": "Ilmaisia laskureita ja oppaita suomeksi. Et tarvitse niihin sovellusta."
+    },
+    "cta": {
+      "title": "Brewio on ilmainen App Storessa",
+      "sub": "Lataa sovellus ja kirjaa seuraava keittosi."
+    },
+    "footer": {
+      "desc": "Kahvipäiväkirja ja haudutusajastin iPhonelle. Tehty Ruotsissa.",
+      "app": "Sovellus",
+      "learn": "Opi lisää",
+      "legal": "Brewio",
+      "faq": "Kysymyksiä",
+      "privacy": "Tietosuoja",
+      "terms": "Käyttöehdot",
+      "cookies": "Evästeasetukset",
+      "contact": "Yhteystiedot",
+      "languages": "Kielet"
+    }
+  },
+  "de": {
+    "seo": {
+      "title": "Brewio: Kaffeetagebuch und Brüh-Timer fürs iPhone",
+      "desc": "Brewio ist ein Kaffeetagebuch fürs iPhone. Halte deine Zubereitungen fest, folge Rezepten mit einem Timer Schritt für Schritt, behalte deine Bohnen im Blick und finde heraus, was dir schmeckt. Kostenlos, in 15 Sprachen."
+    },
+    "nav": {
+      "features": "Funktionen",
+      "pricing": "Preise",
+      "roasters": "Röstereien",
+      "guides": "Guides",
+      "tools": "Tools",
+      "get": "App laden",
+      "menu": "Menü",
+      "faq": "Fragen"
+    },
+    "hero": {
+      "title": "Das Kaffeetagebuch für alle, die zu Hause brühen",
+      "sub": "Halte fest, was du gebrüht hast und wie es geschmeckt hat, folge Rezepten mit einem Timer Schritt für Schritt und behalte die Bohnen in deinem Regal im Blick.",
+      "note": "Kostenlos fürs iPhone. Brewio Pro ist optional.",
+      "altHome": "Brewios Startseite mit Beanie und einer Serie von 18 Tagen",
+      "altJournal": "Das Journal mit den letzten Zubereitungen, Bewertungen und Aromen"
+    },
+    "journal": {
+      "title": "Merk dir, was funktioniert hat",
+      "body": "Jede Zubereitung bekommt eine eigene Seite mit Bohnen, Rösterei, Dosis, Wasser, Mahlgrad, Temperatur, Brühzeit und deinen Geschmacksnotizen. Öffnest du nächste Woche dieselbe Packung, siehst du deine früheren Zubereitungen damit sofort. So kannst du eine gute Tasse wiederholen oder eine schlechte verbessern.",
+      "points": [
+        "Bewertungen und Aromen",
+        "Mahlgrad für jede Mühle gespeichert",
+        "TDS und Extraktionsausbeute, wenn du sie misst",
+        "Kaffee aus Cafés, mit dem Namen des Cafés",
+        "Fotos deiner Tassen (Pro)"
+      ],
+      "alt": "Ein Journal-Eintrag für einen V60 mit Dosis, Wasser, Temperatur, Zeit und Aromen"
+    },
+    "timer": {
+      "title": "Ein Timer, der dir sagt, wann du gießen musst",
+      "body": "Wähl eine Methode, und Brewio führt dich Schritt für Schritt durch: spülen, Blooming, bis zum Zielgewicht gießen, warten. Es gibt Rezepte für 20 Methoden, von V60 und AeroPress bis Espresso, Cezve, Nel Drip und Cold Brew. Änderst du die Dosis, passen sich alle Wassermengen an.",
+      "points": [
+        "Eigene Rezepte speichern",
+        "Heiß- und Eiskaffee-Varianten",
+        "Verhältnis-Rechner",
+        "Rechner für die Extraktionsausbeute (Pro)"
+      ],
+      "alt": "Der Brüh-Timer beim ersten Aufguss eines V60, noch 23 Sekunden"
+    },
+    "stash": {
+      "title": "Wissen, was im Regal steht",
+      "body": "Trag die Packungen ein, die du kaufst, und Brewio rechnet mit. Nach jeder Zubereitung werden die Gramm abgezogen, du siehst, wie lange die Röstung her ist und was eine Tasse kostet. Ist eine Packung leer, wandert sie zu deinen früheren Packungen, damit du den Kaffee wiederfindest.",
+      "points": [
+        "Etikett scannen, um eine Packung auszufüllen (Pro)",
+        "Eine Erinnerung, wenn eine Packung alt wird",
+        "Frühere Packungen (Pro)"
+      ],
+      "alt": "Der Bohnen-Vorrat mit vier Packungen im Regal, jeweils mit verbleibenden Gramm und Tagen seit der Röstung"
+    },
+    "taste": {
+      "title": "Sieh, was dir schmeckt",
+      "body": "Nach ein paar Wochen zeigen sich Muster. Dein Geschmacksprofil zeigt, welche Aromen du am besten bewertest, die Weltkarte, woher dein Kaffee kommt, und der Wochenrückblick fasst deine Woche zusammen. Wird eine Tasse sauer oder bitter, schlagen dir die Dial-in-Tipps vor, was du beim nächsten Mal ändern kannst.",
+      "note": "Teil von Brewio Pro.",
+      "altTaste": "Ein Geschmacksprofil mit Aromendiagramm",
+      "altRecap": "Ein Wochenrückblick mit sieben Zubereitungen an sieben Tagen"
+    },
+    "beanie": {
+      "title": "Das ist Beanie",
+      "body": "Beanie ist eine kleine Pflanze in einer Kaffeetasse, die mit jeder Zubereitung, die du einträgst, ein Stück wächst, vom Sämling bis zur Blüte. Für Meilensteine gibt es Sticker für Beanies Tasse, und der Kleiderschrank füllt sich mit Hüten, Brillen und Schürzen, dazu ein paar Outfits, die es nur zu bestimmten Zeiten im Jahr gibt.",
+      "note": "Beanie und die Sticker sind für alle kostenlos.",
+      "altWardrobe": "Beanies Kleiderschrank mit Hüten, Brillen und Schürzen",
+      "altStickers": "Das Stickeralbum mit elf von zwölf Stickern"
+    },
+    "roasters": {
+      "title": "Röstereien, bei denen sich das Bestellen lohnt",
+      "body": "Entdecken listet {count} Spezialitätenröstereien, die wir mögen, von Lenhovda in Schweden bis Seoul, mit ihrem Schwerpunkt und ob sie zu dir liefern. Niemand bezahlt dafür, auf der Liste zu stehen.",
+      "link": "Alle Röstereien ansehen"
+    },
+    "more": {
+      "title": "Außerdem in Brewio",
+      "items": [
+        {
+          "title": "Bilder zum Teilen",
+          "body": "Mach aus einer Zubereitung ein Bild im Format für eine Instagram-Story oder einen Beitrag."
+        },
+        {
+          "title": "Deine Mühlen",
+          "body": "Trag deine Mühlen ein, und Brewio merkt sich, welche Einstellung du bei jeder Zubereitung benutzt hast. Eine Mühle ist kostenlos, für mehr brauchst du Pro."
+        },
+        {
+          "title": "Serien-Erinnerung",
+          "body": "Wenn du eine Serie am Laufen hast und abends noch nichts eingetragen hast, bekommst du eine Erinnerung. Du kannst sie abschalten."
+        },
+        {
+          "title": "Export",
+          "body": "Lade deine Zubereitungen als CSV-Datei für eine Tabelle herunter, oder alles als JSON (Pro)."
+        },
+        {
+          "title": "15 Sprachen",
+          "body": "Unter anderem Deutsch, Japanisch, Koreanisch, Türkisch und Griechisch, jeweils so geschrieben, dass es natürlich klingt."
+        },
+        {
+          "title": "Keine Werbung",
+          "body": "Brewio zeigt keine Werbung und verkauft deine Daten nicht. Alles, was über dich gespeichert ist, kannst du in deinem Profil löschen."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Kostenlos, mit optionalem Pro",
+      "free": {
+        "name": "Kostenlos",
+        "sub": "Ohne Zeitlimit",
+        "points": [
+          "15 Zubereitungen pro Monat",
+          "Deine letzten 30 Zubereitungen im Journal",
+          "3 Packungen im Vorrat",
+          "1 gespeichertes Rezept und 1 Mühle",
+          "Alle Brühmethoden und der Timer",
+          "Verhältnis-Rechner",
+          "Beanie, Sticker und die Röstereiliste"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Monatlich oder jährlich",
+        "points": [
+          "Unbegrenzt viele Zubereitungen, Verlauf, Packungen, Rezepte und Mühlen",
+          "Fotos von Zubereitungen und Packungen",
+          "Etiketten scannen",
+          "Geschmacksprofil, Weltkarte und alle Statistiken",
+          "Wochenrückblick",
+          "Extraktions-Rechner und Dial-in-Tipps",
+          "Frühere Packungen und Datenexport",
+          "Wählen, welche Sticker Beanie trägt"
+        ]
+      },
+      "note": "Der App Store zeigt dir den Preis in deiner Währung. Du kannst jederzeit in den Abo-Einstellungen deines iPhones kündigen."
+    },
+    "faq": {
+      "title": "Fragen",
+      "items": [
+        {
+          "q": "Brauche ich ein Konto?",
+          "a": "Ja. Du meldest dich mit Apple oder Google an, damit dein Journal gesichert ist und auf einem neuen Handy wieder da ist."
+        },
+        {
+          "q": "Gibt es eine Android-Version?",
+          "a": "Noch nicht. Brewio gibt es im Moment nur fürs iPhone."
+        },
+        {
+          "q": "In welchen Sprachen gibt es die App?",
+          "a": "Englisch, Schwedisch, Norwegisch, Dänisch, Finnisch, Deutsch, Niederländisch, Französisch, Spanisch, Italienisch, Portugiesisch, Griechisch, Türkisch, Japanisch und Koreanisch."
+        },
+        {
+          "q": "Wo werden meine Daten gespeichert?",
+          "a": "Auf Supabase-Servern in der EU. In der Datenschutzerklärung steht, was Brewio speichert und warum."
+        },
+        {
+          "q": "Wie kündige ich Brewio Pro?",
+          "a": "Öffne auf deinem iPhone die Einstellungen, tippe auf deinen Namen und dann auf Abonnements. Pro bleibt bis zum Ende des bezahlten Zeitraums aktiv."
+        },
+        {
+          "q": "Kann ich meine Daten löschen?",
+          "a": "Ja. Geh in der App auf Profil und lösche deine Daten. Dann wird alles gelöscht, was Brewio über dich gespeichert hat: Zubereitungen, Packungen, Rezepte, Fotos und der Rest."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Guides und Rechner",
+      "body": "Kostenlose Rechner und Guides auf Deutsch. Dafür brauchst du die App nicht."
+    },
+    "cta": {
+      "title": "Brewio ist kostenlos im App Store",
+      "sub": "Lade die App und trag deine nächste Zubereitung ein."
+    },
+    "footer": {
+      "desc": "Ein Kaffeetagebuch und Brüh-Timer fürs iPhone. Gemacht in Schweden.",
+      "app": "App",
+      "learn": "Lernen",
+      "legal": "Brewio",
+      "faq": "Fragen",
+      "privacy": "Datenschutz",
+      "terms": "Nutzungsbedingungen",
+      "cookies": "Cookie-Einstellungen",
+      "contact": "Kontakt",
+      "languages": "Sprachen"
+    }
+  },
+  "nl": {
+    "seo": {
+      "title": "Brewio: koffiedagboek en timer voor iPhone",
+      "desc": "Brewio is een koffiedagboek voor iPhone. Houd bij wat je zet, volg recepten met een timer stap voor stap, houd je bonen in de gaten en ontdek wat je lekker vindt. Gratis, in 15 talen."
+    },
+    "nav": {
+      "features": "Functies",
+      "pricing": "Prijzen",
+      "roasters": "Branderijen",
+      "guides": "Gidsen",
+      "tools": "Tools",
+      "get": "Download de app",
+      "menu": "Menu",
+      "faq": "Vragen"
+    },
+    "hero": {
+      "title": "Het koffiedagboek voor wie thuis koffie zet",
+      "sub": "Schrijf op wat je zet en hoe het smaakte, volg recepten met een timer stap voor stap en houd de bonen op je plank in de gaten.",
+      "note": "Gratis op iPhone. Brewio Pro is optioneel.",
+      "altHome": "Het startscherm van Brewio met Beanie en een reeks van 18 dagen",
+      "altJournal": "Het journal met de laatste kopjes, hun beoordelingen en smaaknotities"
+    },
+    "journal": {
+      "title": "Onthoud wat werkte",
+      "body": "Elk kopje krijgt een eigen pagina met de bonen, de branderij, de dosis, het water, de maalstand, de temperatuur, de zettijd en je smaaknotities. Open je volgende week dezelfde zak, dan staan je eerdere kopjes ervan klaar, zodat je een goed kopje kunt herhalen of een minder goed kunt verbeteren.",
+      "points": [
+        "Beoordelingen en smaaknotities",
+        "Maalstand bewaard per molen",
+        "TDS en extractieopbrengst, als je die meet",
+        "Koffie van koffiebars, met de naam van de zaak",
+        "Foto's van je kopjes (Pro)"
+      ],
+      "alt": "Een journal-item voor een V60 met dosis, water, temperatuur, tijd en smaaknotities"
+    },
+    "timer": {
+      "title": "Een timer die zegt wanneer je moet schenken",
+      "body": "Kies een methode en Brewio neemt je stap voor stap mee: spoelen, bloomen, schenken tot een doelgewicht, wachten. Er zijn recepten voor 20 methodes, van V60 en AeroPress tot espresso, cezve, Nel Drip en cold brew. Pas je de dosis aan, dan veranderen alle hoeveelheden water mee.",
+      "points": [
+        "Je eigen recepten, bewaard",
+        "Warme en ijskoude versies",
+        "Ratiocalculator",
+        "Calculator voor extractieopbrengst (Pro)"
+      ],
+      "alt": "De timer bij de eerste schenkbeurt van een V60, met nog 23 seconden"
+    },
+    "stash": {
+      "title": "Weet wat er op je plank staat",
+      "body": "Voeg de zakken toe die je koopt en Brewio houdt de tel bij. Na elk kopje gaan de grammen eraf, je ziet hoe lang geleden de bonen gebrand zijn en wat een kopje kost. Is een zak op, dan verhuist hij naar je eerdere zakken, zodat je die koffie terugvindt.",
+      "points": [
+        "Scan het etiket om een zak in te vullen (Pro)",
+        "Een herinnering als een zak oud begint te worden",
+        "Eerdere zakken (Pro)"
+      ],
+      "alt": "De bonenvoorraad met vier zakken op een plank, elk met de resterende grammen en dagen sinds het branden"
+    },
+    "taste": {
+      "title": "Ontdek wat je lekker vindt",
+      "body": "Na een paar weken bijhouden zie je patronen. Je smaakprofiel laat zien welke smaken je het hoogst beoordeelt, de wereldkaart waar je koffie vandaan komt en de wekelijkse recap vat je week samen. Smaakt een kopje zuur of bitter, dan stellen de dial-in-tips voor wat je de volgende keer anders kunt doen.",
+      "note": "Onderdeel van Brewio Pro.",
+      "altTaste": "Een smaakprofiel met een smaakgrafiek",
+      "altRecap": "Een wekelijkse recap met zeven kopjes in zeven dagen"
+    },
+    "beanie": {
+      "title": "Maak kennis met Beanie",
+      "body": "Beanie is een plantje in een koffiekopje dat een beetje groeit met elk kopje dat je bijhoudt, van zaailing tot bloei. Mijlpalen leveren stickers op voor Beanies kopje, en de kledingkast vult zich met hoeden, brillen en schorten, plus een paar outfits die alleen op bepaalde momenten van het jaar verschijnen.",
+      "note": "Beanie en de stickers zijn gratis voor iedereen.",
+      "altWardrobe": "Beanies kledingkast met hoeden, brillen en schorten",
+      "altStickers": "Het stickerboek met elf van de twaalf stickers"
+    },
+    "roasters": {
+      "title": "Branderijen die het bestellen waard zijn",
+      "body": "Ontdekken bevat {count} specialty branderijen die we goed vinden, van Lenhovda in Zweden tot Seoul, met waar ze zich op richten en of ze naar jou verzenden. Niemand betaalt om op de lijst te staan.",
+      "link": "Bekijk alle branderijen"
+    },
+    "more": {
+      "title": "Ook in Brewio",
+      "items": [
+        {
+          "title": "Afbeeldingen om te delen",
+          "body": "Maak van een kopje een afbeelding in het formaat van een Instagram-story of -post."
+        },
+        {
+          "title": "Je molens",
+          "body": "Voeg je molens toe en Brewio onthoudt welke stand je bij elk kopje gebruikte. Eén molen is gratis, voor meer heb je Pro nodig."
+        },
+        {
+          "title": "Herinnering voor je reeks",
+          "body": "Heb je een reeks lopen en heb je 's avonds nog niets bijgehouden, dan krijg je één herinnering. Je kunt die uitzetten."
+        },
+        {
+          "title": "Exporteren",
+          "body": "Download je kopjes als CSV-bestand voor een spreadsheet, of alles als JSON (Pro)."
+        },
+        {
+          "title": "15 talen",
+          "body": "Waaronder Nederlands, Japans, Koreaans, Turks en Grieks, elk zo geschreven dat het natuurlijk leest."
+        },
+        {
+          "title": "Geen advertenties",
+          "body": "Brewio toont geen advertenties en verkoopt je gegevens niet, en je kunt alles wat over jou is opgeslagen wissen vanuit je profiel."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Gratis, met een optioneel Pro",
+      "free": {
+        "name": "Gratis",
+        "sub": "Zonder tijdslimiet",
+        "points": [
+          "15 kopjes per maand",
+          "Je laatste 30 kopjes in het journal",
+          "3 zakken in je voorraad",
+          "1 bewaard recept en 1 molen",
+          "Alle zetmethodes en de timer",
+          "Ratiocalculator",
+          "Beanie, stickers en de lijst met branderijen"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Per maand of per jaar",
+        "points": [
+          "Onbeperkt kopjes, geschiedenis, zakken, recepten en molens",
+          "Foto's van kopjes en zakken",
+          "Etiketten scannen",
+          "Smaakprofiel, wereldkaart en alle statistieken",
+          "Wekelijkse recap",
+          "Extractiecalculator en dial-in-tips",
+          "Eerdere zakken en gegevens exporteren",
+          "Kiezen welke stickers Beanie draagt"
+        ]
+      },
+      "note": "De App Store toont de prijs in je eigen valuta. Je kunt op elk moment opzeggen in de abonnementsinstellingen van je iPhone."
+    },
+    "faq": {
+      "title": "Vragen",
+      "items": [
+        {
+          "q": "Heb ik een account nodig?",
+          "a": "Ja. Je logt in met Apple of Google, zodat je journal bewaard blijft en terugkomt als je een nieuwe telefoon neemt."
+        },
+        {
+          "q": "Is er een Android-versie?",
+          "a": "Nog niet. Brewio is voorlopig alleen voor iPhone."
+        },
+        {
+          "q": "In welke talen is de app?",
+          "a": "Engels, Zweeds, Noors, Deens, Fins, Duits, Nederlands, Frans, Spaans, Italiaans, Portugees, Grieks, Turks, Japans en Koreaans."
+        },
+        {
+          "q": "Waar worden mijn gegevens opgeslagen?",
+          "a": "Op servers van Supabase in de Europese Unie. In het privacybeleid lees je wat Brewio opslaat en waarom."
+        },
+        {
+          "q": "Hoe zeg ik Brewio Pro op?",
+          "a": "Open Instellingen op je iPhone, tik op je naam en daarna op Abonnementen. Pro blijft actief tot het einde van de periode die je hebt betaald."
+        },
+        {
+          "q": "Kan ik mijn gegevens wissen?",
+          "a": "Ja. Ga in de app naar Profiel en wis je gegevens. Dan worden je kopjes, zakken, recepten, foto's en alles wat Brewio verder over je heeft opgeslagen verwijderd."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Gidsen en rekenhulpen",
+      "body": "Gratis rekenhulpen en gidsen in het Nederlands. Je hebt de app er niet voor nodig."
+    },
+    "cta": {
+      "title": "Brewio is gratis in de App Store",
+      "sub": "Download de app en houd je volgende kopje bij."
+    },
+    "footer": {
+      "desc": "Een koffiedagboek en timer voor iPhone. Gemaakt in Zweden.",
+      "app": "De app",
+      "learn": "Meer weten",
+      "legal": "Brewio",
+      "faq": "Vragen",
+      "privacy": "Privacybeleid",
+      "terms": "Gebruiksvoorwaarden",
+      "cookies": "Cookie-instellingen",
+      "contact": "Contact",
+      "languages": "Talen"
+    }
+  },
+  "fr": {
+    "seo": {
+      "title": "Brewio : journal de café et minuteur pour iPhone",
+      "desc": "Brewio est un journal de café pour iPhone. Note tes préparations, suis des recettes avec un minuteur étape par étape, garde un œil sur tes grains et découvre ce que tu aimes. Gratuit, en 15 langues."
+    },
+    "nav": {
+      "features": "Fonctionnalités",
+      "pricing": "Tarifs",
+      "roasters": "Torréfacteurs",
+      "guides": "Guides",
+      "tools": "Outils",
+      "get": "Obtenir l'app",
+      "menu": "Menu",
+      "faq": "Questions"
+    },
+    "hero": {
+      "title": "Le journal de café pour ceux qui le préparent à la maison",
+      "sub": "Note ce que tu prépares et ce que tu en as pensé, suis des recettes avec un minuteur étape par étape et garde un œil sur les grains de ton étagère.",
+      "note": "Gratuit sur iPhone. Brewio Pro est facultatif.",
+      "altHome": "L'écran d'accueil de Brewio avec Beanie et une série de 18 jours",
+      "altJournal": "Le journal avec les dernières préparations, leurs notes et leurs arômes"
+    },
+    "journal": {
+      "title": "Retiens ce qui a marché",
+      "body": "Chaque préparation a sa propre page avec les grains, le torréfacteur, la dose, l'eau, le réglage du moulin, la température, le temps d'extraction et tes notes de dégustation. Quand tu rouvres le même sachet la semaine suivante, tes préparations précédentes sont là, pour refaire une bonne tasse ou corriger une moins bonne.",
+      "points": [
+        "Notes et arômes",
+        "Réglage de mouture enregistré pour chaque moulin",
+        "TDS et rendement d'extraction, si tu les mesures",
+        "Les cafés bus en coffee shop, avec le nom de l'endroit",
+        "Photos de tes tasses (Pro)"
+      ],
+      "alt": "Une entrée du journal pour un V60 avec dose, eau, température, temps et arômes"
+    },
+    "timer": {
+      "title": "Un minuteur qui te dit quand verser",
+      "body": "Choisis une méthode et Brewio te guide étape par étape : rincer, faire le bloom, verser jusqu'à un poids cible, attendre. Il y a des recettes pour 20 méthodes, du V60 et de l'AeroPress à l'espresso, au cezve, au Nel Drip et au cold brew. Si tu changes la dose, toutes les quantités d'eau suivent.",
+      "points": [
+        "Tes propres recettes, enregistrées",
+        "Versions chaudes et glacées",
+        "Calculateur de ratio",
+        "Calculateur de rendement d'extraction (Pro)"
+      ],
+      "alt": "Le minuteur sur le premier versement d'un V60, avec 23 secondes restantes"
+    },
+    "stash": {
+      "title": "Sache ce qu'il y a sur ton étagère",
+      "body": "Ajoute les sachets que tu achètes et Brewio fait les comptes. Les grammes sont déduits après chaque préparation, tu vois depuis combien de temps le café a été torréfié et combien coûte une tasse. Quand un sachet est fini, il passe dans tes anciens sachets, pour que tu retrouves ce café.",
+      "points": [
+        "Scanne l'étiquette pour remplir un sachet (Pro)",
+        "Un rappel quand un sachet commence à vieillir",
+        "Anciens sachets (Pro)"
+      ],
+      "alt": "La réserve de café avec quatre sachets sur une étagère, chacun avec les grammes restants et les jours depuis la torréfaction"
+    },
+    "taste": {
+      "title": "Découvre ce que tu aimes",
+      "body": "Après quelques semaines, des tendances apparaissent. Ton profil aromatique montre les saveurs que tu notes le mieux, la carte montre d'où vient ton café et le récap hebdo résume ta semaine. Quand une tasse est acide ou amère, les conseils de réglage te disent quoi changer la prochaine fois.",
+      "note": "Fait partie de Brewio Pro.",
+      "altTaste": "Un profil aromatique avec un graphique des saveurs",
+      "altRecap": "Un récap hebdo avec sept préparations en sept jours"
+    },
+    "beanie": {
+      "title": "Voici Beanie",
+      "body": "Beanie est une petite plante dans une tasse de café qui grandit un peu à chaque préparation que tu notes, de la plantule jusqu'à la floraison. Les étapes importantes rapportent des autocollants pour la tasse de Beanie, et la garde-robe se remplit de chapeaux, de lunettes et de tabliers, plus quelques tenues qui n'apparaissent qu'à certaines périodes de l'année.",
+      "note": "Beanie et les autocollants sont gratuits pour tout le monde.",
+      "altWardrobe": "La garde-robe de Beanie avec chapeaux, lunettes et tabliers",
+      "altStickers": "L'album d'autocollants avec onze autocollants sur douze"
+    },
+    "roasters": {
+      "title": "Des torréfacteurs chez qui commander",
+      "body": "Découvrir liste {count} torréfacteurs de spécialité que nous aimons, de Lenhovda en Suède jusqu'à Séoul, avec leur spécialité et s'ils livrent chez toi. Personne ne paie pour figurer dans la liste.",
+      "link": "Voir tous les torréfacteurs"
+    },
+    "more": {
+      "title": "Aussi dans Brewio",
+      "items": [
+        {
+          "title": "Images à partager",
+          "body": "Transforme une préparation en image au format story ou publication Instagram."
+        },
+        {
+          "title": "Tes moulins",
+          "body": "Ajoute tes moulins et Brewio retient le réglage utilisé pour chaque préparation. Un moulin est gratuit, il faut Pro pour en ajouter d'autres."
+        },
+        {
+          "title": "Rappel de série",
+          "body": "Si tu as une série en cours et que tu n'as rien noté le soir, tu reçois un rappel. Tu peux le désactiver."
+        },
+        {
+          "title": "Export",
+          "body": "Télécharge tes préparations en CSV pour un tableur, ou tout en JSON (Pro)."
+        },
+        {
+          "title": "15 langues",
+          "body": "Dont le français, le japonais, le coréen, le turc et le grec, chacune écrite pour sonner naturelle."
+        },
+        {
+          "title": "Pas de publicité",
+          "body": "Brewio n'affiche pas de publicité et ne vend pas tes données. Tu peux supprimer tout ce qui a été enregistré sur toi depuis ton profil."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Gratuit, avec un Pro facultatif",
+      "free": {
+        "name": "Gratuit",
+        "sub": "Sans limite de temps",
+        "points": [
+          "15 préparations par mois",
+          "Tes 30 dernières préparations dans le journal",
+          "3 sachets dans ta réserve",
+          "1 recette enregistrée et 1 moulin",
+          "Toutes les méthodes et le minuteur",
+          "Calculateur de ratio",
+          "Beanie, les autocollants et la liste des torréfacteurs"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Au mois ou à l'année",
+        "points": [
+          "Préparations, historique, sachets, recettes et moulins illimités",
+          "Photos des préparations et des sachets",
+          "Scan des étiquettes",
+          "Profil aromatique, carte des origines et statistiques complètes",
+          "Récap hebdo",
+          "Calculateur de rendement et conseils de réglage",
+          "Anciens sachets et export des données",
+          "Choisir les autocollants que porte Beanie"
+        ]
+      },
+      "note": "L'App Store affiche le prix dans ta devise. Tu peux résilier à tout moment dans les réglages d'abonnement de ton iPhone."
+    },
+    "faq": {
+      "title": "Questions",
+      "items": [
+        {
+          "q": "Faut-il un compte ?",
+          "a": "Oui. Tu te connectes avec Apple ou Google, pour que ton journal soit sauvegardé et revienne si tu changes de téléphone."
+        },
+        {
+          "q": "Existe-t-il une version Android ?",
+          "a": "Pas encore. Pour l'instant, Brewio est uniquement sur iPhone."
+        },
+        {
+          "q": "Dans quelles langues l'app est-elle disponible ?",
+          "a": "Anglais, suédois, norvégien, danois, finnois, allemand, néerlandais, français, espagnol, italien, portugais, grec, turc, japonais et coréen."
+        },
+        {
+          "q": "Où sont stockées mes données ?",
+          "a": "Sur des serveurs Supabase dans l'Union européenne. La politique de confidentialité explique ce que Brewio enregistre et pourquoi."
+        },
+        {
+          "q": "Comment résilier Brewio Pro ?",
+          "a": "Sur ton iPhone, ouvre Réglages, touche ton nom puis Abonnements. Pro reste actif jusqu'à la fin de la période payée."
+        },
+        {
+          "q": "Puis-je supprimer mes données ?",
+          "a": "Oui. Dans l'app, va dans Profil et supprime tes données. Tes préparations, sachets, recettes, photos et tout ce que Brewio a enregistré sur toi sont alors effacés."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Guides et calculateurs",
+      "body": "Des calculateurs et des guides gratuits en français. Pas besoin de l'app."
+    },
+    "cta": {
+      "title": "Brewio est gratuit sur l'App Store",
+      "sub": "Télécharge l'app et note ta prochaine préparation."
+    },
+    "footer": {
+      "desc": "Un journal de café et un minuteur pour iPhone. Conçu en Suède.",
+      "app": "L'app",
+      "learn": "Apprendre",
+      "legal": "Brewio",
+      "faq": "Questions",
+      "privacy": "Confidentialité",
+      "terms": "Conditions d'utilisation",
+      "cookies": "Réglages des cookies",
+      "contact": "Contact",
+      "languages": "Langues"
+    }
+  },
+  "es": {
+    "seo": {
+      "title": "Brewio: diario de café y temporizador para iPhone",
+      "desc": "Brewio es un diario de café para iPhone. Registra tus preparaciones, sigue recetas con un temporizador paso a paso, controla tus granos y descubre lo que te gusta. Gratis, en 15 idiomas."
+    },
+    "nav": {
+      "features": "Funciones",
+      "pricing": "Precios",
+      "roasters": "Tostadores",
+      "guides": "Guías",
+      "tools": "Herramientas",
+      "get": "Descargar la app",
+      "menu": "Menú",
+      "faq": "Preguntas"
+    },
+    "hero": {
+      "title": "El diario de café para quienes lo preparan en casa",
+      "sub": "Apunta lo que preparas y cómo te supo, sigue recetas con un temporizador paso a paso y controla los granos que tienes en la estantería.",
+      "note": "Gratis en iPhone. Brewio Pro es opcional.",
+      "altHome": "La pantalla de inicio de Brewio con Beanie y una racha de 18 días",
+      "altJournal": "El diario con las últimas preparaciones, sus valoraciones y notas de sabor"
+    },
+    "journal": {
+      "title": "Recuerda lo que funcionó",
+      "body": "Cada preparación tiene su propia página con los granos, el tostador, la dosis, el agua, el ajuste del molinillo, la temperatura, el tiempo y tus notas de cata. Si abres la misma bolsa la semana siguiente, ahí están tus preparaciones anteriores, para repetir una buena taza o arreglar una mala.",
+      "points": [
+        "Valoraciones y notas de sabor",
+        "Ajuste de molienda guardado para cada molinillo",
+        "TDS y rendimiento de extracción, si los mides",
+        "Cafés tomados en cafeterías, con su nombre",
+        "Fotos de tus tazas (Pro)"
+      ],
+      "alt": "Una entrada del diario de un V60 con dosis, agua, temperatura, tiempo y notas de sabor"
+    },
+    "timer": {
+      "title": "Un temporizador que te dice cuándo verter",
+      "body": "Elige un método y Brewio te guía paso a paso: enjuagar, hacer el bloom, verter hasta un peso objetivo, esperar. Hay recetas para 20 métodos, del V60 y la AeroPress al espresso, el cezve, el Nel Drip y el cold brew. Si cambias la dosis, todas las cantidades de agua cambian con ella.",
+      "points": [
+        "Tus propias recetas, guardadas",
+        "Versiones calientes y con hielo",
+        "Calculadora de proporción",
+        "Calculadora de rendimiento de extracción (Pro)"
+      ],
+      "alt": "El temporizador en el primer vertido de un V60, con 23 segundos restantes"
+    },
+    "stash": {
+      "title": "Sabe lo que tienes en la estantería",
+      "body": "Añade las bolsas que compras y Brewio lleva la cuenta. Descuenta los gramos después de cada preparación, te muestra cuánto hace que se tostó y calcula lo que cuesta una taza. Cuando se acaba una bolsa pasa a tus bolsas anteriores, para que puedas encontrar ese café otra vez.",
+      "points": [
+        "Escanea la etiqueta para rellenar una bolsa (Pro)",
+        "Un aviso cuando una bolsa se está haciendo vieja",
+        "Bolsas anteriores (Pro)"
+      ],
+      "alt": "La reserva de café con cuatro bolsas en una estantería, cada una con los gramos que quedan y los días desde el tueste"
+    },
+    "taste": {
+      "title": "Descubre lo que te gusta",
+      "body": "Tras unas semanas registrando, empiezan a verse patrones. Tu perfil de sabor muestra los sabores que mejor valoras, el mapa muestra de dónde viene tu café y el resumen semanal recoge tu semana. Si una taza sale ácida o amarga, los consejos de ajuste te sugieren qué cambiar la próxima vez.",
+      "note": "Incluido en Brewio Pro.",
+      "altTaste": "Un perfil de sabor con un gráfico de sabores",
+      "altRecap": "Un resumen semanal con siete preparaciones en siete días"
+    },
+    "beanie": {
+      "title": "Te presentamos a Beanie",
+      "body": "Beanie es una plantita en una taza de café que crece un poco con cada preparación que registras, de plántula a floración. Los hitos te dan pegatinas para la taza de Beanie, y el armario se llena de sombreros, gafas y delantales, además de algunos conjuntos que solo aparecen en ciertas épocas del año.",
+      "note": "Beanie y las pegatinas son gratis para todos.",
+      "altWardrobe": "El armario de Beanie con sombreros, gafas y delantales",
+      "altStickers": "El álbum de pegatinas con once de doce pegatinas"
+    },
+    "roasters": {
+      "title": "Tostadores a los que vale la pena pedir",
+      "body": "Descubrir reúne {count} tostadores de especialidad que nos gustan, desde Lenhovda en Suecia hasta Seúl, con su especialidad y si envían a donde vives. Nadie paga por estar en la lista.",
+      "link": "Ver todos los tostadores"
+    },
+    "more": {
+      "title": "También en Brewio",
+      "items": [
+        {
+          "title": "Imágenes para compartir",
+          "body": "Convierte una preparación en una imagen para una historia o una publicación de Instagram."
+        },
+        {
+          "title": "Tus molinillos",
+          "body": "Añade los molinillos que tienes y Brewio recuerda el ajuste que usaste en cada preparación. Un molinillo es gratis, para más necesitas Pro."
+        },
+        {
+          "title": "Recordatorio de racha",
+          "body": "Si llevas una racha y por la noche aún no has registrado nada, recibes un recordatorio. Puedes desactivarlo."
+        },
+        {
+          "title": "Exportar",
+          "body": "Descarga tus preparaciones en un archivo CSV para una hoja de cálculo, o todo en JSON (Pro)."
+        },
+        {
+          "title": "15 idiomas",
+          "body": "Entre ellos español, japonés, coreano, turco y griego, cada uno escrito para que suene natural."
+        },
+        {
+          "title": "Sin anuncios",
+          "body": "Brewio no muestra anuncios ni vende tus datos, y puedes borrar todo lo que guardó sobre ti desde tu perfil."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Gratis, con un Pro opcional",
+      "free": {
+        "name": "Gratis",
+        "sub": "Sin límite de tiempo",
+        "points": [
+          "15 preparaciones al mes",
+          "Tus últimas 30 preparaciones en el diario",
+          "3 bolsas en tu reserva",
+          "1 receta guardada y 1 molinillo",
+          "Todos los métodos y el temporizador",
+          "Calculadora de proporción",
+          "Beanie, las pegatinas y la lista de tostadores"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Mensual o anual",
+        "points": [
+          "Preparaciones, historial, bolsas, recetas y molinillos ilimitados",
+          "Fotos de preparaciones y bolsas",
+          "Escaneo de etiquetas",
+          "Perfil de sabor, mapa de orígenes y estadísticas completas",
+          "Resumen semanal",
+          "Calculadora de extracción y consejos de ajuste",
+          "Bolsas anteriores y exportación de datos",
+          "Elegir qué pegatinas lleva Beanie"
+        ]
+      },
+      "note": "El App Store te muestra el precio en tu moneda. Puedes cancelar cuando quieras en los ajustes de suscripción de tu iPhone."
+    },
+    "faq": {
+      "title": "Preguntas",
+      "items": [
+        {
+          "q": "¿Necesito una cuenta?",
+          "a": "Sí. Inicias sesión con Apple o Google, así tu diario queda guardado y vuelve si cambias de teléfono."
+        },
+        {
+          "q": "¿Hay versión para Android?",
+          "a": "Todavía no. Por ahora Brewio solo está en iPhone."
+        },
+        {
+          "q": "¿En qué idiomas está?",
+          "a": "Inglés, sueco, noruego, danés, finés, alemán, neerlandés, francés, español, italiano, portugués, griego, turco, japonés y coreano."
+        },
+        {
+          "q": "¿Dónde se guardan mis datos?",
+          "a": "En servidores de Supabase en la Unión Europea. La política de privacidad explica qué guarda Brewio y por qué."
+        },
+        {
+          "q": "¿Cómo cancelo Brewio Pro?",
+          "a": "En tu iPhone, abre Ajustes, toca tu nombre y luego Suscripciones. Pro sigue activo hasta el final del periodo que pagaste."
+        },
+        {
+          "q": "¿Puedo borrar mis datos?",
+          "a": "Sí. En la app, ve a Perfil y borra tus datos. Se eliminan tus preparaciones, bolsas, recetas, fotos y todo lo demás que Brewio guardó sobre ti."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Guías y calculadoras",
+      "body": "Calculadoras y guías gratis en español. No necesitas la app para usarlas."
+    },
+    "cta": {
+      "title": "Brewio es gratis en el App Store",
+      "sub": "Descárgala y registra tu próxima preparación."
+    },
+    "footer": {
+      "desc": "Un diario de café y temporizador para iPhone. Hecho en Suecia.",
+      "app": "La app",
+      "learn": "Aprender",
+      "legal": "Brewio",
+      "faq": "Preguntas",
+      "privacy": "Privacidad",
+      "terms": "Términos de uso",
+      "cookies": "Ajustes de cookies",
+      "contact": "Contacto",
+      "languages": "Idiomas"
+    }
+  },
+  "it": {
+    "seo": {
+      "title": "Brewio: diario del caffè e timer per iPhone",
+      "desc": "Brewio è un diario del caffè per iPhone. Registra le tue preparazioni, segui le ricette con un timer passo passo, tieni d'occhio i tuoi chicchi e scopri cosa ti piace. Gratis, in 15 lingue."
+    },
+    "nav": {
+      "features": "Funzioni",
+      "pricing": "Prezzi",
+      "roasters": "Torrefazioni",
+      "guides": "Guide",
+      "tools": "Strumenti",
+      "get": "Scarica l'app",
+      "menu": "Menu",
+      "faq": "Domande"
+    },
+    "hero": {
+      "title": "Il diario del caffè per chi lo prepara a casa",
+      "sub": "Annota cosa prepari e com'era, segui le ricette con un timer passo passo e tieni d'occhio i chicchi che hai sullo scaffale.",
+      "note": "Gratis su iPhone. Brewio Pro è facoltativo.",
+      "altHome": "La schermata home di Brewio con Beanie e una serie di 18 giorni",
+      "altJournal": "Il diario con le ultime preparazioni, i voti e le note aromatiche"
+    },
+    "journal": {
+      "title": "Ricorda cosa ha funzionato",
+      "body": "Ogni preparazione ha la sua pagina con i chicchi, la torrefazione, la dose, l'acqua, l'impostazione del macinacaffè, la temperatura, il tempo e le tue note di degustazione. Se la settimana dopo apri lo stesso pacchetto, trovi lì le preparazioni precedenti, così puoi rifare una buona tazza o correggerne una venuta male.",
+      "points": [
+        "Voti e note aromatiche",
+        "Macinatura salvata per ogni macinacaffè",
+        "TDS e resa di estrazione, se li misuri",
+        "I caffè bevuti al bar, con il nome del locale",
+        "Foto delle tue tazze (Pro)"
+      ],
+      "alt": "Una voce del diario per un V60 con dose, acqua, temperatura, tempo e note aromatiche"
+    },
+    "timer": {
+      "title": "Un timer che ti dice quando versare",
+      "body": "Scegli un metodo e Brewio ti guida un passo alla volta: sciacqua, fai il bloom, versa fino a un peso preciso, aspetta. Ci sono ricette per 20 metodi, dal V60 e dall'AeroPress all'espresso, al cezve, al Nel Drip e al cold brew. Se cambi la dose, tutte le quantità d'acqua cambiano di conseguenza.",
+      "points": [
+        "Le tue ricette, salvate",
+        "Versioni calde e con ghiaccio",
+        "Calcolatore del rapporto",
+        "Calcolatore della resa di estrazione (Pro)"
+      ],
+      "alt": "Il timer al primo versamento di un V60, con 23 secondi rimasti"
+    },
+    "stash": {
+      "title": "Sappi cosa c'è sullo scaffale",
+      "body": "Aggiungi i pacchetti che compri e Brewio tiene il conto. Toglie i grammi dopo ogni preparazione, ti mostra da quanto è stato tostato il caffè e calcola quanto costa una tazza. Quando un pacchetto è finito passa tra i pacchetti finiti, così puoi ritrovare quel caffè.",
+      "points": [
+        "Scansiona l'etichetta per compilare un pacchetto (Pro)",
+        "Un promemoria quando un pacchetto sta invecchiando",
+        "Pacchetti finiti (Pro)"
+      ],
+      "alt": "La scorta di caffè con quattro pacchetti su uno scaffale, ognuno con i grammi rimasti e i giorni dalla tostatura"
+    },
+    "taste": {
+      "title": "Scopri cosa ti piace",
+      "body": "Dopo qualche settimana iniziano a vedersi delle tendenze. Il tuo profilo gustativo mostra i sapori a cui dai i voti più alti, la mappa mostra da dove viene il tuo caffè e il riepilogo settimanale riassume la tua settimana. Quando una tazza viene acida o amara, i consigli di dial-in ti suggeriscono cosa cambiare la volta dopo.",
+      "note": "Incluso in Brewio Pro.",
+      "altTaste": "Un profilo gustativo con un grafico dei sapori",
+      "altRecap": "Un riepilogo settimanale con sette preparazioni in sette giorni"
+    },
+    "beanie": {
+      "title": "Ecco Beanie",
+      "body": "Beanie è una piantina in una tazza di caffè che cresce un po' a ogni preparazione che registri, fino alla fioritura. I traguardi ti fanno guadagnare adesivi per la tazza di Beanie, e il guardaroba si riempie di cappelli, occhiali e grembiuli, più qualche vestito che compare solo in certi periodi dell'anno.",
+      "note": "Beanie e gli adesivi sono gratis per tutti.",
+      "altWardrobe": "Il guardaroba di Beanie con cappelli, occhiali e grembiuli",
+      "altStickers": "L'album degli adesivi con undici adesivi su dodici"
+    },
+    "roasters": {
+      "title": "Torrefazioni da cui vale la pena ordinare",
+      "body": "Scopri elenca {count} torrefazioni specialty che ci piacciono, da Lenhovda in Svezia fino a Seul, con su cosa puntano e se spediscono da te. Nessuno paga per essere nella lista.",
+      "link": "Vedi tutte le torrefazioni"
+    },
+    "more": {
+      "title": "Anche in Brewio",
+      "items": [
+        {
+          "title": "Immagini da condividere",
+          "body": "Trasforma una preparazione in un'immagine adatta a una storia o a un post di Instagram."
+        },
+        {
+          "title": "I tuoi macinacaffè",
+          "body": "Aggiungi i macinacaffè che hai e Brewio ricorda l'impostazione usata per ogni preparazione. Un macinacaffè è gratis, per altri serve Pro."
+        },
+        {
+          "title": "Promemoria della serie",
+          "body": "Se hai una serie in corso e la sera non hai ancora registrato niente, ricevi un promemoria. Puoi disattivarlo."
+        },
+        {
+          "title": "Esportazione",
+          "body": "Scarica le tue preparazioni in un file CSV per un foglio di calcolo, o tutto in JSON (Pro)."
+        },
+        {
+          "title": "15 lingue",
+          "body": "Tra cui italiano, giapponese, coreano, turco e greco, ognuna scritta in modo naturale."
+        },
+        {
+          "title": "Niente pubblicità",
+          "body": "Brewio non mostra pubblicità e non vende i tuoi dati, e puoi cancellare tutto ciò che ha salvato su di te dal tuo profilo."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Gratis, con un Pro facoltativo",
+      "free": {
+        "name": "Gratis",
+        "sub": "Senza limiti di tempo",
+        "points": [
+          "15 preparazioni al mese",
+          "Le tue ultime 30 preparazioni nel diario",
+          "3 pacchetti nella scorta",
+          "1 ricetta salvata e 1 macinacaffè",
+          "Tutti i metodi e il timer",
+          "Calcolatore del rapporto",
+          "Beanie, gli adesivi e l'elenco delle torrefazioni"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Mensile o annuale",
+        "points": [
+          "Preparazioni, cronologia, pacchetti, ricette e macinacaffè illimitati",
+          "Foto di preparazioni e pacchetti",
+          "Scansione delle etichette",
+          "Profilo gustativo, mappa delle origini e statistiche complete",
+          "Riepilogo settimanale",
+          "Calcolatore della resa e consigli di dial-in",
+          "Pacchetti finiti ed esportazione dei dati",
+          "Scegliere quali adesivi indossa Beanie"
+        ]
+      },
+      "note": "L'App Store ti mostra il prezzo nella tua valuta. Puoi disdire quando vuoi nelle impostazioni degli abbonamenti del tuo iPhone."
+    },
+    "faq": {
+      "title": "Domande",
+      "items": [
+        {
+          "q": "Serve un account?",
+          "a": "Sì. Accedi con Apple o Google, così il tuo diario è salvato e ritorna se cambi telefono."
+        },
+        {
+          "q": "Esiste una versione per Android?",
+          "a": "Non ancora. Per ora Brewio è solo su iPhone."
+        },
+        {
+          "q": "In quali lingue è disponibile?",
+          "a": "Inglese, svedese, norvegese, danese, finlandese, tedesco, olandese, francese, spagnolo, italiano, portoghese, greco, turco, giapponese e coreano."
+        },
+        {
+          "q": "Dove vengono salvati i miei dati?",
+          "a": "Su server Supabase nell'Unione europea. L'informativa sulla privacy spiega cosa salva Brewio e perché."
+        },
+        {
+          "q": "Come disdico Brewio Pro?",
+          "a": "Sul tuo iPhone apri Impostazioni, tocca il tuo nome e poi Abbonamenti. Pro resta attivo fino alla fine del periodo che hai pagato."
+        },
+        {
+          "q": "Posso cancellare i miei dati?",
+          "a": "Sì. Nell'app vai su Profilo e cancella i tuoi dati. Vengono eliminati preparazioni, pacchetti, ricette, foto e tutto il resto che Brewio ha salvato su di te."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Guide e calcolatori",
+      "body": "Calcolatori e guide gratis in italiano. Non ti serve l'app per usarli."
+    },
+    "cta": {
+      "title": "Brewio è gratis sull'App Store",
+      "sub": "Scaricala e registra la tua prossima preparazione."
+    },
+    "footer": {
+      "desc": "Un diario del caffè e timer per iPhone. Fatto in Svezia.",
+      "app": "L'app",
+      "learn": "Impara",
+      "legal": "Brewio",
+      "faq": "Domande",
+      "privacy": "Privacy",
+      "terms": "Termini di servizio",
+      "cookies": "Impostazioni cookie",
+      "contact": "Contatti",
+      "languages": "Lingue"
+    }
+  },
+  "pt": {
+    "seo": {
+      "title": "Brewio: diário de café e timer de preparo para iPhone",
+      "desc": "Brewio é um diário de café para iPhone. Registre seus preparos, siga receitas com um timer passo a passo, acompanhe seus grãos e descubra do que você gosta. Grátis, em 15 idiomas."
+    },
+    "nav": {
+      "features": "Recursos",
+      "pricing": "Preços",
+      "roasters": "Torrefações",
+      "guides": "Guias",
+      "tools": "Ferramentas",
+      "get": "Baixar o app",
+      "menu": "Menu",
+      "faq": "Perguntas"
+    },
+    "hero": {
+      "title": "O diário de café para quem prepara café em casa",
+      "sub": "Anote o que você preparou e como ficou, siga receitas com um timer passo a passo e acompanhe os grãos que estão na sua prateleira.",
+      "note": "Grátis no iPhone. O Brewio Pro é opcional.",
+      "altHome": "A tela inicial do Brewio com o Beanie e uma sequência de 18 dias",
+      "altJournal": "O diário com os últimos preparos, notas e sabores"
+    },
+    "journal": {
+      "title": "Lembre do que deu certo",
+      "body": "Cada preparo ganha uma página com os grãos, a torrefação, a dose, a água, a regulagem do moedor, a temperatura, o tempo e suas notas de prova. Se você abrir o mesmo pacote na semana seguinte, seus preparos anteriores estão ali, para repetir uma xícara boa ou acertar uma que não ficou boa.",
+      "points": [
+        "Notas e sabores",
+        "Regulagem salva para cada moedor",
+        "TDS e rendimento de extração, se você medir",
+        "Cafés tomados em cafeterias, com o nome do lugar",
+        "Fotos das suas xícaras (Pro)"
+      ],
+      "alt": "Um registro no diário de um V60 com dose, água, temperatura, tempo e sabores"
+    },
+    "timer": {
+      "title": "Um timer que avisa quando despejar a água",
+      "body": "Escolha um método e o Brewio guia você passo a passo: enxaguar, fazer o bloom, despejar até um peso certo, esperar. Há receitas para 20 métodos, do V60 e da AeroPress ao espresso, cezve, Nel Drip e cold brew. Se você mudar a dose, todas as quantidades de água mudam junto.",
+      "points": [
+        "Suas próprias receitas, salvas",
+        "Versões quentes e geladas",
+        "Calculadora de proporção",
+        "Calculadora de rendimento de extração (Pro)"
+      ],
+      "alt": "O timer no primeiro despejo de um V60, faltando 23 segundos"
+    },
+    "stash": {
+      "title": "Saiba o que tem na prateleira",
+      "body": "Adicione os pacotes que você compra e o Brewio faz a conta. Os gramas são descontados depois de cada preparo, você vê há quanto tempo o café foi torrado e quanto custa uma xícara. Quando um pacote acaba, ele vai para os pacotes anteriores, para você encontrar aquele café de novo.",
+      "points": [
+        "Escaneie o rótulo para preencher um pacote (Pro)",
+        "Um lembrete quando um pacote está ficando velho",
+        "Pacotes anteriores (Pro)"
+      ],
+      "alt": "O estoque de café com quatro pacotes numa prateleira, cada um com os gramas restantes e os dias desde a torra"
+    },
+    "taste": {
+      "title": "Descubra do que você gosta",
+      "body": "Depois de algumas semanas registrando, começam a aparecer padrões. Seu perfil de sabor mostra os sabores que você avalia melhor, o mapa mostra de onde vem o seu café e o resumo semanal resume a sua semana. Quando uma xícara sai ácida ou amarga, as dicas de ajuste sugerem o que mudar na próxima vez.",
+      "note": "Faz parte do Brewio Pro.",
+      "altTaste": "Um perfil de sabor com um gráfico de sabores",
+      "altRecap": "Um resumo semanal com sete preparos em sete dias"
+    },
+    "beanie": {
+      "title": "Conheça o Beanie",
+      "body": "O Beanie é uma plantinha numa xícara de café que cresce um pouco a cada preparo que você registra, de muda até a floração. Marcos dão adesivos para a xícara do Beanie, e o guarda-roupa vai se enchendo de chapéus, óculos e aventais, além de algumas roupas que só aparecem em certas épocas do ano.",
+      "note": "O Beanie e os adesivos são grátis para todo mundo.",
+      "altWardrobe": "O guarda-roupa do Beanie com chapéus, óculos e aventais",
+      "altStickers": "O álbum de adesivos com onze de doze adesivos"
+    },
+    "roasters": {
+      "title": "Torrefações que valem o pedido",
+      "body": "Descobrir lista {count} torrefações de cafés especiais de que gostamos, de Lenhovda, na Suécia, até Seul, com o foco de cada uma e se entregam onde você mora. Ninguém paga para estar na lista.",
+      "link": "Ver todas as torrefações"
+    },
+    "more": {
+      "title": "Também no Brewio",
+      "items": [
+        {
+          "title": "Imagens para compartilhar",
+          "body": "Transforme um preparo numa imagem no formato de story ou de post do Instagram."
+        },
+        {
+          "title": "Seus moedores",
+          "body": "Adicione os moedores que você tem e o Brewio lembra a regulagem usada em cada preparo. Um moedor é grátis, para mais é preciso o Pro."
+        },
+        {
+          "title": "Lembrete de sequência",
+          "body": "Se você está numa sequência e ainda não registrou nada à noite, recebe um lembrete. Dá para desativar."
+        },
+        {
+          "title": "Exportação",
+          "body": "Baixe seus preparos num arquivo CSV para uma planilha, ou tudo em JSON (Pro)."
+        },
+        {
+          "title": "15 idiomas",
+          "body": "Entre eles português, japonês, coreano, turco e grego, cada um escrito para soar natural."
+        },
+        {
+          "title": "Sem anúncios",
+          "body": "O Brewio não mostra anúncios nem vende seus dados, e você pode apagar tudo o que ele salvou sobre você no seu perfil."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Grátis, com um Pro opcional",
+      "free": {
+        "name": "Grátis",
+        "sub": "Sem limite de tempo",
+        "points": [
+          "15 preparos por mês",
+          "Seus últimos 30 preparos no diário",
+          "3 pacotes no estoque",
+          "1 receita salva e 1 moedor",
+          "Todos os métodos e o timer",
+          "Calculadora de proporção",
+          "O Beanie, os adesivos e a lista de torrefações"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Mensal ou anual",
+        "points": [
+          "Preparos, histórico, pacotes, receitas e moedores ilimitados",
+          "Fotos de preparos e pacotes",
+          "Escaneamento de rótulos",
+          "Perfil de sabor, mapa de origens e estatísticas completas",
+          "Resumo semanal",
+          "Calculadora de extração e dicas de ajuste",
+          "Pacotes anteriores e exportação de dados",
+          "Escolher quais adesivos o Beanie usa"
+        ]
+      },
+      "note": "A App Store mostra o preço na sua moeda. Você pode cancelar quando quiser nos ajustes de assinatura do iPhone."
+    },
+    "faq": {
+      "title": "Perguntas",
+      "items": [
+        {
+          "q": "Preciso de uma conta?",
+          "a": "Sim. Você entra com a Apple ou o Google, assim o seu diário fica salvo e volta se você trocar de celular."
+        },
+        {
+          "q": "Tem versão para Android?",
+          "a": "Ainda não. Por enquanto o Brewio está só no iPhone."
+        },
+        {
+          "q": "Em quais idiomas o app está disponível?",
+          "a": "Inglês, sueco, norueguês, dinamarquês, finlandês, alemão, holandês, francês, espanhol, italiano, português, grego, turco, japonês e coreano."
+        },
+        {
+          "q": "Onde ficam os meus dados?",
+          "a": "Em servidores da Supabase na União Europeia. A política de privacidade explica o que o Brewio guarda e por quê."
+        },
+        {
+          "q": "Como cancelo o Brewio Pro?",
+          "a": "No iPhone, abra Ajustes, toque no seu nome e depois em Assinaturas. O Pro continua ativo até o fim do período que você pagou."
+        },
+        {
+          "q": "Posso apagar os meus dados?",
+          "a": "Sim. No app, vá em Perfil e apague seus dados. Seus preparos, pacotes, receitas, fotos e tudo o mais que o Brewio guardou sobre você são removidos."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Guias e calculadoras",
+      "body": "Calculadoras e guias grátis em português. Você não precisa do app para usar."
+    },
+    "cta": {
+      "title": "O Brewio é grátis na App Store",
+      "sub": "Baixe o app e registre o seu próximo preparo."
+    },
+    "footer": {
+      "desc": "Um diário de café e timer de preparo para iPhone. Feito na Suécia.",
+      "app": "O app",
+      "learn": "Aprender",
+      "legal": "Brewio",
+      "faq": "Perguntas",
+      "privacy": "Privacidade",
+      "terms": "Termos de uso",
+      "cookies": "Configurações de cookies",
+      "contact": "Contato",
+      "languages": "Idiomas"
+    }
+  },
+  "el": {
+    "seo": {
+      "title": "Brewio: ημερολόγιο καφέ και χρονόμετρο για iPhone",
+      "desc": "Το Brewio είναι ένα ημερολόγιο καφέ για iPhone. Κατέγραψε τις παρασκευές σου, ακολούθησε συνταγές με χρονόμετρο βήμα προς βήμα, παρακολούθησε τους κόκκους σου και δες τι σου αρέσει. Δωρεάν, σε 15 γλώσσες."
+    },
+    "nav": {
+      "features": "Λειτουργίες",
+      "pricing": "Τιμές",
+      "roasters": "Roasters",
+      "guides": "Οδηγοί",
+      "tools": "Εργαλεία",
+      "get": "Κατέβασέ το",
+      "menu": "Μενού",
+      "faq": "Ερωτήσεις"
+    },
+    "hero": {
+      "title": "Το ημερολόγιο καφέ για όσους φτιάχνουν καφέ στο σπίτι",
+      "sub": "Γράψε τι έφτιαξες και πώς σου φάνηκε, ακολούθησε συνταγές με χρονόμετρο βήμα προς βήμα και παρακολούθησε τους κόκκους που έχεις στο ράφι.",
+      "note": "Δωρεάν για iPhone. Το Brewio Pro είναι προαιρετικό.",
+      "altHome": "Η αρχική οθόνη του Brewio με τον Beanie και σερί 18 ημερών",
+      "altJournal": "Το ημερολόγιο με τις τελευταίες παρασκευές, βαθμολογίες και γευστικές νότες"
+    },
+    "journal": {
+      "title": "Θυμήσου τι πέτυχε",
+      "body": "Κάθε παρασκευή έχει τη δική της σελίδα με τους κόκκους, το roastery, τη δόση, το νερό, τη ρύθμιση του μύλου, τη θερμοκρασία, τον χρόνο και τις γευστικές σου σημειώσεις. Αν ανοίξεις το ίδιο σακουλάκι την επόμενη εβδομάδα, οι προηγούμενες παρασκευές του είναι εκεί, για να επαναλάβεις ένα καλό φλιτζάνι ή να διορθώσεις ένα κακό.",
+      "points": [
+        "Βαθμολογίες και γευστικές νότες",
+        "Η ρύθμιση άλεσης αποθηκεύεται για κάθε μύλο",
+        "TDS και απόδοση εκχύλισης, αν τα μετράς",
+        "Καφέδες από καφετέριες, με το όνομα του μαγαζιού",
+        "Φωτογραφίες από τα φλιτζάνια σου (Pro)"
+      ],
+      "alt": "Μια καταχώριση για V60 με δόση, νερό, θερμοκρασία, χρόνο και γευστικές νότες"
+    },
+    "timer": {
+      "title": "Ένα χρονόμετρο που σου λέει πότε να ρίξεις νερό",
+      "body": "Διάλεξε μέθοδο και το Brewio σε καθοδηγεί βήμα βήμα: ξέβγαλμα, bloom, ρίξιμο μέχρι το βάρος στόχο, αναμονή. Υπάρχουν συνταγές για 20 μεθόδους, από V60 και AeroPress μέχρι espresso, ελληνικό στο μπρίκι, Nel Drip και cold brew. Αν αλλάξεις τη δόση, αλλάζουν μαζί και όλες οι ποσότητες νερού.",
+      "points": [
+        "Οι δικές σου συνταγές, αποθηκευμένες",
+        "Ζεστές και κρύες εκδοχές",
+        "Υπολογιστής αναλογίας",
+        "Υπολογιστής απόδοσης εκχύλισης (Pro)"
+      ],
+      "alt": "Το χρονόμετρο στο πρώτο ρίξιμο ενός V60, με 23 δευτερόλεπτα να απομένουν"
+    },
+    "stash": {
+      "title": "Ξέρεις τι έχεις στο ράφι",
+      "body": "Πρόσθεσε τα σακουλάκια που αγοράζεις και το Brewio κρατάει λογαριασμό. Αφαιρεί τα γραμμάρια μετά από κάθε παρασκευή, δείχνει πόσος καιρός έχει περάσει από το καβούρδισμα και υπολογίζει πόσο κοστίζει ένα φλιτζάνι. Όταν τελειώσει ένα σακουλάκι, πηγαίνει στα παλιά σακουλάκια, για να βρίσκεις ξανά αυτόν τον καφέ.",
+      "points": [
+        "Σάρωσε την ετικέτα για να συμπληρωθεί ένα σακουλάκι (Pro)",
+        "Υπενθύμιση όταν ένα σακουλάκι αρχίζει να παλιώνει",
+        "Παλιά σακουλάκια (Pro)"
+      ],
+      "alt": "Το απόθεμα καφέ με τέσσερα σακουλάκια σε ένα ράφι, το καθένα με τα γραμμάρια που απομένουν και τις μέρες από το καβούρδισμα"
+    },
+    "taste": {
+      "title": "Δες τι σου αρέσει",
+      "body": "Μετά από μερικές εβδομάδες καταγραφής αρχίζουν να φαίνονται μοτίβα. Το γευστικό σου προφίλ δείχνει τις γεύσεις που βαθμολογείς ψηλότερα, ο χάρτης δείχνει από πού έρχεται ο καφές σου και η εβδομαδιαία ανασκόπηση συνοψίζει την εβδομάδα σου. Όταν ένα φλιτζάνι βγει ξινό ή πικρό, οι συμβουλές dial-in προτείνουν τι να αλλάξεις την επόμενη φορά.",
+      "note": "Μέρος του Brewio Pro.",
+      "altTaste": "Ένα γευστικό προφίλ με διάγραμμα γεύσεων",
+      "altRecap": "Μια εβδομαδιαία ανασκόπηση με επτά παρασκευές σε επτά μέρες"
+    },
+    "beanie": {
+      "title": "Γνώρισε τον Beanie",
+      "body": "Ο Beanie είναι ένα φυτό μέσα σε ένα φλιτζάνι καφέ που μεγαλώνει λίγο με κάθε παρασκευή που καταγράφεις, από φυντάνι μέχρι ανθοφορία. Τα ορόσημα σου δίνουν αυτοκόλλητα για το φλιτζάνι του Beanie, και η ντουλάπα γεμίζει με καπέλα, γυαλιά και ποδιές, μαζί με μερικά ρούχα που εμφανίζονται μόνο ορισμένες εποχές του χρόνου.",
+      "note": "Ο Beanie και τα αυτοκόλλητα είναι δωρεάν για όλους.",
+      "altWardrobe": "Η ντουλάπα του Beanie με καπέλα, γυαλιά και ποδιές",
+      "altStickers": "Το άλμπουμ αυτοκόλλητων με έντεκα από τα δώδεκα"
+    },
+    "roasters": {
+      "title": "Roasters από όπου αξίζει να παραγγείλεις",
+      "body": "Η ενότητα Ανακάλυψε έχει {count} specialty roasters που μας αρέσουν, από τη Lenhovda της Σουηδίας μέχρι τη Σεούλ, με το τι κάνει ο καθένας καλύτερα και αν στέλνει εκεί που μένεις. Κανείς δεν πληρώνει για να είναι στη λίστα.",
+      "link": "Δες όλους τους roasters"
+    },
+    "more": {
+      "title": "Επίσης στο Brewio",
+      "items": [
+        {
+          "title": "Εικόνες για κοινοποίηση",
+          "body": "Κάνε μια παρασκευή εικόνα στο μέγεθος ενός Instagram story ή μιας ανάρτησης."
+        },
+        {
+          "title": "Οι μύλοι σου",
+          "body": "Πρόσθεσε τους μύλους που έχεις και το Brewio θυμάται ποια ρύθμιση χρησιμοποίησες σε κάθε παρασκευή. Ένας μύλος είναι δωρεάν, για περισσότερους χρειάζεσαι Pro."
+        },
+        {
+          "title": "Υπενθύμιση σερί",
+          "body": "Αν έχεις σερί σε εξέλιξη και μέχρι το βράδυ δεν έχεις καταγράψει τίποτα, παίρνεις μία υπενθύμιση. Μπορείς να την απενεργοποιήσεις."
+        },
+        {
+          "title": "Εξαγωγή",
+          "body": "Κατέβασε τις παρασκευές σου ως αρχείο CSV για υπολογιστικό φύλλο, ή τα πάντα ως JSON (Pro)."
+        },
+        {
+          "title": "15 γλώσσες",
+          "body": "Ανάμεσά τους ελληνικά, ιαπωνικά, κορεατικά, τουρκικά και σουηδικά, γραμμένα ώστε να ακούγονται φυσικά."
+        },
+        {
+          "title": "Χωρίς διαφημίσεις",
+          "body": "Το Brewio δεν δείχνει διαφημίσεις ούτε πουλάει τα δεδομένα σου, και μπορείς να διαγράψεις ό,τι έχει αποθηκεύσει για σένα από το προφίλ σου."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Δωρεάν, με προαιρετικό Pro",
+      "free": {
+        "name": "Δωρεάν",
+        "sub": "Χωρίς χρονικό όριο",
+        "points": [
+          "15 παρασκευές τον μήνα",
+          "Οι τελευταίες 30 παρασκευές σου στο ημερολόγιο",
+          "3 σακουλάκια στο απόθεμα",
+          "1 αποθηκευμένη συνταγή και 1 μύλος",
+          "Όλες οι μέθοδοι και το χρονόμετρο",
+          "Υπολογιστής αναλογίας",
+          "Ο Beanie, τα αυτοκόλλητα και η λίστα με τους roasters"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Μηνιαία ή ετήσια",
+        "points": [
+          "Απεριόριστες παρασκευές, ιστορικό, σακουλάκια, συνταγές και μύλοι",
+          "Φωτογραφίες από παρασκευές και σακουλάκια",
+          "Σάρωση ετικετών",
+          "Γευστικό προφίλ, χάρτης προελεύσεων και πλήρη στατιστικά",
+          "Εβδομαδιαία ανασκόπηση",
+          "Υπολογιστής εκχύλισης και συμβουλές dial-in",
+          "Παλιά σακουλάκια και εξαγωγή δεδομένων",
+          "Διαλέγεις ποια αυτοκόλλητα φοράει ο Beanie"
+        ]
+      },
+      "note": "Το App Store δείχνει την τιμή στο νόμισμά σου. Μπορείς να ακυρώσεις όποτε θέλεις από τις ρυθμίσεις συνδρομών του iPhone."
+    },
+    "faq": {
+      "title": "Ερωτήσεις",
+      "items": [
+        {
+          "q": "Χρειάζομαι λογαριασμό;",
+          "a": "Ναι. Συνδέεσαι με Apple ή Google, ώστε το ημερολόγιό σου να έχει αντίγραφο ασφαλείας και να επιστρέφει αν αλλάξεις κινητό."
+        },
+        {
+          "q": "Υπάρχει έκδοση για Android;",
+          "a": "Όχι ακόμη. Προς το παρόν το Brewio είναι μόνο για iPhone."
+        },
+        {
+          "q": "Σε ποιες γλώσσες είναι διαθέσιμο;",
+          "a": "Αγγλικά, σουηδικά, νορβηγικά, δανικά, φινλανδικά, γερμανικά, ολλανδικά, γαλλικά, ισπανικά, ιταλικά, πορτογαλικά, ελληνικά, τουρκικά, ιαπωνικά και κορεατικά."
+        },
+        {
+          "q": "Πού αποθηκεύονται τα δεδομένα μου;",
+          "a": "Σε διακομιστές της Supabase στην Ευρωπαϊκή Ένωση. Η πολιτική απορρήτου εξηγεί τι αποθηκεύει το Brewio και γιατί."
+        },
+        {
+          "q": "Πώς ακυρώνω το Brewio Pro;",
+          "a": "Στο iPhone, άνοιξε τις Ρυθμίσεις, πάτησε το όνομά σου και μετά Συνδρομές. Το Pro μένει ενεργό μέχρι το τέλος της περιόδου που πλήρωσες."
+        },
+        {
+          "q": "Μπορώ να διαγράψω τα δεδομένα μου;",
+          "a": "Ναι. Στην εφαρμογή, πήγαινε στο Προφίλ και διάγραψε τα δεδομένα σου. Διαγράφονται οι παρασκευές, τα σακουλάκια, οι συνταγές, οι φωτογραφίες και ό,τι άλλο έχει αποθηκεύσει το Brewio για σένα."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Οδηγοί και εργαλεία",
+      "body": "Δωρεάν υπολογιστές και οδηγοί στα ελληνικά. Δεν χρειάζεσαι την εφαρμογή."
+    },
+    "cta": {
+      "title": "Το Brewio είναι δωρεάν στο App Store",
+      "sub": "Κατέβασέ το και κατέγραψε την επόμενη παρασκευή σου."
+    },
+    "footer": {
+      "desc": "Ένα ημερολόγιο καφέ και χρονόμετρο για iPhone. Φτιαγμένο στη Σουηδία.",
+      "app": "Η εφαρμογή",
+      "learn": "Μάθε περισσότερα",
+      "legal": "Brewio",
+      "faq": "Ερωτήσεις",
+      "privacy": "Απόρρητο",
+      "terms": "Όροι χρήσης",
+      "cookies": "Ρυθμίσεις cookies",
+      "contact": "Επικοινωνία",
+      "languages": "Γλώσσες"
+    }
+  },
+  "tr": {
+    "seo": {
+      "title": "Brewio: iPhone için kahve günlüğü ve demleme zamanlayıcısı",
+      "desc": "Brewio, iPhone için bir kahve günlüğü. Demlemelerini kaydet, adım adım zamanlayıcıyla tarifleri takip et, kahve çekirdeklerini izle ve neyi sevdiğini gör. Ücretsiz, 15 dilde."
+    },
+    "nav": {
+      "features": "Özellikler",
+      "pricing": "Fiyatlar",
+      "roasters": "Kavurucular",
+      "guides": "Rehberler",
+      "tools": "Araçlar",
+      "get": "Uygulamayı indir",
+      "menu": "Menü",
+      "faq": "Sorular"
+    },
+    "hero": {
+      "title": "Evde kahve demleyenler için kahve günlüğü",
+      "sub": "Ne demlediğini ve tadının nasıl olduğunu kaydet, adım adım zamanlayıcıyla tarifleri takip et ve raftaki çekirdekleri gözden kaçırma.",
+      "note": "iPhone'da ücretsiz. Brewio Pro isteğe bağlı.",
+      "altHome": "Beanie ve 18 günlük seriyle Brewio ana ekranı",
+      "altJournal": "Son demlemeler, puanları ve tat notlarıyla günlük"
+    },
+    "journal": {
+      "title": "Neyin işe yaradığını hatırla",
+      "body": "Her demlemenin kendi sayfası var: çekirdekler, kavurucu, doz, su, öğütücü ayarı, sıcaklık, demleme süresi ve tat notların. Gelecek hafta aynı paketi açtığında o kahveyle yaptığın önceki demlemeler hemen orada, böylece iyi bir fincanı tekrarlayabilir ya da kötü olanı düzeltebilirsin.",
+      "points": [
+        "Puanlar ve tat notları",
+        "Her öğütücü için kaydedilen öğütme ayarı",
+        "Ölçüyorsan TDS ve ekstraksiyon oranı",
+        "Kafelerde içtiğin kahveler, kafenin adıyla",
+        "Fincanlarının fotoğrafları (Pro)"
+      ],
+      "alt": "Bir V60 günlük kaydı: doz, su, sıcaklık, süre ve tat notları"
+    },
+    "timer": {
+      "title": "Ne zaman dökeceğini söyleyen bir zamanlayıcı",
+      "body": "Bir yöntem seç, Brewio seni adım adım götürsün: durula, bloom yap, hedef ağırlığa kadar dök, bekle. V60 ve AeroPress'ten espressoya, cezveye, Nel Drip'e ve cold brew'a kadar 20 yöntem için tarif var. Dozu değiştirirsen bütün su miktarları da onunla birlikte değişir.",
+      "points": [
+        "Kendi tariflerin, kayıtlı",
+        "Sıcak ve buzlu versiyonlar",
+        "Oran hesaplayıcı",
+        "Ekstraksiyon oranı hesaplayıcı (Pro)"
+      ],
+      "alt": "V60'ın ilk dökümünde, 23 saniye kalmış demleme zamanlayıcısı"
+    },
+    "stash": {
+      "title": "Rafta ne olduğunu bil",
+      "body": "Aldığın paketleri ekle, Brewio hesabını tutsun. Her demlemeden sonra gramları düşer, kavrulmasının üzerinden ne kadar geçtiğini ve bir fincanın kaça geldiğini gösterir. Bir paket bitince biten paketlere geçer, böylece o kahveyi yeniden bulabilirsin.",
+      "points": [
+        "Bir paketi doldurmak için etiketini tara (Pro)",
+        "Bir paket eskimeye başladığında hatırlatma",
+        "Biten paketler (Pro)"
+      ],
+      "alt": "Rafta dört paketle kahve stoğu, her birinde kalan gram ve kavrulmadan bu yana geçen gün"
+    },
+    "taste": {
+      "title": "Neyi sevdiğini gör",
+      "body": "Birkaç hafta kaydettikten sonra belli kalıplar ortaya çıkmaya başlar. Tat profilin en yüksek puan verdiğin tatları, dünya haritası kahvenin nereden geldiğini, haftalık özet de haftanı gösterir. Bir fincan ekşi ya da acı çıktığında, dial-in ipuçları bir dahaki sefere neyi değiştireceğini önerir.",
+      "note": "Brewio Pro'ya dahil.",
+      "altTaste": "Tat grafiğiyle bir tat profili",
+      "altRecap": "Yedi günde yedi demlemeyi gösteren haftalık özet"
+    },
+    "beanie": {
+      "title": "Beanie ile tanış",
+      "body": "Beanie, kahve fincanında yaşayan küçük bir bitki. Kaydettiğin her demlemeyle biraz büyür, fideden çiçeklenmeye kadar. Dönüm noktaları Beanie'nin fincanı için çıkartma kazandırır, gardırop da şapkalar, gözlükler ve önlüklerle dolar. Bir de yalnızca yılın belli zamanlarında ortaya çıkan birkaç kıyafet var.",
+      "note": "Beanie ve çıkartmalar herkes için ücretsiz.",
+      "altWardrobe": "Şapkalar, gözlükler ve önlüklerle Beanie'nin gardırobu",
+      "altStickers": "On iki çıkartmadan on birinin toplandığı çıkartma albümü"
+    },
+    "roasters": {
+      "title": "Sipariş vermeye değer kavurucular",
+      "body": "Keşfet'te sevdiğimiz {count} nitelikli kahve kavurucusu var, İsveç'teki Lenhovda'dan Seul'e kadar. Her birinin neye odaklandığını ve sana gönderim yapıp yapmadığını görürsün. Listede yer almak için kimse para ödemiyor.",
+      "link": "Tüm kavurucuları gör"
+    },
+    "more": {
+      "title": "Brewio'da ayrıca",
+      "items": [
+        {
+          "title": "Paylaşım görselleri",
+          "body": "Bir demlemeyi Instagram hikâyesi ya da gönderisi boyutunda bir görsele dönüştür."
+        },
+        {
+          "title": "Öğütücülerin",
+          "body": "Sahip olduğun öğütücüleri ekle, Brewio her demlemede hangi ayarı kullandığını hatırlasın. Bir öğütücü ücretsiz, fazlası için Pro gerekir."
+        },
+        {
+          "title": "Seri hatırlatması",
+          "body": "Devam eden bir serin varsa ve akşama kadar hiçbir şey kaydetmediysen bir kez hatırlatılırsın. İstersen kapatabilirsin."
+        },
+        {
+          "title": "Dışa aktarma",
+          "body": "Demlemelerini tablo için CSV dosyası olarak ya da her şeyi JSON olarak indir (Pro)."
+        },
+        {
+          "title": "15 dil",
+          "body": "Aralarında Türkçe, Japonca, Korece, Yunanca ve İsveççe var, her biri doğal okunacak şekilde yazıldı."
+        },
+        {
+          "title": "Reklam yok",
+          "body": "Brewio reklam göstermez ve verilerini satmaz. Senin hakkında kaydettiği her şeyi profilinden silebilirsin."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Ücretsiz, istersen Pro",
+      "free": {
+        "name": "Ücretsiz",
+        "sub": "Süre sınırı yok",
+        "points": [
+          "Ayda 15 demleme",
+          "Günlükte son 30 demlemen",
+          "Stokta 3 paket",
+          "1 kayıtlı tarif ve 1 öğütücü",
+          "Tüm demleme yöntemleri ve zamanlayıcı",
+          "Oran hesaplayıcı",
+          "Beanie, çıkartmalar ve kavurucu listesi"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "Aylık ya da yıllık",
+        "points": [
+          "Sınırsız demleme, geçmiş, paket, tarif ve öğütücü",
+          "Demleme ve paket fotoğrafları",
+          "Etiket tarama",
+          "Tat profili, köken haritası ve tüm istatistikler",
+          "Haftalık özet",
+          "Ekstraksiyon hesaplayıcı ve dial-in ipuçları",
+          "Biten paketler ve veri dışa aktarma",
+          "Beanie'nin hangi çıkartmaları takacağını seçme"
+        ]
+      },
+      "note": "App Store fiyatı kendi para biriminde gösterir. İstediğin zaman iPhone'unun abonelik ayarlarından iptal edebilirsin."
+    },
+    "faq": {
+      "title": "Sorular",
+      "items": [
+        {
+          "q": "Hesap gerekiyor mu?",
+          "a": "Evet. Apple ya da Google ile giriş yaparsın, böylece günlüğün yedeklenir ve telefon değiştirirsen geri gelir."
+        },
+        {
+          "q": "Android sürümü var mı?",
+          "a": "Henüz yok. Brewio şimdilik yalnızca iPhone'da."
+        },
+        {
+          "q": "Hangi dillerde kullanılabiliyor?",
+          "a": "İngilizce, İsveççe, Norveççe, Danca, Fince, Almanca, Felemenkçe, Fransızca, İspanyolca, İtalyanca, Portekizce, Yunanca, Türkçe, Japonca ve Korece."
+        },
+        {
+          "q": "Verilerim nerede saklanıyor?",
+          "a": "Avrupa Birliği'ndeki Supabase sunucularında. Gizlilik politikası Brewio'nun neyi neden sakladığını anlatıyor."
+        },
+        {
+          "q": "Brewio Pro'yu nasıl iptal ederim?",
+          "a": "iPhone'unda Ayarlar'ı aç, adına dokun, sonra Abonelikler'e gir. Pro, ödediğin dönemin sonuna kadar açık kalır."
+        },
+        {
+          "q": "Verilerimi silebilir miyim?",
+          "a": "Evet. Uygulamada Profil'e git ve verilerini sil. Demlemelerin, paketlerin, tariflerin, fotoğrafların ve Brewio'nun senin hakkında sakladığı her şey kaldırılır."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Demleme rehberleri ve araçlar",
+      "body": "Türkçe ücretsiz hesaplayıcılar ve rehberler. Bunlar için uygulamaya ihtiyacın yok."
+    },
+    "cta": {
+      "title": "Brewio, App Store'da ücretsiz",
+      "sub": "İndir ve bir sonraki demlemeni kaydet."
+    },
+    "footer": {
+      "desc": "iPhone için bir kahve günlüğü ve demleme zamanlayıcısı. İsveç'te yapıldı.",
+      "app": "Uygulama",
+      "learn": "Öğren",
+      "legal": "Brewio",
+      "faq": "Sorular",
+      "privacy": "Gizlilik politikası",
+      "terms": "Kullanım koşulları",
+      "cookies": "Çerez ayarları",
+      "contact": "İletişim",
+      "languages": "Diller"
+    }
+  },
+  "ja": {
+    "seo": {
+      "title": "Brewio：コーヒーの記録とドリップタイマーのiPhoneアプリ",
+      "desc": "Brewioは、iPhone向けのコーヒー記録アプリです。淹れたコーヒーを記録し、手順ごとに進むタイマーでレシピどおりに淹れ、豆の在庫を管理しながら、自分の好みを知ることができます。無料、15言語に対応。"
+    },
+    "nav": {
+      "features": "機能",
+      "pricing": "料金",
+      "roasters": "ロースター",
+      "guides": "ガイド",
+      "tools": "ツール",
+      "get": "アプリを入手",
+      "menu": "メニュー",
+      "faq": "よくある質問"
+    },
+    "hero": {
+      "title": "おうちでコーヒーを|淹れる人のための|記録アプリ",
+      "sub": "淹れたコーヒーと味の感想を記録して、手順ごとに進むタイマーでレシピどおりに淹れ、棚にある豆も管理できます。",
+      "note": "iPhoneで無料で使えます。Brewio Proへの登録は任意です。",
+      "altHome": "ビーニーと18日連続の記録が表示されたBrewioのホーム画面",
+      "altJournal": "最近の記録と評価、味のメモが並ぶジャーナル"
+    },
+    "journal": {
+      "title": "うまくいった|淹れ方を|残せます",
+      "body": "1杯ごとに専用のページができ、豆、ロースター、粉の量、湯量、グラインダーの目盛り、温度、抽出時間、味のメモをまとめて残せます。翌週に同じ袋を開ければ、その豆で前に淹れた記録がすぐに出てくるので、おいしかった1杯をもう一度淹れたり、いまひとつだった1杯を直したりできます。",
+      "points": [
+        "評価と味のメモ",
+        "グラインダーごとに目盛りを保存",
+        "測っている人はTDSと収率も",
+        "カフェで飲んだコーヒーもお店の名前と一緒に",
+        "Proならカップの写真も残せます"
+      ],
+      "alt": "V60で淹れたコーヒーの記録。粉の量、湯量、温度、時間、味のメモ"
+    },
+    "timer": {
+      "title": "注ぐタイミングを|教えてくれる|タイマー",
+      "body": "淹れ方を選ぶと、Brewioが1ステップずつ案内します。リンス、蒸らし、目標の重さまで注ぐ、待つ。V60やエアロプレスから、エスプレッソ、イブリック、ネルドリップ、水出しまで、20種類の淹れ方のレシピがあります。粉の量を変えれば、すべての湯量が自動で変わります。",
+      "points": [
+        "自分のレシピを保存",
+        "ホットとアイスの両方に対応",
+        "比率の計算",
+        "Proなら収率の計算も"
+      ],
+      "alt": "V60の1投目。残り23秒のタイマー"
+    },
+    "stash": {
+      "title": "棚にある豆が|ひと目で|わかります",
+      "body": "買った豆の袋を登録しておけば、Brewioが管理します。淹れるたびに残りのグラム数が減り、焙煎から何日たったか、1杯あたりいくらかもわかります。飲み終えた袋は「飲み終えた豆」に移るので、あのコーヒーをまた探せます。",
+      "points": [
+        "Proなら袋のラベルをスキャンして自動入力",
+        "豆が古くなってきたらお知らせ",
+        "Proなら飲み終えた豆の記録も"
+      ],
+      "alt": "棚に4つの袋が並ぶ豆ストック。それぞれ残りのグラム数と焙煎からの日数を表示"
+    },
+    "taste": {
+      "title": "自分の好みが|わかります",
+      "body": "数週間記録を続けると、傾向が見えてきます。好みの傾向では高く評価した味が、ワールドマップではコーヒーの生産国が、週次まとめではその週の記録がわかります。酸っぱい、苦いと感じたときは、次に何を変えればいいかのヒントが出ます。",
+      "note": "Brewio Proの機能です。",
+      "altTaste": "味のチャートがある好みの傾向の画面",
+      "altRecap": "7日間で7杯を記録した週次まとめ"
+    },
+    "beanie": {
+      "title": "ビーニーを|紹介します",
+      "body": "ビーニーは、コーヒーカップに入った小さな植物です。記録するたびに少しずつ育ち、苗から花が咲くまで成長します。節目ごとにカップに貼るステッカーがもらえ、クローゼットには帽子やメガネ、エプロンが増えていきます。季節限定の衣装もあります。",
+      "note": "ビーニーとステッカーは誰でも無料です。",
+      "altWardrobe": "帽子やメガネ、エプロンが並ぶビーニーのクローゼット",
+      "altStickers": "12枚中11枚を集めたステッカー帳"
+    },
+    "roasters": {
+      "title": "注文してみたい|ロースター",
+      "body": "「見つける」では、私たちが好きなスペシャルティのロースター{count}店を紹介しています。スウェーデンのレンホヴダからソウルまで、それぞれの得意分野と、あなたの国に発送しているかがわかります。掲載料はいただいていません。",
+      "link": "すべてのロースターを見る"
+    },
+    "more": {
+      "title": "ほかにも|こんな機能が|あります",
+      "items": [
+        {
+          "title": "シェア用の画像",
+          "body": "淹れたコーヒーを、Instagramのストーリーや投稿にちょうどいい画像にできます。"
+        },
+        {
+          "title": "グラインダーの登録",
+          "body": "持っているグラインダーを登録すると、毎回どの目盛りで挽いたかを覚えてくれます。1台は無料、2台目からはProです。"
+        },
+        {
+          "title": "連続記録のお知らせ",
+          "body": "連続記録が続いていて、夜になってもまだ記録していないときに1回だけお知らせします。オフにもできます。"
+        },
+        {
+          "title": "データの書き出し",
+          "body": "記録をCSVファイルで書き出して表計算ソフトで開いたり、すべてをJSONで保存したりできます。Proの機能です。"
+        },
+        {
+          "title": "15言語に対応",
+          "body": "日本語、韓国語、スウェーデン語、トルコ語、ギリシャ語など、どの言語でも自然に読める文章にしています。"
+        },
+        {
+          "title": "広告なし",
+          "body": "Brewioは広告を表示せず、データを売ることもありません。保存されたデータはプロフィールからすべて削除できます。"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "無料で使えて、|Proは|必要なときだけ",
+      "free": {
+        "name": "無料",
+        "sub": "期限なし",
+        "points": [
+          "月15杯まで記録",
+          "ジャーナルに直近30件を表示",
+          "豆ストックは3袋まで",
+          "レシピとグラインダーは1つずつ",
+          "すべての淹れ方とタイマー",
+          "比率の計算",
+          "ビーニー、ステッカー、ロースター一覧"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "月額または年額",
+        "points": [
+          "記録、履歴、袋、レシピ、グラインダーが無制限",
+          "記録と袋の写真",
+          "ラベルのスキャン",
+          "好みの傾向、ワールドマップ、すべての統計",
+          "週次まとめ",
+          "収率の計算と調整のヒント",
+          "飲み終えた豆とデータの書き出し",
+          "ビーニーにつけるステッカーを選べる"
+        ]
+      },
+      "note": "価格はApp Storeでお住まいの国の通貨で表示されます。iPhoneのサブスクリプション設定からいつでも解約できます。"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "items": [
+        {
+          "q": "アカウントは必要ですか？",
+          "a": "はい。AppleまたはGoogleでサインインします。記録はバックアップされるので、機種変更しても引き継げます。"
+        },
+        {
+          "q": "Android版はありますか？",
+          "a": "まだありません。今のところiPhone専用です。"
+        },
+        {
+          "q": "どの言語に対応していますか？",
+          "a": "英語、スウェーデン語、ノルウェー語、デンマーク語、フィンランド語、ドイツ語、オランダ語、フランス語、スペイン語、イタリア語、ポルトガル語、ギリシャ語、トルコ語、日本語、韓国語です。"
+        },
+        {
+          "q": "データはどこに保存されますか？",
+          "a": "EU域内にあるSupabaseのサーバーに保存されます。Brewioが何をなぜ保存するかは、プライバシーポリシーに書いています。"
+        },
+        {
+          "q": "Brewio Proはどうやって解約しますか？",
+          "a": "iPhoneの「設定」を開いて自分の名前をタップし、「サブスクリプション」から解約できます。支払い済みの期間が終わるまではProを使えます。"
+        },
+        {
+          "q": "データを削除できますか？",
+          "a": "はい。アプリの「プロフィール」からデータを削除できます。記録、豆の袋、レシピ、写真など、Brewioが保存したものがすべて消えます。"
+        }
+      ]
+    },
+    "guides": {
+      "title": "淹れ方ガイドと|計算ツール",
+      "body": "日本語で読める無料のガイドと計算ツールです。アプリがなくても使えます。"
+    },
+    "cta": {
+      "title": "Brewioは|App Storeで|無料です",
+      "sub": "ダウンロードして、次の1杯を記録してみてください。"
+    },
+    "footer": {
+      "desc": "iPhone向けのコーヒー記録アプリとドリップタイマー。スウェーデン生まれ。",
+      "app": "アプリ",
+      "learn": "学ぶ",
+      "legal": "Brewio",
+      "faq": "よくある質問",
+      "privacy": "プライバシーポリシー",
+      "terms": "利用規約",
+      "cookies": "Cookieの設定",
+      "contact": "お問い合わせ",
+      "languages": "言語"
+    }
+  },
+  "ko": {
+    "seo": {
+      "title": "Brewio: iPhone용 커피 기록 앱과 추출 타이머",
+      "desc": "Brewio는 iPhone용 커피 기록 앱이에요. 내린 커피를 기록하고, 단계별 타이머로 레시피를 따라 하고, 원두를 관리하면서 내 취향을 알아갈 수 있어요. 무료, 15개 언어 지원."
+    },
+    "nav": {
+      "features": "기능",
+      "pricing": "요금",
+      "roasters": "로스터리",
+      "guides": "가이드",
+      "tools": "도구",
+      "get": "앱 받기",
+      "menu": "메뉴",
+      "faq": "자주 묻는 질문"
+    },
+    "hero": {
+      "title": "집에서 커피를 내리는 사람을 위한 커피 기록 앱",
+      "sub": "내린 커피와 맛을 기록하고, 단계별 타이머로 레시피를 따라 내리고, 선반에 있는 원두도 관리할 수 있어요.",
+      "note": "iPhone에서 무료로 쓸 수 있어요. Brewio Pro는 선택이에요.",
+      "altHome": "비니와 18일 연속 기록이 보이는 Brewio 홈 화면",
+      "altJournal": "최근 기록과 평점, 맛 노트가 있는 저널"
+    },
+    "journal": {
+      "title": "잘 맞았던 레시피를 기억해요",
+      "body": "한 잔마다 원두, 로스터리, 원두 양, 물 양, 그라인더 눈금, 온도, 추출 시간, 맛 노트를 담은 페이지가 생겨요. 다음 주에 같은 봉투를 열면 그 원두로 내렸던 기록이 바로 보여서, 맛있었던 한 잔을 다시 내리거나 아쉬웠던 한 잔을 고칠 수 있어요.",
+      "points": [
+        "평점과 맛 노트",
+        "그라인더마다 눈금 저장",
+        "측정한다면 TDS와 수율도 기록",
+        "카페에서 마신 커피도 카페 이름과 함께",
+        "Pro에서는 커피 사진도 저장"
+      ],
+      "alt": "V60으로 내린 커피 기록. 원두 양, 물 양, 온도, 시간, 맛 노트"
+    },
+    "timer": {
+      "title": "언제 부어야 할지 알려주는 타이머",
+      "body": "추출 방식을 고르면 Brewio가 한 단계씩 안내해요. 린싱, 뜸 들이기, 목표 무게까지 붓기, 기다리기. V60과 에어로프레스부터 에스프레소, 이브릭, 융드립, 콜드브루까지 20가지 추출 방식의 레시피가 있어요. 원두 양을 바꾸면 모든 물 양이 함께 바뀌어요.",
+      "points": [
+        "나만의 레시피 저장",
+        "핫과 아이스 버전",
+        "비율 계산기",
+        "Pro에서는 수율 계산기도"
+      ],
+      "alt": "V60 첫 번째 붓기에서 23초 남은 추출 타이머"
+    },
+    "stash": {
+      "title": "선반에 어떤 원두가 있는지 알 수 있어요",
+      "body": "산 원두 봉투를 추가하면 Brewio가 관리해요. 내릴 때마다 남은 그램이 줄고, 로스팅한 지 며칠 됐는지, 한 잔에 얼마인지도 보여줘요. 다 마신 봉투는 '다 마신 원두'로 옮겨져서 그 커피를 다시 찾을 수 있어요.",
+      "points": [
+        "Pro에서는 라벨을 스캔해 봉투 정보를 자동 입력",
+        "원두가 오래되기 시작하면 알림",
+        "Pro에서는 다 마신 원두 기록도"
+      ],
+      "alt": "선반에 봉투 네 개가 있는 원두 보관함. 봉투마다 남은 그램과 로스팅 후 지난 날짜 표시"
+    },
+    "taste": {
+      "title": "내 취향을 알 수 있어요",
+      "body": "몇 주 동안 기록하다 보면 패턴이 보이기 시작해요. 취향 프로필은 높게 평가한 맛을, 원산지 지도는 커피가 어디서 왔는지를, 주간 요약은 한 주의 기록을 보여줘요. 커피가 시거나 쓰게 나왔을 때는 다음에 무엇을 바꾸면 좋을지 다이얼 인 팁을 알려줘요.",
+      "note": "Brewio Pro 기능이에요.",
+      "altTaste": "맛 차트가 있는 취향 프로필 화면",
+      "altRecap": "7일 동안 7잔을 기록한 주간 요약"
+    },
+    "beanie": {
+      "title": "비니를 소개해요",
+      "body": "비니는 커피잔에 담긴 작은 식물이에요. 기록할 때마다 조금씩 자라서 새싹에서 꽃이 필 때까지 커요. 기록이 쌓일 때마다 비니의 컵에 붙일 스티커를 받고, 옷장에는 모자, 안경, 앞치마가 늘어나요. 특정 시기에만 나오는 옷도 있어요.",
+      "note": "비니와 스티커는 누구나 무료예요.",
+      "altWardrobe": "모자, 안경, 앞치마가 있는 비니의 옷장",
+      "altStickers": "스티커 12개 중 11개를 모은 스티커북"
+    },
+    "roasters": {
+      "title": "주문해 볼 만한 로스터리",
+      "body": "발견 탭에는 저희가 좋아하는 스페셜티 로스터리 {count}곳이 있어요. 스웨덴 렌호브다부터 서울까지, 각 로스터리가 무엇에 집중하는지, 내가 사는 곳으로 배송하는지 알 수 있어요. 돈을 받고 올린 곳은 없어요.",
+      "link": "모든 로스터리 보기"
+    },
+    "more": {
+      "title": "이런 기능도 있어요",
+      "items": [
+        {
+          "title": "공유 이미지",
+          "body": "내린 커피를 인스타그램 스토리나 게시물 크기의 이미지로 만들 수 있어요."
+        },
+        {
+          "title": "내 그라인더",
+          "body": "가지고 있는 그라인더를 추가하면 매번 어떤 눈금으로 갈았는지 기억해요. 그라인더 1대는 무료이고, 더 추가하려면 Pro가 필요해요."
+        },
+        {
+          "title": "연속 기록 알림",
+          "body": "연속 기록 중인데 저녁까지 아무것도 기록하지 않았다면 한 번 알려드려요. 끌 수도 있어요."
+        },
+        {
+          "title": "내보내기",
+          "body": "기록을 CSV 파일로 내보내 스프레드시트에서 열거나, 전체를 JSON으로 저장할 수 있어요. Pro 기능이에요."
+        },
+        {
+          "title": "15개 언어",
+          "body": "한국어, 일본어, 스웨덴어, 튀르키예어, 그리스어 등 어떤 언어로 봐도 자연스럽게 읽히도록 썼어요."
+        },
+        {
+          "title": "광고 없음",
+          "body": "Brewio는 광고를 보여주지 않고 데이터를 팔지도 않아요. 저장된 데이터는 프로필에서 모두 삭제할 수 있어요."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "무료로 쓰고, Pro는 필요할 때만",
+      "free": {
+        "name": "무료",
+        "sub": "기간 제한 없음",
+        "points": [
+          "한 달에 15잔 기록",
+          "저널에 최근 30개 기록 표시",
+          "원두 보관함 3봉투",
+          "레시피와 그라인더 각 1개",
+          "모든 추출 방식과 타이머",
+          "비율 계산기",
+          "비니, 스티커, 로스터리 목록"
+        ]
+      },
+      "pro": {
+        "name": "Brewio Pro",
+        "sub": "월간 또는 연간",
+        "points": [
+          "기록, 히스토리, 봉투, 레시피, 그라인더 무제한",
+          "기록과 원두 봉투 사진",
+          "라벨 스캔",
+          "취향 프로필, 원산지 지도, 전체 통계",
+          "주간 요약",
+          "수율 계산기와 다이얼 인 팁",
+          "다 마신 원두와 데이터 내보내기",
+          "비니가 붙일 스티커 고르기"
+        ]
+      },
+      "note": "가격은 App Store에서 사는 나라의 통화로 표시돼요. iPhone 구독 설정에서 언제든지 해지할 수 있어요."
+    },
+    "faq": {
+      "title": "자주 묻는 질문",
+      "items": [
+        {
+          "q": "계정이 필요한가요?",
+          "a": "네. Apple이나 Google로 로그인해요. 기록이 백업되어서 휴대폰을 바꿔도 그대로 이어져요."
+        },
+        {
+          "q": "Android 버전이 있나요?",
+          "a": "아직 없어요. 지금은 iPhone에서만 쓸 수 있어요."
+        },
+        {
+          "q": "어떤 언어를 지원하나요?",
+          "a": "영어, 스웨덴어, 노르웨이어, 덴마크어, 핀란드어, 독일어, 네덜란드어, 프랑스어, 스페인어, 이탈리아어, 포르투갈어, 그리스어, 튀르키예어, 일본어, 한국어를 지원해요."
+        },
+        {
+          "q": "데이터는 어디에 저장되나요?",
+          "a": "EU 안에 있는 Supabase 서버에 저장돼요. Brewio가 무엇을 왜 저장하는지는 개인정보 처리방침에 나와 있어요."
+        },
+        {
+          "q": "Brewio Pro는 어떻게 해지하나요?",
+          "a": "iPhone에서 설정을 열고 내 이름을 누른 다음 구독으로 들어가면 돼요. 결제한 기간이 끝날 때까지는 Pro를 계속 쓸 수 있어요."
+        },
+        {
+          "q": "데이터를 삭제할 수 있나요?",
+          "a": "네. 앱의 프로필에서 데이터를 삭제할 수 있어요. 기록, 원두 봉투, 레시피, 사진 등 Brewio가 저장한 모든 것이 지워져요."
+        }
+      ]
+    },
+    "guides": {
+      "title": "추출 가이드와 도구",
+      "body": "한국어로 된 무료 가이드와 계산기예요. 앱이 없어도 쓸 수 있어요."
+    },
+    "cta": {
+      "title": "Brewio는 App Store에서 무료예요",
+      "sub": "앱을 받고 다음 한 잔을 기록해 보세요."
+    },
+    "footer": {
+      "desc": "iPhone용 커피 기록 앱과 추출 타이머. 스웨덴에서 만들었어요.",
+      "app": "앱",
+      "learn": "배우기",
+      "legal": "Brewio",
+      "faq": "자주 묻는 질문",
+      "privacy": "개인정보 처리방침",
+      "terms": "이용약관",
+      "cookies": "쿠키 설정",
+      "contact": "문의",
+      "languages": "언어"
+    }
+  }
+}

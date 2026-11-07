@@ -1,24 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import Marquee from '../components/Marquee.astro';
-import Features from '../components/Features.astro';
-import BrewMethods from '../components/BrewMethods.astro';
-import Precision from '../components/Precision.astro';
-import GuidesTeaser from '../components/GuidesTeaser.astro';
-import Download from '../components/Download.astro';
+import Home from '../components/home/Home.astro';
 import Footer from '../components/Footer.astro';
+import home from '../data/i18n/home.json';
+
+const t = home.en;
 ---
 
-<Layout hreflangCluster>
+<Layout title={t.seo.title} description={t.seo.desc} hreflangCluster>
   <Nav />
-  <Hero />
-  <Marquee />
-  <Features />
-  <BrewMethods />
-  <Precision />
-  <GuidesTeaser />
-  <Download />
+  <Home t={t} />
   <Footer />
 </Layout>

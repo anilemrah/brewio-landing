@@ -1,0 +1,33 @@
+---
+/** A real app screenshot in a thin iPhone bezel. Screenshots are 720×1565 (iPhone 17, scaled). */
+interface Props {
+  src: string;
+  alt: string;
+  eager?: boolean;
+  class?: string;
+}
+
+const { src, alt, eager = false, class: className = '' } = Astro.props;
+---
+
+<figure class={`phone ${className}`}>
+  <img src={src} alt={alt} width="720" height="1565" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+</figure>
+
+<style>
+  .phone {
+    margin: 0;
+    padding: 2.4%;
+    background: #141210;
+    /* iPhone 17 screen corners are ~55 pt on a 402 × 874 pt screen */
+    border-radius: 15% / 7%;
+    box-shadow: 0 1px 2px rgba(28, 26, 23, 0.08), 0 18px 40px -12px rgba(28, 26, 23, 0.28);
+  }
+
+  .phone img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 13.6% / 6.3%;
+  }
+</style>

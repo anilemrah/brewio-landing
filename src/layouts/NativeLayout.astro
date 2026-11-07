@@ -1,9 +1,11 @@
 ---
 import Layout from './Layout.astro';
 import Footer from '../components/Footer.astro';
-import LangSwitcher from '../components/LangSwitcher.astro';
+import Nav from '../components/Nav.astro';
+import { phrased } from '../components/home/phrase';
 import { SITE_URL, APP_STORE_URL, OG_IMAGE, ORGANIZATION } from '../data/site';
 import locales from '../data/i18n/locales.json';
+import home from '../data/i18n/home.json';
 import { NATIVE_PAGES, findPage, pagesFor } from '../data/i18n/native-pages';
 
 interface Props {
@@ -21,6 +23,7 @@ const UPDATED = '2026-10-11';
 
 const all = locales as Record<string, any>;
 const t = all[locale];
+const h = (home as Record<string, any>)[locale];
 const page = findPage(locale, slug);
 const updated = page.updated ?? UPDATED;
 const lang = page.lang ?? t.meta.hreflang;
@@ -35,6 +38,8 @@ const alternates = page.cluster
   : undefined;
 
 const headlineText = headline.replace(/<[^>]+>/g, '');
+// Headlines used to carry an accent word in <em>; the new design sets them in one style.
+const plainHeadline = headline.replace(/<\/?em>/g, '');
 
 const main =
   page.kind === 'tool'
@@ -87,25 +92,14 @@ const schema = [
   alternates={alternates}
   schema={schema}
 >
-  <header class="bar">
-    <a href={`/${locale}/`} class="brand">
-      <img src="/brewio-logo.png" alt="" class="brand-logo" />
-      <span>Brewio</span>
-    </a>
-    <LangSwitcher current={locale} />
-  </header>
 
-  <article>
+  <Nav locale={locale} />
+
+  <article class="native">
     <header class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="orb"></div>
-        <div class="grain"></div>
-      </div>
-      <div class="hero-inner">
-        <a href={`/${locale}/`} class="eyebrow">{t.pages.eyebrow}</a>
-        <h1 class="hero-h1" set:html={headline} />
-        <p class="hero-sub">{subtitle}</p>
-      </div>
+      <p class="hero-meta"><a href={`/${locale}/`}>Brewio</a> <span aria-hidden="true">/</span> <span>{h.guides.title.replaceAll('|', '')}</span></p>
+      <h1 class="hero-h1" set:html={plainHeadline} />
+      <p class="hero-sub">{subtitle}</p>
     </header>
 
     <div class="body">
@@ -114,21 +108,19 @@ const schema = [
       </div>
 
       <aside class="cta">
-        <div class="cta-glow" aria-hidden="true"></div>
-        <div class="cta-inner">
-          <img src="/brewio-logo.png" alt="" class="cta-logo" />
-          <h2 class="cta-h2" set:html={t.cta.heading} />
+        <img src="/app/icon.png" alt="" width="64" height="64" class="cta-icon" />
+        <div class="cta-text">
+          <h2 class="cta-h2" set:html={phrased(h.cta.title)} />
           <p class="cta-note">{appNote}</p>
-          <p class="cta-sub">{t.cta.sub}</p>
-          <a href={APP_STORE_URL} class="store" target="_blank" rel="noopener">
-            <img src="/badge-app-store.svg" alt="App Store" />
-          </a>
         </div>
+        <a href={APP_STORE_URL} class="store" target="_blank" rel="noopener">
+          <img src="/badge-app-store.svg" alt="App Store" width="144" height="48" />
+        </a>
       </aside>
 
       {others.length > 0 && (
         <nav class="more" aria-labelledby="more-heading">
-          <h2 id="more-heading" class="more-heading">{t.pages.heading}</h2>
+          <h2 id="more-heading" class="more-heading" set:html={phrased(h.guides.title)} />
           <ul class="more-list">
             {others.map((p) => (
               <li>
@@ -148,111 +140,25 @@ const schema = [
 </Layout>
 
 <style>
-  /* ── Top bar ── */
-  .bar {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.25rem 2rem;
-  }
+  .native { background: var(--paper); color: var(--ink); }
 
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    color: var(--cream);
-  }
+  .hero { max-width: 780px; margin: 0 auto; padding: calc(64px + 4rem) 1.5rem 2rem; }
 
-  .brand-logo {
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    background: #F9F5EF;
-    object-fit: contain;
-    padding: 3px;
-  }
-
-  .brand:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; border-radius: 4px; }
-
-  /* ── Hero ── */
-  .hero {
-    position: relative;
-    background: var(--dark);
-    padding: 8.5rem 2rem 4rem;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .hero-bg { position: absolute; inset: 0; pointer-events: none; }
-
-  .orb {
-    position: absolute;
-    top: -200px; right: -100px;
-    width: 620px; height: 620px;
-    border-radius: 50%;
-    filter: blur(95px);
-    background: radial-gradient(circle, rgba(196,123,48,0.12) 0%, transparent 70%);
-  }
-
-  .grain {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    opacity: 0.5;
-  }
-
-  .hero-inner { position: relative; max-width: 46rem; margin: 0 auto; }
-
-  .eyebrow {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    color: var(--amber);
-    background: rgba(196,123,48,0.1);
-    border: 1px solid rgba(196,123,48,0.2);
-    padding: 0.3rem 0.85rem;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
-    transition: background 0.2s;
-  }
-
-  .eyebrow:hover { background: rgba(196,123,48,0.18); }
-  .eyebrow:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .hero-meta { font-size: 0.9rem; color: var(--ink-3); margin-bottom: 1rem; }
+  .hero-meta a { color: var(--accent-ink); }
+  .hero-meta a:hover { color: var(--ink); }
 
   .hero-h1 {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw, 3.3rem);
-    line-height: 1.12;
-    color: var(--cream);
-    letter-spacing: -0.025em;
-    margin-bottom: 1.2rem;
+    font-weight: 600;
+    font-size: clamp(2rem, 4.4vw, 3.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.1rem;
     text-wrap: balance;
   }
 
-  .hero-h1 :global(em) { color: var(--amber); font-style: italic; }
-
-  .hero-sub {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: rgba(250,247,242,0.58);
-    max-width: 36rem;
-    margin: 0 auto;
-  }
-
-  /* CJK emphasis is carried by weight and colour, never a synthesised slant. */
-  :global(html[lang="ja"]) .hero-h1 :global(em),
-  :global(html[lang="ko"]) .hero-h1 :global(em),
-  :global(html[lang="ja"]) .cta-h2 :global(em),
-  :global(html[lang="ko"]) .cta-h2 :global(em) {
-    font-style: normal;
-    font-weight: 700;
-  }
+  .hero-sub { font-size: 1.1rem; line-height: 1.75; color: var(--ink-2); }
 
   /* Japanese has no spaces, so lines break mid-phrase and strand a lone 「す。」.
      auto-phrase breaks at phrase boundaries where supported and is ignored elsewhere. */
@@ -262,218 +168,120 @@ const schema = [
     word-break: auto-phrase;
   }
 
-  /* ── Body ── */
-  .body { background: var(--cream); padding: 3.5rem 2rem 4rem; }
+  .body { padding: 1rem 1.5rem 6rem; }
 
-  .native-content { max-width: 780px; margin: 0 auto; }
+  .native-content { max-width: 780px; margin: 0 auto; padding-top: 2.25rem; border-top: 1px solid var(--line); }
 
   .native-content :global(h2) {
     font-family: var(--font-serif);
+    font-weight: 600;
     font-size: clamp(1.45rem, 3vw, 1.75rem);
-    color: var(--text-dark);
-    letter-spacing: -0.02em;
-    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    line-height: 1.3;
     margin: 3.25rem 0 1rem;
     text-wrap: balance;
   }
 
   .native-content :global(h3) {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    color: var(--text-dark);
-    letter-spacing: -0.015em;
-    line-height: 1.3;
-    margin: 2.25rem 0 0.75rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.12rem;
+    color: var(--ink);
+    line-height: 1.4;
+    margin: 2.25rem 0 0.6rem;
   }
 
-  .native-content :global(p) {
-    font-size: 1.03rem;
-    color: var(--text-muted);
-    line-height: 1.85;
-    margin-bottom: 1.15rem;
-  }
-
-  .native-content :global(strong) { color: var(--text-dark); font-weight: 600; }
+  .native-content :global(p) { font-size: 1.04rem; color: var(--ink-2); line-height: 1.85; margin-bottom: 1.15rem; }
+  .native-content :global(strong) { color: var(--ink); font-weight: 600; }
 
   .native-content :global(ul),
   .native-content :global(ol) { margin: 0.75rem 0 1.5rem 1.35rem; }
 
-  .native-content :global(li) {
-    font-size: 1.03rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: 0.45rem;
-  }
+  .native-content :global(li) { font-size: 1.04rem; color: var(--ink-2); line-height: 1.8; margin-bottom: 0.45rem; }
+  .native-content :global(li::marker) { color: var(--ink-3); }
 
-  .native-content :global(li::marker) { color: var(--amber); }
-
-  .native-content :global(a:not([class])) {
-    color: var(--brown);
-    text-decoration: underline;
-    text-decoration-color: rgba(107,58,31,0.35);
-    text-underline-offset: 3px;
-  }
-
-  .native-content :global(a:not([class]):hover) { text-decoration-color: var(--brown); }
+  .native-content :global(a:not([class])) { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .native-content :global(a:not([class]):hover) { color: var(--ink); }
 
   .native-content :global(.note) {
     margin: 1.5rem 0;
-    padding: 1.05rem 1.3rem;
-    background: rgba(196,123,48,0.09);
-    border-left: 3px solid var(--amber);
-    border-radius: 0 12px 12px 0;
-    font-size: 0.97rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 0.98rem;
     line-height: 1.75;
-    color: var(--text-dark);
+    color: var(--ink);
   }
 
   .native-content :global(.table-wrap) { overflow-x: auto; margin: 1.25rem 0 1.75rem; }
-
-  .native-content :global(table) {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 0.93rem;
-  }
+  .native-content :global(table) { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
 
   /* Only tables inside a scroll wrapper may be wider than a phone; the calculators' own tables must fit. */
   .native-content :global(.table-wrap table) { min-width: 30rem; }
 
   .native-content :global(th) {
     text-align: left;
-    font-family: var(--font-mono);
-    font-size: 0.64rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    font-weight: 400;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-3);
     padding: 0 1rem 0.7rem 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
     white-space: nowrap;
   }
 
   .native-content :global(td) {
     padding: 0.8rem 1rem 0.8rem 0;
-    border-bottom: 1px solid var(--border-subtle);
-    color: var(--text-muted);
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-2);
     vertical-align: top;
   }
 
-  .native-content :global(td:first-child) { color: var(--text-dark); }
-  .native-content :global(td.num) { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--text-dark); }
+  .native-content :global(td:first-child) { color: var(--ink); }
+  .native-content :global(td.num) { font-variant-numeric: tabular-nums; color: var(--ink); }
 
-  /* ── CTA ── */
   .cta {
-    position: relative;
     max-width: 780px;
     margin: 3.5rem auto 0;
-    background: var(--dark);
-    border-radius: 22px;
-    padding: 3rem 2.5rem;
-    text-align: center;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
   }
 
-  .cta-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(196,123,48,0.11) 0%, transparent 70%);
-    pointer-events: none;
-  }
+  .cta-icon { flex: none; border-radius: 22.5%; box-shadow: 0 1px 2px rgba(28, 26, 23, 0.1); }
+  .cta-text { flex: 1; min-width: 0; }
+  .cta-h2 { font-family: var(--font-serif); font-weight: 600; font-size: 1.3rem; line-height: 1.3; margin-bottom: 0.35rem; }
+  .cta-note { font-size: 0.95rem; line-height: 1.65; color: var(--ink-2); }
+  .store img { display: block; height: 48px; width: auto; }
 
-  .cta-inner { position: relative; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-
-  .cta-logo {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: #F9F5EF;
-    object-fit: contain;
-    padding: 5px;
-  }
-
-  .cta-h2 {
-    font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-    color: var(--cream);
-    letter-spacing: -0.025em;
-    line-height: 1.2;
-    text-wrap: balance;
-  }
-
-  .cta-h2 :global(em) { color: var(--amber); font-style: italic; }
-
-  .cta-note {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: rgba(250,247,242,0.72);
-    max-width: 32rem;
-  }
-
-  .cta-sub {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: rgba(250,247,242,0.45);
-    max-width: 30rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .store { display: inline-flex; transition: transform 0.2s, opacity 0.2s; }
-  .store:hover { transform: translateY(-2px); opacity: 0.9; }
-  .store:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; border-radius: 8px; }
-  .store img { height: 48px; width: auto; display: block; }
-
-  /* ── More in this language ── */
-  .more {
-    max-width: 780px;
-    margin: 3.5rem auto 0;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .more-heading {
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
-    color: var(--text-dark);
-    letter-spacing: -0.02em;
-    margin-bottom: 1.1rem;
-  }
-
-  .more-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 0.875rem;
-  }
+  .more { max-width: 780px; margin: 3.5rem auto 0; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .more-heading { font-family: var(--font-serif); font-weight: 600; font-size: 1.4rem; margin-bottom: 1rem; }
+  .more-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
 
   .more-card {
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
+    gap: 0.4rem;
     height: 100%;
-    padding: 1.2rem 1.25rem;
-    background: #fff;
-    border: 1px solid var(--border-subtle);
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: 14px;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: border-color 0.15s;
   }
 
-  .more-card:hover { border-color: var(--amber); transform: translateY(-2px); }
-  .more-card:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
-
-  .more-title {
-    font-family: var(--font-serif);
-    font-size: 1.05rem;
-    color: var(--text-dark);
-    letter-spacing: -0.01em;
-  }
-
-  .more-desc { font-size: 0.86rem; line-height: 1.6; color: var(--text-muted); }
+  .more-card:hover { border-color: var(--ink-3); }
+  .more-title { font-weight: 600; font-size: 1rem; color: var(--ink); }
+  .more-desc { font-size: 0.9rem; line-height: 1.55; color: var(--ink-2); }
 
   @media (max-width: 640px) {
-    .bar { padding: 1rem 1.25rem; }
-    .hero { padding: 7rem 1.25rem 3rem; }
-    .body { padding: 2.5rem 1.25rem 3rem; }
-    .cta { padding: 2.25rem 1.35rem; border-radius: 18px; }
-    .orb { filter: none; opacity: 0.07; }
-    .grain { display: none; }
+    .hero { padding: calc(64px + 2.5rem) 1rem 1.5rem; }
+    .body { padding: 0.5rem 1rem 4.5rem; }
+    .cta { flex-direction: column; align-items: flex-start; }
   }
 </style>

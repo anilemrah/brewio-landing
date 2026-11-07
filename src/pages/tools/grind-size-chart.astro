@@ -2,7 +2,7 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import { BREW_METHODS } from '../../data/brewMethods';
 
-// Finest first — the chart reads left-to-right, fine to coarse.
+// Finest first: the chart reads left to right, fine to coarse.
 const byGrind = [...BREW_METHODS].sort((a, b) => a.grindPos - b.grindPos);
 
 const BANDS = [
@@ -65,7 +65,7 @@ const BANDS = [
             <ul class="band-methods">
               {inBand.length > 0
                 ? inBand.map((m) => <li><span aria-hidden="true">{m.emoji}</span> {m.name}</li>)
-                : <li class="band-empty">—</li>}
+                : <li class="band-empty">–</li>}
             </ul>
           </li>
         );
@@ -105,15 +105,15 @@ const BANDS = [
     <div class="adjust-grid">
       <div class="adjust-card">
         <span class="adjust-badge adjust-sour">Sour, thin, sharp</span>
-        <p>Under-extracted — water moved through too fast. <strong>Grind finer.</strong> If it's already fine, brew hotter or longer instead.</p>
+        <p>Under-extracted: the water moved through too fast. <strong>Grind finer.</strong> If it's already fine, brew hotter or longer instead.</p>
       </div>
       <div class="adjust-card">
         <span class="adjust-badge adjust-bitter">Bitter, dry, hollow</span>
-        <p>Over-extracted — water sat on the grounds too long. <strong>Grind coarser.</strong> Then drop the temperature a couple of degrees.</p>
+        <p>Over-extracted: the water sat on the grounds too long. <strong>Grind coarser.</strong> Then drop the temperature a couple of degrees.</p>
       </div>
       <div class="adjust-card">
         <span class="adjust-badge adjust-flat">Flat and weak</span>
-        <p>Usually ratio, not grind. Add coffee before you touch the grinder — strength and extraction are different problems.</p>
+        <p>Usually ratio, not grind. Add coffee before you touch the grinder. Strength and extraction are different problems.</p>
       </div>
     </div>
   </section>
@@ -323,7 +323,7 @@ const BANDS = [
 
   @media (max-width: 720px) {
     .chart { padding: 1.25rem; border-radius: 16px; }
-    /* Pins would collide at narrow widths — stack them into a plain list. */
+    /* Pins would collide at narrow widths, so stack them into a plain list. */
     .pin { padding-left: 0; }
     .pin-dot { position: static; margin-left: 0; flex-shrink: 0; }
     .pin-label { margin-left: 0.5rem; }

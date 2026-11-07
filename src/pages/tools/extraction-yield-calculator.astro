@@ -7,9 +7,9 @@ const cfg = { sweetLow: EY.sweetLow, sweetHigh: EY.sweetHigh, scaleMin: EY.scale
 
 <ToolLayout
   title="Extraction Yield Calculator"
-  description="Free extraction yield (EY%) calculator. Enter your dose, beverage weight, and refractometer TDS% to see whether your coffee landed in the 18–22% sweet spot — with filter and espresso modes."
+  description="Free extraction yield (EY%) calculator. Enter your dose, beverage weight, and refractometer TDS% to see whether your coffee landed in the 18–22% sweet spot, with filter and espresso modes."
   headline="Extraction Yield <em>Calculator</em>"
-  subtitle="A refractometer tells you TDS. This turns that into extraction yield — the number that actually says whether you pulled enough flavour out of the grounds."
+  subtitle="A refractometer tells you TDS. This turns it into extraction yield, the number that tells you whether you got enough flavour out of the grounds."
   slug="extraction-yield-calculator"
   relatedGuides={[
     { slug: 'extraction-yield-guide', label: 'What extraction yield and TDS actually mean' },
@@ -66,7 +66,7 @@ const cfg = { sweetLow: EY.sweetLow, sweetHigh: EY.sweetHigh, scaleMin: EY.scale
         </div>
       </div>
 
-      <p class="advice" id="advice">Perfect extraction — enjoy your cup.</p>
+      <p class="advice" id="advice">In the ideal range. Enjoy your cup.</p>
 
       <p class="tds-note">
         TDS reading <strong id="tds-echo">1.35%</strong> · <span id="tds-verdict">ideal</span>
@@ -119,7 +119,7 @@ const cfg = { sweetLow: EY.sweetLow, sweetHigh: EY.sweetHigh, scaleMin: EY.scale
       </table>
     </div>
     <p class="ref-foot">
-      You need a refractometer for TDS — it isn't something you can eyeball. Without one, the
+      You need a refractometer for TDS. It isn't something you can eyeball. Without one, the
       taste-based approach in the extraction guide gets you most of the way there.
     </p>
   </section>
@@ -164,8 +164,8 @@ const cfg = { sweetLow: EY.sweetLow, sweetHigh: EY.sweetHigh, scaleMin: EY.scale
         espresso: 'Grind finer, increase dose, or raise temperature to extract more.',
       },
       sweet: {
-        filter: 'Perfect extraction — enjoy your cup.',
-        espresso: 'Perfect extraction — enjoy your shot.',
+        filter: 'In the ideal range. Enjoy your cup.',
+        espresso: 'In the ideal range. Enjoy your shot.',
       },
       over: {
         filter: 'Grind coarser, lower water temp, or reduce brew time.',
@@ -197,7 +197,7 @@ const cfg = { sweetLow: EY.sweetLow, sweetHigh: EY.sweetHigh, scaleMin: EY.scale
       const ey = d > 0 && b > 0 && t > 0 ? (t / 100) * b / d * 100 : null;
 
       if (ey === null) {
-        eyValue.textContent = '—';
+        eyValue.textContent = '–';
         zone.textContent = '';
         zone.className = 'zone';
         advice.textContent = 'Enter your dose, beverage weight, and TDS to see the yield.';
@@ -220,7 +220,7 @@ const cfg = { sweetLow: EY.sweetLow, sweetHigh: EY.sweetHigh, scaleMin: EY.scale
 
       const range = cfg.tds[mode];
       tdsEcho.textContent = `${t.toFixed(2)}%`;
-      if (t <= 0) tdsVerdict.textContent = '—';
+      if (t <= 0) tdsVerdict.textContent = '–';
       else if (t < range.min) tdsVerdict.textContent = 'weak';
       else if (t > range.max) tdsVerdict.textContent = 'strong';
       else tdsVerdict.textContent = 'ideal';

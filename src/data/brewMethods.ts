@@ -15,7 +15,7 @@ export interface BrewMethod {
   name: string;
   emoji: string;
   label: string;
-  /** 1:N — grams of coffee to grams of water (or liquid out, for espresso). */
+  /** 1:N: grams of coffee to grams of water (or liquid out, for espresso). */
   defaultRatio: number;
   ratioBasis: 'water' | 'liquid';
   grindSize: string;
@@ -271,12 +271,12 @@ export const BREW_METHODS: BrewMethod[] = [
       },
       {
         "label": "Dose & distribute",
-        "note": "Dose your ground coffee into the portafilter (e.g. 18 g for a double). Distribute evenly — tap, shake, or use a WDT tool.",
+        "note": "Dose your ground coffee into the portafilter (e.g. 18 g for a double). Distribute evenly by tapping, shaking or using a WDT tool.",
         "duration": 0
       },
       {
         "label": "Tamp",
-        "note": "Tamp with ~15 kg of pressure. Keep the puck level and flat — no angled edges.",
+        "note": "Tamp with ~15 kg of pressure. Keep the puck level, with no angled edges.",
         "duration": 0
       },
       {
@@ -315,7 +315,7 @@ export const BREW_METHODS: BrewMethod[] = [
     "steps": [
       {
         "label": "Grind coarsely",
-        "note": "Grind coffee very coarse — like raw sugar or breadcrumbs.",
+        "note": "Grind coffee very coarse, like raw sugar or breadcrumbs.",
         "duration": 0
       },
       {
@@ -364,12 +364,12 @@ export const BREW_METHODS: BrewMethod[] = [
       },
       {
         "label": "Add coffee",
-        "note": "Add medium-ground coffee — about 60 g per litre of water (roughly 1 g per 16 ml).",
+        "note": "Add medium-ground coffee, about 60 g per litre of water (roughly 1 g per 16 ml).",
         "duration": 0
       },
       {
         "label": "Start & brew",
-        "note": "Close the basket and press start. Wait for the full brew cycle — don't pull the carafe early.",
+        "note": "Close the basket and press start. Wait for the full brew cycle and don't pull the carafe early.",
         "duration": 300
       },
       {
@@ -403,12 +403,12 @@ export const BREW_METHODS: BrewMethod[] = [
       },
       {
         "label": "Cool briefly",
-        "note": "Let the espresso rest for 30 seconds — don't pour it hot over ice.",
+        "note": "Let the espresso rest for 30 seconds. Don't pour it hot over ice.",
         "duration": 30
       },
       {
         "label": "Add sugar (optional)",
-        "note": "Stir sugar into the warm espresso now — it dissolves much better than in cold.",
+        "note": "Stir sugar into the warm espresso now. It dissolves much better than in cold espresso.",
         "duration": 0
       },
       {
@@ -506,7 +506,7 @@ export const BREW_METHODS: BrewMethod[] = [
       },
       {
         "label": "Water rises",
-        "note": "As water heats, it rises into the top chamber. Wait until nearly all water has risen — a small amount stays below.",
+        "note": "As water heats, it rises into the top chamber. Wait until nearly all the water has risen. A small amount stays below.",
         "duration": 90
       },
       {
@@ -516,7 +516,7 @@ export const BREW_METHODS: BrewMethod[] = [
       },
       {
         "label": "Brew",
-        "note": "Maintain a gentle boil for 60–90 seconds. Adjust heat to keep temperature steady — don't let it rage.",
+        "note": "Maintain a gentle boil for 60–90 seconds. Adjust the heat to keep it steady and don't let it boil hard.",
         "duration": 75
       },
       {
@@ -545,7 +545,7 @@ export const BREW_METHODS: BrewMethod[] = [
     "steps": [
       {
         "label": "Add water",
-        "note": "Add cold water to the cezve/ibrik — one demitasse cup per serving.",
+        "note": "Add cold water to the cezve/ibrik: one demitasse cup per serving.",
         "duration": 0
       },
       {
@@ -555,7 +555,7 @@ export const BREW_METHODS: BrewMethod[] = [
       },
       {
         "label": "Heat slowly",
-        "note": "Place on low heat. Let it warm slowly — patience is key.",
+        "note": "Place on low heat. Let it warm slowly. Don't rush this step.",
         "duration": 90
       },
       {

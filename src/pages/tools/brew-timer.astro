@@ -21,9 +21,9 @@ const fmt = (s: number) => {
 
 <ToolLayout
   title="Brew Timer"
-  description="A free step-by-step coffee brew timer for 12 methods — V60, AeroPress, Chemex, French press, moka pot, espresso, cold brew, Turkish and more. Real timings and technique for each stage, running in your browser."
+  description="A free step-by-step coffee brew timer for 12 methods: V60, AeroPress, Chemex, French press, moka pot, espresso, cold brew, Turkish and more. Real timings and technique for each stage, running in your browser."
   headline="Brew <em>Timer</em>"
-  subtitle="Pick a method and follow it stage by stage. Same timings and technique notes as the Brewio app — no install, no signup, nothing to dismiss."
+  subtitle="Pick a method and follow it stage by stage. Same timings and technique notes as the Brewio app, with no install or sign-up."
   slug="brew-timer"
   relatedGuides={[
     { slug: 'how-to-brew-v60', label: 'The full V60 walkthrough, pour by pour' },
@@ -162,7 +162,7 @@ const fmt = (s: number) => {
         osc.start();
         osc.stop(ctx.currentTime + 0.5);
         osc.onended = () => ctx.close();
-      } catch { /* audio blocked — the visual state is enough */ }
+      } catch { /* audio blocked; the visual state is enough */ }
     }
 
     function renderSteps() {
@@ -193,7 +193,7 @@ const fmt = (s: number) => {
         playBtn.disabled = false;
         playBtn.textContent = running ? 'Pause' : remaining === 0 ? 'Restart' : 'Start';
       } else {
-        clock.textContent = '—';
+        clock.textContent = '–';
         clockKey.textContent = 'Untimed step';
         progress.style.width = '0%';
         playBtn.disabled = true;

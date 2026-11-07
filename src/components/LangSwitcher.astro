@@ -65,11 +65,13 @@ const active = options.find((o) => o.code === current) ?? options[0];
   .lang:hover { border-color: var(--text-muted); color: var(--cream); }
 
   .lang-light {
-    border-color: var(--border);
-    color: var(--text-muted);
+    border-color: var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem 0.4rem 0.65rem;
+    color: var(--ink-2);
   }
 
-  .lang-light:hover { border-color: var(--amber); color: var(--text-dark); }
+  .lang-light:hover { border-color: var(--ink-3); color: var(--ink); }
 
   .lang-icon { width: 15px; height: 15px; flex-shrink: 0; }
 
@@ -87,6 +89,6 @@ const active = options.find((o) => o.code === current) ?? options[0];
   .lang-select:focus { outline: none; }
   .lang:focus-within { outline: 2px solid var(--amber); outline-offset: 2px; }
 
-  /* The dropdown itself renders in the OS palette — force readable options. */
+  /* The dropdown itself renders in the OS palette, so force readable options. */
   .lang-select option { color: #1A1714; background: #FAF7F2; }
 </style>

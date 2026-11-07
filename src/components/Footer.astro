@@ -1,13 +1,18 @@
 ---
 import locales from '../data/i18n/locales.json';
+import home from '../data/i18n/home.json';
 
 interface Props {
-  /** Set on localized landing pages — hides links that only exist in English. */
+  /** Set on localized landing pages: hides links that only exist in English. */
   locale?: string;
 }
 
 const { locale } = Astro.props;
 const localized = Boolean(locale);
+const strings = (home as Record<string, any>)[locale ?? 'en'];
+const f = strings.footer;
+const n = strings.nav;
+const base = localized ? `/${locale}/` : '/';
 
 // Plain anchors, not the switcher's <select>: crawlers don't follow option values,
 // so without these the localized pages have no internal links pointing at them.
@@ -23,164 +28,120 @@ const languages = [
 
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-top">
+    <div class="footer-cols">
       <div class="footer-brand">
-        <div class="footer-logo-circle">
-          <img src="/brewio-logo.png" alt="Brewio" class="footer-logo-img" />
-        </div>
+        <a href={base} class="footer-logo">
+          <img src="/app/icon.png" alt="" width="28" height="28" />
+          <span>Brewio</span>
+        </a>
+        <p>{f.desc}</p>
       </div>
-      <p class="footer-tagline">"Every cup tells a story."</p>
+
+      <div class="footer-col">
+        <h2>{f.app}</h2>
+        <a href={`${base}#features`}>{n.features}</a>
+        <a href={`${base}#pricing`}>{n.pricing}</a>
+        <a href="/roasters/">{n.roasters}</a>
+        <a href={`${base}#faq`}>{f.faq}</a>
+      </div>
+
+      {!localized && (
+        <div class="footer-col">
+          <h2>{f.learn}</h2>
+          <a href="/guides/">{n.guides}</a>
+          <a href="/tools/">{n.tools}</a>
+        </div>
+      )}
+
+      <div class="footer-col">
+        <h2>{f.legal}</h2>
+        <a href="/privacy/">{f.privacy}</a>
+        <a href="/terms/">{f.terms}</a>
+        <a href="/privacy/#cookies" data-cookie-settings>{f.cookies}</a>
+        <a href="mailto:hello@brewio.app">hello@brewio.app</a>
+      </div>
     </div>
 
-    <div class="footer-divider"></div>
-
-    <nav class="footer-langs" aria-label="Languages">
+    <nav class="footer-langs" aria-label={f.languages}>
       {languages.map((l) => (
         <a href={l.href} hreflang={l.hreflang} lang={l.hreflang}>{l.native}</a>
       ))}
     </nav>
 
-    <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2026 Brewio. All rights reserved.</p>
-      <div class="footer-links">
-        {!localized && (
-          <>
-            <a href="/tools/">Tools</a>
-            <a href="/guides/">Guides</a>
-            <a href="/roasters/">Roasters</a>
-          </>
-        )}
-        <a href="/privacy/">Privacy Policy</a>
-        <a href="/terms/">Terms of Service</a>
-        <a href="mailto:hello@brewio.app">Contact</a>
-        <a href="/privacy/#cookies" data-cookie-settings>Cookie settings</a>
-      </div>
-    </div>
+    <p class="footer-copy">&copy; 2026 Brewio</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: #0F0D0C;
-    padding: 3rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    background: #1C1A17;
+    color: rgba(250, 247, 242, 0.62);
+    padding: 4rem 1.5rem 2.5rem;
   }
 
   .footer-inner {
-    max-width: 1200px;
+    max-width: 1120px;
     margin: 0 auto;
   }
 
-  .footer-top {
-    display: flex;
+  .footer-cols {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(250, 247, 242, 0.1);
+  }
+
+  .footer-logo {
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--amber);
-  }
-
-  .footer-logo-circle {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #F9F5EF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    overflow: hidden;
-    opacity: 0.85;
-  }
-
-  .footer-logo-img {
-    height: 20px;
-    width: auto;
-    display: block;
-  }
-
-  .footer-tagline {
+    gap: 0.55rem;
     font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 0.875rem;
-    color: rgba(250, 247, 242, 0.25);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #FAF7F2;
   }
 
-  .footer-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.05);
-    margin-bottom: 2rem;
+  .footer-logo img { border-radius: 7px; }
+
+  .footer-brand p {
+    margin-top: 0.85rem;
+    max-width: 18rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
   }
+
+  .footer-col { display: flex; flex-direction: column; gap: 0.55rem; }
+
+  .footer-col h2 {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #FAF7F2;
+    margin-bottom: 0.35rem;
+  }
+
+  .footer-col a, .footer-langs a {
+    font-size: 0.92rem;
+    transition: color 0.15s;
+  }
+
+  .footer-col a:hover, .footer-langs a:hover { color: #FAF7F2; }
 
   .footer-langs {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 1.25rem;
-    margin-bottom: 2rem;
+    padding: 1.75rem 0;
   }
 
-  .footer-langs a {
-    font-size: 0.75rem;
-    color: rgba(250, 247, 242, 0.3);
-    transition: color 0.2s;
-  }
+  .footer-langs a { font-size: 0.85rem; }
 
-  .footer-langs a:hover {
-    color: rgba(250, 247, 242, 0.65);
-  }
+  .footer-copy { font-size: 0.85rem; color: rgba(250, 247, 242, 0.4); }
 
-  .footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .footer-copy {
-    font-size: 0.78rem;
-    color: rgba(250, 247, 242, 0.2);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .footer-links a {
-    font-size: 0.78rem;
-    color: rgba(250, 247, 242, 0.3);
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover {
-    color: rgba(250, 247, 242, 0.65);
-  }
-
-  @media (max-width: 600px) {
-    .footer-top {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .footer-langs {
-      justify-content: center;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .footer-links {
-      gap: 1.25rem;
-    }
+  @media (max-width: 760px) {
+    .footer { padding: 3rem 1rem 2rem; }
+    .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer-brand { grid-column: 1 / -1; }
   }
 </style>
