@@ -3,11 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
-const lastUpdated = 'October 16, 2026';
+const lastUpdated = 'November 10, 2026';
 ---
 
 <Layout
-  title="Privacy Policy — Brewio"
+  title="Privacy policy | Brewio"
   description="How Brewio collects, uses, and protects your personal information."
 >
   <Nav />
@@ -42,11 +42,29 @@ const lastUpdated = 'October 16, 2026';
         <h3>Content You Create</h3>
         <p>We store the data you enter in the app, including:</p>
         <ul>
-          <li>Brew logs — method, dose, grind size, tasting notes, ratings</li>
-          <li>Bean stash entries — name, roaster, roast date, weight</li>
+          <li>Brew logs: method, dose, grinder and grind setting, tasting notes, ratings</li>
+          <li>Bean stash entries and past bags: name, roaster, roast date, weight</li>
           <li>Custom recipes you create</li>
+          <li>Photos you add to brews and bags (Brewio Pro), stored privately so only you can see them</li>
+          <li>Messages you send us from Profile, Send feedback, together with your app version, platform, language and whether you have Brewio Pro</li>
           <li>Profile preferences and settings</li>
         </ul>
+
+        <h3>Notifications and Crash Reports</h3>
+        <p>
+          If you turn on notifications, we store your device's push token so we can send them.
+          If the app crashes, a crash report with technical details about the error is sent
+          to Sentry so we can fix it.
+        </p>
+
+        <h3>Label Scanning (Brewio Pro)</h3>
+        <p>
+          When you scan a coffee bag's label, the photo is sent to Anthropic's Claude AI to
+          read the text, and the result fills in the bag form for you to check. Anthropic does
+          not use it to train its models. Brewio only keeps the photo if you save it as the
+          bag's photo. To keep scanning fair for everyone, we record when you scan (not what)
+          and delete that record after a day.
+        </p>
 
         <h3>Usage Data</h3>
         <p>
@@ -56,9 +74,9 @@ const lastUpdated = 'October 16, 2026';
 
         <h3>Purchase Information</h3>
         <p>
-          If you subscribe to Brewio Premium, purchases are processed through Apple App
+          If you subscribe to Brewio Pro, purchases are processed through Apple App
           Store or Google Play. We use RevenueCat to manage subscription status. We never
-          store your payment card details — these are handled entirely by Apple or Google.
+          store your payment card details. Apple or Google handle them entirely.
         </p>
       </section>
 
@@ -98,6 +116,14 @@ const lastUpdated = 'October 16, 2026';
           <div class="service-row">
             <span><strong>RevenueCat</strong></span>
             <span>Subscription management</span>
+          </div>
+          <div class="service-row">
+            <span><strong>Anthropic (Claude)</strong></span>
+            <span>Reads coffee bag labels when you use label scanning (Brewio Pro)</span>
+          </div>
+          <div class="service-row">
+            <span><strong>Sentry</strong></span>
+            <span>Crash reports</span>
           </div>
           <div class="service-row">
             <span><strong>Google Analytics</strong></span>
