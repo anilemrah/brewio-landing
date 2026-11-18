@@ -17,13 +17,15 @@ const methods: DoseMethod[] = [
     id: 'coado',
     label: 'Café coado',
     gPerL: 65,
-    defaultVessel: 3,
+    defaultVessel: 4,
     vessels: [
       { label: '1 xícara (200 ml)', water: 200 },
       { label: '300 ml', water: 300 },
       { label: '500 ml', water: 500 },
+      { label: '600 ml', water: 600 },
       { label: '1 litro', water: 1000 },
       { label: 'Garrafa térmica (1,8 L)', water: 1800 },
+      { label: '2 litros', water: 2000 },
     ],
     strengths,
     custom: true,
@@ -86,11 +88,14 @@ const methods: DoseMethod[] = [
     vale pesar a sua uma vez na balança de cozinha. Depois disso, a conta fica fácil.
   </p>
 
-  <h2>Meio litro, uma xícara ou a garrafa inteira</h2>
+  <h2>Quantas colheres para 300 ml, meio litro, 600 ml ou 2 litros</h2>
   <ul>
-    <li><strong>500 ml:</strong> 3 a 3½ colheres cheias</li>
     <li><strong>1 xícara (200 ml):</strong> 1 a 1½ colher cheia</li>
+    <li><strong>300 ml:</strong> 2 colheres cheias</li>
+    <li><strong>500 ml (meio litro):</strong> 3 a 3½ colheres cheias</li>
+    <li><strong>600 ml:</strong> 4 colheres cheias</li>
     <li><strong>Garrafa térmica de 1,8 L:</strong> cerca de 12 colheres cheias</li>
+    <li><strong>2 litros:</strong> 13 colheres cheias</li>
   </ul>
   <p class="note">
     Cafeteira elétrica de "30 xícaras"? A jarra costuma ter cerca de 1,2 litro, porque a "xícara" da cafeteira é a de cafezinho.

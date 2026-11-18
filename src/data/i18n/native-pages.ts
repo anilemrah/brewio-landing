@@ -59,13 +59,14 @@ export const NATIVE_PAGES: NativePage[] = [
   {
     locale: 'pt',
     slug: 'quantas-colheres-de-cafe',
-    title: 'Quantas colheres de café para 1 litro de água? Calculadora de café coado | Brewio',
-    description: 'Calcule quanto pó de café usar para 1 litro, 500 ml, uma garrafa térmica ou uma xícara. Em colheres de sopa e em gramas, do café mais suave ao mais forte.',
+    title: 'Quantas colheres de café para 1 litro de água? Tabela de 200 ml a 2 L | Brewio',
+    description: 'De 5 a 7 colheres de sopa cheias por litro. Veja quantas usar para 200 ml, 300 ml, meio litro, 600 ml, 2 litros ou a garrafa térmica, em colheres e gramas.',
     label: 'Quantas colheres de café por litro',
     kind: 'tool',
     lang: 'pt-BR',
     ogLocale: 'pt_BR',
     cluster: 'per-cup',
+    updated: '2026-11-18',
   },
   {
     locale: 'sv',
@@ -79,11 +80,12 @@ export const NATIVE_PAGES: NativePage[] = [
   {
     locale: 'no',
     slug: 'hvor-mye-kaffe-per-kopp',
-    title: 'Hvor mye kaffe per kopp? Kalkulator for Moccamaster, trakter og kokekaffe | Brewio',
-    description: 'Regn ut hvor mange gram og måleskjeer kaffe du trenger til 2–10 kopper i Moccamaster eller kaffetrakter, og hvordan du lager god kokekaffe.',
+    title: 'Hvor mye kaffe per liter og per kopp? Gram og kaffemål | Brewio',
+    description: 'Minst 60 gram kaffe per liter vann, eller 6 kaffemål. Se hvor mange mål du trenger til 2, 4 eller 10 kopper i Moccamaster eller trakter, og til kokekaffe.',
     label: 'Hvor mye kaffe per kopp',
     kind: 'tool',
     cluster: 'per-cup',
+    updated: '2026-11-18',
   },
   {
     locale: 'da',
@@ -97,11 +99,12 @@ export const NATIVE_PAGES: NativePage[] = [
   {
     locale: 'fi',
     slug: 'kuinka-paljon-kahvia',
-    title: 'Kuinka paljon kahvia kuppiin? Laskuri Moccamasterille, suodatin- ja pannukahville | Brewio',
-    description: 'Laske, montako grammaa ja kahvimittaa tarvitset 2–10 kupilliseen Moccamasterilla tai kahvinkeittimellä – ja miten keität hyvän pannukahvin.',
+    title: 'Kuinka paljon kahvia kuppiin? Kahvimitta, Moccamaster ja pannukahvi | Brewio',
+    description: 'Kuinka iso on kahvimitta ja montako mittaa kuppiin? Laske grammat ja kahvimitat 2–10 kupilliseen Moccamasterilla, kahvinkeittimellä tai pannulla.',
     label: 'Kuinka paljon kahvia kuppiin',
     kind: 'tool',
     cluster: 'per-cup',
+    updated: '2026-11-18',
   },
   {
     locale: 'nl',
