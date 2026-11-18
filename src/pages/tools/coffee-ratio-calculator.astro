@@ -1,5 +1,6 @@
 ---
 import ToolLayout from '../../layouts/ToolLayout.astro';
+import NativeLinks from '../../components/NativeLinks.astro';
 import { BREW_METHODS } from '../../data/brewMethods';
 
 const methods = BREW_METHODS;
@@ -138,6 +139,7 @@ const methodData = methods.map((m) => ({
       </table>
     </div>
   </section>
+  <NativeLinks heading="How much coffee per cup, in other languages" pages={["ja/coffee-amount", "ko/coffee-amount", "es/cuanto-cafe-por-taza", "fr/dosage-cafe", "pt/quantas-colheres-de-cafe", "it/dosi-moka", "nl/hoeveel-koffie-per-kopje", "sv/hur-mycket-kaffe-per-kopp", "no/hvor-mye-kaffe-per-kopp", "da/hvor-meget-kaffe-pr-kop", "fi/kuinka-paljon-kahvia", "tr/turk-kahvesi-olcusu"]} />
 </ToolLayout>
 
 <script>

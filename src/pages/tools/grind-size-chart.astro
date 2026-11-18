@@ -1,5 +1,6 @@
 ---
 import ToolLayout from '../../layouts/ToolLayout.astro';
+import NativeLinks from '../../components/NativeLinks.astro';
 import { BREW_METHODS } from '../../data/brewMethods';
 
 // Finest first: the chart reads left to right, fine to coarse.
@@ -117,6 +118,7 @@ const BANDS = [
       </div>
     </div>
   </section>
+  <NativeLinks heading="Grinder settings in other languages" pages={["ja/grind-size", "ko/grind-size", "de/siebtraeger-mahlgrad"]} />
 </ToolLayout>
 
 <style>

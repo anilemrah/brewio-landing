@@ -1,0 +1,90 @@
+---
+import locales from '../data/i18n/locales.json';
+import { findPage } from '../data/i18n/native-pages';
+
+/**
+ * Links from an English guide or tool to the native-language pages that answer the
+ * same question. Those pages rank well but get few internal links of their own.
+ */
+interface Props {
+  heading: string;
+  /** Native pages as "locale/slug", e.g. "ja/grind-size". */
+  pages: string[];
+}
+
+const { heading, pages } = Astro.props;
+const all = locales as Record<string, any>;
+
+const items = pages.map((key) => {
+  const [locale, slug] = key.split('/');
+  const page = findPage(locale, slug);
+  return {
+    href: `/${locale}/${slug}/`,
+    label: page.label,
+    lang: page.lang ?? all[locale].meta.hreflang,
+    language: all[locale].meta.native,
+  };
+});
+---
+
+<aside class="native-links">
+  <p class="nl-heading">{heading}</p>
+  <ul class="nl-list">
+    {items.map((i) => (
+      <li>
+        <a href={i.href} hreflang={i.lang}>
+          <span class="nl-lang">{i.language}</span>
+          <span class="nl-label" lang={i.lang}>{i.label}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</aside>
+
+<style>
+  .native-links {
+    margin: 2.5rem 0;
+    padding: 1.25rem 1.4rem;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+
+  .nl-heading {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+  }
+
+  /* Doubled class names so these beat the guide prose styles for ul, li and a. */
+  .native-links .nl-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .native-links .nl-list li { margin: 0; line-height: 1.4; }
+
+  .native-links .nl-list a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.92rem;
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+
+  .nl-list a:hover { border-color: var(--ink-3); }
+  .nl-list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .nl-lang { font-size: 0.78rem; color: var(--ink-3); }
+</style>
