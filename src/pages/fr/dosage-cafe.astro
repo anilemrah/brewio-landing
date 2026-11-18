@@ -11,6 +11,23 @@ const strengths = [
 
 const methods: DoseMethod[] = [
   {
+    id: 'filtre',
+    label: 'Cafetière filtre',
+    gPerL: 56,
+    defaultVessel: 1,
+    vessels: [
+      { label: '2 tasses (0,25 l)', water: 250 },
+      { label: '4 tasses (0,5 l)', water: 500 },
+      { label: '6 tasses (0,75 l)', water: 750 },
+      { label: '8 tasses (1 l)', water: 1000 },
+      { label: '10 tasses (1,25 l)', water: 1250 },
+      { label: '12 tasses (1,5 l)', water: 1500 },
+    ],
+    strengths,
+    custom: true,
+    note: 'Mouture moyenne. La « tasse » de la verseuse fait environ 125 ml.',
+  },
+  {
     id: 'piston',
     label: 'Cafetière à piston',
     gPerL: 65,
@@ -39,23 +56,6 @@ const methods: DoseMethod[] = [
     ],
     note: 'Filtre rempli à ras bord, sans tasser. Eau jusqu’à la soupape, pas au-delà.',
   },
-  {
-    id: 'filtre',
-    label: 'Cafetière filtre',
-    gPerL: 56,
-    defaultVessel: 1,
-    vessels: [
-      { label: '2 tasses (0,25 l)', water: 250 },
-      { label: '4 tasses (0,5 l)', water: 500 },
-      { label: '6 tasses (0,75 l)', water: 750 },
-      { label: '8 tasses (1 l)', water: 1000 },
-      { label: '10 tasses (1,25 l)', water: 1250 },
-      { label: '12 tasses (1,5 l)', water: 1500 },
-    ],
-    strengths,
-    custom: true,
-    note: 'Mouture moyenne. La « tasse » de la verseuse fait environ 125 ml.',
-  },
 ];
 ---
 
@@ -63,7 +63,7 @@ const methods: DoseMethod[] = [
   locale="fr"
   slug="dosage-cafe"
   headline="Dosage du café : combien <em>par tasse</em> ?"
-  subtitle="Environ 7 grammes par tasse, soit une cuillère à soupe bombée. Calculez la bonne dose pour votre cafetière à piston, italienne ou filtre."
+  subtitle="Environ 7 grammes par tasse, soit une cuillère à soupe bombée. Calculez la bonne dose pour votre cafetière filtre, à piston ou italienne."
   appNote="Dans Brewio, vous notez chaque café : le grain, la dose, la méthode et le résultat en tasse. La cafetière à piston et l’italienne ont chacune leur minuteur guidé, pour savoir exactement ce qui a donné la meilleure tasse."
 >
   <DoseCalc
@@ -123,10 +123,21 @@ const methods: DoseMethod[] = [
     <li>Mélangez dans la cafetière avant de servir : le premier café qui monte est bien plus fort que le dernier.</li>
   </ol>
 
-  <h2>Cafetière filtre : combien de café pour 12 tasses ?</h2>
+  <h2>Cafetière filtre : dosage pour 2, 4, 6, 10 ou 12 tasses</h2>
   <p>
     Les graduations de la verseuse comptent des tasses d’environ 125 ml. Une cafetière 12 tasses fait donc 1,5 litre et demande environ 85 grammes de café,
     soit une douzaine de cuillères bombées. Si vous servez dans des mugs, comptez l’eau, pas les tasses.
+  </p>
+  <ul>
+    <li><strong>2 tasses (0,25 l) :</strong> 14 g, 2 cuillères à soupe bombées</li>
+    <li><strong>4 tasses (0,5 l) :</strong> 28 g, 4 cuillères</li>
+    <li><strong>6 tasses (0,75 l) :</strong> 42 g, 6 cuillères</li>
+    <li><strong>10 tasses (1,25 l) :</strong> 70 g, 10 cuillères</li>
+    <li><strong>12 tasses (1,5 l) :</strong> 84 g, 12 cuillères</li>
+  </ul>
+  <p>
+    Le doseur fourni avec la plupart des cafetières contient à peu près autant qu’une cuillère à soupe bombée, environ 7 grammes.
+    Une cuillère à café n’en contient que 2 à 3 grammes : comptez-en deux à trois par tasse.
   </p>
 
   <h2>Quelle mouture pour quelle cafetière ?</h2>

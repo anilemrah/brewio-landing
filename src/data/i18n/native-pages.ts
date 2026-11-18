@@ -179,11 +179,12 @@ export const NATIVE_PAGES: NativePage[] = [
   {
     locale: 'fr',
     slug: 'dosage-cafe',
-    title: 'Dosage café : combien de café par tasse ? Calculateur piston, italienne et filtre | Brewio',
+    title: 'Dosage café : combien de café par tasse ? Filtre, piston et italienne | Brewio',
     description: 'Combien de grammes et de cuillères de café moulu par tasse pour une cafetière à piston, italienne ou filtre, avec le bon ratio café/eau pour chaque méthode.',
     label: 'Dosage du café par tasse',
     kind: 'tool',
     cluster: 'per-cup',
+    updated: '2026-11-18',
   },
 ];
 
